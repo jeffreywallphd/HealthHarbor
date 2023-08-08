@@ -1,0 +1,71 @@
+@prefix pwv: {link to vocabulary} .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+pwv:Activity rdf:type rdfs:Class ;
+rdfs:label "Abstract Activity" ;
+rdfs:comment "An abstract activity performed by a person" .
+
+pwv:PhysicalActivity rdf:type rdfs:Class ;
+rdfs:label "Physical Activity" ;
+rdfs:comment "An physical activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:NutritionalActivity rdf:type rdfs:Class ;
+rdfs:label "Nutritional Activity" ;
+rdfs:comment "A nutritional activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:MentalActivity rdf:type rdfs:Class ;
+rdfs:label "Mental Activity" ;
+rdfs:comment "A mental activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:SocialActivity rdf:type rdfs:Class ;
+rdfs:label "Social Activity" ;
+rdfs:comment "A social activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:SleepActivity rdf:type rdfs:Class ;
+rdfs:label "Sleep Activity" ;
+rdfs:comment "A sleep activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:IntellectualActivity rdf:type rdfs:Class ;
+rdfs:label "Intellectual Activity" ;
+rdfs:comment "An intellectual activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+pwv:SpiritualActivity rdf:type rdfs:Class ;
+rdfs:label "Spiritual Activity" ;
+rdfs:comment "A spiritual activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:CareerActivity rdf:type rdfs:Class ;
+rdfs:label "Career Activity" ;
+rdfs:comment "A career activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:FinancialActivity rdf:type rdfs:Class ;
+rdfs:label "Financial Activity" ;
+rdfs:comment "A financial activity performed by a person" ;
+rdfs:subClassOf pwv:Activity .
+
+pwv:Measurement rdf:type rdfs:Class ;
+rdfs:label "Abstract Measurement" ;
+rdfs:comment "A measurement of an activity, person, or goal" .
+
+pwv:ImperialMeasurement rdf:type rdfs:Class ;
+rdfs:label "Imperial Measurement" ;
+rdfs:comment "An imperial measurement of an activity, person, or goal" ;
+rdfs:subClassOf pwv:Measurement .
+
+pwv:MetricMeasurement rdf:type rdfs:Class ;
+rdfs:label "Metric Measurement" ;
+rdfs:comment "A metric measurement of an activity, person, or goal" ;
+rdfs:subClassOf pwv:Measurement .
+
+pwv:measuredBy rdf:type rdf:Property ;
+rdfs:label "measured by" ;
+fdfs:comment "The act of measuring some activity, person, or goal using a measurement" ;
+rdfs:domain (pwv:ImperialMeasurement pwv:MetricMeasurement) ;
+rdfs:range (pwv:Activity vcard:Person) .
