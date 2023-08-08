@@ -1,6 +1,7 @@
-@prefix pwv: {link to vocabulary} .
+@prefix pwv: <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
 
 pwv:Activity rdf:type rdfs:Class ;
 rdfs:label "Abstract Activity" ;
@@ -66,6 +67,6 @@ rdfs:subClassOf pwv:Measurement .
 
 pwv:measuredBy rdf:type rdf:Property ;
 rdfs:label "measured by" ;
-fdfs:comment "The act of measuring some activity, person, or goal using a measurement" ;
+rdfs:comment "The act of measuring some activity, person, or goal using a measurement" ;
 rdfs:domain (pwv:ImperialMeasurement pwv:MetricMeasurement) ;
-rdfs:range (pwv:Activity vcard:Person) .
+rdfs:range (pwv:Activity vcard:Individual) .
