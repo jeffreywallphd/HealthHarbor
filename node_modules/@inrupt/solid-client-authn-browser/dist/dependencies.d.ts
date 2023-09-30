@@ -1,0 +1,6 @@
+import type { IStorage } from "@inrupt/solid-client-authn-core";
+import ClientAuthentication from "./ClientAuthentication";
+export declare function getClientAuthenticationWithDependencies(dependencies: {
+    secureStorage?: IStorage;
+    insecureStorage?: IStorage;
+}): ClientAuthentication;

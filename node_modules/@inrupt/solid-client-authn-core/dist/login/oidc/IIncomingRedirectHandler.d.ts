@@ -1,0 +1,14 @@
+/// <reference types="node" />
+import type { fetch } from "@inrupt/universal-fetch";
+import type { EventEmitter } from "events";
+import type IHandleable from "../../util/handlerPattern/IHandleable";
+import type { ISessionInfo } from "../../sessionInfo/ISessionInfo";
+import type { IRpLogoutOptions } from "../../logout/ILogoutHandler";
+export type IncomingRedirectResult = ISessionInfo & {
+    fetch: typeof fetch;
+} & {
+    getLogoutUrl?: (options: IRpLogoutOptions) => string;
+};
+export type IncomingRedirectInput = [string, EventEmitter | undefined];
+type IIncomingRedirectHandler = IHandleable<IncomingRedirectInput, IncomingRedirectResult>;
+export default IIncomingRedirectHandler;

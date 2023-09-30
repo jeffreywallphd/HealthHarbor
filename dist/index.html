@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record an Activity</title>
+    <script defer src="./index.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <h2>Physical Activity Log</h2>
+        </div>
+        <div class="right">
+            <button name="btnLogin" id="btnLogin">Login</button>
+        </div>
+    </header>
+    <section class="panel">
+        <h3>Record Activity:</h3>
+        <div>
+            <label id="palabel" for="physicalActivity">1. What activity did you do?: </label><br>
+            <input type="text" id="physicalActivity" name="physicalActivity" size="50">
+        </div>
+        <div>
+            <label id="pametric" for="physicalActivityMetric">2. How long did you do the activity?: </label><br>
+            <input type="text" id="physicalActivityMetric" name="physicalActivityMetric" size="20">
+        </div>
+        <div>
+            <button name="btnSave" id="btnSave" disabled>Save Activity</button>
+        </div>
+    </section>
+    <section class="panel">
+        <h3>Completed Activity</h3>
+        <div>
+            <ul id="activityList" name="activityList">
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

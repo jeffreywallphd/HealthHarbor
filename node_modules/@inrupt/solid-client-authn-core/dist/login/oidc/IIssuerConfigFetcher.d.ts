@@ -1,0 +1,4 @@
+import type { IIssuerConfig } from "./IIssuerConfig";
+export interface IIssuerConfigFetcher {
+    fetchConfig(issuer: string): Promise<IIssuerConfig>;
+}
