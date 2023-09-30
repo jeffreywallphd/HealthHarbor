@@ -1,10 +1,20 @@
-@prefix : <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> .
-@prefix pwv: <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
-@prefix vann: <http://purl.org/vocab/vann/preferredNamespacePrefix> .
+
+@prefix pwv: <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl#> .
+
+pwv: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-09-30" ;
+    dcterms:title "Personal Wellness Vocabulary" ;
+    dcterms:description "Vocabulary for personal wellness goal setting and activity tracking"@en ;
+    vann:preferredNamespacePrefix "pwv" ;
+    vann:preferredNamespaceUri "https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl#" ;
 
 <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> a owl:Ontology ;
     rdfs:label "Ontology for personal wellness" ;
