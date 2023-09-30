@@ -1,19 +1,16 @@
+@prefix : <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> .
 @prefix pwv: <https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+@prefix vann: <https://vocab.org/vann/preferredNamespacePrefix> .
 
-pwv:
-    rdfs:label "Personal Wellness Vocabulary" ;
-    rdfs:comment "The Personal Wellness Vocabulary seeks to describe goals and acivities related to personal wellness" ;
-    dc:creator "Jeffrey Wall" ;
-    dc:title "Personal Wellness Vocabulary" ;
-    dc:description "The Personal Wellness Vocabulary seeks to describe goals and acivities related to personal wellness" ;
-    dc:date "2023-09-30" ;
-    dc:format "RDF" ;
-    dc:identifier pwv .
+<https://github.com/jeffreywallphd/PersonalWellnessPod/blob/main/vocab/pwv.ttl> a owl:Ontology ;
+    rdfs:label "Ontology for personal wellness" ;
+    rdfs:comment "Ontology to describe personal wellness goals and activities" ;
+    vann:preferredNamespacePrefix "pwv" ;
+    owl:versionInfo "Final" .
 
 pwv:Activity rdf:type rdfs:Class ;
     rdfs:label "Abstract Activity" ;
