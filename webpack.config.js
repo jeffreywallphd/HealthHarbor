@@ -1,21 +1,42 @@
-const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "index.js",
-  },
-  resolve: { fallback: { stream: require.resolve("stream-browserify") } },
+  entry: "./src/index.tsx",
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+        test: /\.ts(x?)$/,
+        include: /src/,
+        use: [{ loader: 'ts-loader' }]
       },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        options: {
+            presets: ["@babel/preset-react"]
+        },
+        exclude: [/node_modules/, /dist/]
+      }
     ],
+  },
+  output: {
+    path: __dirname + '/dist',
+    filename: "index.js",
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
   devServer: {
     static: "./dist",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ]
 };

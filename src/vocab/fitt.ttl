@@ -1,0 +1,115 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+
+@prefix fitt: <https://jeffreywallphd.github.io/vocab/fitt.ttl#> .
+@prefix fitp: <https://jeffreywallphd.github.io/vocab/fitp.ttl#> .
+@prefix athl: <https://jeffreywallphd.github.io/vocab/athl.ttl#> .
+
+fitt: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-11" ;
+    dcterms:title "Fitness Tracking Vocabulary" ;
+    dcterms:description "Vocabulary for tracking physical fitness activity"@en ;
+    vann:preferredNamespacePrefix "fitt" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/fitt.ttl#" .
+
+# Classes
+fitt:FitnessRecord rdf:type rdfs:Class ;
+    rdfs:label "Fitness Record" ;
+    rdfs:comment "A record of a physical activity" .
+
+fitt:CompletedProgram rdf:type rdfs:Class ;
+    rdfs:label "Completed Program" ;
+    rdfs:comment "An #Program that was completed by an #Athlete" ;
+    rdfs:subClassOf fitp:Program .
+
+fitt:CompletedExercise rdf:type rdfs:Class ;
+    rdfs:label "Completed Exercise" ;
+    rdfs:comment "An #Exercise that was completed by an #Athlete" ;
+    rdfs:subClassOf fitp:Exercise .
+
+fitt:CompletedSet rdf:type rdfs:Class ;
+    rdfs:label "Completed Set" ;
+    rdfs:comment "The #Sets of an #Exercise that were completed by an #Athlete" ;
+    rdfs:subClassOf fitp:Set .
+
+fitt:CompletedRep rdf:type rdfs:Class ;
+    rdfs:label "Completed Rep" ;
+    rdfs:comment "The #Reps of an #Exercise #Set that were completed by an #Athlete" ;
+    rdfs:subClassOf fitp:Rep .
+
+# Properties
+fitt:assignedBy rdf:type rdf:Property ;
+    rdfs:label "assigned by" ;
+    rdfs:comment "An #Program assigned by a #Coach" ;
+    rdfs:domain (fitp:Program fitp:Exercise) ;
+    rdfs:range (athl:Coach) .
+
+fitt:performedBy rdf:type rdf:Property ;
+    rdfs:label "performed by" ;
+    rdfs:comment "The #Athlete who performed the #Program or #Exercise" ;
+    rdfs:domain (fitt:CompletedProgram fitt:CompletedExercise) ;
+    rdfs:range (athl:Athlete) .
+
+fitt:startTime rdf:type rdfs:Property ;
+    rdfs:label "startTime" ;
+    rdfs:comment "A date and time that a #FitnessRecord started" ;
+    rdfs:domain (fitt:FitnessRecord) ;
+    rdfs:range (xsd:dateTime) .
+
+fitt:endTime rdf:type rdfs:Property ;
+    rdfs:label "endTime" ;
+    rdfs:comment "A date and time that a #FitnessRecord ended" ;
+    rdfs:domain (fitt:FitnessRecord) ;
+    rdfs:range (xsd:dateTime) .
+
+fitt:location rdf:type rdfs:Property ;
+    rdfs:label "location" ;
+    rdfs:comment "A location where the #FitnessRecord activity took place" ;
+    rdfs:domain (fitt:FitnessRecord);
+    rdfs:range (xsd:string) .
+
+fitt:quantity rdf:type rdfs:Property ;
+    rdfs:label "quantity" ;
+    rdfs:comment "The actual quantity of a #Set or #Rep completed by an #Athlete" ;
+    rdfs:domain (fitt:CompletedSet fitt:CompleteRep) ;
+    rdfs:range (xsd:integer) .
+
+fitt:weight rdf:type rdfs:Property ;
+    rdfs:label "weight" ;
+    rdfs:comment "A weight value of a or #CompletedRep" ;
+    rdfs:domain (fitt:CompletedRep) ;
+    rdfs:range (xsd:float) .
+
+fitt:weightMetric rdfs:subPropertyOf fitt:weight ;
+    rdfs:label "weight metric" ;
+    rdfs:comment "a weight metric, such as pounds or kilos" ;
+    rdfs:range (xsd:string) .
+
+fitt:distance rdf:type rdfs:Property ;
+    rdfs:label "distance" ;
+    rdfs:comment "A distance value of a #CompletedRep" ;
+    rdfs:domain (fitt:CompletedRep) ;
+    rdfs:range (xsd:float) .
+
+fitt:distanceMetric rdfs:subPropertyOf fitt:distance ;
+    rdfs:label "distance metric" ;
+    rdfs:comment "a distance metric, such as feet, yards, miles, meters, kilometers" ;
+    rdfs:range (xsd:string) .
+
+fitt:time rdf:type rdfs:Property ;
+    rdfs:label "time" ;
+    rdfs:comment "A time value of a #Rep" ;
+    rdfs:domain (fitt:CompletedRep) ;
+    rdfs:range (xsd:float) .
+
+fitt:timeMetric rdfs:subPropertyOf fitt:time ;
+    rdfs:label "time metric" ;
+    rdfs:comment "a time metric, such as seconds, minutes, hours" ;
+    rdfs:range (xsd:string) .

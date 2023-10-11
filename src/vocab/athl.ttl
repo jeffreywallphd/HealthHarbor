@@ -1,0 +1,85 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+
+@prefix athl: <https://jeffreywallphd.github.io/vocab/athl.ttl#> .
+
+athl: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-11" ;
+    dcterms:title "Athlete Vocabulary" ;
+    dcterms:description "Vocabulary for describing an individual who engages in physical activity"@en ;
+    vann:preferredNamespacePrefix "athl" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/athl.ttl#" .
+
+# Classes
+athl:Athlete rdf:type rdfs:Class ;
+    rdfs:label "Athlete" ;
+    rdfs:comment "A person that performs physical activity" ;
+    rdfs:subClassOf vcard:Individual .
+
+athl:Coach rdf:type rdfs:Class ;
+    rdfs:label "Coach" ;
+    rdfs:comment "A person who coaches an #Athlete" ;
+    rdfs:subClassOf vcard:Individual .
+
+athl:Team rdf:type rdfs:Class ;
+    rdfs:label "Team" ;
+    rdfs:comment "A collective of individuals who compete together" .
+
+# Properties
+athl:firstName rdf:type rdfs:Property ;
+    rdfs:label "first name" ;
+    rdfs:comment "The first name of the #Athlete or an #Athlete's Coach" ;
+    rdfs:domain (athl:Athlete athl:Coach) ;
+    rdfs:range (xsd:string) .
+
+athl:lastName rdf:type rdfs:Property ;
+    rdfs:label "last name" ;
+    rdfs:comment "The sir name of the #Athlete or an #Athlete's Coach" ;
+    rdfs:domain (athl:Athlete athl:Coach) ;
+    rdfs:range (xsd:string) .
+
+athl:name rdf:type rdfs:Property ;
+    rdfs:label "name" ;
+    rdfs:comment "The name of a #Team that an #Athlete joins" ;
+    rdfs:domain (athl:Team) ;
+    rdfs:range (xsd:string) .
+
+athl:age rdf:type rdfs:Property ;
+    rdfs:label "age" ;
+    rdfs:comment "The age of an #Athlete in years" ;
+    rdfs:domain (athl:Athlete);
+    rdfs:range (xsd:integer) .
+
+athl:height rdf:type rdf:Property ;
+    rdfs:label "height" ;
+    rdfs:comment "The height of the #Athlete. A height metric sub-property exists for defining the metric of the height value" ;
+    rdfs:domain (athl:Athlete) .
+
+athl:heightMetric rdfs:subPropertyOf athl:height ;
+    rdfs:label "height metric" ;
+    rdfs:comment "a height metric, such as inches or cm" ;
+    rdfs:range (xsd:string) .
+
+athl:weight rdf:type rdf:Property ;
+    rdfs:label "weight" ;
+    rdfs:comment "The weight of the #Athlete. A weight metric sub-property exists for defining the metric of the weight value" ;
+    rdfs:domain (athl:Athlete) .
+
+athl:weightMetric rdfs:subPropertyOf athl:weight ;
+    rdfs:label "weight metric" ;
+    rdfs:comment "a weight metric, such as pounds or kilograms" ;
+    rdfs:range (xsd:string) .
+
+athl:bmi rdf:type rdf:Property ;
+    rdfs:label "BMI" ;
+    rdfs:comment "A measure of body mass index" ;
+    rdfs:domain (athl:Athlete) ;
+    rdfs:range (xsd:float) .
+

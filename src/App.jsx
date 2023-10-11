@@ -38,6 +38,7 @@ import FitnessTracker from "./FitnessTracker";
 import Diet from "./Diet";
 
 import "./styles/styles.css";
+//TODO: regenerate the vocabulary for fitv, which is now fitp
 import FITV from "./Generated/SourceCodeArtifacts/JavaScript/GeneratedVocab/FITV.js";
 
 const redirectURL = new URL("/", window.location.href).toString();
@@ -137,4 +138,3 @@ class App extends Component {
 }
 
 export default App;
-

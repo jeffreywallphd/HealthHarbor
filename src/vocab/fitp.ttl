@@ -1,0 +1,143 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+
+@prefix fitp: <https://jeffreywallphd.github.io/vocab/fitp.ttl#> .
+@prefix athl: <https://jeffreywallphd.github.io/vocab/athl.ttl#> .
+
+#TODO: create a separate FitnessGoal vocabulary to describe fitness goals
+
+#TODO: change the name of this vocabulary to fitp for fitness program
+fitp: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-03" ;
+    dcterms:title "Fitness Program Vocabulary" ;
+    dcterms:description "A vocabulary for describing physical fitness programs"@en ;
+    vann:preferredNamespacePrefix "fitp" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/fitp.ttl#" .
+
+# Classes
+fitp:Athlete rdf:type rdfs:Class ;
+    rdfs:label "Athlete" ;
+    rdfs:comment "A person that performs physical activity" ;
+    rdfs:subClassOf athl:Athlete .
+
+fitp:Coach rdf:type rdfs:Class ;
+    rdfs:label "Coach" ;
+    rdfs:comment "A person who coaches an #Athlete" ;
+    rdfs:subClassOf athl:Coach .
+
+fitp:Program rdf:type rdf:Seq ;
+    rdfs:label "Fitness Program" ;
+    rdfs:comment "A generic fitness program or workout consisting of a sequence of exercises" .
+
+fitp:Curcuit rdf:type rdf:Seq ;
+    rdfs:label "Circuit Training" ;
+    rdfs:comment "A fitness program that includes rotating through a variety of exercises in a particular sequence" ;
+    rdfs:subClassOf fitp:Program .
+
+fitp:Drill rdf:type rdf:Seq ;
+    rdfs:label "Fitness Drill" ;
+    rdfs:comment "A fitness program that includes repetitive, sequential activity to produce disciplined performance" ;
+    rdfs:subClassOf fitp:Program .
+
+fitp:Exercise rdf:type rdfs:Class ;
+    rdfs:label "Exercise Activity" ;
+    rdfs:comment "A physical activity, often a part of a fitness #Program, performed by an #Athlete" .
+
+fitp:Set rdf:type rdfs:Class ;
+    rdfs:label "Set" ;
+    rdfs:comment "A set of a particular #Exercise" .
+
+fitp:Rep rdf:type rdfs:Class ;
+    rdfs:label "Rep" ;
+    rdfs:comment "A rep of a particular #Set of an #Exercise" .
+
+# Properties
+fitp:assignedBy rdf:type rdf:Property ;
+    rdfs:label "assigned by" ;
+    rdfs:comment "An #Program assigned by a #Coach" ;
+    rdfs:domain (fitp:Program) ;
+    rdfs:range (fitp:Coach) .
+
+fitp:assignedTo rdf:type rdf:Property ;
+    rdfs:label "assigned to" ;
+    rdfs:comment "An assignment of a #Program to an #Athlete" ;
+    rdfs:domain (fitp:Program) ;
+    rdfs:range (fitp:Athlete) .
+
+fitp:name rdf:type rdfs:Property ;
+    rdfs:label "name" ;
+    rdfs:comment "A name given to a #Program or #Program subtype, #Excerise, and other named fitp classes" ;
+    rdfs:domain (fitp:Program fitp:Exercise) ;
+    rdfs:range (xsd:string) .
+
+fitp:description rdf:type rdfs:Property ;
+    rdfs:label "description" ;
+    rdfs:comment "A description of a #Program or #Exercise" ;
+    rdfs:domain (fitp:Program fitp:Exercise);
+    rdfs:range (xsd:string) .
+
+#This no longer seems necessary after changing Program to a Sequence of #Exercises
+#fitp:consistsOf rdf:type rdf:Property ;
+#    rdfs:label "consists of" ;
+#    rdfs:comment "A property to designate that a #Program or #Program sub-class consists of #Excercise, an #Exercise of #Set, or a #Set of #Rep" ;
+#    rdfs:domain (fitp:Program fitp:Exercise fitp:Set) ;
+#    rdfs:range (fitp:Exercise fitp:Set fitp:Rep) .
+
+# TODO: consider moving this attribute to a fitness record vocabulary to differentiate a routine from engagement in a routine
+fitp:performedBy rdf:type rdf:Property ;
+    rdfs:label "performed by" ;
+    rdfs:comment "A property to designate that an #Athlete performed an #Exercise" ;
+    rdfs:domain (fitp:Athlete) ;
+    rdfs:range (fitp:Rep) .
+
+fitp:repType rdf:type rdfs:Property ;
+    rdfs:label "rep type" ;
+    rdfs:comment "A type of #Rep, such as weight, distance, time, or simple quantity" ;
+    rdfs:domain (fitp:Rep) ;
+    rdfs:range (xsd:string) .
+
+fitp:quantity rdf:type rdfs:Property ;
+    rdfs:label "quantity" ;
+    rdfs:comment "A quantity of #Set or #Rep" ;
+    rdfs:domain (fitp:Set fitp:Rep) ;
+    rdfs:range (xsd:integer) .
+
+fitp:weight rdf:type rdfs:Property ;
+    rdfs:label "weight" ;
+    rdfs:comment "A weight value of a or #Rep" ;
+    rdfs:domain (fitp:Rep) ;
+    rdfs:range (xsd:float) .
+
+fitp:weightMetric rdfs:subPropertyOf fitp:weight ;
+    rdfs:label "weight metric" ;
+    rdfs:comment "a weight metric, such as pounds or kilos" ;
+    rdfs:range (xsd:string) .
+
+fitp:distance rdf:type rdfs:Property ;
+    rdfs:label "distance" ;
+    rdfs:comment "A distance value of a #Rep" ;
+    rdfs:domain (fitp:Rep) ;
+    rdfs:range (xsd:float) .
+
+fitp:distanceMetric rdfs:subPropertyOf fitp:distance ;
+    rdfs:label "distance metric" ;
+    rdfs:comment "a distance metric, such as feet, yards, miles, meters, kilometers" ;
+    rdfs:range (xsd:string) .
+
+fitp:time rdf:type rdfs:Property ;
+    rdfs:label "time" ;
+    rdfs:comment "A time value of a #Rep" ;
+    rdfs:domain (fitp:Rep) ;
+    rdfs:range (xsd:float) .
+
+fitp:timeMetric rdfs:subPropertyOf fitp:time ;
+    rdfs:label "time metric" ;
+    rdfs:comment "a time metric, such as seconds, minutes, hours" ;
+    rdfs:range (xsd:string) .
