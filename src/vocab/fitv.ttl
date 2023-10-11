@@ -1,0 +1,151 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+
+@prefix fitv: <https://jeffreywallphd.github.io/vocab/fitv.ttl#> .
+
+#TODO: decide whether to create a separate FitnessGoal vocabulary to describe fitness goals
+
+fitv: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-03" ;
+    dcterms:title "Fitness Tracking Vocabulary" ;
+    dcterms:description "Vocabulary for describing physical fitness goals and programs"@en ;
+    vann:preferredNamespacePrefix "fitv" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/fitv.ttl#" .
+
+# Classes
+
+#TODO: decide whether to create a separate Athlete vocabulary to track specifics of the Athlete (e.g., weight, age, BMI, body measurements, etc.)
+
+fitv:Athlete rdf:type rdfs:Class ;
+    rdfs:label "Athlete" ;
+    rdfs:comment "A person that performs physical activity" ;
+    rdfs:subClassOf vcard:Individual .
+
+fitv:Coach rdf:type rdfs:Class ;
+    rdfs:label "Coach" ;
+    rdfs:comment "A person who coaches an #Athlete" ;
+    rdfs:subClassOf vcard:Individual .
+
+#TODO: decide whether Program and its subtypes should be Class or Containers of the Seq type to store sequences of Exercises
+
+fitv:Program rdf:type rdfs:Class ;
+    rdfs:label "Fitness Program" ;
+    rdfs:comment "A generic fitness program or workout" .
+
+fitv:Curcuit rdf:type rdfs:Class ;
+    rdfs:label "Circuit Training" ;
+    rdfs:comment "A fitness program that includes rotating through a variety of exercises" ;
+    rdfs:subClassOf fitv:Program .
+
+fitv:Drill rdf:type rdfs:Class ;
+    rdfs:label "Fitness Drill" ;
+    rdfs:comment "A fitness program that includes repetitive activity to produce disciplined performance" ;
+    rdfs:subClassOf fitv:Program .
+
+fitv:Exercise rdf:type rdfs:Class ;
+    rdfs:label "Exercise Activity" ;
+    rdfs:comment "A physical activity, often a part of a fitness program, performed by an athlete" .
+
+fitv:Rep rdf:type rdfs:Class ;
+    rdfs:label "Rep" ;
+    rdfs:comment "A rep of a particular #Set of an #Exercise" .
+
+fitv:Set rdf:type rdfs:Class ;
+    rdfs:label "Set" ;
+    rdfs:comment "A set of a particular #Exercise" .
+
+# Properties
+
+fitv:assignedBy rdf:type rdf:Property ;
+    rdfs:label "assigned by" ;
+    rdfs:comment "An #Program assigned by a #Coach" ;
+    rdfs:domain (fitv:Program) ;
+    rdfs:range (fitv:Coach) .
+
+fitv:assignedTo rdf:type rdf:Property ;
+    rdfs:label "assigned to" ;
+    rdfs:comment "An assignment of a #Program to an #Athlete" ;
+    rdfs:domain (fitv:Program) ;
+    rdfs:range (fitv:Athlete) .
+
+fitv:name rdf:type rdfs:Property ;
+    rdfs:label "name" ;
+    rdfs:comment "A name given to a #Program or #Program subtype, #Excerise, and other named FITV classes" ;
+    rdfs:domain (fitv:Program fitv:Exercise) ;
+    rdfs:range (xsd:string) .
+
+fitv:description rdf:type rdfs:Property ;
+    rdfs:label "description" ;
+    rdfs:comment "A description of a #Program or #Exercise" ;
+    rdfs:domain (fitv:Program fitv:Exercise);
+    rdfs:range (xsd:string) .
+
+fitv:consistsOf rdf:type rdf:Property ;
+    rdfs:label "consists of" ;
+    rdfs:comment "A property to designate that a #Program or #Program sub-class consists of #Excercise, an #Exercise of #Set, or a #Set of #Rep" ;
+    rdfs:domain (fitv:Program fitv:Exercise fitv:Set) ;
+    rdfs:range (fitv:Exercise fitv:Set fitv:Rep) .
+
+fitv:performedBy rdf:type rdf:Property ;
+    rdfs:label "performed by" ;
+    rdfs:comment "A property to designate that an #Athlete performed an #Exercise" ;
+    rdfs:domain (fitv:Athlete) ;
+    rdfs:range (fitv:Rep) .
+
+fitv:repType rdf:type rdfs:Property ;
+    rdfs:label "rep type" ;
+    rdfs:comment "A type of #Rep, such as weight, distance, time, or simple quantity" ;
+    rdfs:domain (fitv:Rep) .
+
+fitv:quantity rdf:type rdfs:Property ;
+    rdfs:label "quantity" ;
+    rdfs:comment "A quantity of #Set or #Rep" ;
+    rdfs:domain (fitv:Set fitv:Rep) ;
+    rdfs:range (xsd:integer) .
+
+fitv:weight rdf:type rdfs:Property ;
+    rdfs:label "weight" ;
+    rdfs:comment "A weight value of an #Athlete or #Rep" ;
+    rdfs:domain (fitv:Rep fitv:Athlete) ;
+    rdfs:range (xsd:float) .
+
+fitv:weightMetric rdfs:subPropertyOf fitv:weight ;
+    rdfs:label "weight metric" ;
+    rdfs:comment "a weight metric, such as pounds or kilos" ;
+    rdfs:range (xsd:string) .
+
+fitv:distance rdf:type rdfs:Property ;
+    rdfs:label "distance" ;
+    rdfs:comment "A distance value of a #Rep" ;
+    rdfs:domain (fitv:Rep) ;
+    rdfs:range (xsd:float) .
+
+fitv:distanceMetric rdfs:subPropertyOf fitv:distance ;
+    rdfs:label "distance metric" ;
+    rdfs:comment "a distance metric, such as feet, yards, miles, meters, kilometers" ;
+    rdfs:range (xsd:string) .
+
+fitv:time rdf:type rdfs:Property ;
+    rdfs:label "time" ;
+    rdfs:comment "A time value of a #Rep" ;
+    rdfs:domain (fitv:Rep) ;
+    rdfs:range (xsd:float) .
+
+fitv:timeMetric rdfs:subPropertyOf fitv:time ;
+    rdfs:label "time metric" ;
+    rdfs:comment "a time metric, such as seconds, minutes, hours" ;
+    rdfs:range (xsd:string) .
+
+fitv:BMI rdf:type rdfs:Property ;
+    rdfs:label "BMI" ;
+    rdfs:comment "Body Mass Index value" ;
+    rdfs:domain (fitv:Athlete) ;
+    rdfs:range (xsd:float) .
+
