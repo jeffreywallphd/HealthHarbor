@@ -8,15 +8,15 @@ class Goals extends Component {
                 <br />
                 <section>
                     <div>
-                        <label id="goalNameLabel" htmlFor="goalName"> Goal Name: </label>
+                        <label id="goalNameLabel" htmlFor="goalName"> Goal Description: </label>
                         <input type="text" id="goalName" name="goalName" />
                     </div>
                     <div>
-                        <label id="goalAmountLabel" htmlFor="goalAmount"> Goal Amount: </label>
+                        <label id="goalAmountLabel" htmlFor="goalAmount"> Amount: </label>
                         <input type="text" id="goalAmount" name="goalAmount" />
                     </div>
                     <div>
-                        <label id="goalDateLabel" htmlFor="goalDate"> Goal Date: </label>
+                        <label id="goalDateLabel" htmlFor="goalDate"> Target Date: </label>
                         <input type="date" id="goalDate" name="goalDate" />
                     </div>
                     <br />
