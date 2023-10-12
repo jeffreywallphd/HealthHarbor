@@ -1,0 +1,297 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix budget: <https://example.com/budget#> .
+
+budget: a owl:Ontology ;
+    rdfs:label "Budgeting Ontology" ;
+    rdfs:comment "Vocabulary for the budgeting module." .
+
+budget:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A user of the budgeting system" .
+
+budget:Budget rdf:type rdfs:Class ;
+    rdfs:label "Budget" ;
+    rdfs:comment "A user's budget for a specific month and year" ;
+    rdfs:subClassOf budget:User .
+
+budget:Expense rdf:type rdfs:Class ;
+    rdfs:label "Expense" ;
+    rdfs:comment "An expenditure made by the user" ;
+    rdfs:subClassOf budget:Category .
+
+budget:Income rdf:type rdfs:Class ;
+    rdfs:label "Income" ;
+    rdfs:comment "Income received by the user" .
+
+budget:Category rdf:type rdfs:Class ;
+    rdfs:label "Category" ;
+    rdfs:comment "Category under which an expense is recorded" .
+
+budget:BudgetCategoryAllocation rdf:type rdfs:Class ;
+    rdfs:label "Budget Category Allocation" ;
+    rdfs:comment "Amount allocated to a specific category in the budget" ;
+    rdfs:subClassOf budget:Category .
+
+budget:Goal rdf:type rdfs:Class ;
+    rdfs:label "Goal" ;
+    rdfs:comment "A financial goal set by the user" ;
+    rdfs:subClassOf budget:User .
+
+budget:Allocation rdf:type rdfs:Class ;
+    rdfs:label "Allocation" ;
+    rdfs:comment "Allocation of funds for a particular goal" ;
+    rdfs:subClassOf budget:Goal .
+
+budget:SavingsTracker rdf:type rdfs:Class ;
+    rdfs:label "Savings Tracker" ;
+    rdfs:comment "Tracks savings for a specific goal" ;
+    rdfs:subClassOf budget:Goal .
+
+budget:Feedback rdf:type rdfs:Class ;
+    rdfs:label "Feedback" ;
+    rdfs:comment "Feedback given by a user" ;
+    rdfs:subClassOf budget:User .
+
+budget:Account rdf:type rdfs:Class ;
+    rdfs:label "Account" ;
+    rdfs:comment "A user's financial account" ;
+    rdfs:subClassOf budget:User .
+
+budget:Transaction rdf:type rdfs:Class ;
+    rdfs:label "Transaction" ;
+    rdfs:comment "A transaction in the user's account" ;
+    rdfs:subClassOf budget:Account .
+
+# Properties.
+
+# User Properties
+budget:userName rdf:type rdf:Property ;
+    rdfs:label "user name" ;
+    rdfs:domain budget:User ;
+    rdfs:range xsd:string .
+
+budget:userEmail rdf:type rdf:Property ;
+    rdfs:label "user email" ;
+    rdfs:domain budget:User ;
+    rdfs:range xsd:string .
+
+# Budget Properties
+budget:month rdf:type rdf:Property ;
+    rdfs:label "month of budget" ;
+    rdfs:domain budget:Budget ;
+    rdfs:range xsd:int .
+
+budget:year rdf:type rdf:Property ;
+    rdfs:label "year of budget" ;
+    rdfs:domain budget:Budget ;
+    rdfs:range xsd:int .
+
+budget:totalIncome rdf:type rdf:Property ;
+    rdfs:label "total income" ;
+    rdfs:domain budget:Budget ;
+    rdfs:range xsd:decimal .
+
+budget:totalExpenses rdf:type rdf:Property ;
+    rdfs:label "total expenses" ;
+    rdfs:domain budget:Budget ;
+    rdfs:range xsd:decimal .
+
+# Expense Properties
+budget:amount rdf:type rdf:Property ;
+    rdfs:label "amount" ;
+    rdfs:domain budget:Expense ;
+    rdfs:range xsd:decimal .
+
+budget:expenseDate rdf:type rdf:Property ;
+    rdfs:label "date of expense" ;
+    rdfs:domain budget:Expense ;
+    rdfs:range xsd:date .
+
+# Income Properties
+budget:source rdf:type rdf:Property ;
+    rdfs:label "source of income" ;
+    rdfs:domain budget:Income ;
+    rdfs:range xsd:string .
+
+budget:incomeDate rdf:type rdf:Property ;
+    rdfs:label "date of income" ;
+    rdfs:domain budget:Income ;
+    rdfs:range xsd:date .
+
+# Category Properties
+budget:categoryName rdf:type rdf:Property ;
+    rdfs:label "category name" ;
+    rdfs:domain budget:Category ;
+    rdfs:range xsd:string .
+
+# BudgetCategoryAllocation Properties
+budget:allocatedAmount rdf:type rdf:Property ;
+    rdfs:label "allocated amount" ;
+    rdfs:domain budget:BudgetCategoryAllocation ;
+    rdfs:range xsd:decimal .
+
+budget:allocationDate rdf:type rdf:Property ;
+    rdfs:label "allocation date" ;
+    rdfs:domain budget:BudgetCategoryAllocation ;
+    rdfs:range xsd:date .
+
+# Goal Properties
+budget:goalName rdf:type rdf:Property ;
+    rdfs:label "goal name" ;
+    rdfs:domain budget:Goal ;
+    rdfs:range xsd:string .
+
+budget:goalAmount rdf:type rdf:Property ;
+    rdfs:label "goal amount" ;
+    rdfs:domain budget:Goal ;
+    rdfs:range xsd:decimal .
+
+budget:deadline rdf:type rdf:Property ;
+    rdfs:label "deadline for goal" ;
+    rdfs:domain budget:Goal ;
+    rdfs:range xsd:date .
+
+# Allocation Properties
+budget:amountAllocated rdf:type rdf:Property ;
+    rdfs:label "amount allocated" ;
+    rdfs:domain budget:Allocation ;
+    rdfs:range xsd:decimal .
+
+budget:allocationDate rdf:type rdf:Property ;
+    rdfs:label "allocation date" ;
+    rdfs:domain budget:Allocation ;
+    rdfs:range xsd:date .
+
+# SavingsTracker Properties
+budget:amountSaved rdf:type rdf:Property ;
+    rdfs:label "amount saved" ;
+    rdfs:domain budget:SavingsTracker ;
+    rdfs:range xsd:decimal .
+
+budget:trackerDate rdf:type rdf:Property ;
+    rdfs:label "tracker date" ;
+    rdfs:domain budget:SavingsTracker ;
+    rdfs:range xsd:date .
+
+# Feedback Properties
+budget:feedbackDetails rdf:type rdf:Property ;
+    rdfs:label "feedback details" ;
+    rdfs:domain budget:Feedback ;
+    rdfs:range xsd:string .
+
+budget:reportDate rdf:type rdf:Property ;
+    rdfs:label "report date" ;
+    rdfs:domain budget:Feedback ;
+    rdfs:range xsd:date .
+
+# Account Properties
+budget:accountType rdf:type rdf:Property ;
+    rdfs:label "account type" ;
+    rdfs:domain budget:Account ;
+    rdfs:range xsd:string .
+
+budget:balance rdf:type rdf:Property ;
+    rdfs:label "account balance" ;
+    rdfs:domain budget:Account ;
+    rdfs:range xsd:decimal .
+
+# Transaction Properties
+budget:transactionAmount rdf:type rdf:Property ;
+    rdfs:label "transaction amount" ;
+    rdfs:domain budget:Transaction ;
+    rdfs:range xsd:decimal .
+
+budget:transactionDate rdf:type rdf:Property ;
+    rdfs:label "transaction date" ;
+    rdfs:domain budget:Transaction ;
+    rdfs:range xsd:date .
+
+budget:transactionType rdf:type rdf:Property ;
+    rdfs:label "transaction type" ;
+    rdfs:domain budget:Transaction ;
+    rdfs:range xsd:string .  # Takes "Expense" or "Income" as input.
+
+
+# Relationship Properties (depicting foreign key relationships)
+budget:hasBudget rdf:type rdf:Property ;
+    rdfs:label "has budget" ;
+    rdfs:domain budget:User ;
+    rdfs:range budget:Budget .
+
+budget:hasExpense rdf:type rdf:Property ;
+    rdfs:label "has expense" ;
+    rdfs:domain budget:Budget ;
+    rdfs:range budget:Expense .
+
+budget:hasIncome rdf:type rdf:Property ;
+    rdfs:label "has income" ;
+    rdfs:domain budget:Budget ;
+    rdfs:range budget:Income .
+
+budget:hasGoal rdf:type rdf:Property ;
+    rdfs:label "has goal" ;
+    rdfs:domain budget:User ;
+    rdfs:range budget:Goal .
+
+budget:hasAccount rdf:type rdf:Property ;
+    rdfs:label "has account" ;
+    rdfs:domain budget:User ;
+    rdfs:range budget:Account .
+
+budget:hasTransaction rdf:type rdf:Property ;
+    rdfs:label "has transaction" ;
+    rdfs:domain budget:Account ;
+    rdfs:range budget:Transaction .
+
+# BudgetCategoryAllocation Relationship Properties
+budget:belongsCategory rdf:type rdf:Property ;
+    rdfs:label "belongs to category" ;
+    rdfs:domain budget:BudgetCategoryAllocation ;
+    rdfs:range budget:Category .
+
+budget:allocationForBudget rdf:type rdf:Property ;
+    rdfs:label "allocation for budget" ;
+    rdfs:domain budget:BudgetCategoryAllocation ;
+    rdfs:range budget:Budget .
+
+# Feedback Relationship Properties
+budget:feedbackFrom rdf:type rdf:Property ;
+    rdfs:label "feedback from" ;
+    rdfs:domain budget:Feedback ;
+    rdfs:range budget:User .
+
+# SavingsTracker Relationship Properties
+budget:trackerForGoal rdf:type rdf:Property ;
+    rdfs:label "tracker for goal" ;
+    rdfs:domain budget:SavingsTracker ;
+    rdfs:range budget:Goal .
+
+# Allocation Relationship Properties
+budget:allocationTowardsGoal rdf:type rdf:Property ;
+    rdfs:label "allocation towards goal" ;
+    rdfs:domain budget:Allocation ;
+    rdfs:range budget:Goal .
+
+# Miscellaneous Relationship Properties
+budget:goalOfUser rdf:type rdf:Property ;
+    rdfs:label "goal of user" ;
+    rdfs:domain budget:Goal ;
+    rdfs:range budget:User .
+
+budget:expenseOfCategory rdf:type rdf:Property ;
+    rdfs:label "expense of category" ;
+    rdfs:domain budget:Expense ;
+    rdfs:range budget:Category .
+
+budget:accountOfUser rdf:type rdf:Property ;
+    rdfs:label "account of user" ;
+    rdfs:domain budget:Account ;
+    rdfs:range budget:User .
+
+budget:transactionOfCategory rdf:type rdf:Property ;
+    rdfs:label "transaction of category" ;
+    rdfs:domain budget:Transaction ;
+    rdfs:range budget:Category .
