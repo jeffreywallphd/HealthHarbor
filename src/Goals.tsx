@@ -4,7 +4,7 @@ class Goals extends Component {
     render() {
         return (
             <div>
-                <h2>Set savings goal</h2>
+                <h2>Set savings goal </h2>
                 <br />
                 <section>
                     <div>
