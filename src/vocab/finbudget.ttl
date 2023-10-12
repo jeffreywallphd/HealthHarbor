@@ -8,6 +8,7 @@ budget: a owl:Ontology ;
     rdfs:label "Budgeting Ontology" ;
     rdfs:comment "Vocabulary for the budgeting module." .
 
+# Classes
 budget:User rdf:type rdfs:Class ;
     rdfs:label "User" ;
     rdfs:comment "A user of the budgeting system" .
