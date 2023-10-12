@@ -37,6 +37,11 @@ import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
 import Diet from "./Diet";
 
+// Finance module - John Mware
+import Finance from "./Finance";
+import Budgeting from "./Budgeting";
+import Goals from "./Goals";
+
 import "./styles/styles.css";
 //TODO: regenerate the vocabulary for fitv, which is now fitp
 import FITV from "./Generated/SourceCodeArtifacts/JavaScript/GeneratedVocab/FITV.js";
@@ -93,6 +98,7 @@ function Name() {
             console.error(error.message);
         }
       }
+      
   };
 
   return (
@@ -119,6 +125,9 @@ class App extends Component {
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/fitness">Fitness</NavLink></li>
               <li><NavLink to="/diet">Diet</NavLink></li>
+
+              {/* Finance - JM */}
+              <li><NavLink to="/finance">Finance</NavLink></li>
             </ul>
           </nav>
           <div className="content">
@@ -128,6 +137,11 @@ class App extends Component {
               <Route path="/fitness-routine" element={<FitnessRoutine />}/>
               <Route path="/fitness-tracker" element={<FitnessTracker />}/>
               <Route path="/diet" element={<Diet />}/>
+
+              {/* Finance - JM */}
+              <Route path="/finance" element={<Finance />}/>
+              <Route path="/budgeting" element={<Budgeting />}/>
+              <Route path="/goals" element={<Goals />}/>
             </Routes>
           </div>
         </div>

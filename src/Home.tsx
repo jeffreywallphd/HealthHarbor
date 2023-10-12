@@ -31,6 +31,16 @@ class Home extends Component {
                 </div>
               </div>
             </NavLink>
+            <NavLink to="/finance">
+              <div className="card">
+                <div className="cardHeader">
+                    <h3>Finance Wellness</h3>
+                </div>
+                <div className="cardContainer">
+                  <p>Manage personal budgets, and credits. </p>
+                </div>
+              </div>
+            </NavLink>
         </section>
       </div>
     );
