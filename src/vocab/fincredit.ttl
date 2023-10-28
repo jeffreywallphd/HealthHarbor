@@ -1,0 +1,172 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix credit: <https://example.com/credit#> .
+
+# Both Budgeting and Credit modules can share users class. I will modify this later as both have a users class. 
+# @prefix budget: <https://jeffreywallphd.github.io/vocab/finbudget.ttl#> .
+
+
+credit: a owl:Ontology ;
+    rdfs:label "Credit Ontology" ;
+    rdfs:comment "Vocabulary for the credit module." .
+
+# Classes
+credit:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A user in the credit system." .
+
+credit:CreditScore rdf:type rdfs:Class ;
+    rdfs:label "Credit Score" ;
+    rdfs:comment "A user's credit score details." .
+
+credit:LoanTypes rdf:type rdfs:Class ;
+    rdfs:label "Loan Types" ;
+    rdfs:comment "Types of loans available." .
+
+credit:LoanInformation rdf:type rdfs:Class ;
+    rdfs:label "Loan Information" ;
+    rdfs:comment "Details of a loan taken by a user." .
+
+credit:CreditInsights rdf:type rdfs:Class ;
+    rdfs:label "Credit Insights" ;
+    rdfs:comment "Insights related to a user's credit score." .
+
+credit:Bureaus rdf:type rdfs:Class ;
+    rdfs:label "Bureaus" ;
+    rdfs:comment "Credit bureaus that provide credit scores." .
+
+credit:LoanPaymentHistory rdf:type rdfs:Class ;
+    rdfs:label "Loan Payment History" ;
+    rdfs:comment "History of loan payments for a user." .
+
+# Properties.
+
+# User Properties
+credit:userName rdf:type rdf:Property ;
+    rdfs:label "user name" ;
+    rdfs:domain credit:User ;
+    rdfs:range xsd:string .
+
+credit:userEmail rdf:type rdf:Property ;
+    rdfs:label "user email" ;
+    rdfs:domain credit:User ;
+    rdfs:range xsd:string .
+
+# CreditScore Properties
+credit:score rdf:type rdf:Property ;
+    rdfs:label "credit score" ;
+    rdfs:domain credit:CreditScore ;
+    rdfs:range xsd:int .
+
+credit:scoreDate rdf:type rdf:Property ;
+    rdfs:label "score date" ;
+    rdfs:domain credit:CreditScore ;
+    rdfs:range xsd:date .
+
+# LoanTypes Properties
+credit:loanTypeName rdf:type rdf:Property ;
+    rdfs:label "loan type name" ;
+    rdfs:domain credit:LoanTypes ;
+    rdfs:range xsd:string .
+
+credit:description rdf:type rdf:Property ;
+    rdfs:label "description" ;
+    rdfs:domain credit:LoanTypes ;
+    rdfs:range xsd:string .
+
+# LoanInformation Properties
+credit:loanAmount rdf:type rdf:Property ;
+    rdfs:label "loan amount" ;
+    rdfs:domain credit:LoanInformation ;
+    rdfs:range xsd:decimal .
+
+credit:interestRate rdf:type rdf:Property ;
+    rdfs:label "interest rate" ;
+    rdfs:domain credit:LoanInformation ;
+    rdfs:range xsd:decimal .
+
+credit:loanStartDate rdf:type rdf:Property ;
+    rdfs:label "loan start date" ;
+    rdfs:domain credit:LoanInformation ;
+    rdfs:range xsd:date .
+
+credit:loanEndDate rdf:type rdf:Property ;
+    rdfs:label "loan end date" ;
+    rdfs:domain credit:LoanInformation ;
+    rdfs:range xsd:date .
+
+# CreditInsights Properties
+credit:insightText rdf:type rdf:Property ;
+    rdfs:label "insight text" ;
+    rdfs:domain credit:CreditInsights ;
+    rdfs:range xsd:string .
+
+credit:insightDate rdf:type rdf:Property ;
+    rdfs:label "insight date" ;
+    rdfs:domain credit:CreditInsights ;
+    rdfs:range xsd:date .
+
+# Bureaus Properties
+credit:bureauName rdf:type rdf:Property ;
+    rdfs:label "bureau name" ;
+    rdfs:domain credit:Bureaus ;
+    rdfs:range xsd:string .
+
+credit:bureauAddress rdf:type rdf:Property ;
+    rdfs:label "bureau address" ;
+    rdfs:domain credit:Bureaus ;
+    rdfs:range xsd:string .
+
+credit:contactNumber rdf:type rdf:Property ;
+    rdfs:label "contact number" ;
+    rdfs:domain credit:Bureaus ;
+    rdfs:range xsd:string .
+
+# LoanPaymentHistory Properties
+credit:paymentDate rdf:type rdf:Property ;
+    rdfs:label "payment date" ;
+    rdfs:domain credit:LoanPaymentHistory ;
+    rdfs:range xsd:date .
+
+credit:paymentAmount rdf:type rdf:Property ;
+    rdfs:label "payment amount" ;
+    rdfs:domain credit:LoanPaymentHistory ;
+    rdfs:range xsd:decimal .
+
+credit:principalPaid rdf:type rdf:Property ;
+    rdfs:label "principal paid" ;
+    rdfs:domain credit:LoanPaymentHistory ;
+    rdfs:range xsd:decimal .
+
+credit:interestPaid rdf:type rdf:Property ;
+    rdfs:label "interest paid" ;
+    rdfs:domain credit:LoanPaymentHistory ;
+    rdfs:range xsd:decimal .
+
+# Relationship Properties (as indicated by the entities/class relationships)
+credit:hasCreditScore rdf:type rdf:Property ;
+    rdfs:label "has credit score" ;
+    rdfs:domain credit:User ;
+    rdfs:range credit:CreditScore .
+
+credit:hasLoan rdf:type rdf:Property ;
+    rdfs:label "has loan" ;
+    rdfs:domain credit:User ;
+    rdfs:range credit:LoanInformation .
+
+credit:providedBy rdf:type rdf:Property ;
+    rdfs:label "provided by" ;
+    rdfs:domain credit:CreditScore ;
+    rdfs:range credit:Bureaus .
+
+credit:loanType rdf:type rdf:Property ;
+    rdfs:label "loan type" ;
+    rdfs:domain credit:LoanInformation ;
+    rdfs:range credit:LoanTypes .
+
+credit:loanPayment rdf:type rdf:Property ;
+    rdfs:label "loan payment" ;
+    rdfs:domain credit:LoanInformation ;
+    rdfs:range credit:LoanPaymentHistory .
