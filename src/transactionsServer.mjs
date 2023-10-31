@@ -137,7 +137,7 @@ async function saveTransactionData(transactionID, accountID, categoryID, transac
     record = setStringNoLocale(record, TRANSACTION_AMOUNT_IRI, transactionAmount);
     record = setStringNoLocale(record, TRANSACTION_DATE_IRI, transactionDate);
     record = setStringNoLocale(record, TRANSACTION_TYPE_IRI, transactionType);
-    
+
 
     //console.log("record === ", record);
     const updatedDataset = setThing(dataset, record);
@@ -169,14 +169,15 @@ async function retrieveTransactionDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                transactionID: thing.predicates['https://example.com/budget#transactionID'],
-                accountID: thing.predicates['https://example.com/budget#accountID'],
-                categoryID: thing.predicates['https://example.com/budget#categoryID'],
-                transactionAmount: thing.predicates['https://example.com/budget#transactionAmount'],
-                transactionDate: thing.predicates['https://example.com/budget#transactionDate'],
-                transactionType: thing.predicates['https://example.com/budget#transactionType']
+                transactionID: thing.predicates[TRANSACTION_ID_IRI],
+                accountID: thing.predicates[ACCOUNT_ID_IRI],
+                categoryID: thing.predicates[CATEGORY_ID_IRI],
+                transactionAmount: thing.predicates[TRANSACTION_AMOUNT_IRI],
+                transactionDate: thing.predicates[TRANSACTION_DATE_IRI],
+                transactionType: thing.predicates[TRANSACTION_TYPE_IRI]
             };
         });
+
 
         // Display the formatted data in a table format
         // console.table(formattedData);
@@ -207,7 +208,7 @@ async function searchTransactionData(accountID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const accountIDValue = thing.predicates['https://example.com/budget#accountID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const accountIDValue = thing.predicates[ACCOUNT_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (accountID && accountIDValue) {
                 isValid = isValid && accountIDValue === accountID.toString();
             }
@@ -221,12 +222,12 @@ async function searchTransactionData(accountID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                transactionID: thing.predicates['https://example.com/budget#transactionID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                accountID: thing.predicates['https://example.com/budget#accountID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                categoryID: thing.predicates['https://example.com/budget#categoryID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                transactionAmount: thing.predicates['https://example.com/budget#transactionAmount']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                transactionDate: thing.predicates['https://example.com/budget#transactionDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                transactionType: thing.predicates['https://example.com/budget#transactionType']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                transactionID: thing.predicates[TRANSACTION_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                accountID: thing.predicates[ACCOUNT_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                categoryID: thing.predicates[CATEGORY_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                transactionAmount: thing.predicates[TRANSACTION_AMOUNT_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                transactionDate: thing.predicates[TRANSACTION_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                transactionType: thing.predicates[TRANSACTION_TYPE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
 
             };
         });
@@ -263,7 +264,7 @@ async function updateTransactionData(accountID, newcategoryID, newtransactionAmo
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordaccountID = thing.predicates['https://example.com/budget#accountID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordaccountID = thing.predicates[ACCOUNT_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordaccountID === accountID.toString();
         });
 
@@ -275,18 +276,18 @@ async function updateTransactionData(accountID, newcategoryID, newtransactionAmo
         //console.log("recordToUpdate====== ", recordToUpdate);
 
         let updatedRecord = recordToUpdate;
-        
+
         if (newtransactionAmount) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#transactionAmount', newtransactionAmount);
+            updatedRecord = setStringNoLocale(updatedRecord, TRANSACTION_AMOUNT_IRI, newtransactionAmount);
         }
         if (newcategoryID) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#categoryID', newcategoryID);
+            updatedRecord = setStringNoLocale(updatedRecord, CATEGORY_ID_IRI, newcategoryID);
         }
         if (newtransactionDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#transactionDate', newtransactionDate);
+            updatedRecord = setStringNoLocale(updatedRecord, TRANSACTION_DATE_IRI, newtransactionDate);
         }
         if (newtransactionType) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#categoryID', newtransactionType);
+            updatedRecord = setStringNoLocale(updatedRecord, TRANSACTION_TYPE_IRI, newtransactionType);
         }
 
         try {
@@ -323,7 +324,7 @@ async function deleteTransactionData(accountID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordaccountID = thing.predicates['https://example.com/budget#accountID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordaccountID = thing.predicates[ACCOUNT_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordaccountID: ${recordaccountID}, accountID: ${accountID}`);
 
@@ -361,7 +362,7 @@ app.get('/callback', async (req, res) => {
     }
 });
 
- 
+
 app.post('/savetransaction', async (req, res) => {
     console.log("Received a request to /savetransaction");
     const { transactionID, accountID, categoryID, transactionAmount, transactionDate, transactionType } = req.query;

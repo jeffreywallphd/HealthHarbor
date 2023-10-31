@@ -88,7 +88,6 @@ async function getDefaultPod() {
 };
 
 // Using ontology classes and properties
-const bureau_IRI = "https://example.com/credit#Bureau";
 const BUREAU_ID_IRI = "https://example.com/credit#bureauID";
 const BUREAU_NAME_IRI = "https://example.com/credit#bureauName";
 const BUREAU_ADDRESS_IRI = "https://example.com/credit#bureauAddress";
@@ -165,12 +164,13 @@ async function retrieveBureauDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                bureauID: thing.predicates['https://example.com/credit#bureauID'],
-                bureauName: thing.predicates['https://example.com/credit#bureauName'],
-                bureauAddress: thing.predicates['https://example.com/credit#bureauAddress'],
-                contactNumber: thing.predicates['https://example.com/credit#contactNumber']
+                bureauID: thing.predicates[BUREAU_ID_IRI],
+                bureauName: thing.predicates[BUREAU_NAME_IRI],
+                bureauAddress: thing.predicates[BUREAU_ADDRESS_IRI],
+                contactNumber: thing.predicates[CONTACT_NUMBER_IRI]
             };
         });
+
 
         // Display the formatted data in a table format
         // console.table(formattedData);
@@ -201,7 +201,7 @@ async function searchBureauData(bureauName) {
 
         const filteredData = bureauThings.filter(thing => {
             let isValid = true;
-            const bureauNameValue = thing.predicates['https://example.com/credit#bureauName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const bureauNameValue = thing.predicates[BUREAU_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (bureauName && bureauNameValue) {
                 isValid = isValid && bureauNameValue === bureauName.toString();
             }
@@ -215,10 +215,10 @@ async function searchBureauData(bureauName) {
             return {
                 type: thing.type,
                 url: thing.url,
-                bureauID: thing.predicates['https://example.com/credit#bureauID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                bureauName: thing.predicates['https://example.com/credit#bureauName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                bureauAddress: thing.predicates['https://example.com/credit#bureauAddress']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                contactNumber: thing.predicates['https://example.com/credit#contactNumber']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                bureauID: thing.predicates[BUREAU_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                bureauName: thing.predicates[BUREAU_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                bureauAddress: thing.predicates[BUREAU_ADDRESS_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                contactNumber: thing.predicates[CONTACT_NUMBER_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
             };
         });
 
@@ -254,7 +254,7 @@ async function updateBureauData(bureauName, newbureauName, newbureauAddress, new
 
 
         const recordToUpdate = bureauThings.find(thing => {
-            const recordbureauName = thing.predicates['https://example.com/credit#bureauName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbureauName = thing.predicates[BUREAU_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordbureauName === bureauName.toString();
         });
 
@@ -268,14 +268,15 @@ async function updateBureauData(bureauName, newbureauName, newbureauAddress, new
         let updatedRecord = recordToUpdate;
 
         if (newbureauName) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#bureauName', newbureauName);
+            updatedRecord = setStringNoLocale(updatedRecord, BUREAU_NAME_IRI, newbureauName);
         }
         if (newbureauAddress) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#bureauAddress', newbureauAddress);
+            updatedRecord = setStringNoLocale(updatedRecord, BUREAU_ADDRESS_IRI, newbureauAddress);
         }
         if (newcontactNumber) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#contactNumber', newcontactNumber);
+            updatedRecord = setStringNoLocale(updatedRecord, CONTACT_NUMBER_IRI, newcontactNumber);
         }
+
 
         try {
 
@@ -311,7 +312,7 @@ async function deleteBureauData(bureauName) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordbureauName = thing.predicates['https://example.com/credit#bureauName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbureauName = thing.predicates[BUREAU_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordbureauName: ${recordbureauName}, bureauName: ${bureauName}`);
 

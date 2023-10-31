@@ -88,14 +88,13 @@ async function getDefaultPod() {
 };
 
 // Using ontology classes and properties
-const expense_IRI = "https://example.com/budget#Expense";
 const EXPENSE_ID_IRI = "https://example.com/credit#expenseID";
 const BUDGET_ID_IRI = "https://example.com/credit#budgetID";
 const CATEGORY_ID_IRI = "https://example.com/credit#categoryID";
 const AMOUNT_IRI = "https://example.com/credit#amount";
-const INSIGHT_DATE_IRI = "https://example.com/credit#expenseDate";
+const EXPENSE_DATE_IRI = "https://example.com/credit#expenseDate";
 
-async function saveExpenseData(expenseID, budgetID, categoryID, amount,expenseDate) {
+async function saveExpenseData(expenseID, budgetID, categoryID, amount, expenseDate) {
     console.log("starting saveExpenseData execution...");
     let myPod;
     myPod = await getDefaultPod();
@@ -135,7 +134,7 @@ async function saveExpenseData(expenseID, budgetID, categoryID, amount,expenseDa
     record = setStringNoLocale(record, BUDGET_ID_IRI, budgetID);
     record = setStringNoLocale(record, CATEGORY_ID_IRI, categoryID);
     record = setStringNoLocale(record, AMOUNT_IRI, amount);
-    record = setStringNoLocale(record, INSIGHT_DATE_IRI, expenseDate);
+    record = setStringNoLocale(record, EXPENSE_DATE_IRI, expenseDate);
 
     //console.log("record === ", record);
     const updatedDataset = setThing(dataset, record);
@@ -167,13 +166,14 @@ async function retrieveExpenseDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                expenseID: thing.predicates['https://example.com/credit#expenseID'],
-                budgetID: thing.predicates['https://example.com/credit#budgetID'],
-                categoryID: thing.predicates['https://example.com/credit#categoryID'],
-                amount: thing.predicates['https://example.com/credit#amount'],
-                expenseDate: thing.predicates['https://example.com/credit#expenseDate']
+                expenseID: thing.predicates[EXPENSE_ID_IRI],
+                budgetID: thing.predicates[BUDGET_ID_IRI],
+                categoryID: thing.predicates[CATEGORY_ID_IRI],
+                amount: thing.predicates[AMOUNT_IRI],
+                expenseDate: thing.predicates[EXPENSE_DATE_IRI]
             };
         });
+
 
         // Display the formatted data in a table format
         // console.table(formattedData);
@@ -204,7 +204,7 @@ async function searchExpenseData(budgetID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const budgetIDValue = thing.predicates['https://example.com/credit#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const budgetIDValue = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (budgetID && budgetIDValue) {
                 isValid = isValid && budgetIDValue === budgetID.toString();
             }
@@ -218,15 +218,16 @@ async function searchExpenseData(budgetID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                expenseID: thing.predicates['https://example.com/credit#expenseID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                budgetID: thing.predicates['https://example.com/credit#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                categoryID: thing.predicates['https://example.com/credit#categoryID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                amount: thing.predicates['https://example.com/credit#amount']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                expenseDate: thing.predicates['https://example.com/credit#expenseDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
-                
+                expenseID: thing.predicates[EXPENSE_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                budgetID: thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                categoryID: thing.predicates[CATEGORY_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                amount: thing.predicates[AMOUNT_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                expenseDate: thing.predicates[EXPENSE_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+
             };
         });
-        
+
+
         console.log("formattedData....", formattedData);
 
         return formattedData;
@@ -259,7 +260,7 @@ async function updateExpenseData(budgetID, newcategoryID, newamount, newexpenseD
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordbudgetID = thing.predicates['https://example.com/credit#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbudgetID = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordbudgetID === budgetID.toString();
         });
 
@@ -273,17 +274,18 @@ async function updateExpenseData(budgetID, newcategoryID, newamount, newexpenseD
         let updatedRecord = recordToUpdate;
 
         if (newexpenseDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#expenseDate', newexpenseDate);
+            updatedRecord = setStringNoLocale(updatedRecord, EXPENSE_DATE_IRI, newexpenseDate);
         }
         if (newcategoryID) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#categoryID', newcategoryID);
+            updatedRecord = setStringNoLocale(updatedRecord, CATEGORY_ID_IRI, newcategoryID);
         }
         if (newamount) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#amount', newamount);
+            updatedRecord = setStringNoLocale(updatedRecord, AMOUNT_IRI, newamount);
         }
 
+
         try {
-            
+
             dataset = setThing(dataset, updatedRecord);
 
             await saveSolidDatasetAt(datasetUrl, dataset, { fetch: session.fetch });
@@ -316,7 +318,7 @@ async function deleteExpenseData(budgetID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordbudgetID = thing.predicates['https://example.com/credit#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbudgetID = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordbudgetID: ${recordbudgetID}, budgetID: ${budgetID}`);
 

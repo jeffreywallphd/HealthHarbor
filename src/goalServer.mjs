@@ -89,7 +89,7 @@ async function getDefaultPod() {
 
 // Using ontology classes and properties
 const GOAL_ID_IRI = "https://example.com/budget#goalID";
-const BUDGET_ID_IRI = "https://example.com/budget#userID";
+const USER_ID_IRI = "https://example.com/budget#userID";
 const NAME_IRI = "https://example.com/budget#name";
 const AMOUNT_IRI = "https://example.com/budget#amount";
 const DEADLINE_IRI = "https://example.com/budget#deadline";
@@ -131,7 +131,7 @@ async function saveGoalData(goalID, userID, name, amount,deadline) {
 
 
     record = setStringNoLocale(record, GOAL_ID_IRI, goalID);
-    record = setStringNoLocale(record, BUDGET_ID_IRI, userID);
+    record = setStringNoLocale(record, USER_ID_IRI, userID);
     record = setStringNoLocale(record, NAME_IRI, name);
     record = setStringNoLocale(record, AMOUNT_IRI, amount);
     record = setStringNoLocale(record, DEADLINE_IRI, deadline);
@@ -166,11 +166,11 @@ async function retrieveGoalDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                goalID: thing.predicates['https://example.com/budget#goalID'],
-                userID: thing.predicates['https://example.com/budget#userID'],
-                name: thing.predicates['https://example.com/budget#name'],
-                amount: thing.predicates['https://example.com/budget#amount'],
-                deadline: thing.predicates['https://example.com/budget#deadline']
+                goalID: thing.predicates[GOAL_ID_IRI],
+                userID: thing.predicates[USER_ID_IRI],
+                name: thing.predicates[NAME_IRI],
+                amount: thing.predicates[AMOUNT_IRI],
+                deadline: thing.predicates[DEADLINE_IRI]
             };
         });
 
@@ -203,7 +203,7 @@ async function searchGoalData(userID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const userIDValue = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const userIDValue = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (userID && userIDValue) {
                 isValid = isValid && userIDValue === userID.toString();
             }
@@ -217,11 +217,11 @@ async function searchGoalData(userID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                goalID: thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                userID: thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                name: thing.predicates['https://example.com/budget#name']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                amount: thing.predicates['https://example.com/budget#amount']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                deadline: thing.predicates['https://example.com/budget#deadline']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                goalID: thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                userID: thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                name: thing.predicates[NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                amount: thing.predicates[AMOUNT_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                deadline: thing.predicates[DEADLINE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
                 
             };
         });
@@ -258,7 +258,7 @@ async function updateGoalData(userID, newname, newamount, newdeadline) {
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recorduserID = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recorduserID === userID.toString();
         });
 
@@ -272,15 +272,16 @@ async function updateGoalData(userID, newname, newamount, newdeadline) {
         let updatedRecord = recordToUpdate;
 
         if (newdeadline) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#deadline', newdeadline);
+            updatedRecord = setStringNoLocale(updatedRecord, DEADLINE_IRI, newdeadline);
         }
         if (newname) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#name', newname);
+            updatedRecord = setStringNoLocale(updatedRecord, NAME_IRI, newname);
         }
         if (newamount) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#amount', newamount);
+            updatedRecord = setStringNoLocale(updatedRecord, AMOUNT_IRI, newamount);
         }
 
+   
         try {
             
             dataset = setThing(dataset, updatedRecord);
@@ -315,7 +316,7 @@ async function deleteGoalData(userID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recorduserID = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recorduserID: ${recorduserID}, userID: ${userID}`);
 

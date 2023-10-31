@@ -166,11 +166,11 @@ async function retrieveIncomeDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                incomeID: thing.predicates['https://example.com/budget#incomeID'],
-                budgetID: thing.predicates['https://example.com/budget#budgetID'],
-                source: thing.predicates['https://example.com/budget#source'],
-                amount: thing.predicates['https://example.com/budget#amount'],
-                incomeDate: thing.predicates['https://example.com/budget#incomeDate']
+                incomeID: thing.predicates[INCOME_ID_IRI],
+                budgetID: thing.predicates[BUDGET_ID_IRI],
+                source: thing.predicates[SOURCE_ID_IRI],
+                amount: thing.predicates[AMOUNT_IRI],
+                incomeDate: thing.predicates[INCOME_DATE_IRI]
             };
         });
 
@@ -203,7 +203,7 @@ async function searchIncomeData(budgetID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const budgetIDValue = thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const budgetIDValue = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (budgetID && budgetIDValue) {
                 isValid = isValid && budgetIDValue === budgetID.toString();
             }
@@ -217,11 +217,11 @@ async function searchIncomeData(budgetID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                incomeID: thing.predicates['https://example.com/budget#incomeID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                budgetID: thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                source: thing.predicates['https://example.com/budget#source']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                amount: thing.predicates['https://example.com/budget#amount']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                incomeDate: thing.predicates['https://example.com/budget#incomeDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                incomeID: thing.predicates[INCOME_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                budgetID: thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                source: thing.predicates[SOURCE_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                amount: thing.predicates[AMOUNT_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                incomeDate: thing.predicates[INCOME_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
                 
             };
         });
@@ -258,7 +258,7 @@ async function updateIncomeData(budgetID, newsource, newamount, newincomeDate) {
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordbudgetID = thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbudgetID = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordbudgetID === budgetID.toString();
         });
 
@@ -272,14 +272,15 @@ async function updateIncomeData(budgetID, newsource, newamount, newincomeDate) {
         let updatedRecord = recordToUpdate;
 
         if (newincomeDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#incomeDate', newincomeDate);
+            updatedRecord = setStringNoLocale(updatedRecord, INCOME_DATE_IRI, newincomeDate);
         }
         if (newsource) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#source', newsource);
+            updatedRecord = setStringNoLocale(updatedRecord, SOURCE_ID_IRI, newsource);
         }
         if (newamount) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#amount', newamount);
+            updatedRecord = setStringNoLocale(updatedRecord, AMOUNT_IRI, newamount);
         }
+
 
         try {
             
@@ -315,7 +316,7 @@ async function deleteIncomeData(budgetID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordbudgetID = thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbudgetID = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordbudgetID: ${recordbudgetID}, budgetID: ${budgetID}`);
 

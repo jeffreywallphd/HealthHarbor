@@ -165,12 +165,13 @@ async function retrieveSavingsTrackerDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                trackerID: thing.predicates['https://example.com/budget#trackerID'],
-                goalID: thing.predicates['https://example.com/budget#goalID'],
-                amountSaved: thing.predicates['https://example.com/budget#amountSaved'],
-                trackerDate: thing.predicates['https://example.com/budget#trackerDate']
+                trackerID: thing.predicates[TRACKER_ID_IRI],
+                goalID: thing.predicates[GOAL_ID_IRI],
+                amountSaved: thing.predicates[AMOUNT_SAVED_IRI],
+                trackerDate: thing.predicates[TRACKER_DATE_IRI]
             };
         });
+
 
         // Display the formatted data in a table format
         // console.table(formattedData);
@@ -201,7 +202,7 @@ async function searchSavingsTrackerData(goalID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const goalIDValue = thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const goalIDValue = thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (goalID && goalIDValue) {
                 isValid = isValid && goalIDValue === goalID.toString();
             }
@@ -215,10 +216,10 @@ async function searchSavingsTrackerData(goalID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                trackerID: thing.predicates['https://example.com/budget#trackerID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                goalID: thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                amountSaved: thing.predicates['https://example.com/budget#amountSaved']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                trackerDate: thing.predicates['https://example.com/budget#trackerDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                trackerID: thing.predicates[TRACKER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                goalID: thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                amountSaved: thing.predicates[AMOUNT_SAVED_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                trackerDate: thing.predicates[TRACKER_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
 
             };
         });
@@ -255,7 +256,7 @@ async function updateSavingsTrackerData(goalID, newamountSaved, newtrackerDate) 
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordgoalID = thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordgoalID = thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordgoalID === goalID.toString();
         });
 
@@ -269,11 +270,12 @@ async function updateSavingsTrackerData(goalID, newamountSaved, newtrackerDate) 
         let updatedRecord = recordToUpdate;
 
         if (newtrackerDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#trackerDate', newtrackerDate);
+            updatedRecord = setStringNoLocale(updatedRecord, TRACKER_DATE_IRI, newtrackerDate);
         }
         if (newamountSaved) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#amountSaved', newamountSaved);
+            updatedRecord = setStringNoLocale(updatedRecord, AMOUNT_SAVED_IRI, newamountSaved);
         }
+
 
         try {
 
@@ -309,7 +311,7 @@ async function deleteSavingsTrackerData(goalID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordgoalID = thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordgoalID = thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordgoalID: ${recordgoalID}, goalID: ${goalID}`);
 

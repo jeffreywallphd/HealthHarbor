@@ -91,7 +91,6 @@ async function getDefaultPod() {
 };
 
 // Using ontology classes and properties
-const BUDGET_IRI = "https://example.com/budget#Budget";
 const MONTH_IRI = "https://example.com/budget#month";
 const YEAR_IRI = "https://example.com/budget#year";
 const TOTAL_INCOME_IRI = "https://example.com/budget#totalIncome";
@@ -164,10 +163,10 @@ async function retrieveBudgetDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                month: thing.predicates['https://example.com/budget#month'],
-                totalExpenses: thing.predicates['https://example.com/budget#totalExpenses'],
-                totalIncome: thing.predicates['https://example.com/budget#totalIncome'],
-                year: thing.predicates['https://example.com/budget#year']
+                month: thing.predicates[MONTH_IRI],
+                totalExpenses: thing.predicates[TOTAL_EXPENSES_IRI],
+                totalIncome: thing.predicates[TOTAL_INCOME_IRI],
+                year: thing.predicates[YEAR_IRI]
             };
         });
 
@@ -201,13 +200,13 @@ async function searchBudgetData(month, year, name) {
         const filteredData = budgetThings.filter(thing => {
             let isValid = true;
 
-            const monthValue = thing.predicates['https://example.com/budget#month']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const monthValue = thing.predicates[MONTH_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             console.log("Checking month:", monthValue, month);
             if (month && monthValue) {
                 isValid = isValid && monthValue === month.toString();
             }
 
-            const yearValue = thing.predicates['https://example.com/budget#year']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const yearValue = thing.predicates[YEAR_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (year && yearValue) {
                 isValid = isValid && yearValue === year.toString();
             }
@@ -221,13 +220,14 @@ async function searchBudgetData(month, year, name) {
             return {
                 type: thing.type,
                 url: thing.url,
-                month: thing.predicates['https://example.com/budget#month']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                totalExpenses: thing.predicates['https://example.com/budget#totalExpenses']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                totalIncome: thing.predicates['https://example.com/budget#totalIncome']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                year: thing.predicates['https://example.com/budget#year']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                month: thing.predicates[MONTH_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                totalExpenses: thing.predicates[TOTAL_EXPENSES_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                totalIncome: thing.predicates[TOTAL_INCOME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                year: thing.predicates[YEAR_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
             };
         });
 
+        
         //console.log("formattedData....", formattedData);
 
         return formattedData;
@@ -260,8 +260,8 @@ async function updateBudgetData(month, year, res, newmonth, newyear, newtotalInc
 
 
         const recordToUpdate = budgetThings.find(thing => {
-            const recordMonth = thing.predicates['https://example.com/budget#month']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
-            const recordYear = thing.predicates['https://example.com/budget#year']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordMonth = thing.predicates[MONTH_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordYear = thing.predicates[YEAR_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordMonth === month.toString() && recordYear === year.toString();
         });
 
@@ -275,18 +275,18 @@ async function updateBudgetData(month, year, res, newmonth, newyear, newtotalInc
         let updatedRecord = recordToUpdate;
 
         if (newmonth) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#month', newmonth);
+            updatedRecord = setStringNoLocale(updatedRecord, MONTH_IRI, newmonth);
         }
         if (newyear) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#year', newyear);
+            updatedRecord = setStringNoLocale(updatedRecord, YEAR_IRI, newyear);
         }
         if (newtotalIncome) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#totalIncome', newtotalIncome);
+            updatedRecord = setStringNoLocale(updatedRecord, TOTAL_INCOME_IRI, newtotalIncome);
         }
         if (newtotalExpenses) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#totalExpenses', newtotalExpenses);
+            updatedRecord = setStringNoLocale(updatedRecord, TOTAL_EXPENSES_IRI, newtotalExpenses);
         }
-
+        
         try {
 
             dataset = setThing(dataset, updatedRecord);
@@ -321,8 +321,8 @@ async function deleteBudgetData(month, year) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordMonth = thing.predicates['https://example.com/budget#month']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
-            const recordYear = thing.predicates['https://example.com/budget#year']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordMonth = thing.predicates[MONTH_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordYear = thing.predicates[YEAR_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             return recordMonth === month.toString() && recordYear === year.toString();
         });

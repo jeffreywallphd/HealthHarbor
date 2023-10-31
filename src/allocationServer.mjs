@@ -164,13 +164,13 @@ async function retrieveAllocationDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                allocationID: thing.predicates['https://example.com/budget#allocationID'],
-                goalID: thing.predicates['https://example.com/budget#goalID'],
-                amountAllocated: thing.predicates['https://example.com/budget#amountAllocated'],
-                allocationDate: thing.predicates['https://example.com/budget#allocationDate']
+                allocationID: thing.predicates[ALLOCATION_ID_IRI],
+                goalID: thing.predicates[GOAL_ID_IRI],
+                amountAllocated: thing.predicates[AMMOUNT_ALLOCATED_IRI],
+                allocationDate: thing.predicates[ALLOCATION_DATE_IRI]
             };
         });
-
+         
         // Display the formatted data in a table format
         // console.table(formattedData);
 
@@ -200,7 +200,7 @@ async function searchAllocationData(goalID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const goalIDValue = thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const goalIDValue = thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (goalID && goalIDValue) {
                 isValid = isValid && goalIDValue === goalID.toString();
             }
@@ -214,10 +214,10 @@ async function searchAllocationData(goalID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                allocationID: thing.predicates['https://example.com/budget#allocationID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                goalID: thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                amountAllocated: thing.predicates['https://example.com/budget#amountAllocated']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                allocationDate: thing.predicates['https://example.com/budget#allocationDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                allocationID: thing.predicates[ALLOCATION_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                goalID: thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                amountAllocated: thing.predicates[AMMOUNT_ALLOCATED_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                allocationDate: thing.predicates[ALLOCATION_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
 
             };
         });
@@ -254,7 +254,7 @@ async function updateAllocationData(goalID, newamountAllocated, newallocationDat
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordgoalID = thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordgoalID = thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordgoalID === goalID.toString();
         });
 
@@ -268,12 +268,12 @@ async function updateAllocationData(goalID, newamountAllocated, newallocationDat
         let updatedRecord = recordToUpdate;
 
         if (newallocationDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#allocationDate', newallocationDate);
+            updatedRecord = setStringNoLocale(updatedRecord, ALLOCATION_DATE_IRI, newallocationDate);
         }
         if (newamountAllocated) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#amountAllocated', newamountAllocated);
+            updatedRecord = setStringNoLocale(updatedRecord, AMMOUNT_ALLOCATED_IRI, newamountAllocated);
         }
-
+        
         try {
 
             dataset = setThing(dataset, updatedRecord);
@@ -308,7 +308,7 @@ async function deleteAllocationData(goalID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordgoalID = thing.predicates['https://example.com/budget#goalID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordgoalID = thing.predicates[GOAL_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordgoalID: ${recordgoalID}, goalID: ${goalID}`);
 

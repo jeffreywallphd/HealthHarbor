@@ -162,11 +162,12 @@ async function retrieveCategoryDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                categoryID: thing.predicates['https://example.com/budget#categoryID'],
-                categoryName: thing.predicates['https://example.com/budget#categoryName']
+                categoryID: thing.predicates[CATEGORY_ID_IRI],
+                categoryName: thing.predicates[CATEGORY_NAME_IRI]
             };
         });
-
+     
+        
         // Display the formatted data in a table format
         // console.table(formattedData);
 
@@ -196,7 +197,7 @@ async function searchCategoryData(categoryName) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const categoryNameValue = thing.predicates['https://example.com/budget#categoryName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const categoryNameValue = thing.predicates[CATEGORY_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (categoryName && categoryNameValue) {
                 isValid = isValid && categoryNameValue === categoryName.toString();
             }
@@ -210,8 +211,8 @@ async function searchCategoryData(categoryName) {
             return {
                 type: thing.type,
                 url: thing.url,
-                categoryID: thing.predicates['https://example.com/budget#categoryID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                categoryName: thing.predicates['https://example.com/budget#categoryName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                categoryID: thing.predicates[CATEGORY_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                categoryName: thing.predicates[CATEGORY_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
             };
         });
         
@@ -247,7 +248,7 @@ async function updateCategoryData(categoryName, newcategoryName) {
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordcategoryName = thing.predicates['https://example.com/budget#categoryName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordcategoryName = thing.predicates[CATEGORY_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordcategoryName === categoryName.toString();
         });
 
@@ -261,8 +262,9 @@ async function updateCategoryData(categoryName, newcategoryName) {
         let updatedRecord = recordToUpdate;
 
         if (newcategoryName) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#categoryName', newcategoryName);
+            updatedRecord = setStringNoLocale(updatedRecord, CATEGORY_NAME_IRI, newcategoryName);
         }
+
 
         try {
             
@@ -298,7 +300,7 @@ async function deleteCategoryData(categoryName) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordcategoryName = thing.predicates['https://example.com/budget#categoryName']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordcategoryName = thing.predicates[CATEGORY_NAME_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordcategoryName: ${recordcategoryName}, categoryName: ${categoryName}`);
 

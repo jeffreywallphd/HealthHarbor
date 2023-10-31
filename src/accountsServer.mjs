@@ -167,10 +167,10 @@ async function retrieveFeedbackDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                accountID: thing.predicates['https://example.com/budget#accountID'],
-                userID: thing.predicates['https://example.com/budget#userID'],
-                accountType: thing.predicates['https://example.com/budget#accountType'],
-                accountBalance: thing.predicates['https://example.com/budget#accountBalance']
+                accountID: thing.predicates[ACCOUNT_ID_IRI],
+                userID: thing.predicates[USER_ID_IRI],
+                accountType: thing.predicates[ACCOUNT_TYPE_URI],
+                accountBalance: thing.predicates[ACCOUNT_BALANCE_IRI]
             };
         });
 
@@ -203,7 +203,7 @@ async function searchFeedbackData(userID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const userIDValue = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const userIDValue = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (userID && userIDValue) {
                 isValid = isValid && userIDValue === userID.toString();
             }
@@ -211,16 +211,17 @@ async function searchFeedbackData(userID) {
             return isValid;
         });
 
+
         //console.log("filteredData....", filteredData);
 
         const formattedData = filteredData.map(thing => {
             return {
                 type: thing.type,
                 url: thing.url,
-                accountID: thing.predicates['https://example.com/budget#accountID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                userID: thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                accountType: thing.predicates['https://example.com/budget#accountType']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                accountBalance: thing.predicates['https://example.com/budget#accountBalance']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                accountID: thing.predicates[ACCOUNT_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                userID: thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                accountType: thing.predicates[ACCOUNT_TYPE_URI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                accountBalance: thing.predicates[ACCOUNT_BALANCE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
 
             };
         });
@@ -257,9 +258,10 @@ async function updateFeedbackData(userID, newaccountType, newaccountBalance) {
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recorduserID = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recorduserID === userID.toString();
         });
+
 
         if (!recordToUpdate) {
             console.log("Record not found for update at updateFeedbackData()...");
@@ -271,11 +273,12 @@ async function updateFeedbackData(userID, newaccountType, newaccountBalance) {
         let updatedRecord = recordToUpdate;
 
         if (newaccountBalance) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#accountBalance', newaccountBalance);
+            updatedRecord = setStringNoLocale(updatedRecord, ACCOUNT_BALANCE_IRI, newaccountBalance);
         }
         if (newaccountType) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#accountType', newaccountType);
+            updatedRecord = setStringNoLocale(updatedRecord, ACCOUNT_TYPE_URI, newaccountType);
         }
+
 
         try {
 
@@ -311,7 +314,7 @@ async function deleteFeedbackData(userID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recorduserID = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recorduserID: ${recorduserID}, userID: ${userID}`);
 

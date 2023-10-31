@@ -92,7 +92,7 @@ const ALLOCATION_ID_IRI = "https://example.com/budget#allocationID";
 const BUDGET_ID_IRI = "https://example.com/budget#budgetID";
 const CATEGORY_ID_IRI = "https://example.com/budget#categoryID";
 const ALLOCATION_AMOUNT_IRI = "https://example.com/budget#allocatedAmount";
-const INSIGHT_DATE_IRI = "https://example.com/budget#allocationDate";
+const ALLOCATION_DATE_IRI = "https://example.com/budget#allocationDate";
 
 async function saveBudgetCategoryAllocationData(allocationID, budgetID, categoryID, allocatedAmount,allocationDate) {
     console.log("starting saveBudgetCategoryAllocationData execution...");
@@ -134,7 +134,7 @@ async function saveBudgetCategoryAllocationData(allocationID, budgetID, category
     record = setStringNoLocale(record, BUDGET_ID_IRI, budgetID);
     record = setStringNoLocale(record, CATEGORY_ID_IRI, categoryID);
     record = setStringNoLocale(record, ALLOCATION_AMOUNT_IRI, allocatedAmount);
-    record = setStringNoLocale(record, INSIGHT_DATE_IRI, allocationDate);
+    record = setStringNoLocale(record, ALLOCATION_DATE_IRI, allocationDate);
 
     //console.log("record === ", record);
     const updatedDataset = setThing(dataset, record);
@@ -166,14 +166,15 @@ async function retrieveBudgetCategoryAllocationDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                allocationID: thing.predicates['https://example.com/budget#allocationID'],
-                budgetID: thing.predicates['https://example.com/budget#budgetID'],
-                categoryID: thing.predicates['https://example.com/budget#categoryID'],
-                allocatedAmount: thing.predicates['https://example.com/budget#allocatedAmount'],
-                allocationDate: thing.predicates['https://example.com/budget#allocationDate']
+                allocationID: thing.predicates[ALLOCATION_ID_IRI],
+                budgetID: thing.predicates[BUDGET_ID_IRI],
+                categoryID: thing.predicates[CATEGORY_ID_IRI],
+                allocatedAmount: thing.predicates[ALLOCATION_AMOUNT_IRI],
+                allocationDate: thing.predicates[ALLOCATION_DATE_IRI]
             };
         });
-
+ 
+        
         // Display the formatted data in a table format
         // console.table(formattedData);
 
@@ -203,7 +204,7 @@ async function searchBudgetCategoryAllocationData(budgetID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const budgetIDValue = thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const budgetIDValue = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (budgetID && budgetIDValue) {
                 isValid = isValid && budgetIDValue === budgetID.toString();
             }
@@ -217,11 +218,11 @@ async function searchBudgetCategoryAllocationData(budgetID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                allocationID: thing.predicates['https://example.com/budget#allocationID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                budgetID: thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                categoryID: thing.predicates['https://example.com/budget#categoryID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                allocatedAmount: thing.predicates['https://example.com/budget#allocatedAmount']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                allocationDate: thing.predicates['https://example.com/budget#allocationDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                allocationID: thing.predicates[ALLOCATION_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                budgetID: thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                categoryID: thing.predicates[CATEGORY_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                allocatedAmount: thing.predicates[ALLOCATION_AMOUNT_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                allocationDate: thing.predicates[ALLOCATION_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
                 
             };
         });
@@ -258,7 +259,7 @@ async function updateBudgetCategoryAllocationData(budgetID, newcategoryID, newal
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recordbudgetID = thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbudgetID = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recordbudgetID === budgetID.toString();
         });
 
@@ -272,13 +273,13 @@ async function updateBudgetCategoryAllocationData(budgetID, newcategoryID, newal
         let updatedRecord = recordToUpdate;
 
         if (newallocationDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#allocationDate', newallocationDate);
+            updatedRecord = setStringNoLocale(updatedRecord, ALLOCATION_DATE_IRI, newallocationDate);
         }
         if (newcategoryID) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#categoryID', newcategoryID);
+            updatedRecord = setStringNoLocale(updatedRecord, CATEGORY_ID_IRI, newcategoryID);
         }
         if (newallocatedAmount) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#allocatedAmount', newallocatedAmount);
+            updatedRecord = setStringNoLocale(updatedRecord, ALLOCATION_AMOUNT_IRI, newallocatedAmount);
         }
 
         try {
@@ -315,7 +316,7 @@ async function deleteBudgetCategoryAllocationData(budgetID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recordbudgetID = thing.predicates['https://example.com/budget#budgetID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recordbudgetID = thing.predicates[BUDGET_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recordbudgetID: ${recordbudgetID}, budgetID: ${budgetID}`);
 

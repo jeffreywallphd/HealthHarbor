@@ -164,10 +164,10 @@ async function retrieveFeedbackDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                feedbackID: thing.predicates['https://example.com/budget#feedbackID'],
-                userID: thing.predicates['https://example.com/budget#userID'],
-                details: thing.predicates['https://example.com/budget#details'],
-                reportDate: thing.predicates['https://example.com/budget#reportDate']
+                feedbackID: thing.predicates[FEEDBACK_ID_IRI],
+                userID: thing.predicates[USER_ID_IRI],
+                details: thing.predicates[DETAILS_IRI],
+                reportDate: thing.predicates[REPORT_DATE_IRI]
             };
         });
 
@@ -200,7 +200,7 @@ async function searchFeedbackData(userID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const userIDValue = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const userIDValue = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (userID && userIDValue) {
                 isValid = isValid && userIDValue === userID.toString();
             }
@@ -214,10 +214,10 @@ async function searchFeedbackData(userID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                feedbackID: thing.predicates['https://example.com/budget#feedbackID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                userID: thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                details: thing.predicates['https://example.com/budget#details']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                reportDate: thing.predicates['https://example.com/budget#reportDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                feedbackID: thing.predicates[FEEDBACK_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                userID: thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                details: thing.predicates[DETAILS_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                reportDate: thing.predicates[REPORT_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
 
             };
         });
@@ -254,7 +254,7 @@ async function updateFeedbackData(userID, newdetails, newreportDate) {
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recorduserID = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recorduserID === userID.toString();
         });
 
@@ -268,10 +268,10 @@ async function updateFeedbackData(userID, newdetails, newreportDate) {
         let updatedRecord = recordToUpdate;
 
         if (newreportDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#reportDate', newreportDate);
+            updatedRecord = setStringNoLocale(updatedRecord, REPORT_DATE_IRI, newreportDate);
         }
         if (newdetails) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/budget#details', newdetails);
+            updatedRecord = setStringNoLocale(updatedRecord, DETAILS_IRI, newdetails);
         }
 
         try {
@@ -308,7 +308,7 @@ async function deleteFeedbackData(userID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recorduserID = thing.predicates['https://example.com/budget#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recorduserID: ${recorduserID}, userID: ${userID}`);
 

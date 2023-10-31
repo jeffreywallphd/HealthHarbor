@@ -88,7 +88,6 @@ async function getDefaultPod() {
 };
 
 // Using ontology classes and properties
-const bureau_IRI = "https://example.com/credit#CreditScore";
 const CREDITSCORE_ID_IRI = "https://example.com/credit#scoreID";
 const USER_ID_IRI = "https://example.com/credit#userID";
 const SCORE_IRI = "https://example.com/credit#score";
@@ -167,13 +166,14 @@ async function retrieveCreditScoreDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                scoreID: thing.predicates['https://example.com/credit#scoreID'],
-                userID: thing.predicates['https://example.com/credit#userID'],
-                score: thing.predicates['https://example.com/credit#score'],
-                reportDate: thing.predicates['https://example.com/credit#reportDate'],
-                bureauID: thing.predicates['https://example.com/credit#bureauID']
+                scoreID: thing.predicates[CREDITSCORE_ID_IRI],
+                userID: thing.predicates[USER_ID_IRI],
+                score: thing.predicates[SCORE_IRI],
+                reportDate: thing.predicates[REPORT_DATE_IRI],
+                bureauID: thing.predicates[BUREAU_ID_IRI]
             };
         });
+
 
         // Display the formatted data in a table format
         // console.table(formattedData);
@@ -204,7 +204,7 @@ async function searchCreditScoreData(userID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const userIDValue = thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const userIDValue = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (userID && userIDValue) {
                 isValid = isValid && userIDValue === userID.toString();
             }
@@ -218,11 +218,11 @@ async function searchCreditScoreData(userID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                scoreID: thing.predicates['https://example.com/credit#scoreID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                userID: thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                score: thing.predicates['https://example.com/credit#score']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                reportDate: thing.predicates['https://example.com/credit#reportDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                bureauID: thing.predicates['https://example.com/credit#bureauID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                scoreID: thing.predicates[CREDITSCORE_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                userID: thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                score: thing.predicates[SCORE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                reportDate: thing.predicates[REPORT_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                bureauID: thing.predicates[BUREAU_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
                 
             };
         });
@@ -259,7 +259,7 @@ async function updateCreditScoreData(userID, newscore, newreportDate, newbureauI
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recorduserID = thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recorduserID === userID.toString();
         });
 
@@ -273,14 +273,15 @@ async function updateCreditScoreData(userID, newscore, newreportDate, newbureauI
         let updatedRecord = recordToUpdate;
 
         if (newbureauID) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#bureauID', newbureauID);
+            updatedRecord = setStringNoLocale(updatedRecord, BUREAU_ID_IRI, newbureauID);
         }
         if (newscore) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#score', newscore);
+            updatedRecord = setStringNoLocale(updatedRecord, SCORE_IRI, newscore);
         }
         if (newreportDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#reportDate', newreportDate);
+            updatedRecord = setStringNoLocale(updatedRecord, REPORT_DATE_IRI, newreportDate);
         }
+
 
         try {
             
@@ -316,7 +317,7 @@ async function deleteCreditScoreData(userID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recorduserID = thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recorduserID: ${recorduserID}, userID: ${userID}`);
 

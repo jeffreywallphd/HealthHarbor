@@ -88,10 +88,9 @@ async function getDefaultPod() {
 };
 
 // Using ontology classes and properties
-const bureau_IRI = "https://example.com/credit#CreditInsight";
 const INSIGHT_ID_IRI = "https://example.com/credit#insightID";
 const USER_ID_IRI = "https://example.com/credit#userID";
-const scoreID_IRI = "https://example.com/credit#scoreID";
+const SCORE_ID_IRI = "https://example.com/credit#scoreID";
 const INSIGHT_TEXT_IRI = "https://example.com/credit#insightText";
 const INSIGHT_DATE_IRI = "https://example.com/credit#insightDate";
 
@@ -133,7 +132,7 @@ async function saveCreditInsightData(insightID, userID, scoreID, insightText,ins
 
     record = setStringNoLocale(record, INSIGHT_ID_IRI, insightID);
     record = setStringNoLocale(record, USER_ID_IRI, userID);
-    record = setStringNoLocale(record, scoreID_IRI, scoreID);
+    record = setStringNoLocale(record, SCORE_ID_IRI, scoreID);
     record = setStringNoLocale(record, INSIGHT_TEXT_IRI, insightText);
     record = setStringNoLocale(record, INSIGHT_DATE_IRI, insightDate);
 
@@ -167,14 +166,14 @@ async function retrieveCreditInsightDataAll() {
             return {
                 type: thing.type,
                 url: thing.url,
-                insightID: thing.predicates['https://example.com/credit#insightID'],
-                userID: thing.predicates['https://example.com/credit#userID'],
-                scoreID: thing.predicates['https://example.com/credit#scoreID'],
-                insightText: thing.predicates['https://example.com/credit#insightText'],
-                insightDate: thing.predicates['https://example.com/credit#insightDate']
+                insightID: thing.predicates[INSIGHT_ID_IRI],
+                userID: thing.predicates[USER_ID_IRI],
+                scoreID: thing.predicates[SCORE_ID_IRI],
+                insightText: thing.predicates[INSIGHT_TEXT_IRI],
+                insightDate: thing.predicates[INSIGHT_DATE_IRI]
             };
         });
-
+        
         // Display the formatted data in a table format
         // console.table(formattedData);
 
@@ -204,7 +203,7 @@ async function searchCreditInsightData(userID) {
 
         const filteredData = searchThings.filter(thing => {
             let isValid = true;
-            const userIDValue = thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const userIDValue = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             if (userID && userIDValue) {
                 isValid = isValid && userIDValue === userID.toString();
             }
@@ -218,11 +217,11 @@ async function searchCreditInsightData(userID) {
             return {
                 type: thing.type,
                 url: thing.url,
-                insightID: thing.predicates['https://example.com/credit#insightID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                userID: thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                scoreID: thing.predicates['https://example.com/credit#scoreID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                insightText: thing.predicates['https://example.com/credit#insightText']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
-                insightDate: thing.predicates['https://example.com/credit#insightDate']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
+                insightID: thing.predicates[INSIGHT_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                userID: thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                scoreID: thing.predicates[SCORE_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                insightText: thing.predicates[INSIGHT_TEXT_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0],
+                insightDate: thing.predicates[INSIGHT_DATE_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0]
                 
             };
         });
@@ -259,7 +258,7 @@ async function updateCreditInsightData(userID, newscoreID, newinsightText, newin
 
 
         const recordToUpdate = searchThings.find(thing => {
-            const recorduserID = thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
             return recorduserID === userID.toString();
         });
 
@@ -273,15 +272,16 @@ async function updateCreditInsightData(userID, newscoreID, newinsightText, newin
         let updatedRecord = recordToUpdate;
 
         if (newinsightDate) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#insightDate', newinsightDate);
+            updatedRecord = setStringNoLocale(updatedRecord, INSIGHT_DATE_IRI, newinsightDate);
         }
         if (newscoreID) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#scoreID', newscoreID);
+            updatedRecord = setStringNoLocale(updatedRecord, SCORE_ID_IRI, newscoreID);
         }
         if (newinsightText) {
-            updatedRecord = setStringNoLocale(updatedRecord, 'https://example.com/credit#insightText', newinsightText);
+            updatedRecord = setStringNoLocale(updatedRecord, INSIGHT_TEXT_IRI, newinsightText);
         }
 
+        
         try {
             
             dataset = setThing(dataset, updatedRecord);
@@ -316,7 +316,7 @@ async function deleteCreditInsightData(userID) {
         let dataset = await getSolidDataset(datasetUrl, { fetch: session.fetch });
 
         const recordToDelete = getThingAll(dataset).find(thing => {
-            const recorduserID = thing.predicates['https://example.com/credit#userID']?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
+            const recorduserID = thing.predicates[USER_ID_IRI]?.literals["http://www.w3.org/2001/XMLSchema#string"]?.[0];
 
             //console.log(`recorduserID: ${recorduserID}, userID: ${userID}`);
 
