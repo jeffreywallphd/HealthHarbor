@@ -1,0 +1,431 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+@prefix mwg: <https://jeffreywallphd.github.io/vocab/mwg.ttl#> .
+
+
+mwg: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-11" ;
+    dcterms:title "Mental Wellness General Vocabulary" ;
+    dcterms:description "Vocabulary for describing an individual who engages in physical activity"@en ;
+    vann:preferredNamespacePrefix "mwg" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/mwg.ttl#" .
+
+# Classes
+mwg:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A person using the app" ;
+    rdfs:subClassOf vcard:Individual .
+
+mwg:Dashboard rdf:type rdfs:Class ;
+    rdfs:label "Dashboard" ;
+    rdfs:comment "Central interface for user to manage all habits and trends" .
+
+mwg:Habit rdf:type rdfs:Class ;
+    rdfs:label "Habit" ;
+    rdfs:comment "Specific behavior the user wants to monitor or change" .
+
+mwg:HabitRecord rdf:type rdfs:Class ;
+    rdfs:label "HabitRecord" ;
+    rdfs:comment "Specific instances or logs of when the user performs the habit" .
+
+mwg:Reminder rdf:type rdfs:Class ;
+    rdfs:label "HabitRecord" ;
+    rdfs:comment "Notifications that help the user remember to perform or log a habit" .
+
+mwg:HabitTrend rdf:type rdfs:Class ;
+    rdfs:label "HabitTrend" ;
+    rdfs:comment "Analysis or visualization showing the user's progress over time" .
+
+mwg:Goal rdf:type rdfs:Class ;
+    rdfs:label "Goal" ;
+    rdfs:comment "A specific target or milestone user wants to achieve related to a habit" .
+
+mwg:Session rdf:type rdfs:Class ;
+    rdfs:label "Session" ;
+    rdfs:comment "Current session where the chat is taking place" .
+
+mwg:AIAPI rdf:type rdfs:Class ;
+    rdfs:label "AIAPI" ;
+    rdfs:comment "Open AI API from which the chatbot is sending the requests" .
+
+mwg:Prompt rdf:type rdfs:Class ;
+    rdfs:label "Prompt" ;
+    rdfs:comment "Message the user sends to the chatbot" .
+
+mwg:Response rdf:type rdfs:Class ;
+    rdfs:label "Response" ;
+    rdfs:comment "The response the chatbot returns to the user" .
+
+mwg:Resource rdf:type rdfs:Class ;
+    rdfs:label "Resource" ;
+    rdfs:comment "Resources available for the chatbot to use or provide the user with" .
+
+
+
+# Properties
+    # User properties
+mwg:UserID rdf:type rdfs:Property ;
+    rdfs:label "User's ID" ;
+    rdfs:comment "The ID of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:integer) .
+
+mwg:Username rdf:type rdfs:Property ;
+    rdfs:label "User's username" ;
+    rdfs:comment "The username of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:string) .
+
+mwg:Password rdf:type rdfs:Property ;
+    rdfs:label "User's password" ;
+    rdfs:comment "The password of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:string) .
+
+mwg:Name rdf:type rdfs:Property ;
+    rdfs:label "User's Name" ;
+    rdfs:comment "The name of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:string) .
+
+mwg:Weight rdf:type rdfs:Property ;
+    rdfs:label "User's Weight" ;
+    rdfs:comment "The Weight of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:float) .
+
+mwg:Height rdf:type rdfs:Property ;
+    rdfs:label "User's height" ;
+    rdfs:comment "The height of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:float) .
+
+mwg:List rdf:type rdfs:Property ;              
+    rdfs:label "List" ;
+    rdfs:comment "The list of habits that are associated with the user" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:String) .
+
+
+    # Resource properties
+mwg:ResourceID rdf:type rdfs:Property ;
+    rdfs:label "Session ID" ;
+    rdfs:comment "ID of chat #Resource" ;
+    rdfs:domain (mwg:Resource) ;
+    rdfs:range (xsd:integer) .
+
+mwg:Link rdf:type rdfs:Property ;
+    rdfs:label "Link" ;
+    rdfs:comment "Link to #Resource" ;
+    rdfs:domain (mwg:Resource) ;
+    rdfs:range (xsd:string) .
+
+mwg:KnowledgeBase rdf:type rdfs:Property ;
+    rdfs:label "Knowledge Base" ;
+    rdfs:comment "Set of information associated with the #Resource" ;
+    rdfs:domain (mwg:Resource) ;
+    rdfs:range (xsd:database) .
+
+
+    # Session
+mwg:SessionID rdf:type rdfs:Property ;
+    rdfs:label "Session ID" ;
+    rdfs:comment "ID for the chat #Session" ;
+    rdfs:domain (mwg:Session) ;
+    rdfs:range (xsd:integer) .
+
+mwg:StartTime rdf:type rdfs:Property ;
+    rdfs:label "Start Time" ;
+    rdfs:comment "Start time of the chat #Session" ;
+    rdfs:domain (mwg:Session) ;
+    rdfs:range (xsd:TimeStamp) .
+
+mwg:EndTime rdf:type rdfs:Property ;
+    rdfs:label "End Time" ;
+    rdfs:comment "End time of the chat #Session" ;
+    rdfs:domain (mwg:Session) ;
+    rdfs:range (xsd:TimeStamp) .
+
+
+    # AI API
+mwg:APIKey rdf:type rdfs:Property ;
+    rdfs:label "API Key" ;
+    rdfs:comment "Key for the #AIAPI" ;
+    rdfs:domain (mwg:AIAPI) ;
+    rdfs:range (xsd:integer) .
+
+mwg:Model rdf:type rdfs:Property ;
+    rdfs:label "Model" ;
+    rdfs:comment "Model used by the #AIAPI" ;
+    rdfs:domain (mwg:AIAPI) ;
+    rdfs:range (xsd:????) .
+
+mwg:APIInstructions rdf:type rdfs:Property ;
+    rdfs:label "API Instructions" ;
+    rdfs:comment "A message given to the #AIAPI specifying in what way to behave (ie. like a therapist)" ;
+    rdfs:domain (mwg:AIAPI) ;
+    rdfs:range (xsd:string) .
+	
+
+    # Prompt
+mwg:PromptID rdf:type rdfs:Property ;
+    rdfs:label "Prompt ID" ;
+    rdfs:comment "ID for the #Prompt" ;
+    rdfs:domain (mwg:Prompt) ;
+    rdfs:range (xsd:integer) .
+
+mwg:TimeStamp rdf:type rdfs:Property ;
+    rdfs:label "Time Stamp" ;
+    rdfs:comment "When the #Prompt was sent" ;
+    rdfs:domain (mwg:Prompt) ;
+    rdfs:range (xsd:TimeStamp) .
+
+mwg:PromptContext rdf:type rdfs:Property ;
+    rdfs:label "Prompt Context" ;
+    rdfs:comment "the content of the #Prompt (what the message says)" ;
+    rdfs:domain (mwg:Prompt) ;
+    rdfs:range (xsd:string) .
+	
+
+    # Response
+mwg:ResponseID rdf:type rdfs:Property ;
+    rdfs:label "Response ID" ;
+    rdfs:comment "Id for the #Response" ;
+    rdfs:domain (mwg:Response) ;
+    rdfs:range (xsd:integer) .
+
+mwg:TimeStamp rdf:type rdfs:Property ;
+    rdfs:label "Time Stamp" ;
+    rdfs:comment "When the #Response was recieved" ;
+    rdfs:domain (mwg:Response) ;
+    rdfs:range (xsd:TimeStamp) .
+
+mwg:ResponseContent rdf:type rdfs:Property ;
+    rdfs:label "Response Content" ;
+    rdfs:comment "The content of the #Response (what the message says)" ;
+    rdfs:domain (mwg:Response) ;
+    rdfs:range (xsd:string) .
+	
+	
+    # Habit properties
+mwg:HabitID rdf:type rdfs:Property ;
+    rdfs:label "Habit ID" ;
+    rdfs:comment "Identifier for the #Habit" ;
+    rdfs:domain (mwg:Habit) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:UserID rdf:type rdfs:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Identifier for the user of #Habit" ;
+    rdfs:domain (mwg:Habit) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:HabitName rdf:type rdfs:Property ;
+    rdfs:label "Habit Name" ;
+    rdfs:comment "Name of the #Habit" ;
+    rdfs:domain (mwg:Habit) ;
+    rdfs:range (xsd:String) .
+	
+mwg:Description rdf:type rdfs:Property ;
+    rdfs:label "Description" ;
+    rdfs:comment "Description of the #Habit" ;
+    rdfs:domain (mwg:Habit) ;
+    rdfs:range (xsd:String) .
+
+mwg:Unit rdf:type rdfs:Property ;
+    rdfs:label "Unit" ;
+    rdfs:comment "Measurement unit for the #Habit" ;
+    rdfs:domain (mwg:Habit) ;
+    rdfs:range (xsd:String) .
+	
+mwg:Priority rdf:type rdfs:Property ;
+    rdfs:label "Priority" ;
+    rdfs:comment "Priority level of the #Habit" ;
+    rdfs:domain (mwg:Habit) ;
+    rdfs:range (xsd:String) .
+	
+	
+    # Habit Record Properties
+mwg:RecordID rdf:type rdfs:Property ;
+    rdfs:label "Record ID" ;
+    rdfs:comment "Identifier for #Habit record" ;
+    rdfs:domain (mwg:HabitRecord) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:HabitID rdf:type rdfs:Property ;
+    rdfs:label "Habit ID" ;
+    rdfs:comment "Identifier for linked #Habit" ;
+    rdfs:domain (mwg:HabitRecord) ;
+    rdfs:range (xsd:Numeric) .
+
+mwg:Status rdf:type rdfs:Property ;
+    rdfs:label "Status" ;
+    rdfs:comment "Current status of the #Habit for that record" ;
+    rdfs:domain (mwg:HabitRecord) ;
+    rdfs:range (xsd:String) .	
+	
+mwg:Date rdf:type rdfs:Property ;
+    rdfs:label "Date" ;
+    rdfs:comment "Date of the #Habit record" ;
+    rdfs:domain (mwg:HabitRecord) ;
+    rdfs:range (xsd:String) .	
+	
+
+    # Habit Trend Properties
+mwg:RecordID rdf:type rdfs:Property ;
+    rdfs:label "Record ID" ;
+    rdfs:comment "Identifier for the #Habit trend" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:Numeric) .	
+	
+mwg:HabitID rdf:type rdfs:Property ;
+    rdfs:label "Habit ID" ;
+    rdfs:comment "Identifier for the linked #Habit" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:Numeric) .	
+
+mwg:StatusCount rdf:type rdfs:Property ;
+    rdfs:label "Status Count" ;
+    rdfs:comment "Number of times a #Habit was in a particular status" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:Numeric) .	
+
+mwg:Frequency rdf:type rdfs:Property ;
+    rdfs:label "Frequency" ;
+    rdfs:comment "Frequency of the #Habit's occurrence" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:String) .
+
+mwg:TrendType rdf:type rdfs:Property ;
+    rdfs:label "Trend Type" ;
+    rdfs:comment "The direction of the #Habit's trend (e.g.,improving, worsening)" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:String) .
+	
+mwg:StartDate rdf:type rdfs:Property ;
+    rdfs:label "Start Date" ;
+    rdfs:comment "Start date of the #Habit trend analysis" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:String) .
+	
+mwg:EndDate rdf:type rdfs:Property ;
+    rdfs:label "End Date" ;
+    rdfs:comment "End date of the #Habit trend analysis" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:String) .
+
+mwg:Duration rdf:type rdfs:Property ;
+    rdfs:label "Duration" ;
+    rdfs:comment "Duration of the #Habit trend" ;
+    rdfs:domain (mwg:HabitTrend) ;
+    rdfs:range (xsd:Days) .
+    
+	
+    # Reminder Properties
+mwg:ReminderID rdf:type rdfs:Property ;
+    rdfs:label "Reminder ID" ;
+    rdfs:comment "Identifier for the #Reminder" ;
+    rdfs:domain (mwg:Reminder) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:ReminderType rdf:type rdfs:Property ;
+    rdfs:label "Reminder Type" ;
+    rdfs:comment "Type of the #Reminder" ;
+    rdfs:domain (mwg:Reminder) ;
+    rdfs:range (xsd:String) .
+	
+mwg:HabitID rdf:type rdfs:Property ;
+    rdfs:label "Habit ID" ;
+    rdfs:comment "Identifier for the linked #Habit" ;
+    rdfs:domain (mwg:Reminder) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:Frequency rdf:type rdfs:Property ;
+    rdfs:label "Frequency" ;
+    rdfs:comment "How often the #Reminder should be sent" ;
+    rdfs:domain (mwg:Reminder) ;
+    rdfs:range (xsd:String) .
+	
+mwg:Sound rdf:type rdfs:Property ;
+    rdfs:label "Sound" ;
+    rdfs:comment "Sound of the #Reminder notification" ;
+    rdfs:domain (mwg:Reminder) ;
+    rdfs:range (xsd:String) .
+	
+	
+    # Dashboard Properties
+mwg:SummaryHabit rdf:type rdfs:Property ;
+    rdfs:label "Summary Habit" ;
+    rdfs:comment "Overview of the user's habits #Dashboard" ;
+    rdfs:domain (mwg:Dashboard) ;
+    rdfs:range (xsd:String) .
+
+mwg:TopHabit rdf:type rdfs:Property ;
+    rdfs:label "Top Habit" ;
+    rdfs:comment "The most frequently completed habit #Dashboard" ;
+    rdfs:domain (mwg:Dashboard) ;
+    rdfs:range (xsd:String) .
+	
+mwg:MostRecent rdf:type rdfs:Property ;
+    rdfs:label "Most Recent" ;
+    rdfs:comment "The most recently tracked habit #Dashboard" ;
+    rdfs:domain (mwg:Dashboard) ;
+    rdfs:range (xsd:String) .
+	
+mwg:HabitSuccessPercentage rdf:type rdfs:Property ;
+    rdfs:label "Habit Success Percentage" ;
+    rdfs:comment "Percentage of successfully completed habits #Dashboard" ;
+    rdfs:domain (mwg:Dashboard) ;
+    rdfs:range (xsd:%) .
+	
+mwg:TrendGraph rdf:type rdfs:Property ;
+    rdfs:label "Trend Graph" ;
+    rdfs:comment "Graphical representation of habit trends #Dashboard" ;
+    rdfs:domain (mwg:Dashboard) ;
+    rdfs:range (xsd:String) .
+	
+
+    # Goal Properties
+mwg:UserID rdf:type rdfs:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Identifier for the user setting the #Goal" ;
+    rdfs:domain (mwg:Goal) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:HabitID rdf:type rdfs:Property ;
+    rdfs:label "Habit ID" ;
+    rdfs:comment "Identifier for the linked habit in the #Goal" ;
+    rdfs:domain (mwg:Goal) ;
+    rdfs:range (xsd:Numeric) .
+	
+mwg:Frequency rdf:type rdfs:Property ;
+    rdfs:label "Frequency" ;
+    rdfs:comment "How often the user aims to complete the habit #Goal" ;
+    rdfs:domain (mwg:Goal) ;
+    rdfs:range (xsd:String) .
+	
+mwg:Status rdf:type rdfs:Property ;
+    rdfs:label "Status" ;
+    rdfs:comment "Current status of the user's progress on the #Goal" ;
+    rdfs:domain (mwg:Goal) ;
+    rdfs:range (xsd:String) .
+	
+mwg:Start Date rdf:type rdfs:Property ;
+    rdfs:label "Start Date" ;
+    rdfs:comment "Start date of the #Goal" ;
+    rdfs:domain (mwg:Goal) ;
+    rdfs:range (xsd:String) .
+	
+mwg:End Date rdf:type rdfs:Property ;
+    rdfs:label "End Date" ;
+    rdfs:comment "Targeted completion date of the #Goal" ;
+    rdfs:domain (mwg:Goal) ;
+    rdfs:range (xsd:String) .
+	
