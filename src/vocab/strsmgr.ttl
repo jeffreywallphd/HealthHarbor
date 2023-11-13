@@ -1,0 +1,147 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+
+@prefix strsmgt: <https://jeffreywallphd.github.io/vocab/strsmgt.ttl#> .
+@prefix athl: <https://jeffreywallphd.github.io/vocab/athl.ttl#> .
+
+#Stress Management feature -- looks at the cause, description of mental stress and techniques to deal with them
+
+#TODO: change the name of this vocabulary to fitp for fitness program
+strsmgt: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Sam D." ;
+    dcterms:date "2023-11-03" ;
+    dcterms:title "Mental Stress Management Vocabulary" ;
+    dcterms:description "A vocabulary for describing mental stress and techniques to deal with them"@en ;
+    vann:preferredNamespacePrefix "strsmgt" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/strsmgt.ttl#" .
+
+
+### Classes & Properties
+
+## Classes
+strsmgt:StressHistory rdf:type rdfs:Class ;
+    rdfs:label "StressHistory" ;
+    rdfs:comment "Historic account of the mental engagements of the Athlete" ; 
+
+strsmgt:StressType rdf:type rdfs:Class ;
+    rdfs:label "StressType" ;
+    rdfs:comment "Type of stress" ; 
+
+strsmgt:Symptom rdf:type rdfs:Class ;
+    rdfs:label "Symptom" ;
+    rdfs:comment "Symptom of stress ex. headache, short-breath" ; 
+
+
+# StressHistory Properties from ERD
+# ------------------------
+##ID:int
+##PERS_ID:int
+##STRES_TYPE_ID:int
+##SYMP_CODE:string
+##DATE_OCCUR:datetime
+##IS_NEG_IMPCT:bit
+##STRESS_SCORE:int
+# ------------------------
+# StressHistory Properties
+strsmgt:Id rdf:type rdfs:Property ;
+    rdfs:label "Id" ;
+    rdfs:comment "Identifier for the Stress history class: auto generated, natural numbers" ;
+    rdfs:domain (strsmgt:StressHistory) ;
+    rdfs:range (xsd:integer) .
+
+strsmgt:AthId rdf:type rdfs:Property ;
+    rdfs:label "Athlete Id" ;
+    rdfs:comment "Person whose stress is to be managed" ;
+    rdfs:domain (fitp:Athlete) ;
+    rdfs:range (xsd:integer) .
+
+strsmgt:StressTypeId rdf:type rdfs:Property ;
+    rdfs:label "Stress Type Id" ;
+    rdfs:comment "The type of stress to categorize" ;
+    rdfs:domain (strsmgt:StressType) ;
+    rdfs:range (xsd:integer) .
+
+strsmgt:SympCode rdf:type rdfs:Property ;
+    rdfs:label "Symptom Code" ;
+    rdfs:comment "Stress symptom code" ;
+    rdfs:domain (strsmgt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+strsmgt:DateOccur rdf:type rdfs:Property ;
+    rdfs:label "Date Occured" ;
+    rdfs:comment "Date for stress history or date recorded" ; 
+    rdfs:domain (strsmgt:StressHistory) ;
+    rdfs:range (xsd:dateTime) .
+
+strsmgt:IsNegImpct rdf:type rdfs:Property ;
+    rdfs:label "Is Negative Impact" ;
+    rdfs:comment "Is the stress impact negative or positive--yes/no" ; 
+    rdfs:domain (strsmgt:StressHistory) ;
+    rdfs:range (xsd:bool) .
+
+strsmgt:StreScore rdf:type rdfs:Property ;
+    rdfs:label "Stress Score out of 10" ;
+    rdfs:comment "Stress score to measure the rating of the stress" ; 
+    rdfs:domain (strsmgt:StressHistory) ;
+    rdfs:range (xsd:integer) .
+
+
+# Symptom Properties from ERD
+# ------------------------ 
+##SYMP_CODE:string
+##SYMP:string
+##CATEGORY:string
+# ------------------------
+strsmgt:SympCode rdf:type rdfs:Property ;
+    rdfs:label "SympCode" ;
+    rdfs:comment "Category of symptoms" ; 
+    rdfs:domain (strsmgt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+strsmgt:Symp rdf:type rdfs:Property ;
+    rdfs:label "Symp" ;
+    rdfs:comment "Category description" ; 
+    rdfs:domain (strsmgt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+strsmgt:Category rdf:type rdfs:Property ;
+    rdfs:label "Category" ;
+    rdfs:comment "Category of symptoms" ; 
+    rdfs:domain (strsmgt:Symptom) ;
+    rdfs:range (xsd:string) .
+    
+
+
+
+# StressType Properties from ERD
+# ------------------------ 
+##ID:int
+##STRESS_NAME:string
+##CATEGORY:string
+# ------------------------
+# StressType Properties
+strsmgt:Id rdf:type rdfs:Property ;
+    rdfs:label "Id" ;
+    rdfs:comment "Stress Type Id" ; 
+    rdfs:domain (strsmgt:StressType) ;
+    rdfs:range (xsd:integer) .
+
+strsmgt:StressName rdf:type rdfs:Property ;
+    rdfs:label "Stress [Type] Name" ;
+    rdfs:comment "Stress type description" ; 
+    rdfs:domain (strsmgt:StressType) ;
+    rdfs:range (xsd:string) .
+
+strsmgt:Category rdf:type rdfs:Property ;
+    rdfs:label "Category" ;
+    rdfs:comment "Category of stress stype" ; 
+    rdfs:domain (strsmgt:StressType) ;
+    rdfs:range (xsd:string) .
+
+    
