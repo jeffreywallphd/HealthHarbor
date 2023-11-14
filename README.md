@@ -1,5 +1,5 @@
 # PersonalWellnessPod
-A Solid Pod designed to store information about personal wellness along several personal wellness dimensions
+A Solid Pod application designed to store information about personal wellness along several personal wellness dimensions
 
 ### No Warranty
 This software is provided "as is" without any warranty of any kind, express or implied. This includes, but is not limited to, the warranties of merchantability, fitness for a particular purpose, and non-infringement.
