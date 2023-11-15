@@ -16,3 +16,8 @@ To begin contributing to the repository:
 * run npm start to launch the application
 
 
+### Future Feature Ideas
+The following are some ideas for future implementation:
+
+* Electron implementation to allow for a desktop application.
+* Rechart implementation for data visualization
