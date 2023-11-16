@@ -13,7 +13,7 @@ mwg: a owl:Ontology ;
     dcterms:creator "Jeffrey Wall" ;
     dcterms:date "2023-10-11" ;
     dcterms:title "Mental Wellness General Vocabulary" ;
-    dcterms:description "Vocabulary for describing an individual who engages in physical activity"@en ;
+    dcterms:description "Vocabulary for describing an individual concerned with their mental wellness"@en ;
     vann:preferredNamespacePrefix "mwg" ;
     vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/mwg.ttl#" .
 
@@ -67,7 +67,13 @@ mwg:Resource rdf:type rdfs:Class ;
     rdfs:label "Resource" ;
     rdfs:comment "Resources available for the chatbot to use or provide the user with" .
 
+mwg:CounselingCenter rdf:type rdfs:Class ;
+    rdfs:label "CounselingCenter" ;
+    rdfs:comment "Facility where the user can seek counseling services" .
 
+mwg:HealthcareProvider rdf:type rdfs:Class ;
+    rdfs:label "HealthcareProvider" ;
+    rdfs:comment "Professional that is trained in dealing with mental wellness and can provide help for user" .
 
 # Properties
     # User properties
@@ -213,7 +219,101 @@ mwg:ResponseContent rdf:type rdfs:Property ;
     rdfs:domain (mwg:Response) ;
     rdfs:range (xsd:string) .
 	
+
+    # CounselingCenter properties
+mwg:CenterID rdf:type rdfs:Property ;
+    rdfs:label "Center's ID" ;
+    rdfs:comment "Unique identifier for each #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:integer) .
 	
+mwg:Name rdf:type rdfs:Property ;
+    rdfs:label "Name" ;
+    rdfs:comment "Name of each #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:String) .
+
+mwg:Location rdf:type rdfs:Property ;
+    rdfs:label "Location" ;
+    rdfs:comment "Coordinates to the address of the #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:String) .
+
+mwg:ServicesOffered rdf:type rdfs:Property ;
+    rdfs:label "Services Offered" ;
+    rdfs:comment "Coordinates to the address of the #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:String) .
+
+mwg:PhoneNumber rdf:type rdfs:Property ;
+    rdfs:label "Phone Number" ;
+    rdfs:comment "Phone number available to contact the #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:Integer) .
+
+mwg:Email rdf:type rdfs:Property ;
+    rdfs:label "Email" ;
+    rdfs:comment "Email available to contact the #Counslineg center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:String) .
+
+mwg:OperatingHours rdf:type rdfs:Property ;
+    rdfs:label "Operating Hours" ;
+    rdfs:comment "The business or working hours of the #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:String) .
+
+mwg:OperatingHours rdf:type rdfs:Property ;
+    rdfs:label "Operating Hours" ;
+    rdfs:comment "The business or working hours of the #Counseling center" ;
+    rdfs:domain (mwg:CounselingCenter) ;
+    rdfs:range (xsd:String) .
+
+
+    # HealthcareProvider properties
+mwg:ProviderID rdf:type rdfs:Property ;
+    rdfs:label "Provider's ID" ;
+    rdfs:comment "Unique identifier for each #Healthcare Provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:integer) .
+
+mwg:ProviderID rdf:type rdfs:Property ;
+    rdfs:label "Provider's ID" ;
+    rdfs:comment "Unique identifier for each #Healthcare Provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:integer) .
+
+mwg:Name rdf:type rdfs:Property ;
+    rdfs:label "Name" ;
+    rdfs:comment "Name of each #Healthcare provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:String) .
+
+mwg:Specialization rdf:type rdfs:Property ;
+    rdfs:label "Specialization" ;
+    rdfs:comment "The area of advanced training and expertise for the #Healthcare Provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:String) .
+
+mwg:PhoneNumber rdf:type rdfs:Property ;
+    rdfs:label "Phone number" ;
+    rdfs:comment "Phone number available to contact the #Healthcare provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:Integer) .    
+  
+mwg:PhoneNumber rdf:type rdfs:Property ;
+    rdfs:label "Phone number" ;
+    rdfs:comment "Phone number available to contact the #Healthcare provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:Integer) .    
+
+    mwg:Email rdf:type rdfs:Property ;
+    rdfs:label "Email" ;
+    rdfs:comment "Email available to contact the #Healthcare provider" ;
+    rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:String) .    
+
+
     # Habit properties
 mwg:HabitID rdf:type rdfs:Property ;
     rdfs:label "Habit ID" ;
