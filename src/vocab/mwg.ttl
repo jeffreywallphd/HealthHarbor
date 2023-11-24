@@ -259,7 +259,7 @@ mwg:Email rdf:type rdfs:Property ;
 
 mwg:OperatingHours rdf:type rdfs:Property ;
     rdfs:label "Operating Hours" ;
-    rdfs:comment "The business or working hours of the #Counseling center" ;
+    rdfs:comment "The working hours of the #Counseling center" ;
     rdfs:domain (mwg:CounselingCenter) ;
     rdfs:range (xsd:String) .
 
