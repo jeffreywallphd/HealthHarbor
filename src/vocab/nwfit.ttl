@@ -1,0 +1,399 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+@prefix mwg: <https://jeffreywallphd.github.io/vocab/nwfit.ttl#> .
+
+
+nwfit: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-11" ;
+    dcterms:title "Calorie Tracking Fitness General Vocabulary" ;
+    dcterms:description "Vocabulary for describing calorie tracking"@en ;
+    vann:preferredNamespacePrefix "nwfit" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/nwfit.ttl#" .
+
+# Classes
+nwfit:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A person using the app" ;
+    rdfs:subClassOf vcard:Individual .
+
+nwfit:Food rdf:type rdfs:Class ;
+    rdfs:label "Food" ;
+    rdfs:comment "Describes the name of the food item and other paramters" .
+
+nwfit:Meal rdf:type rdfs:Class ;
+    rdfs:label "Meal" ;
+    rdfs:comment "Consumption of a meal" .
+
+nwfit:FoodEntry rdf:type rdfs:Class ;
+    rdfs:label "FoodEntry" ;
+    rdfs:comment "Contains the food consumed by user" .
+
+nwfit:Exercise rdf:type rdfs:Class ;
+    rdfs:label "Exercise" ;
+    rdfs:comment "Contains exercise name, exercise date and time" .
+
+nwfit:ExerciseEntry rdf:type rdfs:Class ;
+    rdfs:label "ExerciseEntry" ;
+    rdfs:comment "Contains time, duration and calories burned by doing exercise" .
+
+nwfit:Goal rdf:type rdfs:Class ;
+    rdfs:label "Goal" ;
+    rdfs:comment "A specific target or milestone user wants to achieve related to calorie tracking" .
+
+nwfit:History rdf:type rdfs:Class ;
+    rdfs:label "History" ;
+    rdfs:comment "History of user's health regarding nutrition wellness" .
+
+# Properties
+    # User properties
+nwfit:userId rdf:type rdfs:Property ;
+    rdfs:label "userId" ;
+    rdfs:comment "The ID of the #User" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:integer) .
+
+nwfit:userName rdf:type rdfs:Property ;
+    rdfs:label "userName" ;
+    rdfs:comment "The username of the #User" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:password rdf:type rdfs:Property ;
+    rdfs:label "password" ;
+    rdfs:comment "The password of the #User" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:firstName rdf:type rdfs:Property ;
+    rdfs:label "firstName" ;
+    rdfs:comment "The firstname of the #User" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:lastName rdf:type rdfs:Property ;
+    rdfs:label "lastName" ;
+    rdfs:comment "The lastName of the #User" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:email rdf:type rdfs:Property ;
+    rdfs:label "email" ;
+    rdfs:comment "Email address of the #User" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:dob rdf:type rdfs:Property ;              
+    rdfs:label "dob" ;
+    rdfs:comment "Date of Birth of the user" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:date) .
+
+nwfit:gender rdf:type rdfs:Property ;              
+    rdfs:label "gender" ;
+    rdfs:comment "Gender of the user" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:weight rdf:type rdfs:Property ;              
+    rdfs:label "weight" ;
+    rdfs:comment "Weight of the user" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:int) .
+
+nwfit:height rdf:type rdfs:Property ;              
+    rdfs:label "height" ;
+    rdfs:comment "Height of the user" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:int) .
+
+nwfit:activityLevel rdf:type rdfs:Property ;              
+    rdfs:label "activityLevel" ;
+    rdfs:comment "Activity Level of the user (low, medium, high)" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:string) .
+
+nwfit:targetCalories rdf:type rdfs:Property ;              
+    rdfs:label "targetCalories" ;
+    rdfs:comment "Number of calories targeted for the user" ;
+    rdfs:domain (nwfit:User) ;
+    rdfs:range (xsd:int) .
+
+
+    # Food properties
+nwfit:foodId rdf:type rdfs:Property ;
+    rdfs:label "foodId" ;
+    rdfs:comment "ID of Food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:int) .
+
+nwfit:foodName rdf:type rdfs:Property ;
+    rdfs:label "foodName" ;
+    rdfs:comment "Name of Food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:string) .
+
+nwfit:caloriePer100g rdf:type rdfs:Property ;
+    rdfs:label "caloriePer100g" ;
+    rdfs:comment "Number of calorie in 100g of a food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:float) .
+
+nwfit:carbohydrates rdf:type rdfs:Property ;
+    rdfs:label "carbohydrates" ;
+    rdfs:comment "Amount of carbohydrates in food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:float) .
+
+nwfit:protein rdf:type rdfs:Property ;
+    rdfs:label "protein" ;
+    rdfs:comment "Amount of protein in food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:float) .
+
+nwfit:fats rdf:type rdfs:Property ;
+    rdfs:label "fats" ;
+    rdfs:comment "Amount of fat in food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:float) .
+
+nwfit:fibers rdf:type rdfs:Property ;
+    rdfs:label "fibers" ;
+    rdfs:comment "Amount of fiber in food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:float) .
+
+nwfit:servingSize rdf:type rdfs:Property ;
+    rdfs:label "servingSize" ;
+    rdfs:comment "Serving size of a food item" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:float) .
+
+nwfit:category rdf:type rdfs:Property ;
+    rdfs:label "category" ;
+    rdfs:comment "Category of Food item (Fruit/vegetable)" ;
+    rdfs:domain (nwfit:food) ;
+    rdfs:range (xsd:string) .
+
+    #Meal
+nwfit:mealId rdf:type rdfs:Property ;
+    rdfs:label "mealId" ;
+    rdfs:comment "Meal id" ;
+    rdfs:domain (nwfit:meal) ;
+    rdfs:range (xsd:int) .
+
+nwfit:mealName rdf:type rdfs:Property ;
+    rdfs:label "mealName" ;
+    rdfs:comment "Name of the meal" ;
+    rdfs:domain (nwfit:meal) ;
+    rdfs:range (xsd:string) .
+
+nwfit:date rdf:type rdfs:Property ;
+    rdfs:label "date" ;
+    rdfs:comment "Date of consumption of meal" ;
+    rdfs:domain (nwfit:meal) ;
+    rdfs:range (xsd:date) .
+
+nwfit:time rdf:type rdfs:Property ;
+    rdfs:label "time" ;
+    rdfs:comment "Time of consumption of meal" ;
+    rdfs:domain (nwfit:meal) ;
+    rdfs:range (xsd:date) .
+
+nwfit:totalCalorie rdf:type rdfs:Property ;
+    rdfs:label "totalCalorie" ;
+    rdfs:comment "Total calorie of meal" ;
+    rdfs:domain (nwfit:meal) ;
+    rdfs:range (xsd:float) .
+
+nwfit:userId rdf:type rdfs:Property ;
+    rdfs:label "userId" ;
+    rdfs:comment "Id of user" ;
+    rdfs:domain (nwfit:meal) ;
+    rdfs:range (xsd:int) .
+    
+    # Food Entry
+nwfit:entryId rdf:type rdfs:Property ;
+    rdfs:label "entryId" ;
+    rdfs:comment "Entry ID of food item" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:int) .
+
+nwfit:foodId rdf:type rdfs:Property ;
+    rdfs:label "userId" ;
+    rdfs:comment "ID of user for Food entry" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:int) .
+
+nwfit:mealId rdf:type rdfs:Property ;
+    rdfs:label "mealId" ;
+    rdfs:comment "ID of food" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:int) .
+
+nwfit:servingSize rdf:type rdfs:Property ;
+    rdfs:label "servingSize" ;
+    rdfs:comment "Size or portion of food" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:float) .
+
+nwfit:consumedDate rdf:type rdfs:Property ;
+    rdfs:label "consumedDate" ;
+    rdfs:comment "consumption Date of Food" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:date) .
+
+nwfit:consumedTime rdf:type rdfs:Property ;
+    rdfs:label "consumedTime" ;
+    rdfs:comment "consumption Time of food" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:date) .
+
+nwfit:consumedCalories rdf:type rdfs:Property ;
+    rdfs:label "consumedCalories" ;
+    rdfs:comment "Calories consumed" ;
+    rdfs:domain (nwfit:FoodEntry) ;
+    rdfs:range (xsd:float) .
+
+  #Exercise Properties
+nwfit:exerciseId rdf:type rdfs:Property ;
+    rdfs:label "exerciseId" ;
+    rdfs:comment "ID of an exercise" ;
+    rdfs:domain (nwfit:Exercise) ;
+    rdfs:range (xsd:int) .
+
+nwfit:exerciseName rdf:type rdfs:Property ;
+    rdfs:label "exerciseName" ;
+    rdfs:comment "Name of an exercise" ;
+    rdfs:domain (nwfit:Exercise) ;
+    rdfs:range (xsd:string) .
+
+nwfit:caloriesBurnedPerhour rdf:type rdfs:Property ;
+    rdfs:label "caloriesBurnedPerHour" ;
+    rdfs:comment "Amount of calories burned during an exercise" ;
+    rdfs:domain (nwfit:Exercise) ;
+    rdfs:range (xsd:float) .
+
+nwfit:category rdf:type rdfs:Property ;
+    rdfs:label "category" ;
+    rdfs:comment "Type or category of an exercise (strnegth/cardio)" ;
+    rdfs:domain (nwfit:Exercise) ;
+    rdfs:range (xsd:string) .
+
+  #Exercise Entry Properties
+nwfit:entryId rdf:type rdfs:Property ;
+    rdfs:label "entryId" ;
+    rdfs:comment "Entry ID of an exercise" ;
+    rdfs:domain (nwfit:ExerciseEntry) ;
+    rdfs:range (xsd:int) .
+
+nwfit:exerciseId rdf:type rdfs:Property ;
+    rdfs:label "exerciseId" ;
+    rdfs:comment "ID of an exercise" ;
+    rdfs:domain (nwfit:ExerciseEntry) ;
+    rdfs:range (xsd:int) .
+
+nwfit:userId rdf:type rdfs:Property ;
+    rdfs:label "userId" ;
+    rdfs:comment "User ID for an exercise" ;
+    rdfs:domain (nwfit:ExerciseEntry) ;
+    rdfs:range (xsd:int) .
+
+nwfit:duration rdf:type rdfs:Property ;
+    rdfs:label "duration" ;
+    rdfs:comment "Time duration of an exercise" ;
+    rdfs:domain (nwfit:ExerciseEntry) ;
+    rdfs:range (xsd:date) .
+
+nwfit:dates rdf:type rdfs:Property ;
+    rdfs:label "dates" ;
+    rdfs:comment "Date of the exercise" ;
+    rdfs:domain (nwfit:ExerciseEntry) ;
+    rdfs:range (xsd:date) .
+
+nwfit:calorieBurned rdf:type rdfs:Property ;
+    rdfs:label "calorieBurned" ;
+    rdfs:comment "Calorie Count by doing an exercise" ;
+    rdfs:domain (nwfit:ExerciseEntry) ;
+    rdfs:range (xsd:float) .
+
+  #Goal Properties
+
+nwfit:goalId rdf:type rdfs:Property ;
+    rdfs:label "goalId" ;
+    rdfs:comment "ID of user's goal" ;
+    rdfs:domain (nwfit:Goal) ;
+    rdfs:range (xsd:int) .
+
+nwfit:userId rdf:type rdfs:Property ;
+    rdfs:label "userId" ;
+    rdfs:comment "ID of a user for its goal" ;
+    rdfs:domain (nwfit:Goal) ;
+    rdfs:range (xsd:int) .
+
+nwfit:startDate rdf:type rdfs:Property ;
+    rdfs:label "startDate" ;
+    rdfs:comment "Start Date of the goal" ;
+    rdfs:domain (nwfit:Goal) ;
+    rdfs:range (xsd:date) .
+
+nwfit:endDate rdf:type rdfs:Property ;
+    rdfs:label "endDate" ;
+    rdfs:comment "End Date of the goal" ;
+    rdfs:domain (nwfit:Goal) ;
+    rdfs:range (xsd:date) .
+
+nwfit:targetCalories rdf:type rdfs:Property ;
+    rdfs:label "targetCalories" ;
+    rdfs:comment "Target calories for a user's goal" ;
+    rdfs:domain (nwfit:Goal) ;
+    rdfs:range (xsd:float) .
+
+nwfit:targetWeight rdf:type rdfs:Property ;
+    rdfs:label "targetWeight" ;
+    rdfs:comment "Target weight of a user" ;
+    rdfs:domain (nwfit:Goal) ;
+    rdfs:range (xsd:int) .
+
+  #History Properties
+nwfit:entryId rdf:type rdfs:Property ;
+    rdfs:label "entryId" ;
+    rdfs:comment "ID of user's history item" ;
+    rdfs:domain (nwfit:History) ;
+    rdfs:range (xsd:int) .
+
+nwfit:userId rdf:type rdfs:Property ;
+    rdfs:label "userId" ;
+    rdfs:comment "ID of a user" ;
+    rdfs:domain (nwfit:History) ;
+    rdfs:range (xsd:int) .
+
+nwfit:date rdf:type rdfs:Property ;
+    rdfs:label "date" ;
+    rdfs:comment "User's history date" ;
+    rdfs:domain (nwfit:History) ;
+    rdfs:range (xsd:date) .
+
+nwfit:weight rdf:type rdfs:Property ;
+    rdfs:label "weight" ;
+    rdfs:comment "User's weight for tracking history" ;
+    rdfs:domain (nwfit:History) ;
+    rdfs:range (xsd:float) .
+
+nwfit:caloriesConsumed rdf:type rdfs:Property ;
+    rdfs:label "caloriesConsumed" ;
+    rdfs:comment "History track for user's calories that has being consumed" ;
+    rdfs:domain (nwfit:History) ;
+    rdfs:range (xsd:float) .
+
+nwfit:caloriesBurned rdf:type rdfs:Property ;
+    rdfs:label "caloriesBurned" ;
+    rdfs:comment "Number of calories burned by user recorded in history" ;
+    rdfs:domain (nwfit:History) ;
+    rdfs:range (xsd:floatt) .
