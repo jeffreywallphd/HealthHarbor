@@ -1,0 +1,141 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+@prefix mwg: <https://jeffreywallphd.github.io/vocab/finlit.ttl#> .
+
+
+
+# Finlitancial Literacy Classes
+
+finlit:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "Represents a user using the app" ;
+    rdfs:subClassOf vcard:Individual .
+
+finlit:Income rdf:type rdfs:Class ;
+    rdfs:label "Income" ;
+    rdfs:comment "Represents the income of a user" .
+
+finlit:Savings rdf:type rdfs:Class ;
+    rdfs:label "Savings" ;
+    rdfs:comment "Represents the savings of a user" .
+
+finlit:Budget rdf:type rdfs:Class ;
+    rdfs:label "Budget" ;
+    rdfs:comment "Represents the budget of a user" .
+
+finlit:Insurance rdf:type rdfs:Class ;
+    rdfs:label "Insurance" ;
+    rdfs:comment "Represents insurance information of a user" .
+
+finlit:Expenses rdf:type rdfs:Class ;
+    rdfs:label "Expenses" ;
+    rdfs:comment "Represents the expenses of a user" .
+
+finlit:ShortTermExpenses rdf:type rdfs:Class ;
+    rdfs:label "ShortTermExpenses" ;
+    rdfs:comment "Represents short-term expenses of a user" .
+
+finlit:LongTermExpenses rdf:type rdfs:Class ;
+    rdfs:label "LongTermExpenses" ;
+    rdfs:comment "Represents long-term expenses of a user" .
+
+finlit:Assets rdf:type rdfs:Class ;
+    rdfs:label "Assets" ;
+    rdfs:comment "Represents the assets of a user" .
+
+finlit:CreditScore rdf:type rdfs:Class ;
+    rdfs:label "CreditScore" ;
+    rdfs:comment "Represents the credit score of a user" .
+
+finlit:DebtLoan rdf:type rdfs:Class ;
+    rdfs:label "DebtLoan" ;
+    rdfs:comment "Represents debt or loan information of a user" .
+
+finlit:Currency rdf:type rdfs:Class ;
+    rdfs:label "Currency" ;
+    rdfs:comment "Represents the currency used in finlitancial transactions" .
+
+finlit:Notification rdf:type rdfs:Class ;
+    rdfs:label "Notification" ;
+    rdfs:comment "Represents notifications related to finlitancial literacy" .
+
+# Finlitancial Literacy Properties
+# User’s Properties
+
+finlit: UserID rdf:type rdf:Property ;
+    rdfs:label "User’s ID" ;
+    rdfs:comment "Relates a user to their income" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit: EmailAddress rdf:type rdf:Property ;
+    rdfs:label "User’s Email Address" ;
+    rdfs:comment "Relates a user to their savings" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit: Password rdf:type rdf:Property ;
+    rdfs:label "User’s Password" ;
+    rdfs:comment "Relates a user to their budget" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit: RegistrationDate rdf:type rdf:Property ;
+    rdfs:label " User’s Registration date " ;
+    rdfs:comment "Relates a user to their insurance information" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit: LastLogIn rdf:type rdf:Property ;
+    rdfs:label " User’s Last log in " ;
+    rdfs:comment "Relates a user to their expenses" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit: FirstName rdf:type rdf:Property ;
+    rdfs:label "User’s First Name " ;
+    rdfs:comment "Relates a user to their short-term expenses" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit: LastName rdf:type rdf:Property ;
+    rdfs:label "User’s Last Name " ;
+    rdfs:comment "Relates a user to their short-term expenses" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+
+finlit: LanguagePrefernce rdf:type rdf:Property ;
+    rdfs:label "User’s Language Prefernce " ;
+    rdfs:comment "Relates a user to their long-term expenses" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit: CurrencyCode rdf:type rdf:Property ;
+    rdfs:label "User’s Currency Code " ;
+    rdfs:comment "Relates a user to their assets" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit: Age rdf:type rdf:Property ;
+    rdfs:label "User’s Age " ;
+    rdfs:comment "Relates a user to their credit score" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit: PhoneNumber rdf:type rdf:Property ;
+    rdfs:label "User’s PhoneNumber " ;
+    rdfs:comment "Relates a user to their debt or loan information" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit: DateOfBirth rdf:type rdf:Property ;
+    rdfs:label "User’s Date of Birth" ;
+    rdfs:comment "Relates a finlitancial transaction to the currency used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
