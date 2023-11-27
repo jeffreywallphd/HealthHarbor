@@ -147,3 +147,677 @@ finlit: DateOfBirth rdf:type rdf:Property ;
     rdfs:comment "Relates a finlitancial transaction to the currency used" ;
     rdfs:domain (finlit:User) ;
     rdfs:range (xsd:date) .
+
+#Income properties
+finlit:IncomeID rdf:type rdf:Property ;
+    rdfs:label "Income ID" ;
+    rdfs:comment "Relates an income record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:DateOfTransaction rdf:type rdf:Property ;
+    rdfs:label "Date of Transaction" ;
+    rdfs:comment "Relates an income record to the date of the transaction" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:Amount rdf:type rdf:Property ;
+    rdfs:label "Amount" ;
+    rdfs:comment "Relates an income record to the amount received" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:IncomeSource rdf:type rdf:Property ;
+    rdfs:label "Income Source" ;
+    rdfs:comment "Relates an income record to the source of income" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:NotesDescription rdf:type rdf:Property ;
+    rdfs:label "Description of Notes" ;
+    rdfs:comment "Relates an income record to any additional notes or description" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:CurrencyCode rdf:type rdf:Property ;
+    rdfs:label "Currency Code" ;
+    rdfs:comment "Relates an income record to the currency used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:IncomeType rdf:type rdf:Property ;
+    rdfs:label "Income Type" ;
+    rdfs:comment "Relates an income record to the type of income (e.g., salary, bonus)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PayPeriod rdf:type rdf:Property ;
+    rdfs:label "Pay Period" ;
+    rdfs:comment "Relates an income record to the period for which the income is paid" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:EmployeeName rdf:type rdf:Property ;
+    rdfs:label "Employee Name" ;
+    rdfs:comment "Relates an income record to the name of the employee receiving the income" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+#Savings properties
+finlit:SavingID rdf:type rdf:Property ;
+    rdfs:label "Saving ID" ;
+    rdfs:comment "Relates a savings record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserSavingID rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates a savings record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:SavingAmount rdf:type rdf:Property ;
+    rdfs:label "Saving Amount" ;
+    rdfs:comment "Relates a savings record to the saved amount" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:GoalID rdf:type rdf:Property ;
+    rdfs:label "Goal ID" ;
+    rdfs:comment "Relates a savings record to the associated financial goal" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:DateSaved rdf:type rdf:Property ;
+    rdfs:label "Date Saved" ;
+    rdfs:comment "Relates a savings record to the date when the amount was saved" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:SavingType rdf:type rdf:Property ;
+    rdfs:label "Saving Type" ;
+    rdfs:comment "Relates a savings record to the type of savings (e.g., regular, emergency)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:InterestRate rdf:type rdf:Property ;
+    rdfs:label "Interest Rate" ;
+    rdfs:comment "Relates a savings record to the interest rate associated with the savings" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:MaturityDate rdf:type rdf:Property ;
+    rdfs:label "Maturity Date" ;
+    rdfs:comment "Relates a savings record to the maturity date, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:CurrencyCodeSaving rdf:type rdf:Property ;
+    rdfs:label "Currency Code" ;
+    rdfs:comment "Relates a savings record to the currency used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:SavingStatus rdf:type rdf:Property ;
+    rdfs:label "Saving Status" ;
+    rdfs:comment "Relates a savings record to its status (e.g., ongoing, completed)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+#Currency
+finlit:CurrencyCode rdf:type rdf:Property ;
+    rdfs:label "Currency Code" ;
+    rdfs:comment "Relates a currency to its code (e.g., USD, EUR)" ;
+    rdfs:domain (finlit:Currency) ;
+    rdfs:range (xsd:string) .
+
+finlit:CurrencyName rdf:type rdf:Property ;
+    rdfs:label "Currency Name" ;
+    rdfs:comment "Relates a currency code to its corresponding name (e.g., US Dollar, Euro)" ;
+    rdfs:domain (finlit:Currency) ;
+    rdfs:range (xsd:string) .
+
+finlit:ConversionRate rdf:type rdf:Property ;
+    rdfs:label "Conversion Rate" ;
+    rdfs:comment "Relates a currency to its conversion rate relative to a reference currency" ;
+    rdfs:domain (finlit:Currency) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:LastUpdated rdf:type rdf:Property ;
+    rdfs:label "Last Updated" ;
+    rdfs:comment "Relates a currency to the date when the conversion rate was last updated" ;
+    rdfs:domain (finlit:Currency) ;
+    rdfs:range (xsd:date) .
+
+#Expense properties
+finlit:ExpenseID rdf:type rdf:Property ;
+    rdfs:label "Expense ID" ;
+    rdfs:comment "Relates an expense record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserExpenseID rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates an expense record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:DateOfTransactionExpense rdf:type rdf:Property ;
+    rdfs:label "Date of Transaction" ;
+    rdfs:comment "Relates an expense record to the date of the transaction" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:AmountExpense rdf:type rdf:Property ;
+    rdfs:label "Amount" ;
+    rdfs:comment "Relates an expense record to the spent amount" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:CategoryID rdf:type rdf:Property ;
+    rdfs:label "Category ID" ;
+    rdfs:comment "Relates an expense record to its category identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:DescriptionNotes rdf:type rdf:Property ;
+    rdfs:label "Description of Notes" ;
+    rdfs:comment "Relates an expense record to any additional notes or description" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PaymentMethod rdf:type rdf:Property ;
+    rdfs:label "Payment Method" ;
+    rdfs:comment "Relates an expense record to the method of payment used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:LTEID rdf:type rdf:Property ;
+    rdfs:label "LTE ID" ;
+    rdfs:comment "Relates an expense record to the LTE (Less Than or Equal) identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:CurrencyCodeExpense rdf:type rdf:Property ;
+    rdfs:label "Currency Code" ;
+    rdfs:comment "Relates an expense record to the currency used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:STEID rdf:type rdf:Property ;
+    rdfs:label "STE ID" ;
+    rdfs:comment "Relates an expense record to the STE (Greater Than or Equal) identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+# Short term expense properties
+finlit:STEID rdf:type rdf:Property ;
+    rdfs:label "STE ID" ;
+    rdfs:comment "Relates an expense record to the STE (Short term expense) identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:ActualAmount rdf:type rdf:Property ;
+    rdfs:label "Actual Amount" ;
+    rdfs:comment "Relates an expense record to the actual spent amount" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:ProjectedAmount rdf:type rdf:Property ;
+    rdfs:label "Projected Amount" ;
+    rdfs:comment "Relates an expense record to the projected amount" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:PotentialCategories rdf:type rdf:Property ;
+    rdfs:label "Potential Categories" ;
+    rdfs:comment "Relates an expense record to potential categories for the expense" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PaymentMethodExpense rdf:type rdf:Property ;
+    rdfs:label "Payment Method" ;
+    rdfs:comment "Relates an expense record to the method of payment used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+
+#Long-term expense properties
+finlit:LTEID rdf:type rdf:Property ;
+    rdfs:label "LTE ID" ;
+    rdfs:comment "Relates an expense record to the LTE (Long term expense) identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:ExpenseIDLTE rdf:type rdf:Property ;
+    rdfs:label "Expense ID" ;
+    rdfs:comment "Relates an expense record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:ActualAmountLTE rdf:type rdf:Property ;
+    rdfs:label "Actual Amount" ;
+    rdfs:comment "Relates an expense record to the actual spent amount" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:ProjectedAmountLTE rdf:type rdf:Property ;
+    rdfs:label "Projected Amount" ;
+    rdfs:comment "Relates an expense record to the projected amount" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:PotentialCategoriesLTE rdf:type rdf:Property ;
+    rdfs:label "Potential Categories" ;
+    rdfs:comment "Relates an expense record to potential categories for the expense" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:StartPlanningDate rdf:type rdf:Property ;
+    rdfs:label "Start Planning Date" ;
+    rdfs:comment "Relates an expense record to the date when planning for the expense started" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:ExpectedPurchase rdf:type rdf:Property ;
+    rdfs:label "Expected Purchase" ;
+    rdfs:comment "Relates an expense record to the expected date of purchase" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:StatusLTE rdf:type rdf:Property ;
+    rdfs:label "Status" ;
+    rdfs:comment "Relates an expense record to its status (e.g., planning, completed)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PaymentMethodLTE rdf:type rdf:Property ;
+    rdfs:label "Payment Method" ;
+    rdfs:comment "Relates an expense record to the method of payment used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+#Debt-Loan identifier
+finlit:DebtLoanID rdf:type rdf:Property ;
+    rdfs:label "Debt/Loan ID" ;
+    rdfs:comment "Relates a debt or loan record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserIDDebtLoan rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates a debt or loan record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:AmountOwed rdf:type rdf:Property ;
+    rdfs:label "Amount Owed" ;
+    rdfs:comment "Relates a debt or loan record to the total amount owed" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:InterestRateDebtLoan rdf:type rdf:Property ;
+    rdfs:label "Interest Rate" ;
+    rdfs:comment "Relates a debt or loan record to the interest rate associated with the debt or loan" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:DueDate rdf:type rdf:Property ;
+    rdfs:label "Due Date" ;
+    rdfs:comment "Relates a debt or loan record to the due date for repayment" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:CurrencyCodeDebtLoan rdf:type rdf:Property ;
+    rdfs:label "Currency Code" ;
+    rdfs:comment "Relates a debt or loan record to the currency used" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:AmountPaidBack rdf:type rdf:Property ;
+    rdfs:label "Amount Paid Back" ;
+    rdfs:comment "Relates a debt or loan record to the total amount already repaid" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:NumberOfInstallments rdf:type rdf:Property ;
+    rdfs:label "Number of Installments" ;
+    rdfs:comment "Relates a debt or loan record to the total number of installments or payments planned" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:LoanType rdf:type rdf:Property ;
+    rdfs:label "Loan Type" ;
+    rdfs:comment "Relates a debt or loan record to its type (e.g., personal loan, mortgage)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PaymentStatus rdf:type rdf:Property ;
+    rdfs:label "Payment Status" ;
+    rdfs:comment "Relates a debt or loan record to its payment status (e.g., current, overdue)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:LateFee rdf:type rdf:Property ;
+    rdfs:label "Late Fee" ;
+    rdfs:comment "Relates a debt or loan record to any late fees associated with overdue payments" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:CollateralValue rdf:type rdf:Property ;
+    rdfs:label "Collateral Value" ;
+    rdfs:comment "Relates a debt or loan record to the value of collateral, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:PrincipalAmount rdf:type rdf:Property ;
+    rdfs:label "Principal Amount" ;
+    rdfs:comment "Relates a debt or loan record to the initial principal amount borrowed" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+#Budget properties
+finlit:GoalID rdf:type rdf:Property ;
+    rdfs:label "Goal ID" ;
+    rdfs:comment "Relates a financial goal to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserIDGoal rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates a financial goal to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:GoalDescription rdf:type rdf:Property ;
+    rdfs:label "Goal Description" ;
+    rdfs:comment "Relates a financial goal to its description or purpose" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:TargetAmount rdf:type rdf:Property ;
+    rdfs:label "Target Amount" ;
+    rdfs:comment "Relates a financial goal to the desired target amount to be achieved" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:CurrentSavedAmount rdf:type rdf:Property ;
+    rdfs:label "Current Saved Amount" ;
+    rdfs:comment "Relates a financial goal to the current amount saved towards the goal" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:BudgetType rdf:type rdf:Property ;
+    rdfs:label "Budget Type" ;
+    rdfs:comment "Relates a financial goal to the type of budget associated with the goal" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:StartDateGoal rdf:type rdf:Property ;
+    rdfs:label "Start Date" ;
+    rdfs:comment "Relates a financial goal to the date when the goal starts" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:EndDateGoal rdf:type rdf:Property ;
+    rdfs:label "End Date" ;
+    rdfs:comment "Relates a financial goal to the target end date for achieving the goal" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:Frequency rdf:type rdf:Property ;
+    rdfs:label "Frequency" ;
+    rdfs:comment "Relates a financial goal to the frequency of budgeting or saving for the goal" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:GoalStatus rdf:type rdf:Property ;
+    rdfs:label "Goal Status" ;
+    rdfs:comment "Relates a financial goal to its status (e.g., in progress, achieved)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+#Insurance properties
+
+finlit:InsuranceID rdf:type rdf:Property ;
+    rdfs:label "Insurance ID" ;
+    rdfs:comment "Relates an insurance record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserIDInsurance rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates an insurance record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:InsuranceType rdf:type rdf:Property ;
+    rdfs:label "Insurance Type" ;
+    rdfs:comment "Relates an insurance record to the type of insurance" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:ProviderName rdf:type rdf:Property ;
+    rdfs:label "Provider Name" ;
+    rdfs:comment "Relates an insurance record to the name of the insurance provider" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PolicyNumber rdf:type rdf:Property ;
+    rdfs:label "Policy Number" ;
+    rdfs:comment "Relates an insurance record to the policy number" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:StartDateInsurance rdf:type rdf:Property ;
+    rdfs:label "Start Date" ;
+    rdfs:comment "Relates an insurance record to the start date of the insurance coverage" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:EndDateInsurance rdf:type rdf:Property ;
+    rdfs:label "End Date" ;
+    rdfs:comment "Relates an insurance record to the end date of the insurance coverage" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:PremiumAmount rdf:type rdf:Property ;
+    rdfs:label "Premium Amount" ;
+    rdfs:comment "Relates an insurance record to the amount paid for the insurance premium" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:CoverageDetails rdf:type rdf:Property ;
+    rdfs:label "Coverage Details" ;
+    rdfs:comment "Relates an insurance record to the details of the coverage provided" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:Beneficiary rdf:type rdf:Property ;
+    rdfs:label "Beneficiary" ;
+    rdfs:comment "Relates an insurance record to the designated beneficiary" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:ClaimStatus rdf:type rdf:Property ;
+    rdfs:label "Claim Status" ;
+    rdfs:comment "Relates an insurance record to the status of any claims associated with the insurance" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+#Assets properties
+
+finlit:AssetID rdf:type rdf:Property ;
+    rdfs:label "Asset ID" ;
+    rdfs:comment "Relates an asset record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserIDAsset rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates an asset record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:AssetName rdf:type rdf:Property ;
+    rdfs:label "Asset Name" ;
+    rdfs:comment "Relates an asset record to the name of the asset" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:AssetType rdf:type rdf:Property ;
+    rdfs:label "Asset Type" ;
+    rdfs:comment "Relates an asset record to the type or category of the asset" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:PurchaseDate rdf:type rdf:Property ;
+    rdfs:label "Purchase Date" ;
+    rdfs:comment "Relates an asset record to the date when the asset was purchased" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:PurchasePrice rdf:type rdf:Property ;
+    rdfs:label "Purchase Price" ;
+    rdfs:comment "Relates an asset record to the price at which the asset was purchased" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:CurrentMarketValue rdf:type rdf:Property ;
+    rdfs:label "Current Market Value" ;
+    rdfs:comment "Relates an asset record to the current market value of the asset" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:decimal) .
+
+finlit:Location rdf:type rdf:Property ;
+    rdfs:label "Location" ;
+    rdfs:comment "Relates an asset record to the current location of the asset" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:AssetStatus rdf:type rdf:Property ;
+    rdfs:label "Asset Status" ;
+    rdfs:comment "Relates an asset record to the status of the asset (e.g., active, inactive)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:LastValuationDate rdf:type rdf:Property ;
+    rdfs:label "Last Valuation Date" ;
+    rdfs:comment "Relates an asset record to the date of the last valuation of the asset" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+# Credit score properties
+
+finlit:CreditScoreID rdf:type rdf:Property ;
+    rdfs:label "Credit Score ID" ;
+    rdfs:comment "Relates a credit score record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserIDCreditScore rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates a credit score record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:Score rdf:type rdf:Property ;
+    rdfs:label "Score" ;
+    rdfs:comment "Relates a credit score record to the numerical credit score value" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:DateRecorded rdf:type rdf:Property ;
+    rdfs:label "Date Recorded" ;
+    rdfs:comment "Relates a credit score record to the date when the credit score was recorded" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:NextCheckDate rdf:type rdf:Property ;
+    rdfs:label "Next Check Date" ;
+    rdfs:comment "Relates a credit score record to the date when the next credit score check is scheduled" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:ScoreRange rdf:type rdf:Property ;
+    rdfs:label "Score Range" ;
+    rdfs:comment "Relates a credit score record to the range of credit scores (e.g., 300-850)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:DescriptionCreditScore rdf:type rdf:Property ;
+    rdfs:label "Description" ;
+    rdfs:comment "Relates a credit score record to any additional description or context for the score" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:Source rdf:type rdf:Property ;
+    rdfs:label "Source" ;
+    rdfs:comment "Relates a credit score record to the source or agency providing the credit score" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+#Notification propeties
+
+finlit:NotificationID rdf:type rdf:Property ;
+    rdfs:label "Notification ID" ;
+    rdfs:comment "Relates a notification record to its unique identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:UserIDNotification rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:comment "Relates a notification record to the user's identifier" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:MessageContent rdf:type rdf:Property ;
+    rdfs:label "Message or Content" ;
+    rdfs:comment "Relates a notification record to the content or message of the notification" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:DateGenerated rdf:type rdf:Property ;
+    rdfs:label "Date Generated" ;
+    rdfs:comment "Relates a notification record to the date when the notification was generated" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:date) .
+
+finlit:NotificationType rdf:type rdf:Property ;
+    rdfs:label "Notification Type" ;
+    rdfs:comment "Relates a notification record to its type (e.g., financial alert, reminder)" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:string) .
+
+finlit:InsuranceIDNotification rdf:type rdf:Property ;
+    rdfs:label "Insurance ID" ;
+    rdfs:comment "Relates a notification record to the associated insurance ID, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:GoalIDNotification rdf:type rdf:Property ;
+    rdfs:label "Goal ID" ;
+    rdfs:comment "Relates a notification record to the associated goal ID, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:AssetIDNotification rdf:type rdf:Property ;
+    rdfs:label "Asset ID" ;
+    rdfs:comment "Relates a notification record to the associated asset ID, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:CreditScoreIDNotification rdf:type rdf:Property ;
+    rdfs:label "Credit Score ID" ;
+    rdfs:comment "Relates a notification record to the associated credit score ID, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+finlit:DebtLoanIDNotification rdf:type rdf:Property ;
+    rdfs:label "Debt Loan ID" ;
+    rdfs:comment "Relates a notification record to the associated debt loan ID, if applicable" ;
+    rdfs:domain (finlit:User) ;
+    rdfs:range (xsd:int) .
+
+
+
