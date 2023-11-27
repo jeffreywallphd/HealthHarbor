@@ -1,0 +1,341 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+
+@prefix strsmgmt: <https://jeffreywallphd.github.io/vocab/strsmgmt.ttl#> .
+@prefix athl: <https://jeffreywallphd.github.io/vocab/athl.ttl#> .
+
+#Stress Management feature -- looks at the cause, description of mental stress and techniques to deal with them
+
+#TODO: change the name of this vocabulary to fitp for fitness program
+strsmgmt: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Sam D." ;
+    dcterms:date "2023-11-03" ;
+    dcterms:title "Mental Stress Management Vocabulary" ;
+    dcterms:description "A vocabulary for describing mental stress and techniques to deal with them"@en ;
+    vann:preferredNamespacePrefix "strsmgmt" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/strsmgmt.ttl#" .
+
+
+### Classes & Properties
+
+## Classes
+#01
+strsmgmt:Athlete rdf:type rdfs:Class ;
+    rdfs:label "Athlete" ;
+    rdfs:comment "Athlete situated at center of stress cases and remedy options" ; 
+
+#02
+strsmgmt:StressHistory rdf:type rdfs:Class ;
+    rdfs:label "Stress History" ;
+    rdfs:comment "Historic account of the mental engagements of the Athlete" ; 
+
+#03
+strsmgmt:StressType rdf:type rdfs:Class ;
+    rdfs:label "Stress Type" ;
+    rdfs:comment "Type of stress" ; 
+
+#04
+strsmgmt:Symptom rdf:type rdfs:Class ;
+    rdfs:label "Symptom" ;
+    rdfs:comment "Symptom of stress ex. headache, short-breath" ; 
+
+#05
+strsmgmt:Biostats rdf:type rdfs:Class ;
+    rdfs:label "Biostats" ;
+    rdfs:comment "Biostats of Athlete ex. temperature, pressure etc." ; 
+
+#06
+strsmgmt:StressTechnique rdf:type rdfs:Class ;
+    rdfs:label "StressTechnique" ;
+    rdfs:comment "Stress technique applied to handle stress case" ; 
+
+#07
+strsmgmt:StressTechniqueType rdf:type rdfs:Class ;
+    rdfs:label "StressTechniqueType" ;
+    rdfs:comment "Stress technique type as category" ; 
+
+#08
+strsmgmt:AthleteStressTechnique rdf:type rdfs:Class ;
+    rdfs:label "Athlete Stress Technique" ;
+    rdfs:comment "Junction table between Athlete and Stress Technique" ; 
+
+#09
+strsmgmt:SupportSystem rdf:type rdfs:Class ;
+    rdfs:label "Support System" ;
+    rdfs:comment "Support system provided for Athlete ex. Coach, family, team mates ; 
+
+#10
+strsmgmt:Expectation rdf:type rdfs:Class ;
+    rdfs:label "Expectation" ;
+    rdfs:comment "Expectations of Athlete ; 
+
+#11
+strsmgmt:ExpectPrepStep rdf:type rdfs:Class ;
+    rdfs:label "ExpectPrepStep" ;
+    rdfs:comment "Preprepatory Steps of Athlete towards Expectation; 
+
+#12
+strsmgmt:Discipline rdf:type rdfs:Class ;
+    rdfs:label "Discipline" ;
+    rdfs:comment "Discipline measure of Athlete ; 
+
+#13
+strsmgmt:AthleteDiscipline rdf:type rdfs:Class ;
+    rdfs:label "AthleteDiscipline" ;
+    rdfs:comment "Junction table between Athlete and Discipline; 
+
+#14
+strsmgmt:Competition rdf:type rdfs:Class ;
+    rdfs:label "Competition" ;
+    rdfs:comment "Competition measure of Athlete ; 
+
+#15
+strsmgmt:CompetitionOutcome rdf:type rdfs:Class ;
+    rdfs:label "Competition Outcome" ;
+    rdfs:comment "Outcome for Athlete's Expectation' Competition ; 
+
+#16
+strsmgmt:FacilityType rdf:type rdfs:Class ;
+    rdfs:label "Facility Type" ;
+    rdfs:comment "Facility Type to hold Athlete Competition ; 
+
+#17
+strsmgmt:AdhocTask rdf:type rdfs:Class ;
+    rdfs:label "Adhoc Task" ;
+    rdfs:comment "Adhoc Tasks of Athlete resulting in stress cases ; 
+
+#18
+strsmgmt:AthleteConfidence rdf:type rdfs:Class ;
+    rdfs:label "Athlete Confidence" ;
+    rdfs:comment "Confidence measure of Athlete as vertical comparison for stress levels ; 
+
+#19
+strsmgmt:StressAnalSumm rdf:type rdfs:Class ;
+    rdfs:label "Stress Analysis Summary" ;
+    rdfs:comment "Stress Analysis Summary of Athlete resulting in stress cases ; 
+
+#20
+strsmgmt:StressAnalDetl rdf:type rdfs:Class ;
+    rdfs:label "Stress Analysis Detail" ;
+    rdfs:comment "Stress Analysis Detail for Athlete Stress Analysis Summary; 
+
+
+
+
+##01 ATHLETE Properties ... from ERD  [Athl_]
+# ------------------------
+##ID int NOT NULL PK
+##ATHL_NAME char(50) NOT NULL
+##DOB datetime NULL
+##LOC_ADDR nvarchar(100) NULL
+##LOC_GPS nvarchar(100) NOT NULL
+ 
+strsmgmt:Athl_Id rdf:type rdfs:Property ;
+    rdfs:label "Id" ;
+    rdfs:comment "Identifier for the Athlete: auto generated, natural numbers" ;
+    rdfs:domain (strsmgmt:Athlete) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:Athl_AthlName rdf:type rdfs:Property ;
+    rdfs:label "Athlete Name" ;
+    rdfs:comment "Full name of Athlete" ;
+    rdfs:domain (strsmgmt:Athlete) ;
+    rdfs:range (xsd:string) .
+
+strsmgmt:Athl_DateOccur rdf:type rdfs:Property ;
+    rdfs:label "Date of Birth" ;
+    rdfs:comment "Athlete date of birth" ; 
+    rdfs:domain (strsmgmt:Athlete) ;
+    rdfs:range (xsd:date) .
+
+strsmgmt:Athl_LocAddr rdf:type rdfs:Property ;
+    rdfs:label "Location-Address" ;
+    rdfs:comment "Address location of Athlete" ;
+    rdfs:domain (strsmgmt:Athlete) ;
+    rdfs:range (xsd:string) .
+
+strsmgmt:Athl_LocGPS rdf:type rdfs:Property ;
+    rdfs:label "Location-GPS" ;
+    rdfs:comment "GPS location of Athlete" ;
+    rdfs:domain (strsmgmt:Athlete) ;
+    rdfs:range (xsd:string) .
+
+
+##02 STRESS_HISTORY ... from ERD [StrsHis_]
+# ------------------------
+##ID int NOT NULL PK
+##ATHL_ID int NOT NULL FK
+##STRESS_TYPE_ID int NOT NULL FK
+##SYMPTOM_CODE char(5) NULL
+##DATE_OCCUR datetime NULL
+##IS_NEG_IMPACT bit NOT NULL STRESS SCORE int NOT NULL
+##NOTES nvarchar(300) NULL
+
+## Properties
+strsmgmt:StrsHis_Id rdf:type rdfs:Property ;
+    rdfs:label "Id" ;
+    rdfs:comment "Identifier for the Stress history class: auto generated, natural numbers" ;
+    rdfs:domain (strsmgmt:StressHistory) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:StrsHis_AthlId rdf:type rdfs:Property ;
+    rdfs:label "Athlete Id" ;
+    rdfs:comment "Person whose stress is to be managed" ;
+    rdfs:domain (fitp:Athlete) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:StrsHis_StressTypeId rdf:type rdfs:Property ;
+    rdfs:label "Stress Type Id" ;
+    rdfs:comment "The type of stress to categorize" ;
+    rdfs:domain (strsmgmt:StressType) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:StrsHis_SympCode rdf:type rdfs:Property ;
+    rdfs:label "Symptom Code" ;
+    rdfs:comment "Stress symptom code" ;
+    rdfs:domain (strsmgmt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+strsmgmt:StrsHis_DateOccur rdf:type rdfs:Property ;
+    rdfs:label "Date Occured" ;
+    rdfs:comment "Date for stress history or date recorded" ; 
+    rdfs:domain (strsmgmt:StressHistory) ;
+    rdfs:range (xsd:dateTime) .
+
+strsmgmt:StrsHis_IsNegImpct rdf:type rdfs:Property ;
+    rdfs:label "Is Negative Impact" ;
+    rdfs:comment "Is the stress impact negative or positive--yes/no" ; 
+    rdfs:domain (strsmgmt:StressHistory) ;
+    rdfs:range (xsd:bool) .
+
+strsmgmt:StrsHis_StressScore rdf:type rdfs:Property ;
+    rdfs:label "Stress Score out of 10" ;
+    rdfs:comment "Stress score to measure the rating of the stress" ; 
+    rdfs:domain (strsmgmt:StressHistory) ;
+    rdfs:range (xsd:integer) .
+
+## Properties Relationships (FK<--PK)
+strsmgmt:stresstypeForStressHistory rdf:type rdf:Property ;
+    rdfs:label "has stress history incidents" ;
+    rdfs:domain budget:StressType ;
+    rdfs:range budget:StressHistory .
+
+strsmgmt:hasStressHistory rdf:type rdf:Property ;
+    rdfs:label "has stress history cases" ;
+    rdfs:domain budget:Athlete ;
+    rdfs:range budget:StressHistory .
+
+
+##03 STRESS_TYPE ... from ERD [StrsTyp_]
+# ------------------------
+##ID int NOT NULL PK
+##TYPE_DESC nvarchar(50) NOT NULL
+##CATEGORY nvarchar(30) NULL
+
+## Properties
+strsmgmt:StrsTyp_Id rdf:type rdfs:Property ;
+    rdfs:label "Id" ;
+    rdfs:comment "Stress Type Id" ; 
+    rdfs:domain (strsmgmt:StressType) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:StrsTyp_StressName rdf:type rdfs:Property ;
+    rdfs:label "Stress [Type] Name" ;
+    rdfs:comment "Stress type description" ; 
+    rdfs:domain (strsmgmt:StressType) ;
+    rdfs:range (xsd:string) .
+
+strsmgmt:StrsTyp_Category rdf:type rdfs:Property ;
+    rdfs:label "Category" ;
+    rdfs:comment "Category of stress stype" ; 
+    rdfs:domain (strsmgmt:StressType) ;
+    rdfs:range (xsd:string) .
+
+
+##04 SYMPTOM ... from ERD [Symp_]
+# ------------------------
+##SYMPTOM CODE char(5) NOT NULL PK 
+##NAME_DESC nvarchar(50) NOT NULL
+##CATEGORY nvarchar(30) NULL
+##SEVERITY char(1) NOT NULL
+
+## Properties
+strsmgmt:Symp_SympCode rdf:type rdfs:Property ;
+    rdfs:label "SympCode" ;
+    rdfs:comment "Category of symptoms" ; 
+    rdfs:domain (strsmgmt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+strsmgmt:Symp_Symp rdf:type rdfs:Property ;
+    rdfs:label "Symp" ;
+    rdfs:comment "Category description" ; 
+    rdfs:domain (strsmgmt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+strsmgmt:Symp_Category rdf:type rdfs:Property ;
+    rdfs:label "Category" ;
+    rdfs:comment "Category of symptoms" ; 
+    rdfs:domain (strsmgmt:Symptom) ;
+    rdfs:range (xsd:string) .
+
+ 
+##05 BIOSTATS ... from ERD [Bio_]
+# ------------------------
+##ID int NOT NULL PK
+##ATHL ID int NOT NULL FK
+##TEMP_F decimal(18,2) NULL
+##HGT_FT decimal(18,2) NULL
+##WT_LB decimal(18,2) NULL CAL_LEVL decimal(18,2) NULL
+##DATE_OCCUR datetime NOT NULL
+
+## Properties
+strsmgmt:Bio_Id rdf:type rdfs:Property ;
+    rdfs:label "Id" ;
+    rdfs:comment "Identifier for the Stress history class: auto generated, natural numbers" ;
+    rdfs:domain (strsmgmt:Biostats) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:Bio_AthlId rdf:type rdfs:Property ;
+    rdfs:label "Athlete Id" ;
+    rdfs:comment "Athlete with Biostats" ;
+    rdfs:domain (fitp:Athlete) ;
+    rdfs:range (xsd:integer) .
+
+strsmgmt:Bio_TempF rdf:type rdfs:Property ;
+    rdfs:label "Temp_F" ;
+    rdfs:comment "Athlete temperature" ; 
+    rdfs:domain (strsmgmt:Biostats) ;
+    rdfs:range (xsd:decimal) .
+
+strsmgmt:Bio_HgtFt rdf:type rdfs:Property ;
+    rdfs:label "Height_Ft" ;
+    rdfs:comment "Athlete height" ; 
+    rdfs:domain (strsmgmt:Biostats) ;
+    rdfs:range (xsd:decimal) .
+
+strsmgmt:Bio_WtLb rdf:type rdfs:Property ;
+    rdfs:label "Weight_Lb" ;
+    rdfs:comment "Athlete weight" ; 
+    rdfs:domain (strsmgmt:Biostats) ;
+    rdfs:range (xsd:decimal) .
+
+strsmgmt:Bio_DateOccur rdf:type rdfs:Property ;
+    rdfs:label "Date Occured" ;
+    rdfs:comment "Date for stress history or date recorded" ; 
+    rdfs:domain (strsmgmt:Biostats) ;
+    rdfs:range (xsd:dateTime) .
+
+
+## Properties Relationships (FK<--PK)
+strsmgmt:hasBiostats rdf:type rdf:Property ;
+    rdfs:label "has biostats data" ;
+    rdfs:domain budget:Athlete ;
+    rdfs:range budget:Biostats .
+
+
