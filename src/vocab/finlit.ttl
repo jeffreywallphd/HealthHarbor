@@ -13,9 +13,9 @@ mwg: a owl:Ontology ;
     dcterms:creator "Jeffrey Wall" ;
     dcterms:date "2023-10-11" ;
     dcterms:title "Financial Literacy Vocabulary" ;
-    dcterms:description "Vocabulary for describing an individual concerned with their mental wellness"@en ;
-    vann:preferredNamespacePrefix "mwg" ;
-    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/mwg.ttl#" .
+    dcterms:description "Vocabulary for describing user's financial status"@en ;
+    vann:preferredNamespacePrefix "finlit" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/finlit.ttl#" .
 
 # Finlitancial Literacy Classes
 
