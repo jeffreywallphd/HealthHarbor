@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>FitFreek</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="" />
+	<meta name="application-name" content="FitFreek" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<style>
+		*
+		{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+			font-family: 'Trebuchet MS', sans-serif;
+		}
+		select
+		{
+			width:140px;
+			margin:0 20px;
+			outline:none;
+			padding:4px;
+			border:2px solid #000000;
+		}
+		#item1,#item2,#item3,#item4,#item5,#item6
+		{
+			margin:12px;
+		}
+		#saveButton
+		{
+			display:flex;
+			justify-content:right;	
+		}
+		#sep
+		{
+			display:block;
+		}
+		#saveWorkout
+		{
+			margin:20px 32px;
+			padding:8px 20px;
+			border:2px solid #000000FF;
+			font-size:17px;
+			color:#fff;
+			cursor:pointer;
+			background:#000000;
+		}
+		
+		#contentExe
+		{
+			display:block;
+			width:90%;
+			margin:auto;
+			margin-top:px;
+			padding:7px;
+		}
+		#disclaimer
+		{
+			color:#ffffff;
+			background:#000000;
+			font-size:14px;
+			text-align:center;
+			padding:5px;
+		}
+		#alert
+		{
+			color:#000000;
+			background:#ffc2c2;
+			margin:32px;
+			text-align:center;
+			padding:5px;
+			font-size:15px;
+			display:none;
+		}
+		
+		#header_nav
+		{
+			width:100%;
+			height:85px;
+		}
+		#landing_page_nav #nav_items a
+		{
+			color:black;
+		}
+		.highlight::before
+		{
+			background:#000;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="sep">
+	<div id="header_nav">
+	<nav id="landing_page_nav">
+		<div id="nav_items">
+			<a href="index.html"><img src="images/logo_black.svg" id="home_logo" /></a>
+			<a href="index.html" class="highlight">Home</a>
+			<a href="Exercise-Plan.html" class="highlight">Workouts</a>
+			<a href="FitAssess.html" class="highlight">FitAssess</a>
+			<a href="#" class="highlight">Blogs</a>
+			<a href="#" class="highlight">Community</a>
+			<a href="#" class="highlight">About</a>
+		</div>
+	</nav>
+	</div>
+	<div>
+		<form action=""  id="workoutForm">
+			<div id="contentExe">
+				<div>
+					<div class="day1" id="item1">
+						<select id="day1" onchange="select(this)">
+							<option selected disabled>Day 1</option>
+							<option id="horizontal">Pull Horizontal</option>
+							<option id="chest">Push Chest</option>
+							<option id="quad">Legs Quad</option>
+							<option id="vertical">Pull Vertical</option>
+							<option id="shoulders">Push Shoulders</option>
+							<option id="glute">Legs Glute/Hamstring</option>
+						</select>
+					</div>
+					<div class="day2 " id="item2">
+						<select id="day2" onchange="select(this)">
+							<option selected disabled>Day 2</option>
+							<option id="horizontal">Pull Horizontal</option>
+							<option id="chest">Push Chest</option>
+							<option id="quad">Legs Quad</option>
+							<option id="vertical">Pull Vertical</option>
+							<option id="shoulders">Push Shoulders</option>
+							<option id="glute">Legs Glute/Hamstring</option>
+						</select>
+					</div>
+					<div class="day3 " id="item3">
+						<select id="day3" onchange="select(this)">
+							<option selected disabled>Day 3</option>
+							<option id="horizontal">Pull Horizontal</option>
+							<option id="chest">Push Chest</option>
+							<option id="quad">Legs Quad</option>
+							<option id="vertical">Pull Vertical</option>
+							<option id="shoulders">Push Shoulders</option>
+							<option id="glute">Legs Glute/Hamstring</option>
+						</select>
+					</div>
+					<div class="day4 " id="item4">
+						<select id="day4" onchange="select(this)">
+							<option selected disabled>Day 4</option>
+							<option id="horizontal">Pull Horizontal</option>
+							<option id="chest">Push Chest</option>
+							<option id="quad">Legs Quad</option>
+							<option id="vertical">Pull Vertical</option>
+							<option id="shoulders">Push Shoulders</option>
+							<option id="glute">Legs Glute/Hamstring</option>
+						</select>
+					</div>
+					<div class="day5 " id="item5">
+						<select id="day5" onchange="select(this)">
+							<option selected disabled>Day 5</option>
+							<option id="horizontal">Pull Horizontal</option>
+							<option id="chest">Push Chest</option>
+							<option id="quad">Legs Quad</option>
+							<option id="vertical">Pull Vertical</option>
+							<option id="shoulders">Push Shoulders</option>
+							<option id="glute">Legs Glute/Hamstring</option>
+						</select>
+					</div>
+					<div class="day6 "id="item6">
+						<select id="day6" onchange="select(this)">
+							<option selected disabled>Day 6</option>
+							<option id="Pull Horizontal">Pull Horizontal</option>
+							<option id="Push Chest">Push Chest</option>
+							<option id="Legs Quad">Legs Quad</option>
+							<option id="Pull Vertical">Pull Vertical</option>
+							<option id="Push Shoulders">Push Shoulders</option>
+							<option id="glute">Legs Glute/Hamstring</option>
+						</select>
+					</div>
+				</div>
+				<div id="saveButton">
+					<button id="saveWorkout"onclick="checkValues()">Save</button>
+				</div>
+				<div id="alert">
+					<b>test</b>
+				</div>
+			</div>
+		</form>
+		<div id="disclaimer">
+			<p>After selecting a focus for each day, a few drop-down boxes appear to select variations for each target muscle.</p>
+		</div>
+	</div>
+	</div>
+	<script>
+		function select(tag)
+		{
+			const myexercises= '{"Exercise":["Pull Horizontal","Push Chest","Legs Quad","Pull Vertical","Push Shoulders","Legs Glute/Hamstring"],"ExerciseId":["horizontal","chest","quad","vertical","shoulders","glute"],"focus":{"Pull Horizontal":["Horizontal Pull","Horizontal Pull","Vertical Pull","Rear Delt","Biceps"],"Push Chest":["Horizontal Chest","Incline Chest","Chest Isolation","Triceps","Side Delt"],"Legs Quad":["Quads","Quad Isolation","Hip Hinge","Calves"],"Pull Vertical":["Vertical Pull","Vertical Pull","Traps","Rear Delt","Biceps"],"Push Shoulders":["Vertical Push","Vertical Push","Side Delt","Chest Isolation","Triceps"],"Legs Glute/Hamstring":["Glutes Hip Hinge","Hamstring Isolation","Quads","Calves"]},"variation":{"Side Delt":["DB Lateral Raise","KB Lateral Raise","Plate Lateral Raise","Cable Side Lateral Raise","Barbell Upright Row","DB upright Row","Cable Upright Row"],"Horizontal Pull":["Barbell Bent Row","Underhand Barbell Bent Row","Pendley Row","Seal Row","T-Bar Row","One Arm DB Row","Two Arm DB Row","Seated Close Grip Cable Row","Seated Neutral Grip Row","Seated Wide Grip Row","Row Machine","Standing Cable Row"],"Vertical Pull":["Wide Grip Pulldown","Neutral Grip Pulldown","Close Grip Pulldown","Underhand Pulldown","Overhand Pull-up","Underhand Pull-up","Assisted Overhand Pull-up","Assisted Underhand Pull-up","One Arm Cable Pulldown","Straight Arm Pulldown"],"Rear Delt":["Barbell Face Pull","DB Face Pull","Cable Rope Face Pull","DB Rear Lateral Raise","Reverse Chest Fly Machine","Rear Delt Cable Fly"],"Biceps":["Barbell Curl","Cable Curl","DB curl","EZ Bar Curl","Preacher Curl","Hammer Curl","Incline DB Curl","Spider Curl"],"Horizontal Chest":["Wide Grip Bench Press","Medium Grip Bench Press","Close Grip Bench Press","Flat DB Press","Flat Machine Press"],"Incline Chest":["Incline Wide Grip Bench Press","Incline Medium Grip Bench Press","Incline Close Grip Bench Press","Incline DB Press","Incline Machine Press"],"Chest Isolation":["Flat DB Fly","Incline DB Fly","Cable Fly","High Cable Fly","Incline Cable Fly","Machine Chest Fly","Pec Deck"],"Triceps":["Skullcrusher","Cable Rope Pushdown","Cable Tricep Pushdown","DB SkullCrusher","Overhead Cable Extension","Cable Tricep Kickback","EZ Bar Overhead Extension","DB Overhead Extension"],"Quads":["Safety Bar Squat","High Bar Squat","Close Stance Feet Forward Squat","Front Squat","Hack Squat","Leg Press","Smith Machine Feet Forward Squat","Smith Machine Close Stance Feet Forward Squat","Leg Extension"],"Quad Isolation":["Leg Extension","1-Leg Extension","Smith Machine Sissy Squat","Bodyweigth Sissy Squat"],"Hip Hinge":["Barbell SLDL","DB SLDL","Smith Machine Good Morning","Barbell Good Morning","Cable Pull-through","Glute-Ham Raise"],"Calves":["Calf Machine","Smith Machine Calf Raise","Leg Press Calf Raise","Seated Calf Raise"],"Traps":["Barbell Shrug","DB Shrug","Bent Over Shrug","Incline Chest Supported Shrug","Simth Machine Behind Body Shrug"],"Vertical Push":["Standing Barbell Overhead Press","Seated Barbell Overhead Press","Seated DB Overhead Press","Single Arm Standing Overhead Press","High Incline DB Press","Shoulder Press Machine"],"Glutes Hip Hinge":["Convential Deadlift","Sumo Deadlift","Deficit Deadlift","Barbell Hip Thrust"],"Hamstring Isolation":["Seated Leg Curl","Lying Leg Curl","Single Leg Curl","Single Leg Cable Curl"]}}';
+			var exercises=JSON.parse(myexercises);
+			var days=["day1","day2","day3","day4","day5","day6"];
+			var items=["item1","item2","item3","item4","item5","item6"]
+			var item=[];
+				for(var k=0; k<6;k++)
+				{
+					if (tag.id==days[k])
+					{
+						item.push(k);
+						break;
+					}
+				}
+			removeElements=document.getElementsByClassName(items[k]+days[k]);
+			for (let classnum=removeElements.length-1;classnum>=0;classnum--)
+			{
+				document.getElementById(items[item[0]]).removeChild(removeElements[classnum]);
+			}
+			for(let i=0; i<exercises.focus[tag.value].length;i++)
+			{
+				const node=document.createElement("select")
+				node.className=items[k]+days[k];
+				var option = document.createElement("option");
+				option.text = exercises.focus[tag.value][i];
+				option.disabled=true;
+				option.selected=true;
+				//option.style.color="#cacaca";
+				node.add(option);
+				document.getElementById(items[item[0]]).append(node);
+				for(let j=0; j<exercises.variation[exercises.focus[tag.value][i]].length;j++)
+				{
+					var option1=document.createElement("option");
+					option1.text=exercises.variation[exercises.focus[tag.value][i]][j];
+					node.append(option1)
+				}
+			}
+		}
+		
+		//Section 2 -> Stops refreshing page
+		var workoutForm = document.getElementById("workoutForm");
+		function submitForm(event)
+		{
+			event.preventDefault();
+		}
+		workoutForm.addEventListener('submit', submitForm);
+		//Section 2
+		
+		function checkValues()
+		{
+			console.log("test");
+			var days=["day1","day2","day3","day4","day5","day6"];
+			var items=["item1","item2","item3","item4","item5","item6"]
+			for(let i=0;i<6;i++)
+			{
+				if(document.getElementById(days[i]).value=="Day "+(i+1).toString())
+				{
+					document.getElementById("alert").innerHTML="Check for missing values before saving!"
+					document.getElementById("alert").style.display='block';
+					break;
+				}
+			}
+		}
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+*
+{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family: 'Trebuchet MS', sans-serif;
+}
+
+#get_start
+{
+	
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+#get_start_email
+{
+	width:400px;
+	border:2.3px solid #FFF;
+	font-size:17px;
+	padding:2% 15px;
+	outline:#fff;
+	margin-right:1px;
+	background:transparent;
+	color:#FFFFFF;
+}
+#get_start_email::placeholder {
+  color: #eee;
+}
+#get_start_button
+{
+	width:120px;
+	padding:2% 0;
+	border:2px solid #000000FF;
+	font-size:17px;
+	color:#fff;
+	cursor:pointer;
+	background:#000000;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+#landing_headline
+{
+	position:absolute;
+	top:25%;
+	left:2%;
+	
+	font-size:20px;
+	
+	color:#FFFFFF;
+	
+}
+
+#landing_page_nav
+{
+	position:absolute;
+	top:4%;
+	left:2%;
+	z-index:100;
+	
+}
+#landing_page_nav #nav_items
+{
+	display:flex;
+}
+#landing_page_nav #nav_items a
+{
+	margin:0 10px;
+	text-decoration:none;
+	color:#FFFFFF;
+	font-size:17px;
+	display: inline-block;
+	position: relative;
+}
+.highlight::before
+{
+	transition: 300ms;
+	height: 3px;
+	content: "";
+	position: absolute;
+	background-color: #FFFFFF;
+	width: 0%;
+	bottom: 0px;
+}
+.highlight:hover::before
+{
+	width:100%;
+}
+#home_logo
+{
+	height:20px;
+}
+#cover_pic
+{
+	min-height:540px;
+	background-size:cover;
+	pointer-events: none;
+	background-image:url(images/cover.jpg);
+	z-index:-10;
+	display:block;
+}
+#personalized_exercise
+{
+	margin:180px 160px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:0 60px;
+}
+#track_calories
+{
+	margin:	120px 160px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:0 60px;
+}
+#personalized_exercise_inner1 img, #track_calories_inner2 img
+{
+	max-width:280px;
+}
+#personalized_exercise_inner2
+{
+	padding:0 0 0 160px;
+}
+#personalized_exercise_inner2 button
+{
+	padding:12px 24px;
+	margin-top:12px;
+	border:2px solid #000000FF;
+	font-size:17px;
+	color:#fff;
+	cursor:pointer;
+	background:#000000;
+	text-align:center;
+}
+#track_calories_inner1
+{
+	padding:0 160px 0 0;
+}
+#personalized_exercise_inner2 h2, #track_calories_inner1 h2
+{
+	padding-bottom:24px;
+}
+#personalized_exercise_inner2 p, #track_calories_inner1 p
+{
+	font-size:17px;
+	text-align:justify;
+	line-height:25px;
+}
+
+
+
+/*loading animation*/
+#loading
+{
+	position:absolute;
+	top:40%;
+	left:50%;
+	transform:translate(-50%,-40%);
+}
+#loading_group
+{
+	display:flex;
+	width:350px;
+	height:350px;
+}
+#vertical1
+{
+	position:absolute;
+	top:0;
+	width:27px;
+	height:350px;
+	background-color:#000000;
+	transform:rotate(15deg);
+	animation:2s line1 2s linear forwards;
+	 animation-delay: 2s;
+	 -webkit-animation-delay: 2s;
+}
+#vertical2
+{
+	position:absolute;
+	width:27px;
+	height:280px;
+	background-color:#000000;
+	transform:rotate(15deg);
+	bottom:0;
+	margin-left:55px;
+	animation:2s line2 2s ease-out forwards;
+	 animation-delay: 2s;
+}
+#horizontal1
+{
+	position:absolute;
+	top:-25.9%;
+	left:39.9%;
+	height:215px;
+	width:27px;
+	transform:rotate(90deg);
+	background:#000000;
+	animation:2s line3 2s ease-in forwards;
+	 animation-delay: 2s;
+}
+#horizontal2
+{
+	position:absolute;
+	left:46.3%;
+	top:0.4%;
+	height:168px;
+	width:27px;
+	transform:rotate(90deg);
+	background:#000000;
+	animation:2s line4 2s ease-in forwards;
+	 animation-delay: 2s;
+}
+#horizontal3
+{
+	position:absolute;
+	left:33%;
+	top:20%;
+	height:260px;
+	width:27px;
+	transform:rotate(90deg);
+	background:#000000;
+}
+
+@keyframes line1
+{
+	20%
+	{
+		height:100px;
+		top:43%;
+	}
+	30%
+	{
+		transform:rotate(0deg);
+		height:100px;
+		top:43%;
+		left:0;
+	}
+	50%
+	{
+		
+		top:43%;
+		left:-0.5%;
+		height:100px;
+		transform:rotate(0deg);
+		border-radius:4px;
+	}
+	70%
+	{
+		left:-0.5%;
+		transform:rotate(0deg);
+		height:100px;
+		top:43%;
+		border-radius:4px;
+	}
+	100%
+	{
+		top:50%;
+		left:-0.5%;
+		height:50px;
+		transform:rotate(0deg);
+		border-radius:4px;
+	}
+}
+@keyframes line2
+{
+	
+	20%
+	{
+		height:120px;
+		top:40%;
+	}
+	30%
+	{
+		transform:rotate(0deg);
+		height:120px;
+		top:40%;
+		left:0;
+	}
+	50%
+	{
+		left:-8%;
+		transform:rotate(0deg);
+		height:120px;
+		top:40%;
+		border-radius:4px;
+	}
+	70%
+	{
+		left:-8%;
+		transform:rotate(0deg);
+		height:120px;
+		top:40%;
+		border-radius:4px;
+	}
+	100%
+	{
+		left:-8%;
+		transform:rotate(0deg);
+		height:120px;
+		top:20%;
+		border-radius:4px;
+	}
+}
+@keyframes line3
+{
+	
+	20%
+	{
+		height:120px;
+		top:40%;
+	}
+	30%
+	{
+		transform:rotate(0deg);
+		height:120px;
+		top:40%;
+		left:39.9;
+	}
+	50%
+	{
+		left:58.2%;
+		transform:rotate(0deg);
+		height:120px;
+		top:40%;
+		border-radius:4px;
+	}
+	70%
+	{
+		left:58.2%;
+		transform:rotate(0deg);
+		height:120px;
+		top:40%;
+		border-radius:4px;
+	}
+	100%
+	{
+		left:8%;
+		transform:rotate(-45deg);
+		height:70px;
+		top:12%;
+		border-radius:4px;
+	}
+}
+@keyframes line4
+{
+	
+	20%
+	{
+		height:100px;
+		top:40%;
+	}
+	30%
+	{
+		transform:rotate(0deg);
+		height:100px;
+		top:40%;
+		left:46.3;
+	}
+	50%
+	{
+		left:66.2%;
+		transform:rotate(0deg);
+		height:100px;
+		top:43%;
+		border-radius:4px;
+	}
+	70%
+	{
+		left:66.2%;
+		transform:rotate(0deg);
+		height:100px;
+		top:43%;
+		border-radius:4px;
+	}
+	100%
+	{
+		left:66.2%;
+		transform:rotate(0deg);
+		height:50px;
+		top:50%;
+		border-radius:4px;
+	}
+}
+
+
+#login-form
+{
+	width:300px;
+	position:absolute;
+	top:40%;
+	left:50%;
+	transform:translate(-50%,-40%);
+	text-align:center;
+	justify-content:center;
+}
+#login_email,#login_password
+{
+	width:100%;
+	border:2px solid cadetblue;
+	outline:none;
+	margin:5px;
+	padding:4% 0;
+	font-size:17px;
+}
+#login_button
+{
+	border:2px solid cadetblue;
+	width:101%;
+	margin:5px;
+	padding:4% 0;
+	background:#e7f5fe;
+	font-size:17px;
+	cursor:pointer;
+}
+#sign_in a
+{
+	font-weight:600;
+	text-decoration:none;
+	color:#000;
+}
+
+#FitAssessInp
+{
+	position:absolute;
+	left:40%;
+	top:40%;
+	transform:translate(-40%,-40%);
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+}
+#FitAssessInpInn
+{
+	display:flex;
+	flex-direction:column;
+
+}
+#FitAssessInp #FitAssessInpInn #age,#activityLevel	
+{
+	border:2px solid #000;
+	margin: 10px 25px;
+	outline:none;
+	width:85%;
+	height:30px;
+	padding:5px;
+}
+#FitAssessInp #FitAssessInpInn 
+{
+	border:2px solid #000;
+	margin: 10px;
+	outline:none;
+	padding:10px 0;
+	width:400px;
+}
+#activityLevel
+{
+	cursor:pointer;
+}
+
+#FitAssessInp #FitAssessInpInn #gender
+{
+	cursor:pointer;
+	accent-color:#000;
+	margin:10px 10px 10px 25px;
+}
+#FitAssessInp #FitAssessInpInn button
+{
+	border:2px solid #000;
+	margin: 10px;
+	width:120px;
+	padding:2% 0;
+	background:#000;
+	color:#fff;
+	cursor:pointer;
+	margin:10px auto;
+}
+#FitAssessDescription
+{
+	margin:0 70px;
+}
+#FitAssessDescription ul li
+{
+	margin:12px;
+}
+#weightConv,#heightConv
+{
+	width:60px;
+	border:2px solid #000;
+	outline:none;
+	margin: 0 0 0 10px;
+	cursor:pointer;
+}
+#heightBox,#weightBox
+{
+	display:flex;
+	flex-direction:row;
+	width:85%;	
+	margin:10px 10px 10px 25px;
+}
+#height,#weight
+{
+	border:2px solid #000;
+	outline:none;
+	width: calc(100% - 70px);
+	height:30px;
+	padding:5px;
+}
+#metrics
+{
+	position:absolute;
+	top:75%;
+	left:18%;
+	display:grid;
+	column-gap:80px;
+	row-gap:40px;
+	grid-template-columns: auto auto auto;
+}
