@@ -75,6 +75,10 @@ mwg:HealthcareProvider rdf:type rdfs:Class ;
     rdfs:label "HealthcareProvider" ;
     rdfs:comment "Professional that is trained in dealing with mental wellness and can provide help for user" .
 
+    mwg:AuditTrail rdf:type rdfs:Class ;
+    rdfs:label "AuditTrail" ;
+    rdfs:comment "A sequence of recorded events that involves any activity surounding the system and user interactions" .
+
 # Properties
     # User properties
 mwg:UserID rdf:type rdfs:Property ;
@@ -82,6 +86,18 @@ mwg:UserID rdf:type rdfs:Property ;
     rdfs:comment "The ID of the #User" ;
     rdfs:domain (mwg:User) ;
     rdfs:range (xsd:integer) .
+
+mwg:Age rdf:type rdfs:Property ;
+    rdfs:label "Age" ;
+    rdfs:comment "The Age of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:integer) .
+
+mwg:Gender rdf:type rdfs:Property ;
+    rdfs:label "Gender" ;
+    rdfs:comment "The Gender of the #User" ;
+    rdfs:domain (mwg:User) ;
+    rdfs:range (xsd:string) .
 
 mwg:Username rdf:type rdfs:Property ;
     rdfs:label "User's username" ;
@@ -147,6 +163,12 @@ mwg:SessionID rdf:type rdfs:Property ;
     rdfs:domain (mwg:Session) ;
     rdfs:range (xsd:integer) .
 
+mwg:UserID rdf:type rdfs:Property ;
+    rdfs:label "User's ID" ;
+    rdfs:comment "The ID of the #User" ;
+    rdfs:domain (mwg:Session) ;
+    rdfs:range (xsd:integer) .
+
 mwg:StartTime rdf:type rdfs:Property ;
     rdfs:label "Start Time" ;
     rdfs:comment "Start time of the chat #Session" ;
@@ -178,12 +200,24 @@ mwg:APIInstructions rdf:type rdfs:Property ;
     rdfs:comment "A message given to the #AIAPI specifying in what way to behave (ie. like a therapist)" ;
     rdfs:domain (mwg:AIAPI) ;
     rdfs:range (xsd:string) .
+
+    mwg:UsageStatistics rdf:type rdfs:Property ;
+    rdfs:label "Usage Statistics" ;
+    rdfs:comment "Information about the  #Usage of the chat bot feature" ;
+    rdfs:domain (mwg:AIAPI) ;
+    rdfs:range (xsd:String) .
 	
 
     # Prompt
 mwg:PromptID rdf:type rdfs:Property ;
     rdfs:label "Prompt ID" ;
     rdfs:comment "ID for the #Prompt" ;
+    rdfs:domain (mwg:Prompt) ;
+    rdfs:range (xsd:integer) .
+
+mwg:SessionID rdf:type rdfs:Property ;
+    rdfs:label "Session ID" ;
+    rdfs:comment "ID for the chat #Session" ;
     rdfs:domain (mwg:Prompt) ;
     rdfs:range (xsd:integer) .
 
@@ -204,6 +238,18 @@ mwg:PromptContext rdf:type rdfs:Property ;
 mwg:ResponseID rdf:type rdfs:Property ;
     rdfs:label "Response ID" ;
     rdfs:comment "Id for the #Response" ;
+    rdfs:domain (mwg:Response) ;
+    rdfs:range (xsd:integer) .
+
+mwg:PromptID rdf:type rdfs:Property ;
+    rdfs:label "Prompt ID" ;
+    rdfs:comment "ID for the #Prompt" ;
+    rdfs:domain (mwg:Response) ;
+    rdfs:range (xsd:integer) .
+
+mwg:SessionID rdf:type rdfs:Property ;
+    rdfs:label "Session ID" ;
+    rdfs:comment "ID for the chat #Session" ;
     rdfs:domain (mwg:Response) ;
     rdfs:range (xsd:integer) .
 
@@ -307,10 +353,42 @@ mwg:PhoneNumber rdf:type rdfs:Property ;
     rdfs:domain (mwg:HealthcareProvider) ;
     rdfs:range (xsd:Integer) .    
 
-    mwg:Email rdf:type rdfs:Property ;
+mwg:Email rdf:type rdfs:Property ;
     rdfs:label "Email" ;
     rdfs:comment "Email available to contact the #Healthcare provider" ;
     rdfs:domain (mwg:HealthcareProvider) ;
+    rdfs:range (xsd:String) .  
+
+
+    # AuditTrail properties
+mwg:AuditID rdf:type rdfs:Property ;
+    rdfs:label "Audit's ID" ;
+    rdfs:comment "Unique identifier for each #Audit record" ;
+    rdfs:domain (mwg:AuditTrail) ;
+    rdfs:range (xsd:integer) .
+
+mwg:UserID rdf:type rdfs:Property ;
+    rdfs:label "User's ID" ;
+    rdfs:comment "Identifiyer for each user" ;
+    rdfs:domain (mwg:AuditTrail) ;
+    rdfs:range (xsd:integer) .
+
+mwg:SessionID rdf:type rdfs:Property ;
+    rdfs:label "Session ID" ;
+    rdfs:comment "Unique identifiyer for the chat session" ;
+    rdfs:domain (mwg:AuditTrail) ;
+    rdfs:range (xsd:integer) .
+
+mwg:ActionPerformed rdf:type rdfs:Property ;
+    rdfs:label "Action Performed" ;
+    rdfs:comment "Specific type of action executed by the user or system." ;
+    rdfs:domain (mwg:AuditTrail) ;
+    rdfs:range (xsd:String) .    
+  
+mwg:TimeStamp rdf:type rdfs:Property ;
+    rdfs:label "Time Stamp" ;
+    rdfs:comment "The time the response was given" ;
+    rdfs:domain (mwg:AuditTrail) ;
     rdfs:range (xsd:String) .    
 
 
