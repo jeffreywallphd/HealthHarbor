@@ -1,0 +1,88 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix medrecdev: <https://example.org/vocab/medrecdev.ttl#> .
+
+medrecdev: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-11-30" ;
+    dcterms:title "Medical Records and Device Vocabulary" ;
+    dcterms:description "Vocabulary for describing patient and medical device information"@en ;
+    vann:preferredNamespacePrefix "medrecdev" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/medrecdev.ttl#" .
+
+# Classes
+medrecdev:Patient rdf:type rdfs:Class ;
+    rdfs:label "Patient" ;
+    rdfs:comment "An individual under medical care" .
+
+medrecdev:MedicalDevice rdf:type rdfs:Class ;
+    rdfs:label "MedicalDevice" ;
+    rdfs:comment "A device used for medical purposes" .
+
+# Properties
+    # Patient properties
+medrecdev:patientID rdf:type rdfs:Property ;
+    rdfs:label "Patient_ID" ;
+    rdfs:comment "Unique identifier for a patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:patientName rdf:type rdfs:Property ;
+    rdfs:label "Patient_Name" ;
+    rdfs:comment "Name of the patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:dateOfBirth rdf:type rdfs:Property ;
+    rdfs:label "DOB" ;
+    rdfs:comment "Birthdate of the patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:date) .
+
+medrecdev:phoneNo rdf:type rdfs:Property ;
+    rdfs:label "Phone_No" ;
+    rdfs:comment "Phone number of the patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:email rdf:type rdfs:Property ;
+    rdfs:label "Email" ;
+    rdfs:comment "Email of the patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:address rdf:type rdfs:Property ;
+    rdfs:label "Address" ;
+    rdfs:comment "Physical address of the patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:emergencyContactNumber rdf:type rdfs:Property ;
+    rdfs:label "Emergency_Contact_Number" ;
+    rdfs:comment "Emergency contact number of the patient" ;
+    rdfs:domain (medrecdev:Patient) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:deviceID rdf:type rdfs:Property ;
+    rdfs:label "Device_ID" ;
+    rdfs:comment "Unique identifier for a medical device" ;
+    rdfs:domain (medrecdev:MedicalDevice) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:deviceName rdf:type rdfs:Property ;
+    rdfs:label "Device_Name" ;
+    rdfs:comment "Name of the medical device" ;
+    rdfs:domain (medrecdev:MedicalDevice) ;
+    rdfs:range (xsd:string) .
+
+medrecdev:deviceStatus rdf:type rdfs:Property ;
+    rdfs:label "Device_Status" ;
+    rdfs:comment "Status of the medical device" ;
+    rdfs:domain (medrecdev:MedicalDevice) ;
+    rdfs:range (xsd:string) .
