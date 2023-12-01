@@ -42,6 +42,10 @@ import Finance from "./Finance";
 import Budgeting from "./Budgeting";
 import Goals from "./Goals";
 
+// Mental Wellness module - Saeed Peyman
+import Mental from "./Mental"
+
+
 import "./styles/styles.css";
 //TODO: regenerate the vocabulary for fitv, which is now fitp
 import FITV from "./Generated/SourceCodeArtifacts/JavaScript/GeneratedVocab/FITV.js";
@@ -128,6 +132,9 @@ class App extends Component {
 
               {/* Finance - JM */}
               <li><NavLink to="/finance">Finance</NavLink></li>
+
+              {/* Mental Wellness */}
+              <li><NavLink to="/mental">Mental Wellness</NavLink></li>
             </ul>
           </nav>
           <div className="content">
@@ -142,6 +149,7 @@ class App extends Component {
               <Route path="/finance" element={<Finance />}/>
               <Route path="/budgeting" element={<Budgeting />}/>
               <Route path="/goals" element={<Goals />}/>
+              <Route path="/mental" element={<Mental />}/>
             </Routes>
           </div>
         </div>

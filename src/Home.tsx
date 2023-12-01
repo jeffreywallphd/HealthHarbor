@@ -41,6 +41,16 @@ class Home extends Component {
                 </div>
               </div>
             </NavLink>
+            <NavLink to="/mentalwellness">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Mental Wellness</h3>
+              </div>
+              <div className="cardContainer">
+                <p>Track your habits and access a personal AI therapist.</p>
+              </div>
+            </div>
+          </NavLink>
         </section>
       </div>
     );
