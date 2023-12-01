@@ -1,0 +1,195 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+@prefix mwg: <https://jeffreywallphd.github.io/vocab/physicalfit.ttl#> .
+
+
+physical: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Jeffrey Wall" ;
+    dcterms:date "2023-10-11" ;
+    dcterms:title "Calorie Tracking Fitness General Vocabulary" ;
+    dcterms:description "Vocabulary for describing calorie tracking"@en ;
+    vann:preferredNamespacePrefix "physicalfit" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/physicalfit.ttl#" .
+    rdfs:label "Physical Ontology" ;
+    rdfs:comment "Vocabulary for the physical module." .
+
+# Classes
+physical:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A user in the physical system." .
+
+physical:Reward rdf:type rdfs:Class ;
+    rdfs:label "Reward" ;
+    rdfs:comment "A user's reward details." .
+
+physical:Progress rdf:type rdfs:Class ;
+    rdfs:label "Progress" ;
+    rdfs:comment "User's progress achieved." .
+
+physical:User Preference rdf:type rdfs:Class ;
+    rdfs:label "User Preference" ;
+    rdfs:comment "User preference details." .
+
+physical:Workout rdf:type rdfs:Class ;
+    rdfs:label "Workout" ;
+    rdfs:comment "User's workout details." .
+
+physical:Exercise rdf:type rdfs:Class ;
+    rdfs:label "Exercise" ;
+    rdfs:comment "User's type of exercise selected." .
+
+# Properties.
+
+# User Properties
+physical:userID rdf:type rdf:Property ;
+    rdfs:label "user ID" ;
+    rdfs:domain Physical:User ;
+    rdfs:range xsd:Integer .
+
+physical:userName rdf:type rdf:Property ;
+    rdfs:label "user Name" ;
+    rdfs:domain Physical:User ;
+    rdfs:range xsd:string .
+
+physical:UserEmail rdf:type rdf:Property ;
+    rdfs:label "user Email" ;
+    rdfs:domain Physical:User ;
+    rdfs:range xsd:string .
+
+physical:userPassword rdf:type rdf:Property ;
+    rdfs:label "user password" ;
+    rdfs:domain Physical:User ;
+    rdfs:range xsd:string .
+
+physical:userRole rdf:type rdf:Property ;
+    rdfs:label "user role" ;
+    rdfs:domain Physical:User ;
+    rdfs:range xsd:string .
+
+# Reward Properties
+physical:rewardID rdf:type rdf:Property ;
+    rdfs:label "Reward ID" ;
+    rdfs:domain Physical:Reward ;
+    rdfs:range xsd:integer .
+
+physical:RewardName rdf:type rdf:Property ;
+    rdfs:label "Reward Name" ;
+    rdfs:domain Physical:Reward ;
+    rdfs:range xsd:string .
+
+physical:RewardDescription rdf:type rdf:Property ;
+    rdfs:label "Reward Description" ;
+    rdfs:domain Physical:Reward ;
+    rdfs:range xsd:string .
+
+physical:RewardPoints rdf:type rdf:Property ;
+    rdfs:label "Reward Points" ;
+    rdfs:domain Physical:Reward ;
+    rdfs:range xsd:string .
+
+
+# Progress Tracking Properties
+physical:progressID rdf:type rdf:Property ;
+    rdfs:label "Progress ID" ;
+    rdfs:domain Physical:Progress ;
+    rdfs:range xsd:string .
+
+physical:UserID rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:domain Physical:Progress ;
+    rdfs:range xsd:string .
+
+physical:WorkoutID rdf:type rdf:Property ;
+    rdfs:label "Workout ID" ;
+    rdfs:domain Physical:Progress ;
+    rdfs:range xsd:string .
+
+physical:CompletionDate rdf:type rdf:Property ;
+    rdfs:label "Completion Date" ;
+    rdfs:domain Physical:Progress ;
+    rdfs:range xsd:string .
+
+physical:Duration rdf:type rdf:Property ;
+    rdfs:label "Duration" ;
+    rdfs:domain Physical:Progress ;
+    rdfs:range xsd:date .
+
+physical:ProgressNotes rdf:type rdf:Property ;
+    rdfs:label "Progress Notes" ;
+    rdfs:domain Physical:Progress ;
+    rdfs:range xsd:string .
+
+# User Preference Properties
+physical:userpreferenceID rdf:type rdf:Property ;
+    rdfs:label "userpreferenceID" ;
+    rdfs:domain Physical:user preference ;
+    rdfs:range xsd:integer .
+
+physical:WorkoutTypePreferences rdf:type rdf:Property ;
+    rdfs:label "Workout Type Preferences" ;
+    rdfs:domain Physical:user preference ;
+    rdfs:range xsd:integer .
+
+physical:userpreferenceID rdf:type rdf:Property ;
+    rdfs:label "difficultypreference ;
+    rdfs:domain Physical:user preference ;
+    rdfs:range xsd:string .
+
+# Workout Properties
+physical:workoutID rdf:type rdf:Property ;
+    rdfs:label "Workout ID" ;
+    rdfs:domain Physical:Workout ;
+    rdfs:range xsd:integer .
+
+physical:workoutTitle rdf:type rdf:Property ;
+    rdfs:label "Workout Title" ;
+    rdfs:domain Physical:Workout ;
+    rdfs:range xsd:string . 
+
+physical:workoutDescription rdf:type rdf:Property ;
+    rdfs:label "Description" ;
+    rdfs:domain Physical:Workout ;
+    rdfs:range xsd:string . 
+
+physical:workoutDuration rdf:type rdf:Property ;
+    rdfs:label "Duration" ;
+    rdfs:domain Physical:Workout ;
+    rdfs:range xsd:date . 
+
+physical:workoutDifficultyLevel rdf:type rdf:Property ;
+    rdfs:label "Difficulty Level" ;
+    rdfs:domain Physical:Workout ;
+    rdfs:range xsd:string . 
+
+# Exercise Properties
+physical:ExerciseID rdf:type rdf:Property ;
+    rdfs:label "Exercise ID" ;
+    rdfs:domain Physical:Exercise ;
+    rdfs:range xsd:integer .
+
+physical:ExerciseName rdf:type rdf:Property ;
+    rdfs:label "Exercise Name" ;
+    rdfs:domain Physical:Exercise ;
+    rdfs:range xsd:string .
+
+physical:ExerciseDescription rdf:type rdf:Property ;
+    rdfs:label "Description" ;
+    rdfs:domain Physical:Exercise ;
+    rdfs:range xsd:string .
+
+physical:TargetMuscleGroups rdf:type rdf:Property ;
+    rdfs:label "Target Muscle Groups" ;
+    rdfs:domain Physical:Exercise ;
+    rdfs:range xsd:string .
+
+physical:DifficultyLevel rdf:type rdf:Property ;
+    rdfs:label "Difficulty Level" ;
+    rdfs:domain Physical:Exercise ;
+    rdfs:range xsd:string .
+
