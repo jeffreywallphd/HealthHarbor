@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Entry Page</title>
+    <style>
+        <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        header {
+            background-color: #000;
+            color: #000;
+            padding: 20px;
+            text-align: right;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+    </style>    
+</head>
+<body>
+
+    <header>
+        <a href="index.html">Home</a>
+        <a href="userchoice.html">Menu</a>
+        <a href="contactus.html">Contact</a>
+    </header>
+
+    <form id="foodEntryForm">
+        <label for="mealType">Meal Type:</label>
+        <select id="mealType" name="mealType" required>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="snack">Snack</option>
+        </select>
+
+        <label for="dateTime">Date and Time:</label>
+        <input type="datetime-local" id="dateTime" name="dateTime" required>
+
+        <label for="foodName">Food Name:</label>
+        <input type="text" id="foodName" name="foodName" required>
+
+        <label for="servingSize">Serving Size:</label>
+        <input type="text" id="servingSize" name="servingSize" required>
+
+        <button type="button" onclick="calculateNutrients()">Submit</button>
+    </form>
+
+    <script>
+        function calculateNutrients() {
+            const mealType = document.getElementById("mealType").value;
+            const dateTime = document.getElementById("dateTime").value;
+            const foodName = document.getElementById("foodName").value;
+            const servingSize = parseFloat(document.getElementById("servingSize").value);
+
+            let calories = 0;
+            let protein = 0;
+            let carbohydrates = 0;
+            let fat = 0;
+
+            // Basic nutrient values for some common foods (replace with your own data)
+            switch (foodName.toLowerCase()) {
+                case "apple":
+                    calories = 52;
+                    protein = 0.3;
+                    carbohydrates = 14;
+                    fat = 0.2;
+                    break;
+                case "banana":
+                    calories = 105;
+                    protein = 1.3;
+                    carbohydrates = 27;
+                    fat = 0.3;
+                    break;
+                case "chicken":
+                    calories = 335;
+                    protein = 32;
+                    carbohydrates = 0;
+                    fat = 3.6;
+                    break;
+                // Add more cases for other foods
+                default:
+                    alert("Nutrient information not available for the selected food.");
+                    return;
+            }
+
+            // Calculate total nutrients based on serving size
+            const totalNutrients = {
+                calories: calories * servingSize,
+                protein: protein * servingSize,
+                carbohydrates: carbohydrates * servingSize,
+                fat: fat * servingSize,
+            };
+
+            // Display the calculated nutrients (customize based on your needs)
+            alert(
+                `Meal Type: ${mealType}\nDate and Time: ${dateTime}\nFood Name: ${foodName}\nServing Size: ${servingSize}\n\nNutrients are displayed below: \n\nCalories: ${totalNutrients.calories}\nProtein: ${totalNutrients.protein}\nCarbohydrates: ${totalNutrients.carbohydrates}\nFat: ${totalNutrients.fat}`
+            );
+        }
+    </script>
+
+</body>
+</html>
