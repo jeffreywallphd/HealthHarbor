@@ -55,7 +55,7 @@ strsmgmt:StressTechnique rdf:type rdfs:Class ;
     rdfs:label "StressTechnique" ;
     rdfs:comment "Stress technique applied to handle stress case" ; 
 
-#07
+#07  
 strsmgmt:StressTechniqueType rdf:type rdfs:Class ;
     rdfs:label "StressTechniqueType" ;
     rdfs:comment "Stress technique type as category" ; 
@@ -65,12 +65,12 @@ strsmgmt:AthleteStressTechnique rdf:type rdfs:Class ;
     rdfs:label "Athlete Stress Technique" ;
     rdfs:comment "Junction table between Athlete and Stress Technique" ; 
 
-#09
+#09 
 strsmgmt:SupportSystem rdf:type rdfs:Class ;
     rdfs:label "Support System" ;
     rdfs:comment "Support system provided for Athlete ex. Coach, family, team mates ; 
 
-#10
+#10 
 strsmgmt:Expectation rdf:type rdfs:Class ;
     rdfs:label "Expectation" ;
     rdfs:comment "Expectations of Athlete ; 
@@ -80,7 +80,7 @@ strsmgmt:ExpectPrepStep rdf:type rdfs:Class ;
     rdfs:label "ExpectPrepStep" ;
     rdfs:comment "Preprepatory Steps of Athlete towards Expectation; 
 
-#12
+#12 
 strsmgmt:Discipline rdf:type rdfs:Class ;
     rdfs:label "Discipline" ;
     rdfs:comment "Discipline measure of Athlete ; 
@@ -124,7 +124,6 @@ strsmgmt:StressAnalSumm rdf:type rdfs:Class ;
 strsmgmt:StressAnalDetl rdf:type rdfs:Class ;
     rdfs:label "Stress Analysis Detail" ;
     rdfs:comment "Stress Analysis Detail for Athlete Stress Analysis Summary; 
-
 
 
 
@@ -288,7 +287,7 @@ strsmgmt:Symp_Category rdf:type rdfs:Property ;
 ##05 BIOSTATS ... from ERD [Bio_]
 # ------------------------
 ##ID int NOT NULL PK
-##ATHL ID int NOT NULL FK
+##ATHL_ID int NOT NULL FK
 ##TEMP_F decimal(18,2) NULL
 ##HGT_FT decimal(18,2) NULL
 ##WT_LB decimal(18,2) NULL CAL_LEVL decimal(18,2) NULL
@@ -337,5 +336,224 @@ strsmgmt:hasBiostats rdf:type rdf:Property ;
     rdfs:label "has biostats data" ;
     rdfs:domain budget:Athlete ;
     rdfs:range budget:Biostats .
+
+
+
+
+##06 STRESS_TECHNIQUE ... StressTechnique... from ERD [StrsTech_]
+# ------------------------
+ID int NOT NULL
+TECHNQ_TYPE_ID int NOT NULL
+IS_REACTIVE bit NOT NULL
+DATE_APPLIED datetime NULL
+DURA_MIN int NULL
+NOTES nvarchar(100) NULL
+
+
+
+
+
+
+##07 STRESS_TECHNIQUE_TYPE ... StressTechniqueType... from ERD [StrsTechTyp_]
+# ------------------------
+ID int NOT NULL +FK1 
+RATING int NOT NULL
+MIN_EXPECT int NULL
+MAX_EXPECT int NULL 
+DIFFICULTY_LEVL int NOT NULL 
+IS_NATRL_PHENOM bit NULL
+
+  
+
+
+
+
+##08 ATHLETE_STRESS_TECHNIQUE ... AthleteStressTechnique... from ERD [AthlStrsTech_]
+# ------------------------
+ATHL_ID int NOT NULL CK
+STRESS TECHNQ_ID int NOT NULL
+STRESS_ID int NULL
+
+
+
+
+
+
+
+##09 SUPPORT_SYSTEM ... SupportSystem... from ERD [SupSys_]
+# ------------------------
+ID int NOT NULL
+ATHL_ID int NOT NULL
+NAME_DESC nvachar(100) NOT NULL
+CATEGORY nchar(100) NULL
+IS SPONSOR bit NULL
+EXPECT_ID int NULL
+
+
+
+
+
+
+
+##10 EXPECTATION ... Expectation... from ERD [Expct_]
+# ------------------------
+PK ID int NOT NULL
+ATHL_ID int NOT NULL
+DESC varchar(50) NOT NULL
+SET DATE datetime NULL
+DUE DATE datetime NULL
+CATEGORY nvarchar(100) NULL 
+TO_COMPT bit NOT NULL
+IS_TEAM_EXPC bit NOT NULL
+STAT char(1) NULL
+
+         
+ 
+
+
+
+
+##11 EXPECT_PREP_STEP ... ExpectPrepStep... from ERD [ExpctPrepStp_]
+# ------------------------
+ID int NOT NULL
+EXPECT_ID int NOT NULL
+STEP DESC varchar(50) NOT NULL
+TGT_DATE datetime NULL
+COMPL 100 int NOT NULL
+STAT char(1) NOT NULL
+NOTES nvarchar(50) NOT NULL
+
+
+
+
+
+
+
+##12 DISCIPLINE ... Discipline... from ERD [Disc_]
+# ------------------------
+PK ID int NOT NULL
+DISCIPL TYPE nvachar(50) NOT NULL
+CATEGORY nvarchar NULL
+STRESS_LEVL int NOT NULL
+
+
+
+
+
+
+##13 ATHLETE_DISCIPLINE ... AthleteDiscipline ...from ERD [AthlDisc_]
+# ------------------------
+ATHL_ID int NOT NULL CK
+DISC_ID int NOT NULL CK
+
+
+
+
+
+
+
+##14 COMPETITION ... Competition... from ERD [Compt_]
+# ------------------------
+
+PK ID int NOT NULL
+EXPECT_ID NOT NULL
+NAME_DESC varchar(50) NOT NULL
+DUE DATE datetime NULL
+HOST FCLT_ID int NULL
+IS_TEAM PARTIC bit NOT NULL
+IS_COMPTV bit NOT NULL
+RATING 10 int NULL
+STAT char(1) NULL
+
+
+
+
+
+
+
+
+##15 COMPETITION_OUTCOME ... CompetitionOutcome... from ERD [ComptOut_]
+# ------------------------
+PK ID int NOT NULL
+COMPT_ID NOT NULL OUT_DATE datetime NULL
+RPT_NOTES varchar(200) NOT NULL
+RANK int NOT NULL
+- PK
+
+
+
+
+
+
+
+##16 FACILITY_TYPE ... FacilityType... from ERD [FaclTyp_]
+# ------------------------
+PK ID int NOT NULL
+NAME_DESC varchar(100) NOT NULL 
+FACLT_TYPE nvarchar(15) NOT NULL 
+FACLT_SIZE char(1) NOT NULL
+PRESR RATING 10 int NULL
+COND_STAT char(1) NOT NULL
+
+
+
+
+
+
+
+##17 ADHOC_TASK ... AdhocTask ...from ERD [AdhTsk_]
+# ------------------------
+ID int NOT NULL PK 
+ATHL_ID NOT NULL FK
+TASK_DESC varchar(100) NOT NULL
+START DATE datetime NOT NULL
+END_DATE datetime NULL
+FREQ char(1) NOT NULL
+IMPCT_RATING_10 int NOT NULL
+EXEC_SCORE_10 int NOT NULL
+
+
+
+
+
+
+##18 ATHLETE_CONFIDENCE ... AthleteConfidence... from ERD [AthlConf_]
+# ------------------------
+PK ID int NOT NULL
+ATHL_ID NOT NULL
+EXPECT_ID NOT NULL
+TASK_DESC varchar(100) NOT NULL EXPRNC_CNT int NOT NULL
+DIFF_LEVL 10 int NOT NULL
+MOTIV_LEVL 10 int NOT NULL
+ENVR_MOTIV_FCTR_10 int NOT NULL
+OPPOSE_LEVL 10 int NOT NULL PERS SCORE_10 int NOT NULL
+PREP SCORE_10 int NOT NULL
+HLTH_COND_SCORE_10 int NOT NULL
+SUPPT_RAT_SCORE_10 int NOT NULL
+
+
+
+
+##19 STRESS_ANAL_SUMMARY... StressAnalSumm ... from ERD [StrsAnalSum_]
+# ------------------------
+PK ID int NOT NULL
+ATHL_ID int NOT NULL
+FR_DATE datetime NOT NULL
+TO_DATE datetime NULL
+TOT_STRESS_SCORE int NOT NULL
+TOT_CONF_SCORE int NOT NULL
+STRESS_LEVL_STAT char(1) NULL
+CONF_LEVL_STAT char(1) NULL
+
+
+##20 STRESS_ANAL_DETAIL... StressAnalDetl ... from ERD [StrsAnalDet_]
+# ------------------------
+PK ID int NOT NULL
+ANAL_SUMM_ID NOT NULL
+EXPECT_ID int NOT NULL
+TOT STRESS_SCORE int NOT NULL 
+STRESS_LEVL_STAT char(1) NULL 
+CONF_LEVL_STAT char(1) NULL
+ 
 
 
