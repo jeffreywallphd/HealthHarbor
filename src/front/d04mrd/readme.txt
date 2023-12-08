@@ -1,9 +1,10 @@
-# Medical Records and Devices
+Medical Records and Devices
 
 ##### Author & Developer : Vimalesh Raja
 ##### Co-Developer : Ankit Chillar
 ##### Idea and design : Isabella, Walter, Vishwajeet Sai, Yaw
 ##### Front-End Manager : Mabel
+
 This file contains the HTML/CSS code of Medical records and devices. Figma design is implemented for couple of pages. Two pages of Figma has been designed to html and CSS. This repository has to be developed more.
 
 Pages Designed and Created:
