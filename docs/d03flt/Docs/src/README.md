@@ -1,5 +1,7 @@
 # Financial Literacy Website
 
+## Authors: Usama Ayub and Lala Koushik Srivastav 
+
 ## Overview
 
 The "Financial Literacy" website is designed to provide valuable information and resources to enhance users' understanding of financial matters. The website's front end has been mostly completed, and future tasks involve implementing the backend code and potential improvements to the front end.
@@ -30,7 +32,6 @@ The "Financial Literacy" website is designed to provide valuable information and
 
 5. **Feedback Mechanism:** Implement a feedback mechanism to gather user input and improve the website based on user suggestions.
 
-## Getting Started
 
 
 
