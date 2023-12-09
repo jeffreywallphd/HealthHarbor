@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "npm run build && webpack serve --open"
+    "start-frontend": "npm run build && webpack serve --open",
+    "start-backend": "node src/server.mjs",
+    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\""
   },
   "keywords": [],
   "author": "",
@@ -33,7 +35,9 @@
     "@inrupt/artifact-generator": "^3.1.1",
     "@types/react": "^18.2.33",
     "babel-loader": "^9.1.3",
+    "concurrently": "^8.2.2",
     "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
     "html-webpack-plugin": "^5.5.3",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.0",
