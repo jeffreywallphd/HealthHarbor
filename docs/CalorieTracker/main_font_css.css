@@ -1,0 +1,84 @@
+@font-face {
+    font-family: gibson;
+    src: url(/fonts/gibson-semibold/Gibson-SemiBold.eot);
+    src: url(/fonts/gibson-semibold/Gibson-SemiBold.eot?#iefix) format('embedded-opentype'), url(/fonts/gibson-semibold/Gibson-SemiBold.woff2) format('woff2'), url(/fonts/gibson-semibold/Gibson-SemiBold.woff) format('woff'), url(/fonts/gibson-semibold/Gibson-SemiBold.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: gibsonlight;
+    src: url(/fonts/gibson-light/Gibson-Light.eot);
+    src: url(/fonts/gibson-light/Gibson-Light.eot?#iefix) format('embedded-opentype'), url(/fonts/gibson-light/Gibson-Light.woff2) format('woff2'), url(/fonts/gibson-light/Gibson-Light.woff) format('woff'), url(/fonts/gibson-light/Gibson-Light.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal
+}
+
+body {
+    background-color: #f9f9f9
+}
+
+@font-face {
+    src: url(/fonts/icons/EvilIcons.ttf);
+    font-family: EvilIcons
+}
+
+@font-face {
+    src: url(/fonts/icons/FontAwesome.ttf);
+    font-family: FontAwesome
+}
+
+@font-face {
+    src: url(/fonts/icons/AntDesign.ttf);
+    font-family: AntDesign
+}
+
+@font-face {
+    src: url(/fonts/icons/Entypo.ttf);
+    font-family: Entypo
+}
+
+@font-face {
+    src: url(/fonts/icons/Feather.ttf);
+    font-family: Feather
+}
+
+@font-face {
+    src: url(/fonts/icons/Fontisto.ttf);
+    font-family: Fontisto
+}
+
+@font-face {
+    src: url(/fonts/icons/Foundation.ttf);
+    font-family: Foundation
+}
+
+@font-face {
+    src: url(/fonts/icons/MaterialCommunityIcons.ttf);
+    font-family: MaterialCommunityIcons
+}
+
+@font-face {
+    src: url(/fonts/icons/Zocial.ttf);
+    font-family: Zocial
+}
+
+@font-face {
+    src: url(/fonts/icons/Octicons.ttf);
+    font-family: Octicons
+}
+
+@font-face {
+    src: url(/fonts/icons/Ionicons.ttf);
+    font-family: Ionicons
+}
+
+@font-face {
+    src: url(/fonts/icons/SimpleLineIcons.ttf);
+    font-family: SimpleLineIcons
+}
+
+@font-face {
+    src: url(/fonts/icons/MaterialIcons-Regular.ttf);
+    font-family: MaterialIconsRegular
+}

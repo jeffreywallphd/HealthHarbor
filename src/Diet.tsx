@@ -5,9 +5,7 @@ class Diet extends Component {
     return (
       <div>
         <h2>Dietary Wellness</h2>
-        <p>
-            Test
-        </p>
+        <p>Test</p>
       </div>
     );
   }

@@ -7,41 +7,49 @@ class Home extends Component {
       <div>
         <h2>Welcome!</h2>
         <p>
-            Your personal wellness pod is a gateway to the various wellness services you utilize.
-            Your  pod is a centralized location for all of your wellness information.
+          Your personal wellness pod is a gateway to the various wellness
+          services you utilize. Your pod is a centralized location for all of
+          your wellness information.
         </p>
         <section className="cardRow">
-            <NavLink to="/fitness">
-              <div className="card">
-                <div className="cardHeader">
-                    <h3>Physical Wellness</h3>
-                </div>
-                <div className="cardContainer">
-                  <p>Create customized workout routines or select from existing workout routines. Then, track and visualize your workout progress.</p>
-                </div>
+          <NavLink to="/fitness">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Physical Wellness</h3>
               </div>
-            </NavLink>
-            <NavLink to="/diet">
-              <div className="card">
-                <div className="cardHeader">
-                    <h3>Dietary Wellness</h3>
-                </div>
-                <div className="cardContainer">
-                  <p>Create customized diet plans, select from existing diet plans, or just track your eating habits.</p>
-                </div>
+              <div className="cardContainer">
+                <p>
+                  Create customized workout routines or select from existing
+                  workout routines. Then, track and visualize your workout
+                  progress.
+                </p>
               </div>
-            </NavLink>
-            <NavLink to="/finance">
-              <div className="card">
-                <div className="cardHeader">
-                    <h3>Finance Wellness</h3>
-                </div>
-                <div className="cardContainer">
-                  <p>Manage personal budgets, and credits. </p>
-                </div>
+            </div>
+          </NavLink>
+          <NavLink to="/diet">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Dietary Wellness</h3>
               </div>
-            </NavLink>
-            <NavLink to="/mentalwellness">
+              <div className="cardContainer">
+                <p>
+                  Create customized diet plans, select from existing diet plans,
+                  or just track your eating habits.
+                </p>
+              </div>
+            </div>
+          </NavLink>
+          <NavLink to="/finance">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Finance Wellness</h3>
+              </div>
+              <div className="cardContainer">
+                <p>Manage personal budgets, and credits. </p>
+              </div>
+            </div>
+          </NavLink>
+          <NavLink to="/mentalwellness">
             <div className="card">
               <div className="cardHeader">
                 <h3>Mental Wellness</h3>

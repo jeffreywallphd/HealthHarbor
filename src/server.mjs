@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-import goalRouter from './svr/d02crd/goalRouter.mjs'; 
-import feedbackRouter from './svr/d02crd/feedbackRouter.mjs'; 
+import goalRouter from './svr/d02crd/goalRouter.mjs';
+import feedbackRouter from './svr/d02crd/feedbackRouter.mjs';
 import transactionsRouter from './svr/d02crd/transactionsRouter.mjs';
 import savingsTrackerRouter from './svr/d02crd/savingsTrackerRouter.mjs';
 import incomeRouter from './svr/d02crd/incomeRouter.mjs';
@@ -51,5 +51,4 @@ app.use('/api/d02crd', accountsRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-  });
-  
+});

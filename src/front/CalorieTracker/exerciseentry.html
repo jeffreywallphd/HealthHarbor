@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Entry Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        header {
+            background-color: #000;
+            color: #000;
+            padding: 20px;
+            text-align: right;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+        
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="userchoice.html">Menu</a>
+        <a href="contactus.html">Contact</a>
+    </header>
+
+    <form id="exerciseEntryForm">
+        <label for="exerciseType">Exercise Type:</label>
+        <select id="exerciseType" name="exerciseType" required>
+            <option value="strength">Strength Training</option>
+            <option value="cardio">Cardio</option>
+            <option value="weightTraining">Weight Training</option>
+        </select>
+
+        <label for="duration">Duration (minutes):</label>
+        <input type="number" id="duration" name="duration" required>
+
+        <label for="exerciseDate">Date and Time:</label>
+        <input type="datetime-local" id="exerciseDate" name="exerciseDate" required>
+
+        <button type="button" onclick="calculateCalories()">Submit</button>
+    </form>
+
+    <script>
+        function calculateCalories() {
+            // Get user input
+            const exerciseType = document.getElementById('exerciseType').value;
+            const duration = parseInt(document.getElementById('duration').value);
+            const exerciseDate = document.getElementById('exerciseDate').value;
+
+            // Define calorie burn rates (you may adjust these values based on your requirements)
+            const calorieBurnRates = {
+                strength: 5,
+                cardio: 8,
+                weightTraining: 6,
+            };
+
+            // Calculate calories burned
+            const caloriesBurned = duration * calorieBurnRates[exerciseType];
+
+            // Display the result (you may choose to store or display the result differently)
+            alert(`Calories burned: ${caloriesBurned}`);
+        }
+    </script>
+
+</body>
+
+</html>
