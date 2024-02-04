@@ -129,7 +129,7 @@ class App extends Component {
                   <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/fitness">Fitness</NavLink>
+                  <a href="https://ubiquitous-gelato-085eed.netlify.app">Fitness</a>
                 </li>
                 <li>
                   <NavLink to="/diet">Diet</NavLink>
