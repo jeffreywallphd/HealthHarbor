@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #foodImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .dashboard-component {
+            width: 60%;
+            margin: 40px;
+            margin-top: 70px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            z-index: 1;
+            cursor: pointer;
+            /* Add cursor pointer for better user experience */
+        }
+        
+        .dashboard-component:hover {
+            transform: scale(1.05);
+        }
+        
+        .dashboard-text {
+            color: black;
+            text-decoration: none;
+            /* Remove underline */
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: right;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+        
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        // Function to redirect to the specified page
+        function redirectToPage(pageURL) {
+            window.location.href = pageURL;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="userchoice.html">Menu</a>
+        <a href="contactus.html">Contact</a>
+    </header>
+    <img src="C:/Users/unnat/OneDrive/Desktop/userchoicebg.jpg" alt="Food Image" id="foodImage">
+
+    <div class="dashboard-component" onclick="redirectToPage('foodentry.html')">
+        <h2 class="dashboard-text">Food Entry</h2>
+        <p class="dashboard-text">Log your daily food intake and track your nutritional habits.</p>
+    </div>
+
+    <div class="dashboard-component" onclick="redirectToPage('exerciseentry.html')">
+        <h2 class="dashboard-text">Exercise Entry</h2>
+        <p class="dashboard-text">Record your physical activities and monitor your fitness routine.</p>
+    </div>
+
+    <div class="dashboard-component" onclick="redirectToPage('goalsetting.html')">
+        <h2 class="dashboard-text">Goal Setting</h2>
+        <p class="dashboard-text">Set health and fitness goals to stay motivated and achieve success.</p>
+    </div>
+
+    <div class="dashboard-component" onclick="redirectToPage('history.html')">
+        <h2 class="dashboard-text">History</h2>
+        <p class="dashboard-text">Review your past entries and monitor your progress over time.</p>
+    </div>
+
+</body>
+
+</html>
