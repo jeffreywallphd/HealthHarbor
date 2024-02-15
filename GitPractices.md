@@ -22,9 +22,12 @@ If you are a developer on your team, you must have Jeff Wall give you access to 
 * Once your changes are ready, go to the github repository and navigate to pull requests: 
     - Click “New Pull Request”
     - Always select “base: Main” on the left side.  On the right select your branch for “compare: BRANCH_NAME”
-    - Type a title and description for your pull request.
+    - Type a title and fill out given template for your pull request.
     - Submit Pull Request
 * The infrastructure team will have to approve this push request so please contact the team ASAP to get your branch approved and merged
+    - Assign anyone on the Infrastructure Team to do your review. 
+    - Once you assigned them, send a message in the Infrastructure Discord chat with a link to your pull request
+    - Pull Requests should be approved within 24hrs. If you have not recieved input or approval within that time frame contact your scrum master to escalate the request.
 * Once approved, the code changes you made will be in the “main” branch
     - In order to see your changes in the main branch, run git pull after running git checkout main again
 ### Merge Conflicts
