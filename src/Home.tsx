@@ -59,6 +59,16 @@ class Home extends Component {
               </div>
             </div>
           </NavLink>
+          <NavLink to="/medicalRecords">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Medical Record Management</h3>
+              </div>
+              <div className="cardContainer">
+                <p>Upload Medical Records and View History</p>
+              </div>
+            </div>
+          </NavLink>
         </section>
       </div>
     );

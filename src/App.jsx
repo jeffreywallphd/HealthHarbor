@@ -32,6 +32,7 @@ import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
 import Diet from "./Diet";
 
+
 // Finance module - John Mware
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -39,6 +40,9 @@ import Goals from "./Goals";
 
 // Mental Wellness module - Saeed Peyman
 import Mental from "./Mental";
+
+// Medical Records
+import MedicalRecords from "./MedicalRecords";
 
 import "./styles/styles.css";
 //TODO: regenerate the vocabulary for fitv, which is now fitp
@@ -144,6 +148,10 @@ class App extends Component {
                 <li>
                   <NavLink to="/mental">Mental Wellness</NavLink>
                 </li>
+                {/* Medical Records */}
+                <li>
+                  <NavLink to="/medicalRecords">Medical Records</NavLink>
+                </li>
               </ul>
             </nav>
             <div className="content">
@@ -153,6 +161,7 @@ class App extends Component {
                 <Route path="/fitness-routine" element={<FitnessRoutine />} />
                 <Route path="/fitness-tracker" element={<FitnessTracker />} />
                 <Route path="/diet" element={<Diet />} />
+                <Route path="/medicalRecords" element={<MedicalRecords />} />
 
                 {/* Finance - JM */}
                 <Route path="/finance" element={<Finance />} />
