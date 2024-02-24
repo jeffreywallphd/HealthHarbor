@@ -39,6 +39,9 @@ import Goals from "./Goals";
 
 // Mental Wellness module - Saeed Peyman
 import Mental from "./Mental";
+              
+// Habit Tracker module 
+import HabitTracker from "./HabitTracker";
 
 import "./styles/styles.css";
 //TODO: regenerate the vocabulary for fitv, which is now fitp
@@ -142,7 +145,12 @@ class App extends Component {
 
                 {/* Mental Wellness */}
                 <li>
-                  <NavLink to="/mental">Mental Wellness</NavLink>
+                  <NavLink to="/mental">Mental Health Chatbot</NavLink>
+                </li>
+                
+                {/* Habit Tracker */}
+                <li>
+                  <NavLink to="/HabitTracker">Habit Tracker</NavLink>
                 </li>
               </ul>
             </nav>
@@ -159,6 +167,7 @@ class App extends Component {
                 <Route path="/budgeting" element={<Budgeting />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
+                <Route path="/HabitTracker" element={<HabitTracker/>}/>
               </Routes>
             </div>
           </div>
