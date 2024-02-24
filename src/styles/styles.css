@@ -60,7 +60,7 @@ ul.navigation li a {
 .cardRow {
     width: fit-content;
     block-size: fit-content;
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
     margin-top: 30px;
