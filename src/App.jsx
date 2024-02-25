@@ -38,8 +38,11 @@ import Finance from "./Finance";
 import Budgeting from "./Budgeting";
 import Goals from "./Goals";
 
-// Mental Wellness module - Saeed Peyman
-import Mental from "./Mental";
+// Mental Health Chatbot module
+import Mental from "./MentalHealthChatbot";
+              
+// Habit Tracker module 
+import HabitTracker from "./HabitTracker";
 
 // Medical Records
 import MedicalRecords from "./MedicalRecords";
@@ -144,9 +147,14 @@ class App extends Component {
                   <NavLink to="/finance">Finance</NavLink>
                 </li>
 
-                {/* Mental Wellness */}
+                {/* Mental Health Chatbot */}
                 <li>
-                  <NavLink to="/mental">Mental Wellness</NavLink>
+                  <NavLink to="/mental">Mental Health Chatbot</NavLink>
+                </li>
+                
+                {/* Habit Tracker */}
+                <li>
+                  <NavLink to="/HabitTracker">Habit Tracker</NavLink>
                 </li>
                 {/* Medical Records */}
                 <li>
@@ -168,6 +176,7 @@ class App extends Component {
                 <Route path="/budgeting" element={<Budgeting />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
+                <Route path="/HabitTracker" element={<HabitTracker/>}/>
               </Routes>
             </div>
           </div>
