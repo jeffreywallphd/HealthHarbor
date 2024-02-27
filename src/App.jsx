@@ -52,6 +52,19 @@ import "./styles/styles.css";
 //TODO: regenerate the vocabulary for fitv, which is now fitp
 import FITV from "./Generated/SourceCodeArtifacts/JavaScript/GeneratedVocab/FITV.js";
 
+// Medical Records Details Page
+import AppointmentHistoryDetail  from "../src/front/MedicalRecords/CardDescriptionMedicalRecords/AppointmentHistoryDetail";
+import AllergiesDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/AllergiesDetail';
+import InsuranceDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/InsuranceDetail';
+import LabReportsDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/LabReportsDetail';
+import MedicineDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/MedicineDetail';
+import VaccinesDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/VaccinesDetail';
+import VitalsDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/VitalsDetail';
+
+// Medical Records Dashboard Page
+import AppointmentHistoryDashboard from './front/MedicalRecords/Dashboard/AppointmentHistoryDashboard';
+import MedicalRecordsInitial from './front/MedicalRecords/MedicalRecordsInitial';
+
 const redirectURL = new URL("/", window.location.href).toString();
 const session = getDefaultSession();
 
@@ -179,6 +192,26 @@ class App extends Component {
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
+                {/* Medical Records Description */}
+                <Route path="/allergies-detail" element={<AllergiesDetail />} />
+                <Route path="/appointment-history-detail" element={<AppointmentHistoryDetail />} />
+                <Route path="/insurance-detail" element={<InsuranceDetail />} />
+                <Route path="/lab-reports-detail" element={<LabReportsDetail />} />
+                <Route path="/medicines-detail" element={<MedicineDetail />} />
+                <Route path="/vaccines-detail" element={<VaccinesDetail />} />
+                <Route path="/vitals-detail" element={<VitalsDetail />} />
+
+                {/* Medical Records Dashboard */}
+                <Route path="/allergies-dashboard" element={<AllergiesDetail />} />
+                <Route path="/appointment-history-dashboard" element={<AppointmentHistoryDashboard />} />
+                <Route path="/insurance-dashboard" element={<InsuranceDetail />} />
+                <Route path="/lab-reports-dashboard" element={<LabReportsDetail />} />
+                <Route path="/medicines-dashboard" element={<MedicineDetail />} />
+                <Route path="/vaccines-dashboard" element={<VaccinesDetail />} />
+                <Route path="/vitals-dashboard" element={<VitalsDetail />} />
+
+                {/* Medical Records Initial Dashboard
+    <Route path="/inital-dashboard-medical-records" element={<MedicalRecordsInitial/>}/> */}
               </Routes>
             </div>
           </div>
