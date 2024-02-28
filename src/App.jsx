@@ -37,6 +37,8 @@ import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
 import Goals from "./Goals";
+import DebtRepayment from "./DebtRepayment"
+
 
 // Mental Wellness module - Saeed Peyman
 import Mental from "./Mental";
@@ -166,6 +168,9 @@ class App extends Component {
                 {/* Finance - JM */}
                 <Route path="/finance" element={<Finance />} />
                 <Route path="/budgeting" element={<Budgeting />} />
+                <Route path="/debt-repayment" element={<DebtRepayment />} />
+                
+
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
               </Routes>

@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+/* 
+  An interface describes the shape of an object and the properties that
+  an object should have. A budget should have a month, year, totalIncome
+  totalExpenses and income attributes based on this interface.  
+ */
 interface BudgetingState {
   month: number;
   year: number;
@@ -7,6 +12,7 @@ interface BudgetingState {
   totalExpenses: number;
   income: number;
 }
+
 
 class Budgeting extends Component<{}, BudgetingState> {
   constructor(props) {
@@ -20,20 +26,37 @@ class Budgeting extends Component<{}, BudgetingState> {
       income: 0.0,
     };
 
+    // creates a new function that calls the function with its this keyword
     this.handleMonthChange = this.handleMonthChange.bind(this);
     this.handleYearChange = this.handleYearChange.bind(this);
     this.saveBudget = this.saveBudget.bind(this);
   }
 
+  /* The onChange value of the select month section is set to this function so when
+   there is a change in the month it calls this function and updates the value of the 
+   month for the object */
   handleMonthChange(event) {
     this.setState({ month: parseInt(event.target.value) });
   }
 
+  // same as handle month but for year
   handleYearChange(event) {
     this.setState({ year: parseInt(event.target.value) });
   }
 
-  async saveBudget() {}
+  /*
+  link for information on async functions: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+  used to update the information on the page when the save budget button is clicked
+  not sure why they used async function
+  */
+
+   // Helpful link for why we have to cast to HTMLInputElement
+   // https://stackoverflow.com/questions/12989741/the-property-value-does-not-exist-on-value-of-type-htmlelement
+  async saveBudget() {
+      const income_string = (document.getElementById("income") as HTMLInputElement).value
+      this.setState({totalIncome: parseInt(income_string)})
+  }
+
 
   render() {
     return (
@@ -114,6 +137,18 @@ class Budgeting extends Component<{}, BudgetingState> {
             {this.state.totalExpenses.toFixed(2)}
           </div>
         </section>
+        <br />
+
+        <div>
+          <p>
+            The year you selected is: {this.state.year}
+            <br></br>
+            The month you selected is: {this.state.month}
+            <br></br>
+            Arbitrary math: income divided by 3 = {this.state.totalIncome / 3}
+          </p>
+        </div>
+        
       </div>
     );
   }

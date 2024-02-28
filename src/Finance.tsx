@@ -18,6 +18,7 @@ class Finance extends Component {
               </div>
             </div>
           </NavLink>
+
           <NavLink to="/goals">
             <div className="card">
               <div className="cardHeader">
@@ -28,6 +29,18 @@ class Finance extends Component {
               </div>
             </div>
           </NavLink>
+
+          <NavLink to="/debt-repayment">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Debt Repayment Calculator</h3>
+              </div>
+              <div className="cardContainer">
+                <p>Determine strategies for paying off debts</p>
+              </div>
+            </div>
+          </NavLink>
+
         </section>
       </div>
     );
