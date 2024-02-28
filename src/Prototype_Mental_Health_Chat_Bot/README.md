@@ -9,4 +9,4 @@ It's just a small prototype model and we are going to convert this into JS.
 copy paste the following instructions 
 1. cd src
 2. cd Prototype_Mental_Health_Chat_Bot
-3.python prototype.py
+3. python prototype.py
