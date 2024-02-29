@@ -37,7 +37,13 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
   }
 
   addDebt(event) {
-    
+    var table = document.querySelectorAll("tableID")
+    var div_val = document.getElementById("insertTest")
+    var input = document.createElement('input')
+    var newline = document.createElement('br')
+    input.type = "text"
+    div_val.appendChild(newline)
+    div_val.appendChild(input)
   }
 
   removeDebt(event) {
@@ -69,6 +75,26 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
             <input type="text" id="available" name="Money Availble"/>
           </div>
           <br />
+          
+          <table id="tableID">
+            <thead>
+              <th>Remove</th>
+              <th>Debt Name</th>
+              <th>Amount</th> 
+              <th>Interest Rate</th>
+              <th>Minimum Payment</th>
+            </thead>
+            <tbody>
+              <tr>
+                <button name="remove" id="remove" onClick={this.removeDebt}>X</button>
+                <td><input type="text" id="debtName" name="debtName"/></td>
+                <td><input type="number" id="amount" name="amount"/></td>
+                <td><input type="number" id="interestRate" name="interestRate"/></td>
+                <td><input type="number" id="minPayment" name="minPayment"/></td>
+              </tr>
+            </tbody>
+          </table>
+
           <div>
             <button name="add" id="add" onClick={this.addDebt}>
               Add Another Debt
@@ -81,7 +107,7 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
         </section>
         <br />
         <section>
-          <div>
+          <div id="insertTest">
             Available Money: {this.state.moneyAvailable}
 
           </div>
