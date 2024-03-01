@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-class  MedicalRecords extends Component {
+class MedicalRecords extends Component {
   render() {
     return (
       <div>
         <div>Goto Medical Records dashboard: 
           <NavLink to="/medical-records/inital-dashboard-medical-records">
-          <div>Click here!</div></NavLink>
+            <div>Click here!</div>
+          </NavLink>
         </div>
         <h2>Medical Records</h2>
         <p>Details of your personalized medical records</p>
@@ -43,12 +44,11 @@ class  MedicalRecords extends Component {
               </div>
               <div className="cardContainer">
                 <p>
-                Users can track all their allergies at a single point of access. When needed users can share this data with doctors or health infrastructure with ease. Any necessary medications need will also be assigned here.
+                  Users can track all their allergies at a single point of access. When needed users can share this data with doctors or health infrastructure with ease. Any necessary medications need will also be assigned here.
                 </p>
               </div>
             </div>
           </NavLink>
-          
           <NavLink to="/vitals-detail">
             <div className="card">
               <div className="cardHeader">
@@ -63,7 +63,6 @@ class  MedicalRecords extends Component {
           </NavLink>
         </section>
         <section className="cardRow">
-            
           <NavLink to="/vaccines-detail">
             <div className="card">
               <div className="cardHeader">
@@ -76,7 +75,6 @@ class  MedicalRecords extends Component {
               </div>
             </div>
           </NavLink>
-          
           <NavLink to="/medicines-detail">
             <div className="card">
               <div className="cardHeader">
@@ -89,7 +87,6 @@ class  MedicalRecords extends Component {
               </div>
             </div>
           </NavLink>
-          
           <NavLink to="/lab-reports-detail">
             <div className="card">
               <div className="cardHeader">
@@ -97,12 +94,11 @@ class  MedicalRecords extends Component {
               </div>
               <div className="cardContainer">
                 <p>
-                    Details about your allergies
+                Users will not be able to store all their lab report data together. This data can be shared with other medical care institutions with ease. People will be able to get this data.
                 </p>
               </div>
             </div>
           </NavLink>
-          
         </section>
       </div>
     );

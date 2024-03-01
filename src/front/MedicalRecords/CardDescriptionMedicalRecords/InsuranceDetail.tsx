@@ -6,14 +6,14 @@ class  InsuranceDetail extends Component {
     return (
         <div>
           <Description
-            title="Welcome to Appointment History Detail"
+            title="Welcome to Insurance Detail"
             backgroundImage="">
             <div>
               <ul>
-                  <li><strong>Appointment Management Feature:</strong> The platform now offers a feature that enables users to manage their appointments. This likely includes functionalities such as scheduling, editing, canceling, and viewing appointments.</li>
-                  <li><strong>Update Appointment History:</strong> Users can now make changes to their appointment history. This could involve editing details of past appointments, such as rescheduling or adding notes.</li>
-                  <li><strong>Ease of Tracking:</strong> The platform makes it easy for users to keep track of their scheduled appointments. This might involve providing a clear overview of upcoming appointments, reminders, and notifications.</li>
-                  <li><strong>Reduced Concerns:</strong> Users can manage their appointments without worry, implying that the platform provides reliability and reassurance in managing appointments effectively. This could include features like automated reminders, confirmation emails, or easy rescheduling options.</li>
+                  <li><strong>Insurance Data Update:</strong> Users are provided with a straightforward process to update their insurance information within the platform. This likely includes details such as insurance provider, policy number, and any relevant coverage information.</li>
+                  <li><strong>Linking Appointments with Insurance Data:</strong> The platform allows users to associate their appointments with their insurance data. This linkage ensures that relevant insurance information is connected to each appointment, facilitating streamlined coordination between medical visits and insurance coverage.</li>
+                  <li><strong>Handiness in Doctor Selection:</strong> When users schedule appointments, they can easily access their insurance data to assist in selecting healthcare providers. This feature might provide information on which doctors are in-network with the user's insurance plan, helping users make informed decisions to maximise their insurance benefits and minimise out-of-pocket expenses.</li>
+                  <li><strong>Enhanced Appointment Tracking and Scheduling:</strong> By integrating insurance data into appointment tracking and scheduling, users gain a more comprehensive view of their healthcare management. They can efficiently manage appointments while considering insurance coverage, reducing the likelihood of confusion or unexpected costs.</li>
               </ul>
             </div>
           </Description>
