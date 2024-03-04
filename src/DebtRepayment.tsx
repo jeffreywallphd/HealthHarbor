@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 
+
 interface DebtRepaymentState {
   moneyAvailable: number;
+
   // Helpful link for arrays in typescript
   // https://timmousk.com/blog/typescript-array-of-objects/
   debts: Array<{type:string, 
                 amount:number, 
                 interestRate:number, 
                 minPayment:number}>;
+
+  // temporary variables for future debugging 
   tempAdd: string;
   tempRemove: string;
   tempChange: string; 
@@ -16,7 +20,8 @@ interface DebtRepaymentState {
 class DebtRepayment extends Component<{}, DebtRepaymentState> {
   constructor(props) {
     super(props);
-
+    
+    // set initial state of object
     this.state = {
       moneyAvailable: 0, // Default month (e.g., October)
       debts: new Array<{type:"",amount:0,interestRate:0,minPayment:0}>,
@@ -25,17 +30,20 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
       tempChange:""
     };
 
+    // initialize functions
     this.changeMoneyAvailable = this.changeMoneyAvailable.bind(this);
     this.addDebt = this.addDebt.bind(this);
     this.removeDebt = this.removeDebt.bind(this);
     this.changeDebt = this.changeDebt.bind(this);
   }
-
+  
+  // changes how much money is available when the enter button is clicked
   changeMoneyAvailable(event){
     const money_str = (document.getElementById("available") as HTMLInputElement).value
     this.setState({moneyAvailable: parseInt(money_str)})
   }
-
+  
+  // function in progress - goal is to add a row to the table
   addDebt(event) {
     var table = document.querySelectorAll("tableID")
     var div_val = document.getElementById("insertTest")
@@ -46,14 +54,17 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     div_val.appendChild(input)
   }
 
+  //not currently implemented
   removeDebt(event) {
     // this.setState({ year: parseInt(event.target.value) });
   }
 
+  //not currently implemented
   changeDebt(event){
 
   }
 
+  //not currently implemented
   async submit() {
 
 
