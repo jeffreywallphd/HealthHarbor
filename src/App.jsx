@@ -37,6 +37,7 @@ import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
 import Goals from "./Goals";
+import DebtRepayment from "./DebtRepayment"
 
 // Mental Health Chatbot module
 import Mental from "./MentalHealthChatbot";
@@ -174,6 +175,7 @@ class App extends Component {
                 {/* Finance - JM */}
                 <Route path="/finance" element={<Finance />} />
                 <Route path="/budgeting" element={<Budgeting />} />
+                <Route path="/debt-repayment" element={<DebtRepayment />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
