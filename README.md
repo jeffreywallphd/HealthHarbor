@@ -46,7 +46,12 @@ The authors and copyright holders of this software disclaim all liability for an
     - It may ask you to install a couple other things, just run the commands it tells you 
 * it will say something like ‘Server running on http://localhost:8080’ and this should automatically open a new tab with the site running
 
-### Future Feature Ideas
+## Collaboration Practices
+Please be sure to read through the [Best Coding Practices](BestCodingPractices.md) document before you start collaborating.
+
+As you use git and GitHub to manager your contributions, follow the guidelines outlined in the [Git Practices](GitPractices.md) document. Remember to pull from main regularly to avoid code conflicts.
+
+## Future Feature Ideas
 The following are some ideas for future implementation:
 
 * Electron implementation to allow for a desktop application.
