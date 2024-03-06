@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/preset-react": "^7.22.15",
+    "@huggingface/inference": "^2.6.4",
     "@inrupt/solid-client": "^1.30.2",
     "@inrupt/solid-client-authn-browser": "^1.17.2",
     "@inrupt/solid-client-authn-node": "^1.17.3",

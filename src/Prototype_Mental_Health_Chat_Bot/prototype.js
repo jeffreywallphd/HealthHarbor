@@ -1,19 +1,39 @@
-const { AutoModelForCausalLM } = require("@huggingface/node-library");
+const { HfInference } = require('@huggingface/inference');
 
-async function main() {
-    // Set gpu_layers to the number of layers to offload to GPU. Set to 0 if no GPU acceleration is available on your system.
-    const llm = await AutoModelForCausalLM.fromPretrained({
-        pretrainedConfigArchiveMap: {
-            mistral: "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
-        },
-        modelFile: "mistral-7b-instruct-v0.1.Q4_K_M.gguf",
-        modelType: "mistral",
-        gpuLayers: 0
-    });
+const HF_TOKEN = 'insert_token_here'; // Replace with your actual token
 
-    const inputText = "What is meantal health? How can i take care of my mental health?";
-    const output = await llm(inputText);
-    console.log(output);
+const inference = new HfInference(HF_TOKEN);
+
+const prompt = "What is mental health? How can I take care of my mental health?";
+
+async function generateText(prompt) {
+  const response = await inference.textGeneration({
+    model: 'mistralai/Mistral-7B-v0.1',
+    inputs: prompt,
+    parameters: {
+      max_new_tokens: 300,
+      num_beams:10,
+    no_repeat_ngram_size:10,
+    early_stopping:true,
+    //   do_sample: true,
+    //   top_p: 0.5,
+    //   temperature: 0.5,
+    },
+    options: {
+      use_cache: false,
+      wait_for_model: true,
+    },
+  });
+
+//   console.log(response);
+  return response.generated_text;
 }
 
-main();
+
+generateText(prompt)
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
