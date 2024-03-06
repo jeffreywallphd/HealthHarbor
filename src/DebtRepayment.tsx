@@ -43,19 +43,25 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
   }
 
   // function in progress - goal is to add a row to the table
+  // source:https://stackoverflow.com/questions/1728284/create-clone-of-table-row-and-append-to-table-in-javascript
   addDebt(event) {
-    var table = document.querySelectorAll("tableID")
-    var div_val = document.getElementById("insertTest")
-    var input = document.createElement('input')
-    var newline = document.createElement('br')
-    input.type = "text"
-    div_val.appendChild(newline)
-    div_val.appendChild(input)
+    // retrieve the table element
+    var table = document.getElementById("tableID") as HTMLTableElement;
+    // select the table row from the table body which will be cloned
+    // only works of the table already exists
+    var tempRow = table.querySelector("tbody tr") as HTMLTableRowElement;
+    // clones the previous row tempRow
+    var newRow = tempRow.cloneNode(true) as HTMLTableRowElement; 
+    // Reset input values in the cloned row so you can type in new values in the new row
+    newRow.querySelectorAll('input').forEach(input => input.value = '');
+    // Append the cloned row to the table body
+    table.querySelector("tbody").appendChild(newRow);
   }
 
   //not currently implemented
   removeDebt(event) {
     // this.setState({ year: parseInt(event.target.value) });
+    
   }
 
   //not currently implemented
@@ -103,6 +109,7 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
               </tr>
             </tbody>
           </table>
+
           <div>
             <button name="add" id="add" onClick={this.addDebt}>
               Add Another Debt
