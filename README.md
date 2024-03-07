@@ -7,6 +7,8 @@ This software is provided "as is" without any warranty of any kind, express or i
 ### Disclaimer of Liability
 The authors and copyright holders of this software disclaim all liability for any damages, including incidental, consequential, special, or indirect damages, arising from the use or inability to use this software.
 
+### General Use Disclaimer
+The authors of this software are not medical, financial, mental health experts, nor experts along any of the particular wellness directions. This software should not be used to replace expert advice in any of the wellness domains. The information and functionality provided through the software is for research and educational purposes. Seek wellness advice from licensed professionals in the respective wellness domain. 
 
 ## Installation
 ### Prepare to Install
