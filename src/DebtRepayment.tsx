@@ -15,7 +15,7 @@ interface DebtRepaymentState {
   tempAdd: string;
   tempRemove: string;
   tempChange: string; 
-  numRows: number;
+  nextId: number;
 }
 class DebtRepayment extends Component<{}, DebtRepaymentState> {
   constructor(props) {
@@ -28,7 +28,7 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
       tempAdd: "",
       tempRemove: "",
       tempChange:"",
-      numRows: 1
+      nextId:1
     };
 
     // initialize functions
@@ -59,44 +59,48 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     newRow.querySelectorAll('input').forEach(input => input.value = '');
     // get the button in the new row
     var newButton = newRow.querySelector("button");
-    // get the current number of rows and use it as the index of the new button/row
-    var numRows = this.state.numRows;
+    // set the id of the new row based on the current ids being tracked
+    newRow.id = "row"+this.state.nextId.toString()
     // get the new button and set the id so it is identifiable
-    newButton.id = numRows.toString();
+    newButton.id = this.state.nextId.toString();
     // when the remove button is clicked we want to remove the correct row so we associate the 
-    // removeDebt function with the row number
-    newButton.onclick = () => this.removeDebt(numRows);
-    newButton.textContent = numRows.toString()
+    // removeDebt function with the id of the row
+    newButton.onclick = () => this.removeDebt(newButton.id);
     // append the cloned row to the table body
     table.querySelector("tbody").appendChild(newRow);
-    // since we added a new row we need to increment the number of rows
-    this.setState({numRows: numRows+1});
+    // since we added a new row with a new id we want to increment the value of nextId
+    this.setState({nextId: this.state.nextId+1});
   }
   
 
-  removeDebt(rowIndex) {
-    console.log(rowIndex)
-    // get the current number of rows
-    var numRows = this.state.numRows
-    // we never want to have less than 1
-    if (numRows > 1){
-      // retrieve the table element
-      var table = document.getElementById("tableID") as HTMLTableElement;
-      // delete the specified row
-      table.deleteRow(rowIndex);
-      // retrieve the remaining rows
-      var remainingRows = table.querySelectorAll("tbody tr");
-      // iterate through the remaining rows updating the button ids
-      for (var i = 0; i < remainingRows.length; i++){
-        // get button in row i
-        var button = remainingRows[i].querySelector("button");
-        // update onclick function to match its new row number
-        button.id = i.toString();
-        button.onclick = () => this.removeDebt(i);
-        button.textContent = i.toString();
+  removeDebt(id) {
+    console.log(id)
+    // retrieve the table element
+    var table = document.getElementById("tableID") as HTMLTableElement;
+    var numRows = table.rows.length;
+    // we never want to have less than 1 and header
+    if (numRows > 2){
+      // set index to -1 as an indicator of no row to remove / something wrong
+      var rowIndexToRemove = -1;
+      // iterate through the rows in the table in order checking the ids
+      for(var i=0; i < table.rows.length;i++){
+        // if we find a row with the id we want to use that value as the index 
+        //of the row to remove
+        if (table.rows[i].id == "row"+id){
+          rowIndexToRemove = i
+          break // once found we can break
+        }
       }
-      // decrement the number of rows by 1 because we removed a row
-      this.setState({numRows: numRows-1});
+      // should hopefully never hit this block but alert if something breaks
+      // and the rows aren't indexing correctly
+      if(rowIndexToRemove == -1){
+        console.log(rowIndexToRemove, id)
+        alert("Oh No! Something Went Wrong!")
+      }
+      // if we found the row index we can sucessfully delete the row
+      else{
+        table.deleteRow(rowIndexToRemove)
+      }
     }
   }
   
@@ -141,8 +145,8 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><button name="remove" id="0" onClick={() => this.removeDebt(0)}>0</button></td>
+              <tr id="row0">
+                <td><button name="remove" id="0" onClick={() => this.removeDebt(0)}>x</button></td>
                 <td><input type="text" id="debtName" name="debtName"/></td>
                 <td><input type="number" id="amount" name="amount"/></td>
                 <td><input type="number" id="interestRate" name="interestRate"/></td>
