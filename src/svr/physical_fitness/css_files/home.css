@@ -1,0 +1,53 @@
+.home {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  justify-content: center;
+  background-color: black;
+}
+.div1 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 500px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 7px;
+  padding: 35px;
+  align-items: center;
+}
+
+.div2 {
+  width: 700px;
+  height: 540px;
+  border: 1px solid black; /* Optional: just for visualization */
+  overflow: hidden;
+}
+
+.div2 img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+#transform {
+  color: teal;
+  font-size:;
+}
+#life {
+  color: white;
+}
+#caring {
+  color: white;
+  text-align: justify;
+  margin: 30px 0px 30px 0px;
+  font-size: 17px;
+}
+#readmore {
+  background-color: teal;
+  color: white;
+  width: 180px;
+  border-radius: 7px;
+  padding: 10px;
+}

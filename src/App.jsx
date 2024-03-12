@@ -27,6 +27,7 @@ import { SessionProvider, LoginButton } from "@inrupt/solid-ui-react";
 import { useSession, CombinedDataProvider, Text } from "@inrupt/solid-ui-react";
 
 import Home from "./Home";
+import FitnessApp from "./svr/physical_fitness/fitness.tsx";
 import Fitness from "./Fitness";
 import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
@@ -129,8 +130,9 @@ class App extends Component {
                   <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                  <a href="https://ubiquitous-gelato-085eed.netlify.app">Fitness</a>
+                  <NavLink to="/fitnessapp">Fitness</NavLink>
                 </li>
+           
                 <li>
                   <NavLink to="/diet">Diet</NavLink>
                 </li>
@@ -153,6 +155,7 @@ class App extends Component {
                 <Route path="/fitness-routine" element={<FitnessRoutine />} />
                 <Route path="/fitness-tracker" element={<FitnessTracker />} />
                 <Route path="/diet" element={<Diet />} />
+                <Route path="/fitnessapp" element={<FitnessApp />} />
 
                 {/* Finance - JM */}
                 <Route path="/finance" element={<Finance />} />

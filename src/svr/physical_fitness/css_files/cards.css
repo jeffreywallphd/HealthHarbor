@@ -1,0 +1,89 @@
+.cardsproto {
+  display: flex;
+  width: 430px;
+  height: 600px;
+  flex-flow: wrap;
+  align-items: center;
+  text-align: left;
+  margin: 7px;
+  padding: 10px;
+  color: black;
+  border: 2px solid whitesmoke;
+  box-shadow: 6px 7px gray;
+}
+figure {
+  position: relative;
+}
+figure::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+figure:hover::before {
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.85s;
+}
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+.cardsdiv {
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+}
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  background-color: blanchedalmond;
+}
+
+h4:after {
+  display: block;
+  content: "";
+  border: solid black;
+  border-width: 0px 3px 3px 0px;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+h4:hover:after {
+  transform: scaleX(1);
+}
+h4.fromRight:after {
+  transform-origin: 100% 50%;
+}
+h4.fromLeft:after {
+  transform-origin: 0% 50%;
+}

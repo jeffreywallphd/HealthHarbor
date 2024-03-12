@@ -21,7 +21,20 @@ module.exports = {
             presets: ["@babel/preset-react"]
         },
         exclude: [/node_modules/, /dist/]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
+      }
+  
+
     ],
   },
   output: {
