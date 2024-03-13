@@ -1,0 +1,196 @@
+/* Description.css */
+
+.description-container {
+  border-radius: 0; /* Sharp corners */
+  position: relative;
+}
+
+.description-title {
+  margin-bottom: 20px;
+  font-size: 32px; /* Increased font size for better readability */
+  color: #000; /* White text color for better contrast */
+  background-color: #CCC; /* Background color for title */
+  padding: 10px 20px; /* Padding for title */
+  width: 100%;
+  height: 20%;
+  font-size: 55px;
+  text-align-last: center;
+}
+
+.description-content {
+  height: 100%;
+  margin-top: 20px;
+  font-size: 26px;
+  color: #000; /* Text color for content */
+  background-color: #fff; /* Background color for content */
+  padding: 20px; /* Padding for content */
+  border-radius: 0 0 10px 10px; /* Sharp corners on the bottom */
+}
+
+.description-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.description-content li {
+  margin-bottom: 8px;
+}
+
+/* Overlay for background image */
+/* .description-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0; /* Sharp corners 
+} */
+
+/* Add more styles as needed */
+
+.generic-dashboard-heading{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #4a0cf4 45%, #ee4b2b);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+.generic-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .generic-form-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .generic-form-container input[type="text"],
+  .generic-form-container input[type="password"],
+  .generic-form-container input[type="date"],
+  .generic-form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .generic-form-container select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%238E8E8E" d="M5 7l5 5 5-5H5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+  }
+  
+  .generic-form-container input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .generic-form-container_input_type_radio {
+    margin-right: 5px;
+    display: flex;
+  }
+
+  .generic-form-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-image: linear-gradient(to right, #4a0cf4 45%, #ee4b2b);
+    color: #fff;
+    cursor: pointer;
+  }
+  .react-datepicker-popper.custom-popper div button {
+    /* Add your custom styles here */
+    /* For example: */
+    background: transparent !important;
+    /* Add any other styles as needed */
+  }
+  .generic-form-container button:hover {
+    background-image: linear-gradient(to right, #fceb07 45%, #23f407);
+  }
+  .appointment-history-button-div{
+    display: flex;
+    justify-content: flex-end;
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      background-image: linear-gradient(to right, #4a0cf4 45%, #ee4b2b);
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  /* GenericTable.css */
+/* GenericTable.css */
+
+.generic-table-container {
+  max-width: 100%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.generic-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.generic-table th,
+.generic-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.generic-table th {
+  font-size: 24px;
+  font-weight: 600;
+  background-image: linear-gradient(to right, #4a0cf4 45%, #ee4b2b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.generic-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.generic-table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+.appointment-history-button-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.appointment-history-button-div button {
+  display: block;
+  width: auto;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 3px;
+  background-image: linear-gradient(to right, #4a0cf4 45%, #ee4b2b);
+  color: #fff;
+  cursor: pointer;
+}
+
+.appointment-history-button-div button:hover {
+  background-image: linear-gradient(to right, #fceb07 45%, #23f407);
+}

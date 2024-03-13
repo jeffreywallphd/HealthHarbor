@@ -6,14 +6,14 @@ class MedicalRecords extends Component {
     return (
       <div>
         <div>Goto Medical Records dashboard: 
-          <NavLink to="/medical-records/inital-dashboard-medical-records">
+          <NavLink to="/appointment-history-dashboard">
             <div>Click here!</div>
           </NavLink>
         </div>
         <h2>Medical Records</h2>
         <p>Details of your personalized medical records</p>
         <section className="cardRow">
-          <NavLink to="/appointment-history-dashboard">
+          <NavLink to="/appointment-history-detail">
             <div className="card">
               <div className="cardHeader">
                 <h3>Appointment</h3>

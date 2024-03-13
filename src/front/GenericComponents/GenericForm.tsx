@@ -1,53 +1,110 @@
-import React, { useState } from 'react';
+import React, { Component, ChangeEvent, FormEvent } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import './StyleSheetForMR.css'; // Import the CSS file
 
-const GenericForm = ({ fields }) => {
-  const [formData, setFormData] = useState({});
+interface Field {
+  name: string;
+  label: string;
+  type: string;
+  options?: { value: string; label: string }[];
+}
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
+interface Props {
+  fields: Field[];
+}
+
+interface State {
+  [key: string]: string | Date | null;
+}
+
+class GenericForm extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {};
+  }
+
+  handleChange = (name: string, value: string | Date) => {
+    this.setState({
       [name]: value
     });
   };
 
-  const handleDateChange = (name, date) => {
-    setFormData({
-      ...formData,
-      [name]: date
+  handleRadioChange = (name: string, value: string) => {
+    this.setState({
+      [name]: value
     });
   };
-  
-  const handleSubmit = (e) => {
+
+  handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    // Do something with the form data
+    console.log('Form data:', this.state);
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {fields.map(field => (
-        <div key={field.name}>
-          <label>{field.label}:</label>
-          {field.type === 'text' || field.type === 'email' ? (
-            <input
-              type={field.type}
-              name={field.name}
-              value={formData[field.name] || ''}
-              onChange={handleChange}
-            />
-          ) : field.type === 'date' ? (
-            <DatePicker
-              selected={formData[field.name] || ''}
-              onChange={(date) => handleDateChange(field.name, date)}
-            />
-          ) : null}
-        </div>
-      ))}
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
+  render() {
+    const { fields } = this.props;
+    return (
+      <form onSubmit={this.handleSubmit} className="generic-form-container">
+        {fields.map((field, index) => (
+          <div key={index}>
+            <label>{field.label}:</label>
+            {field.type === 'radio' ? (
+              field.options &&
+              field.options.map((option, index) => (
+                <div key={index}>
+                  <input
+                    type="radio"
+                    id={`${field.name}-${index}`}
+                    name={field.name}
+                    value={option.value}
+                    checked={this.state[field.name] === option.value}
+                    onChange={() => this.handleRadioChange(field.name, option.value)}
+                  />
+                  <label htmlFor={`${field.name}-${index}`}>{option.label}</label>
+                </div>
+              ))
+            ) : field.type === 'date' ? (
+              <DatePicker
+                selected={this.state[field.name] as Date | undefined}
+                onChange={(date: Date) => this.handleChange(field.name, date)}
+                dateFormat="yyyy-MM-dd"
+                popperClassName="custom-popper"
+              />
+            ) : field.type === 'timeslot' || field.type === 'select' ? (
+              <select
+                id={field.name}
+                name={field.name}
+                value={this.state[field.name] as string | undefined}
+                onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                  this.handleChange(field.name, e.target.value)
+                }
+              >
+                <option value="">Select {field.label}</option>
+                {field.options &&
+                  field.options.map((option, index) => (
+                    <option key={index} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+              </select>
+            ) : (
+              <input
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                value={this.state[field.name] as string | undefined}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  this.handleChange(field.name, e.target.value)
+                }
+              />
+            )}
+          </div>
+        ))}
+        <button type="submit">Submit</button>
+      </form>
+    );
+  }
+}
 
 export default GenericForm;

@@ -64,6 +64,7 @@ import VitalsDetail from './front/MedicalRecords/CardDescriptionMedicalRecords/V
 // Medical Records Dashboard Page
 import AppointmentHistoryDashboard from './front/MedicalRecords/Dashboard/AppointmentHistoryDashboard';
 import MedicalRecordsInitial from './front/MedicalRecords/MedicalRecordsInitial';
+import AppointmentHistoryPage from './front/MedicalRecords/Dashboard/AppointmentHistoryPage';
 
 const redirectURL = new URL("/", window.location.href).toString();
 const session = getDefaultSession();
@@ -204,14 +205,15 @@ class App extends Component {
                 {/* Medical Records Dashboard */}
                 <Route path="/allergies-dashboard" element={<AllergiesDetail />} />
                 <Route path="/appointment-history-dashboard" element={<AppointmentHistoryDashboard />} />
+                <Route path="/appointment-history-page" element={<AppointmentHistoryPage />} />
                 <Route path="/insurance-dashboard" element={<InsuranceDetail />} />
                 <Route path="/lab-reports-dashboard" element={<LabReportsDetail />} />
                 <Route path="/medicines-dashboard" element={<MedicineDetail />} />
                 <Route path="/vaccines-dashboard" element={<VaccinesDetail />} />
                 <Route path="/vitals-dashboard" element={<VitalsDetail />} />
 
-                {/* Medical Records Initial Dashboard
-    <Route path="/inital-dashboard-medical-records" element={<MedicalRecordsInitial/>}/> */}
+                {/* Medical Records Initial Dashboard */}
+                <Route path="/inital-dashboard-medical-records" element={<MedicalRecordsInitial/>}/>
               </Routes>
             </div>
           </div>

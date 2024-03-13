@@ -1,20 +1,17 @@
 import React from 'react';
+import './StyleSheetForMR.css'; // Import the CSS file
 
 const Description = ({ title, backgroundImage, children }) => {
   const descriptionStyle = {
     background: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    padding: '20px',
-    borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    marginBottom: '20px',
   };
 
   return (
-    <div style={descriptionStyle}>
-      <h2>{title}</h2>
-      {children}
-    </div>
+    <div className="description-container" style={descriptionStyle}>
+    <div className="description-overlay"></div>
+    <h2 className="description-title">{title}</h2>
+    <div className="description-content">{children}</div>
+  </div>
   );
 };
 
