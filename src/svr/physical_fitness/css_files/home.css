@@ -4,6 +4,7 @@
   flex-flow: wrap;
   justify-content: center;
   background-color: black;
+  margin: 0px;
 }
 .div1 {
   background-size: cover;

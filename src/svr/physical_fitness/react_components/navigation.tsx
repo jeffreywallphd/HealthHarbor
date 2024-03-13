@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css_files/nav.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bs-brain/components/navbars/navbar-1/assets/css/navbar-1.css";
+import getfit_logo from "../images/getfit.png";
 
 
 class Nav extends Component {
@@ -13,7 +14,7 @@ class Nav extends Component {
       >
         <div className="container">
           <div className="nav-div">
-            <img src={"../images/logo.png"} alt="error" />
+            <img src={getfit_logo} alt="error" />
           </div>
           <button
             className="navbar-toggler border-0"

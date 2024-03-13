@@ -1,5 +1,5 @@
 body {
-    background-color: #FFF;
+    background-color:whitesmoke;
     padding: 0px;
     margin: 0;
 }
@@ -24,24 +24,34 @@ li {
     padding: 20px;
 }
 
-ul.navigation li {
-    display: inline;
+
+.navigation {
     list-style-type: none;
-    margin: 0;
-}
-
-ul.navigation {
-    background-color: #111;
-    padding: 0px;
-}
-
-ul.navigation li a {
-    color: #FFF;
-    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: whitesmoke;
+    margin: 0px;
+  }
+  .navigation li {
+    margin: 0 70px; 
+  }
+ 
+  .navigation li:last-child {
+    margin-right: 0;
+  }
+  
+  .navigation li a {
     text-decoration: none;
-    padding: 20px;
-    display: inline-block;
-}
+    color: #000;
+  }
+  
+  .navigation li a:hover {
+    color: #333; 
+  }
+  
+
 
 .content {
     background-color: #FFF;

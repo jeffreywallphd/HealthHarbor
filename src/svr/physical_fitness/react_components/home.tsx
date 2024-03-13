@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css_files/home.css";
 import Cards from "./cards";
-
+import BodyBuilder from "../images/body_builder.png";
 
 class Home extends Component {
   render() {
@@ -24,7 +24,7 @@ class Home extends Component {
             <h5 id="readmore"> READ MORE </h5>
           </div>
           <div className="div2">
-            <img src={"../images/body_builder.png"} alt="error" />
+            <img src={BodyBuilder} alt="error" />
           </div>
         </div>
         <Cards />

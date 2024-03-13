@@ -1,9 +1,10 @@
-.nav-div {
+.nav-div{
   width: 230px;
   height: 120px;
   overflow: hidden;
-  background-color: black;
-  border-radius: 3px;
+  justify-content: center; 
+  align-items: center;
+  margin-top: 25px;
 }
 .nav-div img {
   max-width: 100%;
