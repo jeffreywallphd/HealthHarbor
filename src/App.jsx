@@ -178,6 +178,7 @@ class App extends Component {
                 <Route path="/debt-repayment" element={<DebtRepayment />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
+                <Route path="/ai_chatbot" element={<iframe src="UI_phase_I.html" style={{ width: '100%', height: '100%' }} />} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
               </Routes>
             </div>
