@@ -194,3 +194,138 @@
 .appointment-history-button-div button:hover {
   background-image: linear-gradient(to right, #fceb07 45%, #23f407);
 }
+aside {
+  background-color: green;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 200px; /* Adjusted to move the aside bar towards the bottom */
+  left: 15px; /* Adjusted to move the aside bar towards the right */
+  bottom: 20px; /* Adjusted to extend the aside bar downwards */
+  width: 120px; /* Adjusted to set a fixed width */
+  overflow-y: auto; /* Added to enable scrolling when necessary */
+}
+
+aside button {
+  display: block;
+  margin-bottom: 40px; /* Reduced margin between buttons */
+  width: 100%;
+
+  border: none;
+  padding: 8px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.insurance-details {
+  text-align:center;
+  margin: 50px auto;
+}
+
+.insurance-container {
+  width: 50%;
+  margin: 50px auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.allergy-type-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.allergy-type-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.allergy-type-dropdown-content button {
+  width: 100%;
+  text-align: left;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.allergy-type-dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.allergy-type-dropdown:hover .allergy-type-dropdown-content {
+  display: block;
+}
+
+/* New styles for allergy dropdown */
+.allergy-options {
+  margin-bottom: 20px;
+}
+
+.allergy-options .add-allergy-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.allergy-options .add-allergy-btn:hover {
+  background-color: #0056b3;
+}
+
+.vitals-container {
+  bottom: 20px;
+  right: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.vitals-options {
+  display: flex;
+  flex-direction: row;
+}
+
+.vitals-options label {
+  margin-bottom: 5px;
+}
+
+.vitals-options input[type="text"] {
+  margin-bottom: 10px;
+  padding: -10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.input-field {
+  margin-bottom: 40px; /* Adjust as needed */
+}
+
+.get-help {
+  position: fixed;
+  top: 140px;
+  right: 0px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.get-help:hover {
+  background-color: #0056b3;
+}

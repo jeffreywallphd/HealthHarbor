@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
 class MedicalRecords extends Component {
   render() {
     return (
       <div>
         <div>Goto Medical Records dashboard: 
-          <NavLink to="/appointment-history-dashboard">
+          <NavLink to="/myRecords">
             <div>Click here!</div>
           </NavLink>
         </div>
