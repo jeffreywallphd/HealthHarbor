@@ -28,6 +28,7 @@ import { useSession, CombinedDataProvider, Text } from "@inrupt/solid-ui-react";
 
 import Home from "./Home";
 import FitnessApp from "./svr/physical_fitness/fitness.tsx";
+import Blog from "./svr/physical_fitness/react_components/blog.tsx";
 import Fitness from "./Fitness";
 import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
@@ -156,6 +157,7 @@ class App extends Component {
                 <Route path="/fitness-tracker" element={<FitnessTracker />} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/fitnessapp" element={<FitnessApp />} />
+                <Route path="/blog" element={<Blog />} />
 
                 {/* Finance - JM */}
                 <Route path="/finance" element={<Finance />} />

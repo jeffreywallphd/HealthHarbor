@@ -9,7 +9,9 @@ class FitnessApp extends Component {
   render() {
     return (
       <div className="App">
+       
         <Nav />
+        
         <Home />
         <Footer />
       </div>
