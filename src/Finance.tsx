@@ -39,6 +39,17 @@ class Finance extends Component {
               </div>
             </div>
           </NavLink>
+          
+          <NavLink to="/fin-chatbot">
+            <div className="card">
+              <div className="cardHeader">
+                <h3>Financial Chatbot</h3>
+              </div>
+              <div className="cardContainer">
+                <p>Consult our financial chatbot for information on budgeting, saving, investing, and more finance related queries.</p>
+              </div>
+            </div>
+          </NavLink>
 
         </section>
       </div>
