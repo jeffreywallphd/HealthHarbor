@@ -17,7 +17,7 @@ import DebtRepayment from "./DebtRepayment";
 import Mental from "./MentalHealthChatbot";
 import HabitTracker from "./HabitTracker";
 import MedicalRecords from "./MedicalRecords";
-import logo from "../dist/images/LogoNoName.png";
+import logo from "./images/LogoNoName.png";
 import { handleLoginRedirect, getDefaultPod, initializePod } from "./login";
 import "./styles/styles.css";
 
