@@ -20,24 +20,46 @@ import MedicalRecords from "./MedicalRecords";
 import logo from "./images/LogoNoName.png";
 import { handleLoginRedirect, getDefaultPod, initializePod } from "./login";
 import "./styles/styles.css";
+import InruptAuthenticator from "./Utility/InruptAuthenticator";
 
 class App extends Component {
-  componentDidMount() {
-    handleLoginRedirect();
-    getDefaultPod().then((pod) => {
-      if (pod) {
-        initializePod(pod);
-      } else {
-        console.log("Created a New user, no webID");
-        // New user no pod set up
-      }
-    });
+  constructor(props) {
+    super(props);
+    this.auth = new InruptAuthenticator();
+    this.state = { 
+      isAuthenticated: this.auth.isLoggedIn(),
+      authError: null 
+    };
   }
 
+  componentDidMount() {
+    this.auth.handleLoginRedirect();
+  }
+
+  login = async () => {
+    try {
+      await this.auth.login();
+      this.setState({ isAuthenticated: this.auth.isLoggedIn(), authError: null });
+    } catch (error) {
+      this.setState({ authError: error });
+    }
+  };
+
+  logout = async () => {
+    try {
+      await this.auth.logout();
+      this.setState({ isAuthenticated: this.auth.isLoggedIn(), authError: null });
+    } catch(error) {
+      this.setState({ authError: error });
+    }
+  };
+
   render() {
+    const { isAuthenticated, authError } = this.state;
+
     return (
       <HashRouter>
-        <SessionProvider>
+        
           <header className="mainHeader">
             <div className="brand">
               <div className="title">
@@ -50,18 +72,10 @@ class App extends Component {
             </div>
             <div className="right login">
               <div className="button">
-                <LoginButton
-                  oidcIssuer="https://login.inrupt.com"
-                  redirectUrl={new URL("/", window.location.href).toString()}
-                  clientName="Wellness Pod App"
-                />
+                <button onClick={this.login}>Login</button>
               </div>
               <div className="button">
-                <LogoutButton
-                  oidcIssuer="https://login.inrupt.com"
-                  redirectUrl={new URL("/", window.location.href).toString()}
-                  clientName="Wellness Pod App"
-                />
+                <button onClick={this.logout}>Logout</button>
               </div>
             </div>
           </header>
@@ -122,7 +136,7 @@ class App extends Component {
               </Routes>
             </div>
           </div>
-        </SessionProvider>
+        
       </HashRouter>
     );
   }
