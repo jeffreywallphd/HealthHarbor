@@ -5,7 +5,7 @@ import Home from "./Home";
 import Fitness from "./Fitness";
 import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
-import PhysicalFitness from "../svr/physical_fitness/physical_fitness";
+import PhysicalFitness from "./physical_fitness";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
