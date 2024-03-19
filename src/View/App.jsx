@@ -11,6 +11,7 @@ import Budgeting from "./Budgeting";
 import Goals from "./Goals";
 import DebtRepayment from "./DebtRepayment";
 import Mental from "./MentalHealthChatbot";
+import MentalHealthChatbot from "./Mental_chatbot";
 import HabitTracker from "./HabitTracker";
 import MedicalRecords from "./MedicalRecords";
 import logo from "../Assets/Images/LogoNoName.png";
@@ -127,7 +128,7 @@ class App extends Component {
                 <Route path="/debt-repayment" element={<DebtRepayment />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
-                <Route path="/ai_chatbot" element={<iframe src="UI_phase_I.html" style={{ width: '100%', height: '100%' }} />} />
+                <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
               </Routes>
             </div>
