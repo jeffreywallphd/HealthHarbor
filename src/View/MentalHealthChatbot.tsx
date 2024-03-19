@@ -8,7 +8,7 @@ class Mental extends Component {
         <h2>Mental Health Chatbot</h2>
         <p>Track habits and converse with an AI for mental health support.</p>
         <section className="cardRow">
-          <NavLink to="/ai-chatbot">
+          <NavLink to="/ai_chatbot">
             <div className="card">
               <div className="cardHeader">
                 <h3>AI Chatbot</h3>
