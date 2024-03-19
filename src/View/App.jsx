@@ -5,6 +5,7 @@ import Home from "./Home";
 import Fitness from "./Fitness";
 import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
+import PhysicalFitness from "./physical_fitness";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -84,7 +85,7 @@ class App extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="navlink" to="/fitness">
+                  <NavLink className="navlink" to="/physicalfitness">
                     Fitness
                   </NavLink>
                 </li>
@@ -121,6 +122,7 @@ class App extends Component {
                 <Route path="/fitness" element={<Fitness />} />
                 <Route path="/fitness-routine" element={<FitnessRoutine />} />
                 <Route path="/fitness-tracker" element={<FitnessTracker />} />
+                <Route path="/physicalfitness" element={<PhysicalFitness />} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />
