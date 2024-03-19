@@ -14,6 +14,7 @@ interface State {
 class MentalHealthChatBot extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
+    // Initialize state
     this.state = {
       messages: [],
       typing: false,
@@ -26,19 +27,24 @@ class MentalHealthChatBot extends Component<{}, State> {
     const trimmedInput = userInput.trim();
     if (trimmedInput === '') return;
 
+    // Append user message to the messages state
     this.appendMessage(trimmedInput, 'user');
 
+    // Simulate typing indicator
     this.setState({ typing: true });
     setTimeout(() => {
+      // Simulate bot response after a delay
       this.setState({ typing: false });
-      this.appendMessage('Bot response', 'bot'); // Replace 'Bot response' with actual bot response
+      this.appendMessage('Bot response', 'bot'); 
     }, 1000);
 
+    // Clear the input field after sending message
     this.setState({ userInput: '' });
   };
 
   appendMessage = (message: string, sender: string) => {
     const { messages } = this.state;
+    // Append new message to the messages state
     this.setState({ messages: [...messages, { message, sender }] });
   };
 
@@ -59,11 +65,13 @@ class MentalHealthChatBot extends Component<{}, State> {
           </div>
         </div>
         <div className="chat-messages">
+          {/* Display all messages */}
           {messages.map((msg, index) => (
             <div key={index} className={`chat-message ${msg.sender}-message`}>
               <p>{msg.message}</p>
             </div>
           ))}
+          {/* Display typing indicator if bot is typing */}
           {typing && (
             <div className="chat-message bot-message typing-indicator">
               <p>Typing...</p>
