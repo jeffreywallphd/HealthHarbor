@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { generateText } from "../Controller/prototype.js";
 
 interface Message {
   message: string;
