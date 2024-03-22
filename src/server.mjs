@@ -56,7 +56,7 @@ app.listen(PORT, () => {
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const { generateText } = require("E:\Python_Tutorial\PersonalWellnessPod\prototypes\Prototype_Mental_Health_Chat_Bot\prototype.js"); // Import LLM function
+const { generateText } = require("E:\Python_Tutorial\PersonalWellnessPod\src\Controller\prototype.js"); // Import LLM function
 
 // const app = express();
 const PORT = process.env.PORT || 8080;
