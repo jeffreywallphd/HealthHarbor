@@ -22,7 +22,7 @@ class MentalHealthChatBot extends Component<{}, State> {
     };
   }
 
-  sendMessage = () => {
+  sendMessage = async () => {
     const { userInput } = this.state;
     const trimmedInput = userInput.trim();
     if (trimmedInput === '') return;
@@ -30,13 +30,21 @@ class MentalHealthChatBot extends Component<{}, State> {
     // Append user message to the messages state
     this.appendMessage(trimmedInput, 'user');
 
-    // Simulate typing indicator
-    this.setState({ typing: true });
-    setTimeout(() => {
-      // Simulate bot response after a delay
-      this.setState({ typing: false });
-      this.appendMessage('Bot response', 'bot'); 
-    }, 1000);
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: trimmedInput }),
+      });
+      const responseData = await response.json();
+
+      // Append bot response to the messages state
+      this.appendMessage(responseData.message, 'bot');
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
 
     // Clear the input field after sending message
     this.setState({ userInput: '' });
