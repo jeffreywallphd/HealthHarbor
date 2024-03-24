@@ -5,12 +5,14 @@ import Home from "./Home";
 import Fitness from "./Fitness";
 import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
+import PhysicalFitness from "./physical_fitness";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
 import Goals from "./Goals";
 import DebtRepayment from "./DebtRepayment";
 import Mental from "./MentalHealthChatbot";
+import MentalHealthChatbot from "./Mental_chatbot";
 import HabitTracker from "./HabitTracker";
 import MedicalRecords from "./MedicalRecords";
 import logo from "../Assets/Images/LogoNoName.png";
@@ -83,7 +85,7 @@ class App extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="navlink" to="/fitness">
+                  <NavLink className="navlink" to="/physicalfitness">
                     Fitness
                   </NavLink>
                 </li>
@@ -120,6 +122,7 @@ class App extends Component {
                 <Route path="/fitness" element={<Fitness />} />
                 <Route path="/fitness-routine" element={<FitnessRoutine />} />
                 <Route path="/fitness-tracker" element={<FitnessTracker />} />
+                <Route path="/physicalfitness" element={<PhysicalFitness />} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />
@@ -127,7 +130,8 @@ class App extends Component {
                 <Route path="/debt-repayment" element={<DebtRepayment />} />
                 <Route path="/goals" element={<Goals />} />
                 <Route path="/mental" element={<Mental />} />
-                <Route path="/HabitTracker" element={<HabitTracker />} />
+                <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
+                <Route path="/HabitTracker" element={<HabitTracker/>}/>
               </Routes>
             </div>
           </div>
