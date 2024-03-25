@@ -16,6 +16,12 @@ If you are a developer on your team, you must have Jeff Wall give you access to 
 * Until a feature or task is completed, leave your work on your branch and test it locally.
 * As soon as you finished the work and tested it you must create a pull request
 
+### Keeping your new local branch up-to-date with main before you create a pull request
+It is always good practice to ensure that your local branch is up-to-date with the lastest edits made to the main branch of the remote repository (i.e., GitHub repository). This will minimize code conflicts. Be sure to do this before performing a pull request on GitHub. To do this:
+* run a git pull to get the latest version of the main branch from GitHub to your local repository
+* Use the checkout command to move back to the local branch you are working on
+* Once in the local branch, use the git merge or git rebase command on your local branch to bring recent updates to main to the local branch (ex. git merge main or git rebase main).
+
 ### Merging/Pull Requests
 * Once you have completed any work on your branch and have tested it on your computer, you can create a pull request. 
 * Create a pull request to propose and collaborate on changes to a repository. These changes are proposed in a branch, which ensures that the default branch only contains finished and approved work.

@@ -1,28 +1,125 @@
-body {
-    background-color: #FFF;
-    padding: 0px;
-    margin: 0;
+/* import Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Color Scheme */
+
+:root {
+    --primary-color: #0F9485;
+    --secondary-color: #0B7933;
+    --tertiary-color: #2497CA;
+    --background-color: #FFFDF5;
+    --accent-color: #7293DC;
+    --highlight-color: #9895E2;
+    --text-color: #000000;
 }
+
+
+/* Font */
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+body,
+p,
+ul,
+ol {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+}
+
+
+/* General Styling */
+
+body {
+    background-color: var(--background-color);
+    padding: 0;
+    margin: 0;
+    color: var(--text-color);
+}
+
+
+/* Headings */
 
 h1,
 h2,
-p,
-ul,
-li {
-    font-family: sans-serif;
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    font-size: 30px;
+}
+
+
+/* Links */
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* Header and branding */
+
+.logo {
+    width: 140px;
+    height: 140px;
     margin: 0;
 }
 
 .mainHeader {
     width: 100%;
-    background-color: #0A56F5;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    background-color: var(--secondary-color);
+    display: flex;
 }
 
-.mainHeader h1 {
-    padding: 20px;
+.title h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    font-size: 70px;
 }
+
+.title {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.title .logo {
+    width: 200px;
+    height: auto;
+    margin-right: -50px;
+}
+
+.brand {
+    display: grid;
+    margin: 0;
+    justify-items: center;
+}
+
+.slogan {
+    margin-top: -60px;
+    font-size: 30px;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+/* Nav Bar */
 
 ul.navigation li {
     display: inline;
@@ -31,12 +128,14 @@ ul.navigation li {
 }
 
 ul.navigation {
-    background-color: #111;
+    background-color: var(--tertiary-color);
+    /* Updated color */
     padding: 0px;
 }
 
 ul.navigation li a {
-    color: #FFF;
+    color: var(--background-color);
+    /* Updated color */
     font-weight: bold;
     text-decoration: none;
     padding: 20px;
@@ -44,7 +143,7 @@ ul.navigation li a {
 }
 
 .content {
-    background-color: #FFF;
+    background-color: var(--background-color);
     padding: 20px;
 }
 
@@ -57,10 +156,14 @@ ul.navigation li a {
     margin-bottom: 10px;
 }
 
+
+/* Team Cards */
+
 .cardRow {
     width: fit-content;
-    block-size: fit-content;
     display: flex;
+    flex-wrap: wrap;
+    block-size: fit-content;
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
     margin-top: 30px;
@@ -68,7 +171,8 @@ ul.navigation li a {
 
 .cardRow a {
     text-decoration: none;
-    color: #000;
+    color: var(--text-color);
+    justify-content: center;
 }
 
 .card {
@@ -76,6 +180,7 @@ ul.navigation li a {
     min-height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    background-color: grey;
 }
 
 .card:hover {
@@ -83,7 +188,9 @@ ul.navigation li a {
 }
 
 .cardHeader {
-    background-color: #CCC;
+    background-color: var(--highlight-color);
+    /* Updated color */
+    font-size: 16px;
     padding: 20px;
 }
 
@@ -91,8 +198,81 @@ ul.navigation li a {
     padding: 20px;
 }
 
+/* Login */
+
+button {
+    background-color: var(--highlight-color);
+    border: none;
+    color: bl;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 .right {
     margin-left: auto;
     margin-right: 20px;
     padding-top: 30px;
+}
+
+.login {
+    display: flex;
+}
+
+
+/* Navigation */
+
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navigation li:last-child {
+    margin-right: 0;
+}
+
+.navigation a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #FFF;
+}
+
+ul.navigation li a {
+    color: #000;
+}
+
+ul.navigation li a:hover {
+    color: #FFF;
+}
+
+
+/* Content */
+
+.content {
+    background-color: #FFF;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.content h2 {
+    margin-top: 0;
+}
+
+.content li {
+    margin-bottom: 10px;
 }

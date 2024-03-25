@@ -10,7 +10,7 @@ import {
 
 import { getPodUrlAll } from "@inrupt/solid-client";
 
-import App from "./App";
+import App from "./View/App";
 
 const session = getDefaultSession();
 
