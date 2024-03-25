@@ -1,0 +1,48 @@
+/* Color Scheme */
+
+:root {
+    --primary-color: #0F9485;
+    --secondary-color: #0B7933;
+    --tertiary-color: #2497CA;
+    --background-color: #FFFDF5;
+    --accent-color: #7293DC;
+    --highlight-color: #9895E2;
+    --text-color: #000000;
+}
+
+/* Sidenav CSS */
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    z-index: 1;
+    left: 0;
+    margin: -20px;
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.sidenav a {
+    padding: 5px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--text-color);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: var(--background-color);
+}
+
+.sidenav .gap {
+    height: 0px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 16px;}
+}
