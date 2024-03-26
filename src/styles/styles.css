@@ -276,3 +276,17 @@ ul.navigation li a:hover {
 .content li {
     margin-bottom: 10px;
 }
+/* budgeting table */
+.budgetTable {
+    width: 75%; 
+    border-collapse: collapse; 
+}
+.budgetTable th,
+.budgetTable td {
+    padding: 12px 15px;
+} 
+.budgetTable thead tr {
+    text-align: left;
+    background-color: #2497CA;
+    color: #ffffff;
+} 
