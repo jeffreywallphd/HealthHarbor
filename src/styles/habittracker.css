@@ -1,48 +1,113 @@
-/* Color Scheme */
-
-:root {
-    --primary-color: #0F9485;
-    --secondary-color: #0B7933;
-    --tertiary-color: #2497CA;
-    --background-color: #FFFDF5;
-    --accent-color: #7293DC;
-    --highlight-color: #9895E2;
-    --text-color: #000000;
+.habit-tracker-container {
+    font-family: Arial, sans-serif;
+    display: flex;
 }
 
-/* Sidenav CSS */
+.arrow-container {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
 
-.sidenav {
+.arrow-button {
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    margin-top: 250px;
+}
+
+.arrow-icon {
+    transition: transform 0.5s;
+}
+
+.arrow-left {
+    left: 250px;
+    transition: left 0.5s;
+}
+
+.arrow-right {
+    left: 0;
+    transition: left 0.5s;
+}
+
+.sidebar {
     height: 100%;
     width: 250px;
-    z-index: 1;
+    position: fixed;
+    top: 0;
     left: 0;
-    margin: -20px;
-    background-color: var(--secondary-color);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    background-color: rgb(215, 215, 229);
+    padding-top: 20px;
+    margin-top: 260px;
 }
 
-.sidenav a {
-    padding: 5px 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: var(--text-color);
-    display: block;
-    transition: 0.3s;
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.sidenav a:hover {
-    color: var(--background-color);
+.habit-button,
+.option-button,
+.daily-button,
+.weekly-button,
+.due-button,
+.report-button {
+    border: 2px solid transparent;
+    color:rgb(137, 205, 137);
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.sidenav .gap {
-    height: 0px;
+.habit-button {
+    background-color: #7db78a;
+    color: white;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 16px;}
+.option-button {
+    background-color: #5485ff;
+   
+}
+
+.daily-button,
+.weekly-button {
+    background-color: rgb(108, 162, 188);
+    color: white;
+}
+
+.due-button {
+    background-color: #5fc9f8;
+    color: white;
+}
+
+.report-button {
+    background-color: #b58fe3;
+    color: white;
+}
+
+.sidebar button:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar ul ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.sidebar ul ul button {
+    padding: 8px;
+    width: calc(100% - 16px);
+}
+
+.sidebar ul ul button:hover {
+    background-color: #f0f0f0;
+}
+
+.main-content {
+    padding: 20px;
+    margin-left: 400px;
+    margin-top: 200px;
+    
 }
