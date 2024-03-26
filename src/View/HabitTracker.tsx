@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './habitTracker.css';
+import '../styles/habitTracker.css';
 
 interface ArrowIconProps {
     direction: 'left' | 'right';
