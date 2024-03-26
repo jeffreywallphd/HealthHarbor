@@ -55,35 +55,37 @@ class MentalHealthChatBot extends Component<{}, State> {
   };
   render() {
     const { messages, typing, userInput } = this.state;
-
+    
     return (
       
       <div className="chat-container" style={{ display: 'flex', flexDirection: 'column', 
-      justifyContent: 'center', alignItems: 'center', backgroundColor: '#777', 
-      width: '600px', height: '450px', margin: 'auto', padding: '20px'}}>
-      
+      justifyContent: 'center', alignItems: 'center', backgroundColor: '#555654', 
+      width: '100%', height: '450px', margin: 'auto', padding: '2px'}}>
+          <div className="chat-header"style={{marginLeft:'100px',justifyContent: 'center', alignItems: 'center',marginTop:'2px',
+        position: 'sticky',top:1 /* Changed to sticky */}}>
+          
+    <h1 style={{marginRight:'100px',justifyContent: 'center', 
+    alignItems: 'center',color:'white',
+    }}>Mental Health ChatBot</h1>
+    </div>
       <div className='buttons-container'
-           style={{
-            right: '10px',
-            paddingLeft:'350px',
-            paddingBottom:'1px',
-            marginTop:'1px',
-            marginBottom:'2px'
-          }}>
-            <button className="settings-button" onClick={() => alert('Opening settings...')}>
-              Settings
-            </button>
-            <button className="recent-button" onClick={() => alert('Viewing recent conversations...')}>
+      style={{ display: 'flex', flexDirection: 'column',
+       position: 'absolute', left: '20px', top: '300px', 
+       backgroundColor: '#868885', width: '350px', 
+       height: '455px', alignItems: 'flex-start',
+       paddingLeft:'10px' }}>
+            <button className="recent-button" onClick={() => alert('Viewing recent conversations...')}
+            style={{backgroundColor:'#555654',color:'white'}}>
               Recent
             </button>
             
           </div>
-          <div className="chat-header"style={{marginLeft:'100px',justifyContent: 'center', alignItems: 'center',marginTop:'2px',}}>
-          <h1 style={{marginRight:'100px',justifyContent: 'center', alignItems: 'center',}}>Mental Health ChatBot</h1>
-          <p> How Can I help you today? </p>
-          </div>
+
           
-        <div className="chat-messages" style={{ flex: 1, marginBottom: '10px', overflowY: 'auto' }}>
+        <div className="chat-messages" style={{ flex: 1, marginBottom: '10px', color: 'white',
+         paddingRight: '10px', scrollbarWidth:'auto', overflowY: 'scroll',width:'700px',
+          scrollbarColor: '#888 #f1f1f1',paddingLeft:'100px', direction:'ltr'}}>
+        <p> Hello! </p>
           {messages.map((msg, index) => (
             <div key={index} className={`chat-message ${msg.sender}-message`}>
               <p>{msg.message}</p>
@@ -93,6 +95,7 @@ class MentalHealthChatBot extends Component<{}, State> {
           {typing && (
             <div className="chat-message bot-message typing-indicator">
               <p>Typing...</p>
+
             </div>
           )}
         
@@ -113,12 +116,12 @@ class MentalHealthChatBot extends Component<{}, State> {
             onKeyPress={this.handleKeyPress} 
             style={{
               flex: 1,
-              width: '300px', 
+              width: '500px', 
               height: '40px', 
               marginRight: '10px', 
               padding: '8px',
-              borderRadius: '20px',
-              border: '1px solid #ccc',
+              border: '1px solid #868885',
+              
             }}
           />
           <head>
@@ -129,10 +132,12 @@ class MentalHealthChatBot extends Component<{}, State> {
               style={{
                 padding: '8px',
                 borderRadius: '50%',
-                backgroundColor: '#555',
+                backgroundColor: '#868885',
                 color: '#fff',
                 border: 'none',
                 cursor: 'pointer',
+                position:'sticky',
+                bottom:10,
               }}>
           <i className="material-icons">send</i>
       
@@ -140,7 +145,7 @@ class MentalHealthChatBot extends Component<{}, State> {
 
         </div>
       </div>
-
+    
       </div>
 
     );
