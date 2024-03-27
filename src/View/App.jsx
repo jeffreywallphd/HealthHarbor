@@ -6,6 +6,7 @@ import Fitness from "./Fitness";
 import FitnessRoutine from "./FitnessRoutine";
 import FitnessTracker from "./FitnessTracker";
 import PhysicalFitness from "./physical_fitness";
+import PhysicalFitnessBlog from "./physical_fitness_blog";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -131,6 +132,7 @@ class App extends Component {
                 <Route path="/fitness-routine" element={<FitnessRoutine />} />
                 <Route path="/fitness-tracker" element={<FitnessTracker />} />
                 <Route path="/physicalfitness" element={<PhysicalFitness />} />
+                <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />
