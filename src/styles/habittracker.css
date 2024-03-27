@@ -63,10 +63,14 @@
 .habit-button {
     background-color: #7db78a;
     color: white;
+    border-radius: 40px;
+    text-align: center;
 }
 
 .option-button {
     background-color: #5485ff;
+    border-radius: 40px;
+    text-align: center;
    
 }
 
@@ -74,16 +78,22 @@
 .weekly-button {
     background-color: rgb(108, 162, 188);
     color: white;
+    border-radius: 40px;
+    text-align: center;
 }
 
 .due-button {
     background-color: #5fc9f8;
     color: white;
+    border-radius: 40px;
+    text-align: center;
 }
 
 .report-button {
     background-color: #b58fe3;
     color: white;
+    border-radius: 40px;
+    text-align: center;
 }
 
 .sidebar button:hover {
@@ -106,7 +116,9 @@
 
 .main-content {
     padding: 20px;
+    font-style:italic;
     margin-left: 400px;
     margin-top: 200px;
+    color:rgb(93,0,139)
     
 }
