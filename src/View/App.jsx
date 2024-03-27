@@ -18,6 +18,7 @@ import MedicalRecords from "./MedicalRecords";
 import logo from "../Assets/Images/LogoNoName.png";
 import "../styles/styles.css";
 import InruptAuthenticator from "../Utility/InruptAuthenticator";
+import ChatbotUI from "./ChatbotUI";
 
 class App extends Component {
   constructor(props) {
@@ -132,6 +133,7 @@ class App extends Component {
                 <Route path="/mental" element={<Mental />} />
                 <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
+                <Route path="/fin-chatbot" element={<ChatbotUI />} />
               </Routes>
             </div>
           </div>
