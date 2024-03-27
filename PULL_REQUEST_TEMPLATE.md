@@ -1,3 +1,8 @@
+## Using this Pull Request Template
+* In the Description section below, please fill out the details of each of field.
+* In the Type of Change section, check the box for all that apply. To check the box in markdown format, simply replace the blank space between the [ ] with an x (i.e., [x])
+* In the Checklist Before Requesting a Review section, make sure you complete the required tasks that are pertinent to your task. Not all check boxes will need to be filled out for every type of task. Check the boxes as outlined previously (i.e., [x]).
+
 ## Describe your changes
 
 ## List the team you are on
@@ -11,6 +16,7 @@
 - [ ] This change requires a documentation update
 
 ## Checklist before requesting a review
+- [ ] Do you want to keep your branch for future changes or delete it once it is reviewed?
 - [ ] I have followed the git practices outlined [here](GitPractices.md) to ensure code conflicts are minimized
 - [ ] My code follows the style guidelines of this project outlined [here](UIGuidelines.md)
 - [ ] I have performed a self-review of my code. It runs without errors and follows the [Best Coding Practices](BestCodingPractices.md)
