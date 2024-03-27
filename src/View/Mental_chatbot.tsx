@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { generateText } from "../Controller/prototype.js";
 
 interface Message {
   message: string;
@@ -22,7 +23,7 @@ class MentalHealthChatBot extends Component<{}, State> {
     };
   }
 
-  sendMessage = () => {
+  sendMessage = async () => {
     const { userInput } = this.state;
     const trimmedInput = userInput.trim();
     if (trimmedInput === '') return;
@@ -30,22 +31,23 @@ class MentalHealthChatBot extends Component<{}, State> {
     // Append user message to the messages state
     this.appendMessage(trimmedInput, 'user');
 
-    // Simulate typing indicator
-    this.setState({ typing: true });
-    setTimeout(() => {
-      // Simulate bot response after a delay
-      this.setState({ typing: false });
-      this.appendMessage('Bot response', 'bot'); 
-    }, 1000);
+    try {
+      const botResponse = await generateText(trimmedInput);
+    
+      // Append bot response to the messages state
+      this.appendMessage(botResponse, 'bot');
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
 
     // Clear the input field after sending message
     this.setState({ userInput: '' });
   };
 
   appendMessage = (message: string, sender: string) => {
-    const { messages } = this.state;
-    // Append new message to the messages state
-    this.setState({ messages: [...messages, { message, sender }] });
+    this.setState(prevState => ({
+      messages: [...prevState.messages, { message, sender }]
+    }));
   };
   handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
