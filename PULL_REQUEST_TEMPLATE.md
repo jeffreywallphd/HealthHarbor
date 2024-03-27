@@ -13,6 +13,7 @@
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation addition/update (non-breaking change that adds documentation to the system)
 - [ ] This change requires a documentation update
 
 ## Checklist before requesting a review
