@@ -48,6 +48,13 @@ The authors of this software are not medical, financial, mental health experts, 
     - It may ask you to install a couple other things, just run the commands it tells you 
 * it will say something like ‘Server running on http://localhost:8080’ and this should automatically open a new tab with the site running
 
+### Setting up your Health Harbor account for the first time
+- Click the Login button in the Health Harbor application and it will bring you to an Inrupt PodSpaces page and ask for your username and password.
+
+- If you have not created an account click Sign Up and enter your information. Make sure you put an email you can access because it will require you to verify your email by clicking a link. Usernames and emails must be unique across all users. Click the verification link in your email and then click continue on the PodSpaces page.
+
+- Go to https://id.inrupt.com/ and login if necessary. Click the "Get A Pod" button. Your webID profile should now be set up. This step should only need to be completed once each time you set up an account. 
+
 ## Collaboration Practices
 Please be sure to read through the [Best Coding Practices](BestCodingPractices.md) document before you start collaborating.
 
