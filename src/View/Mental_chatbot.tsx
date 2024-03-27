@@ -32,17 +32,10 @@ class MentalHealthChatBot extends Component<{}, State> {
     this.appendMessage(trimmedInput, 'user');
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: trimmedInput }),
-      });
-      const responseData = await response.json();
-
+      const botResponse = await generateText(trimmedInput);
+    
       // Append bot response to the messages state
-      this.appendMessage(responseData.message, 'bot');
+      this.appendMessage(botResponse, 'bot');
     } catch (error) {
       console.error('Error sending message:', error);
     }
@@ -52,9 +45,9 @@ class MentalHealthChatBot extends Component<{}, State> {
   };
 
   appendMessage = (message: string, sender: string) => {
-    const { messages } = this.state;
-    // Append new message to the messages state
-    this.setState({ messages: [...messages, { message, sender }] });
+    this.setState(prevState => ({
+      messages: [...prevState.messages, { message, sender }]
+    }));
   };
   handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
