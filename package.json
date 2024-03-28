@@ -44,7 +44,15 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.16.0",
         "react-scripts": "^5.0.1",
-        "url-loader": "^4.1.1"
+        "url-loader": "^4.1.1",
+        "react-scripts": "^3.0.1",
+        "web-vitals": "^2.1.4",
+        "@mui/material": "^5.13.4",
+        "@emotion/react": "^11.11.0",
+        "@emotion/styled": "^11.11.0",
+        "@mui/x-date-pickers": "^6.7.0",
+        "date-fns": "^2.30.0",
+        "react-router-dom": "^6.2.1"
     },
     "devDependencies": {
         "@babel/core": "^7.23.0",
