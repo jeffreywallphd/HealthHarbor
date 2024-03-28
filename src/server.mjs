@@ -54,29 +54,25 @@ app.listen(PORT, () => {
 });
 
 
-const express = require('express');
-const bodyParser = require('body-parser');
 const { generateText } = require("E:\Python_Tutorial\PersonalWellnessPod\src\Controller\prototype.js"); // Import LLM function
 
 // const app = express();
-const PORT = process.env.PORT || 8080;
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define API endpoint for handling chat messages
-app.post('/api/chat', async (req, res) => {
-  const userMessage = req.body.message;
+app.post('/api/chat', async(req, res) => {
+    const userMessage = req.body.message;
 
-  try {
-    const botResponse = await generateText(userMessage);
-    res.json({ message: botResponse });
-  } catch (error) {
-    console.error('Error generating response:', error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
+    try {
+        const botResponse = await generateText(userMessage);
+        res.json({ message: botResponse });
+    } catch (error) {
+        console.error('Error generating response:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
