@@ -20,6 +20,13 @@ import logo from "../Assets/Images/LogoNoName.png";
 import "../styles/styles.css";
 import InruptAuthenticator from "../Utility/InruptAuthenticator";
 import ChatbotUI from "./ChatbotUI";
+import MedicalRecordsInitial from "./MedicalRecords/MedicalRecordsInitial";
+import AppointmentHistoryDashboard from "./MedicalRecords/Dashboard/AppointmentHistoryDashboard";
+import InsuranceDashboard from "./MedicalRecords/Dashboard/InsuranceDashboard";
+import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
+import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
+import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
+import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
 
 class App extends Component {
   constructor(props) {
@@ -136,6 +143,13 @@ class App extends Component {
                 <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
                 <Route path="/fin-chatbot" element={<ChatbotUI />} />
+                <Route path="" element={<MedicalRecordsInitial />} />
+                <Route path="/medicalRecords/appointment-history-dashboard" element={<AppointmentHistoryDashboard />} />
+                <Route path="/medicalRecords/appointment-history-page" element={<AppointmentHistoryPage />} />
+                <Route path="/medicalRecords/insurance-dashboard" element={<InsuranceDashboard />} />
+                <Route path="/medicalRecords/allergies-dashboard" element={<AllergiesDashboard />} />
+                <Route path="/medicalRecords/vitals-dashboard" element={<VitalsDashboard />} />
+                <Route path="/myRecords" element={<MyMedicalRecordsDashboard />} />
               </Routes>
             </div>
           </div>

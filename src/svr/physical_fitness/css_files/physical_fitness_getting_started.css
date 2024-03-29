@@ -1,0 +1,165 @@
+h1::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+h1:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+h1::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: hsl(195, 2%, 68%);
+    z-index: -1;
+    transition: transform .3s ease;
+}
+
+h1 {
+    position: relative;
+    font-size: 3rem;
+    color: hsl(0, 0%, 0%);
+    font-family: 'Poppins-ExtraBold', sans-serif;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+h1:hover {
+    filter: grayscale(100%);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(0, 0, 0);
+    color: rgb(179, 176, 173);
+}
+
+.marquee-container {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: black;
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.image-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-wrapper:hover img {
+    opacity: 0.7;
+}
+
+.image-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.text-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: black;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.yoga-container {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: black;
+}
+
+.yoga-container h2 {
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;
+    margin-bottom: 0;
+    color: white;
+    text-align: center;
+}
+
+.yoga-container h7 {
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.image-text-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-text-container img {
+    width: 100%;
+    border-radius: 0;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #6fb07f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5a8d67;
+}
