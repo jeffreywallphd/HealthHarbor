@@ -63,7 +63,7 @@ class MentalHealthChatBot extends Component<{}, State> {
       
       <div className="chat-container">
           <div className="chat-header">      
-    <h1>Mental Health ChatBot</h1>
+    <h1 className='Heading'>Mental Health ChatBot</h1>
     </div>
       <div className='buttons-container'>
             <button className="recent-button" onClick={() => alert('Viewing recent conversations...')}>

@@ -19,7 +19,7 @@
     top: 1;
 }
 
-.h1{
+.Heading{
     margin-Right: 100px;
     justify-Content: center; 
     align-Items: center;
@@ -71,6 +71,7 @@
     margin-Right: 10px; 
     padding: 8px;
     border: 1px solid #868885;
+    position: relative;
 }
 
 .send-button{
