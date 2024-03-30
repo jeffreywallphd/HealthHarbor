@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Session, getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import InruptAuthenticator from "../Utility/InruptAuthenticator";
-import { fetch } from '@inrupt/solid-client-authn-browser'
+import {saveGoal} from "../Controller/goals"
 
 
 interface IGoalState {
@@ -17,8 +17,8 @@ interface IGoalState {
 class Goals extends Component<{}, IGoalState> {
   constructor(props: {}) {
     super(props);
-    this.saveGoal = this.saveGoal.bind(this);
-    this.forceLogin = this.forceLogin.bind(this);
+    // Set the inital goal state to default values
+    // get the authenticator and session to check if logged in
     this.state = {
       goalID: "",
       userID: "",
@@ -28,17 +28,23 @@ class Goals extends Component<{}, IGoalState> {
       auth: new InruptAuthenticator(),
       session: getDefaultSession(),
     };
+    // bind the force login function to the object
+    this.forceLogin = this.forceLogin.bind(this);
+    // call force login to ensure the use is logged in
+    this.forceLogin();
   }
 
+  // checks if the user is logged in and redirects to the login page if not
   forceLogin = async () =>{
     const loggedIn = this.state.auth.isLoggedIn()
-    console.log(loggedIn)
     if(!loggedIn){
       this.state.auth.login()
     }
   };
 
-
+  // used to change the goal state when the user alters the inputs
+  // This was from Fall 2023, not exactly sure how it works
+  // but it does seem to be effective in updating the values
   handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -50,53 +56,7 @@ class Goals extends Component<{}, IGoalState> {
     });
   };
 
-  validateInputs = (): boolean => {
-    const { name, amount, goalDate } = this.state;
-    return !!name && !!amount && !!goalDate;
-  };
-
-  saveGoal = (): void => {
-    const id = this.state.session.info.webId
-    console.log(id)
-    // if (this.validateInputs()) {
-    //   alert(this.state.amount);
-
-      // fetch(`${this.state.session.info.webId}/wellness/goals`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     // Authorization: `Bearer ${token}`,
-      //   },
-      //   body: JSON.stringify({
-      //     goalID: this.state.goalID,
-      //     userID: this.state.userID,
-      //     name: this.state.name,
-      //     amount: this.state.amount,
-      //     goalDate: this.state.goalDate,
-      //   }),
-      // })
-    //     .then((response) => {
-    //       console.log("Raw response:", response);
-    //       if (!response.ok) {
-    //         return response.text().then((text) => {
-    //           throw new Error(text);
-    //         });
-    //       }
-    //       return response.json();
-    //     })
-    //     .then((data) => {
-    //       console.log("Success:", data);
-    //       alert(data);
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error occurred:", error);
-    //       alert(error);
-    //     });
-    // } else {
-    //   alert("Please fill all the fields");
-    // }
-  };
-
+  // render the webpage 
   render() {
     return (
       <body>
@@ -133,7 +93,7 @@ class Goals extends Component<{}, IGoalState> {
             </div>
             <br />
             <div>
-              <button id="btnSave" onClick={this.saveGoal}>
+              <button id="btnSave" onClick={() => saveGoal(this.state)}>
                 Save Goal
               </button>
             </div>
