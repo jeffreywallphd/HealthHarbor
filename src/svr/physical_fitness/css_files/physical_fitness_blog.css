@@ -79,7 +79,7 @@
    
    .div2 {
      display: grid;
-     grid-template-columns: 300px 400px ; 
+     grid-template-columns: 270px 430px ; 
      justify-content: center;
      align-items: center; 
      grid-gap: 10px; 
