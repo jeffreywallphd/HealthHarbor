@@ -1,0 +1,58 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <https://www.w3.org/TR/vcard-rdf/> .
+@prefix goals: <https://jeffreywallphd.github.io/vocab/finance_goals.ttl#> .
+
+
+goals: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    dcterms:creator "Audrey LaCost" ;
+    dcterms:date "2024-03-29" ;
+    dcterms:title "Finance Goals General Vocabulary" ;
+    dcterms:description "Vocabulary for describing finance goals. This is being used as a sandbox to try and get database stuff setup without impacting other files. "@en ;
+    vann:preferredNamespacePrefix "finance_goals" ;
+    vann:preferredNamespaceUri "https://jeffreywallphd.github.io/vocab/finance_goals.ttl#" .
+    rdfs:label "Finance Goals Ontology" ;
+    rdfs:comment "Vocabulary for the Finance Goals module." .
+
+# Classes
+goals:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A user in the finance system." .
+
+goals:Goal rdf:type rdfs:Class ;
+    rdfs:label "Goal" ;
+    rdfs:comment "A user's goal details." .
+
+
+# Properties.
+# User Properties
+goals:UserID rdf:type rdf:Property ;
+    rdfs:label "User ID" ;
+    rdfs:domain Goals:User ;
+    rdfs:range xsd:string .
+
+# Goal Properties
+goals:GoalID rdf:type rdf:Property ;
+    rdfs:label "Goal ID" ;
+    rdfs:domain Goals:Goal ;
+    rdfs:range xsd:integer .
+
+goals:GoalName rdf:type rdf:Property ;
+    rdfs:label "Goal Name" ;
+    rdfs:domain Goals:Goal ;
+    rdfs:range xsd:string .
+
+goals:GoalAmount rdf:type rdf:Property ;
+    rdfs:label "Goal Amount" ;
+    rdfs:domain Goals:Goal ;
+    rdfs:range xsd:string .
+
+goals:GoalDate rdf:type rdf:Property ;
+    rdfs:label "Goal Date" ;
+    rdfs:domain Goals:Goal ;
+    rdfs:range xsd:string .
