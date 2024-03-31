@@ -85,8 +85,8 @@ HealthprototypeStates
 
           <div>
             <h6 className="tag" id="tag-red">Health</h6>
-            <h6>{this.props.HealthContent.title}</h6>
-            <p>{this.props.HealthContent.description}</p>
+            <b>{this.props.HealthContent.title}</b>
+            <p >{this.props.HealthContent.description}</p>
             <p style={{ fontSize: "13px" }}>
               {moment(this.props.HealthContent.publishedAt).format(
                 "MM/DD/YYYY"
