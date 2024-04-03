@@ -40,7 +40,11 @@ goals:UserID rdf:type rdf:Property ;
 goals:GoalID rdf:type rdf:Property ;
     rdfs:label "Goal ID" ;
     rdfs:domain Goals:Goal ;
+<<<<<<< HEAD
     rdfs:range xsd:integer .
+=======
+    rdfs:range xsd:string .
+>>>>>>> 8dacef14 (Not finished but temp commit so that I can manage refactoring the debt repayment tool)
 
 goals:GoalName rdf:type rdf:Property ;
     rdfs:label "Goal Name" ;
