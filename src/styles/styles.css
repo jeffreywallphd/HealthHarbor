@@ -21,6 +21,7 @@
 body {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
+    background-color: var(--background-color);
 }
 
 body,
@@ -43,6 +44,15 @@ body {
     color: var(--text-color);
 }
 
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+}
+
 
 /* Headings */
 
@@ -56,6 +66,7 @@ h6 {
     font-weight: bold;
     margin: 0;
     font-size: 30px;
+    color: var(--text-color);
 }
 
 
@@ -142,20 +153,6 @@ ul.navigation li a {
     display: inline-block;
 }
 
-.content {
-    background-color: var(--background-color);
-    padding: 20px;
-}
-
-.content h2 {
-    padding: 0;
-    margin: 0;
-}
-
-.content li {
-    margin-bottom: 10px;
-}
-
 
 /* Team Cards */
 
@@ -198,6 +195,7 @@ ul.navigation li a {
     padding: 20px;
 }
 
+
 /* Login */
 
 button {
@@ -210,6 +208,10 @@ button {
     font-family: 'Raleway', sans-serif;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--primary-color);
 }
 
 .right {
@@ -264,29 +266,34 @@ ul.navigation li a:hover {
 /* Content */
 
 .content {
-    background-color: #FFF;
+    background-color: var(--background-color);
     padding: 20px;
-    margin-top: 20px;
 }
 
 .content h2 {
-    margin-top: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .content li {
     margin-bottom: 10px;
 }
+
+
 /* budgeting table */
+
 .budgetTable {
-    width: 75%; 
-    border-collapse: collapse; 
+    width: 75%;
+    border-collapse: collapse;
 }
+
 .budgetTable th,
 .budgetTable td {
     padding: 12px 15px;
-} 
+}
+
 .budgetTable thead tr {
     text-align: left;
     background-color: #2497CA;
     color: #ffffff;
-} 
+}
