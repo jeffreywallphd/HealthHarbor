@@ -36,6 +36,10 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
+        fallback: {
+            os: require.resolve('os-browserify/browser'),
+            path: require.resolve('path-browserify')
+        }
     },
     devServer: {
         static: "./dist",
