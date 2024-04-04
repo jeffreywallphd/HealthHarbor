@@ -12,7 +12,7 @@ class Home extends Component {
           your wellness information.
         </p>
         <section className="cardRow">
-          <NavLink to="/fitness">
+          <NavLink to="/physicalfitness">
             <div className="card">
               <div className="cardHeader">
                 <h3>Physical Wellness</h3>
