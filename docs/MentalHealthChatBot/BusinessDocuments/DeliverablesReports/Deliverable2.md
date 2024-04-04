@@ -29,7 +29,7 @@ Deliverables:
 
 ## Demos/Images:
 * UI Design created using figma
-
+* ![MHCB_Prototype1](https://github.com/jeffreywallphd/HealthHarbor/blob/UPDATE_DOCS_MHCB/docs/MentalHealthChatBot/MHCBDocImages/MHCB_Deliverable_2_Prototype.png)
 * Fig- 1 Updated UI design that we come up with
 
 
