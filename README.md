@@ -55,6 +55,16 @@ The authors of this software are not medical, financial, mental health experts, 
 
 - Go to https://id.inrupt.com/ and login if necessary. Click the "Get A Pod" button. Your webID profile should now be set up. This step should only need to be completed once each time you set up an account. 
 
+### Create a .env file to hold sensitive information (ex: API Keys)
+* Run the command 'npm install dotenv --save'
+* Create a '.env' file in the root of the project
+* Add any variables necessary to hold your private keys
+    - API_KEY_VAR_EXAMPLE = 'yourAPIKey'
+    - Then reference this variable within your code where you fetch the API
+    - const apiKey = process.env.API_KEY_VAR_EXAMPLE;
+    - fetch(`https://APILink&apikey=${apiKey}`)
+        - make sure to use backticks for the link to reference the apiKey variable 
+
 ## Collaboration Practices
 Please be sure to read through the [Best Coding Practices](BestCodingPractices.md) document before you start collaborating.
 

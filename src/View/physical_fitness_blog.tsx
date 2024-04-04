@@ -35,9 +35,8 @@ class FitnessBlog extends Component<IBlogProps, IBlogstates> {
   }
   public getDataBlogOnPageLoad = () => {
     try {
-      fetch(
-        "https://gnews.io/api/v4/top-headlines?category=sports&max=12&country=us&language=en&apikey=29c6a9482435bc97acb245ce977e8579"
-      )
+      const apiKey = process.env.G_NEWS_API_KEY;
+      fetch(`https://gnews.io/api/v4/top-headlines?category=sports&max=12&country=us&language=en&apikey=${apiKey}`)
         .then((response) => response.json())
         .then((data) => {
           const sports_Data = data;
