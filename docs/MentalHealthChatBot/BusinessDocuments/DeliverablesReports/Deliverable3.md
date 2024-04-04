@@ -27,7 +27,7 @@
 
 ## Demos/Images:
 * Screenshot for the UI phase one
-* ![MHCB_PROTOTYPE2](https://github.com/jeffreywallphd/HealthHarbor/blob/UPDATE_DOCS_MHCB/docs/MentalHealthChatBot/MHCBDocImages/MHCB_Deliverable_3_Prototype.png)
+![MHCB_PROTOTYPE2](https://github.com/jeffreywallphd/HealthHarbor/blob/UPDATE_DOCS_MHCB/docs/MentalHealthChatBot/MHCBDocImages/MHCB_Deliverable_3_Prototype.png)
 * Fig 1- UI first phase image
 
 ## Reflection and Next Steps:

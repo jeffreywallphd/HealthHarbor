@@ -29,7 +29,7 @@ Input from customer responses was actively incorporated into feature updates and
 Team meetings were held regularly to discuss progress, challenges, and next steps. Individual team members collaborated effectively, shared knowledge, and supported each other in resolving technical issues and implementing project tasks. A reflective session was conducted to review the changes made, assess the project's overall progress, and plan for the upcoming sprint.
 
 ## Demos/Images:
-* ![MHCB_PROTOTYPE](https://github.com/jeffreywallphd/HealthHarbor/blob/UPDATE_DOCS_MHCB/docs/MentalHealthChatBot/MHCBDocImages/MHCB_Deliverable_4_Prototype.png)
+![MHCB_PROTOTYPE](https://github.com/jeffreywallphd/HealthHarbor/blob/UPDATE_DOCS_MHCB/docs/MentalHealthChatBot/MHCBDocImages/MHCB_Deliverable_4_Prototype.png)
 * Fig-  Updated UI phase II
 
 ## Reflection:
