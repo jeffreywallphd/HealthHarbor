@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
+import {avalancheCalculation, snowballCalculation} from '../Controller/debt_repayment_calc';
 
 interface DebtRepaymentState {
   moneyAvailable: number;
-
   // Helpful link for arrays in typescript
   // https://timmousk.com/blog/typescript-array-of-objects/
   debts: Array<{
@@ -20,7 +19,6 @@ interface DebtRepaymentState {
 class DebtRepayment extends Component<{}, DebtRepaymentState> {
   constructor(props) {
     super(props);
-
     // set initial state of object
     this.state = {
       moneyAvailable: 0, // Default month (e.g., October)
@@ -33,8 +31,6 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     this.changeMoneyAvailable = this.changeMoneyAvailable.bind(this);
     this.addDebt = this.addDebt.bind(this);
     this.removeDebt = this.removeDebt.bind(this);
-    this.avalancheCalculation = this.avalancheCalculation.bind(this);
-    this.snowballCalculation = this.snowballCalculation.bind(this);
     this.submit = this.submit.bind(this);
   }
 
@@ -71,7 +67,6 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     this.setState({nextId: this.state.nextId+1});
   }
   
-
   removeDebt(id) {
     // retrieve the table element
     var table = document.getElementById("tableID") as HTMLTableElement;
@@ -101,99 +96,6 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     }
   }
   
- // use this to handle avalanche calculation stuff
-avalancheCalculation() {
-  // Validate input before proceeding with calculations
-  if (!this.validateInput()) return;
-
-  const { debts, moneyAvailable } = this.state;
-
-  // Sort debts by interest rate in descending order
-  const sortedDebts = debts.slice().sort((a, b) => b.interestRate - a.interestRate);
-
-  let remainingMoney = moneyAvailable;
-
-  // Calculate Minimum Payments for each debt
-  const minimumPayments = sortedDebts.map(debt => Math.min(debt.minPayment, debt.amount * debt.interestRate / 100));
-
-  // Pay Minimum Payments
-  minimumPayments.forEach((minPayment, index) => {
-    const debt = sortedDebts[index];
-    debt.amount -= minPayment;
-    remainingMoney -= minPayment;
-  });
-
-  // Pay Remaining Money to Debts with Highest Interest Rate
-  sortedDebts.forEach(debt => {
-    if (remainingMoney <= 0) return;
-    const interestPayment = Math.min(remainingMoney, debt.amount * debt.interestRate / 100);
-    debt.amount -= interestPayment;
-    remainingMoney -= interestPayment;
-  });
-
-  // Update state with modified debts
-  this.setState({ debts: sortedDebts });
-}
-
-
-// use this to handle snowball calculation stuff
-snowballCalculation() {
- // Validate input before proceeding with calculations
- if (!this.validateInput()) return;
-
- const { debts, moneyAvailable } = this.state;
-
- // Sort debts by amount in ascending order
- const sortedDebts = debts.slice().sort((a, b) => a.amount - b.amount);
-
- let remainingMoney = moneyAvailable;
-
- // Calculate Minimum Payments for each debt
- const minimumPayments = sortedDebts.map(debt => Math.min(debt.minPayment, debt.amount));
-
- // Pay Minimum Payments
- minimumPayments.forEach((minPayment, index) => {
-   const debt = sortedDebts[index];
-   debt.amount -= minPayment;
-   remainingMoney -= minPayment;
- });
-
- // Pay Remaining Money to Smallest Debts
- sortedDebts.forEach(debt => {
-   if (remainingMoney <= 0) return;
-   const payment = Math.min(remainingMoney, debt.amount);
-   debt.amount -= payment;
-   remainingMoney -= payment;
- });
-
- // Update state with modified debts
- this.setState({ debts: sortedDebts });
-}
-
-
-// TODO: modify this function to actually validate the inputs
-// Return a boolean / print errors if necessary
-validateInput() {
-  const { moneyAvailable, debts } = this.state;
-
-  // Check if money available is a positive number
-  if (isNaN(moneyAvailable) || moneyAvailable <= 0) {
-    alert("Please enter a valid positive number for available money.");
-    return false;
-  }
-
-  // Check if any debt amount or minimum payment is not a positive number
-  for (const debt of debts) {
-    if (isNaN(debt.amount) || debt.amount <= 0 || isNaN(debt.minPayment) || debt.minPayment <= 0) {
-      alert("Please enter valid positive numbers for debt amounts and minimum payments.");
-      return false;
-    }
-  }
-
-  return true;
-}
-
-
   submit(event) {
     // on submit get the table
     var table = document.getElementById("tableID") as HTMLTableElement;
@@ -216,20 +118,17 @@ validateInput() {
                       minPayment:parseInt(rowMinPayment)})
     }
     // check if the user inputs are valid and if so proceed to calcuations
-    var inputValid = this.validateInput()
-    if(inputValid){
-      // set the users debts to the current array of debts
-      this.setState({debts:currDebts});
+    this.setState({debts:currDebts});
+    var sortedDebts;
       if (this.state.repaymentMethod == "Avalanche"){
-        this.avalancheCalculation()
+        sortedDebts = avalancheCalculation(this.state)
+
       } 
       else{
-        this.snowballCalculation()
-      }
-    }
-    else{
-      
-    }
+        sortedDebts = snowballCalculation(this.state)
+      }   
+      // Update state with modified debts
+    this.setState({ debts: sortedDebts });
   }
   render() {
     return (
@@ -244,7 +143,7 @@ validateInput() {
               {" "}
               Available Money:{" "}
             </label>
-            <input type="text" id="available" name="Money Availble"/>
+            <input type="text" id="available" name="Money Availble" onChange={this.changeMoneyAvailable}/>
           </div>
           <br />
           
