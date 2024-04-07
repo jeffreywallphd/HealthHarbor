@@ -29,7 +29,7 @@ SportsprototypeStates
       return (
         <>
           <div
-            className="card"
+            className="sportscard"
             onClick={() => {
               this.props.GetBlogDetails.getBlogDetails(
                 this.props.SportsContent

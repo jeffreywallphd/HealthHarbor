@@ -1,14 +1,18 @@
-h1::before {
+.gettingStarted{
+    background-color: black;
+    color: whitesmoke;
+}
+.gettingStarted h1::before {
     transform: scaleX(0);
     transform-origin: bottom right;
 }
 
-h1:hover::before {
+.gettingStarted h1:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
 
-h1::before {
+.gettingStarted h1::before {
     content: " ";
     display: block;
     position: absolute;
@@ -19,7 +23,7 @@ h1::before {
     transition: transform .3s ease;
 }
 
-h1 {
+.gettingStarted h1 {
     position: relative;
     font-size: 3rem;
     color: hsl(0, 0%, 0%);
@@ -30,25 +34,17 @@ h1 {
     cursor: pointer;
 }
 
-h1:hover {
+.gettingStarted h1:hover {
     filter: grayscale(100%);
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    place-items: center;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(0, 0, 0);
-    color: rgb(179, 176, 173);
-}
 
 .marquee-container {
-    background-color: black;
+   
     padding: 10px;
     text-align: center;
+    overflow: hidden;
+    width: 100%;
 }
 
 .marquee {
@@ -64,9 +60,8 @@ html, body {
 
 .image-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
-    background-color: black;
     padding: 10px;
     max-width: 80%;
     margin: 0 auto;

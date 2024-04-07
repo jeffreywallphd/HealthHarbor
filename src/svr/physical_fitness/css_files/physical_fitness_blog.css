@@ -13,7 +13,7 @@
     /* Ensure flex direction is row */
 }
 
-.card {
+.sportscard {
     display: flex;
     flex-direction: column;
     width: clamp(20rem, calc(20rem + 2vw), 22rem);
@@ -58,12 +58,6 @@ img {
 }
 
 
-/* .tag-brown {
-     background: #d1913c;
-     background: linear-gradient(to bottom, #ffd194, #d1913c);
-     color: #fafafa;
-   }
-    */
 
 #tag-red {
     background: #cb2d3e;

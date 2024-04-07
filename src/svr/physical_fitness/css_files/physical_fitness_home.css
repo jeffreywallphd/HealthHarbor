@@ -1,149 +1,328 @@
 .home {
-    display: flex;
-    align-items: center;
-    flex-flow: wrap;
-    justify-content: center;
-    background-color: black;
-    margin: 0px;
-  }
-  .div1_home {
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: auto;
-    width: 500px;
-    display: flex;
-    flex-flow: column;
-    border-radius: 7px;
-    padding: 35px;
-    align-items: center;
-  }
-  
-  .div2_home {
-    width: 700px;
-    height: 540px;
-    border: 1px solid black; /* Optional: just for visualization */
-    overflow: hidden;
-  }
-  
-  .bodybuilder {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin: auto;
-  }
-  
-  #transform {
-    color: teal;
-    font-size: 45px;
-  
-  }
-  #life {
-    color: white;
-    font-size: 65px;
-  }
-  #caring {
-    color: white;
-    text-align: justify;
-    margin: 30px 0px 30px 0px;
-    font-size: 17px;
-  }
-  #readmore {
-    background-color: teal;
-    color: white;
-    width: 220px;
-    border-radius: 7px;
-    padding: 10px;
-  }
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  justify-content: center;
+  background-color: black;
+  margin: 0px;
+}
+.div1_home {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 500px;
+  display: flex;
+  flex-flow: column;
+  border-radius: 7px;
+  padding: 35px;
+  align-items: center;
+}
+
+.div2_home {
+  width: 700px;
+  height: 540px;
+  border: 1px solid black; /* Optional: just for visualization */
+  overflow: hidden;
+}
+
+.bodybuilder {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+#transform {
+  color: teal;
+  font-size: 45px;
+}
+#life {
+  color: white;
+  font-size: 65px;
+}
+#caring {
+  color: white;
+  text-align: justify;
+  margin: 30px 0px 30px 0px;
+  font-size: 17px;
+}
+#readmore {
+  background-color: teal;
+  color: white;
+  width: 220px;
+  border-radius: 7px;
+  padding: 10px;
+}
 
 /* 3 programs css code */
 .cardsproto {
-    display: flex;
-    width: 430px;
-    height: 600px;
-    flex-flow: wrap;
-    align-items: center;
-    text-align: left;
-    margin: 7px;
-    padding: 10px;
-    color: black;
-    border: 2px solid whitesmoke;
-    box-shadow: 6px 7px gray;
-    cursor: pointer;
+  display: flex;
+  width: 430px;
+  height: 600px;
+  flex-flow: wrap;
+  align-items: center;
+  text-align: left;
+  margin: 7px;
+  padding: 10px;
+  color: black;
+  border: 2px solid whitesmoke;
+  box-shadow: 6px 7px gray;
+  cursor: pointer;
+}
+figure {
+  position: relative;
+}
+figure::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+figure:hover::before {
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.85s;
+}
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
   }
-  figure {
-    position: relative;
+}
+@keyframes shine {
+  100% {
+    left: 125%;
   }
-  figure::before {
-    position: absolute;
-    top: 0;
-    left: -75%;
-    z-index: 2;
-    display: block;
-    content: "";
-    width: 50%;
-    height: 100%;
-    background: -webkit-linear-gradient(
-      left,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 100%
-    );
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 100%
-    );
-    -webkit-transform: skewX(-25deg);
-    transform: skewX(-25deg);
-  }
-  figure:hover::before {
-    -webkit-animation: shine 0.75s;
-    animation: shine 0.85s;
-  }
-  @-webkit-keyframes shine {
-    100% {
-      left: 125%;
-    }
-  }
-  @keyframes shine {
-    100% {
-      left: 125%;
-    }
-  }
-  .cardsdiv {
-    width: 400px;
-    height: auto;
-    overflow: hidden;
-  }
-  .image {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin: auto;
-  }
-  
-  .cards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 4px;
-    background-color: blanchedalmond;
-  }
-  
-  h4:after {
-    display: block;
-    content: "";
-    border: solid black;
-    border-width: 0px 3px 3px 0px;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-  }
-  h4:hover:after {
-    transform: scaleX(1);
-  }
-  h4.fromRight:after {
-    transform-origin: 100% 50%;
-  }
-  h4.fromLeft:after {
-    transform-origin: 0% 50%;
-  }
-  
+}
+.cardsdiv {
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+}
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  background-color: blanchedalmond;
+}
+
+h4:after {
+  display: block;
+  content: "";
+  border: solid black;
+  border-width: 0px 3px 3px 0px;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+h4:hover:after {
+  transform: scaleX(1);
+}
+h4.fromRight:after {
+  transform-origin: 100% 50%;
+}
+h4.fromLeft:after {
+  transform-origin: 0% 50%;
+}
+
+/* fitness program cards css */
+.fitnessProgramsContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: beige;
+  overflow: hidden;
+}
+
+.fitnessProgramsContainer .card {
+  position: relative;
+  background-color: beige;
+  border-radius: 0;
+  border-color: beige;
+  box-shadow: none;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.fitnessProgramsContainer .card .face {
+  width: 300px;
+  height: 285px;
+  transition: 0.4s;
+}
+
+.fitnessProgramsContainer .card .face.face1 {
+  position: relative;
+  background: #484646;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+  margin: 0px;
+}
+
+.fitnessProgramsContainer .card:hover .face.face1 {
+  transform: translateY(0);
+  box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px #f0f,
+    inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,
+    0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+}
+
+.fitnessProgramsContainer .card .face.face1 .content {
+  opacity: 0.2;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.fitnessProgramsContainer .card:hover .face.face1 .content {
+  opacity: 1;
+}
+
+.fitnessProgramsContainer .card .face.face1 .content h3 {
+  font-size: 1em;
+  color: black;
+  text-align: center;
+}
+
+.fitnessProgramsContainer .card .face.face1 .content a {
+  transition: 0.5s;
+}
+
+.fitnessProgramsContainer .card .face.face2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+
+.fitnessProgramsContainer .card:hover .face.face2 {
+  transform: translateY(0);
+}
+
+.fitnessProgramsContainer .card .face.face2 .content p,
+a {
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.fitnessProgramsContainer .card .face.face2 .content a {
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+  outline: 1px dashed #333;
+  padding: 10px;
+  margin: 15px 0 0;
+  display: inline-block;
+  align-items: center;
+}
+
+.fitnessProgramsContainer .card .face.face2 .content a:hover {
+  background: #333;
+  color: whitesmoke;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* BMi  */
+.bmiContainer {
+  display: flex;
+  height: 350px;
+  text-align: left;
+  background-color: rgb(255, 252, 238);
+  border: 2px solid rgb(207, 207, 194);
+  cursor: pointer;
+}
+
+.bmiContainer .bmiimage {
+  flex: 0.5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bmiContainer .bmiDiv2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  text-align: center;
+}
+
+.bmiContainer h1 {
+  color: rgba(5, 5, 5, 0.962);
+  padding: 9px;
+}
+
+.bmiContainer h6 {
+  color: rgba(105, 91, 91, 0.962);
+  padding: 8px;
+}
+
+/* blog card */
+.blogContainer {
+  display: flex;
+  height: auto;
+  text-align: left;
+  background-color: rgb(255, 252, 238);
+  border: 4px solid rgba(215, 233, 18, 0.363);
+  cursor: pointer;
+}
+
+.blogContainer .blogimage {
+  flex: 0.5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.blogContainer .blogDiv2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  text-align: justify;
+  margin: 30px;
+}
+
+.blogContainer h1 {
+  color: rgba(5, 5, 5, 0.962);
+  padding: 9px;
+}
+
+.blogContainer h6 {
+  color: rgba(105, 91, 91, 0.962);
+  padding: 8px;
+}
+
+.blogContainer button {
+  background-color: bisque;
+}
