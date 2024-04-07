@@ -29,7 +29,7 @@ export function avalancheCalculation(curr_state) {
       remainingMoney -= interestPayment;
     });
     
-  }
+  };
   
   
   // use this to handle snowball calculation stuff
@@ -63,7 +63,7 @@ export function avalancheCalculation(curr_state) {
    });
    // Update state with modified debts
     return sortedDebts;
-  }
+  };
 
 
   // Return a boolean / print errors if necessary
@@ -85,3 +85,4 @@ function validateInput(curr_state) {
     }
     return true;
   }
+  

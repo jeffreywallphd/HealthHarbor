@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {avalancheCalculation, snowballCalculation} from '../Controller/debt_repayment_calc';
+import {avalancheCalculation, snowballCalculation} from "../Controller/debt_repayment_calc";
 
 interface DebtRepaymentState {
   moneyAvailable: number;
