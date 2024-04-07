@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
+import {avalancheCalculation, snowballCalculation} from "../Controller/debt_repayment_calc";
 
 interface DebtRepaymentState {
   moneyAvailable: number;
-
   // Helpful link for arrays in typescript
   // https://timmousk.com/blog/typescript-array-of-objects/
   debts: Array<{
@@ -20,7 +19,6 @@ interface DebtRepaymentState {
 class DebtRepayment extends Component<{}, DebtRepaymentState> {
   constructor(props) {
     super(props);
-
     // set initial state of object
     this.state = {
       moneyAvailable: 0, // Default month (e.g., October)
@@ -33,8 +31,6 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     this.changeMoneyAvailable = this.changeMoneyAvailable.bind(this);
     this.addDebt = this.addDebt.bind(this);
     this.removeDebt = this.removeDebt.bind(this);
-    this.avalancheCalculation = this.avalancheCalculation.bind(this);
-    this.snowballCalculation = this.snowballCalculation.bind(this);
     this.submit = this.submit.bind(this);
   }
 
@@ -71,7 +67,6 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     this.setState({nextId: this.state.nextId+1});
   }
   
-
   removeDebt(id) {
     // retrieve the table element
     var table = document.getElementById("tableID") as HTMLTableElement;
@@ -101,25 +96,6 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
     }
   }
   
-  // use this to handle avalanche calculation stuff
-  // once we get to this function 
-  // TODO: modify this function to do calculations using avalanche method
-  avalancheCalculation(){
-    
-  }
-
-  // use this to handle snowball calculation stuff
-  // TODO: modify this function to do calculations using snowball method
-  snowballCalculation(){
-
-  }
-
-  // TODO: modify this function to actually validate the inputs
-  // return a boolean / print errors if necessary
-  validateInput(){
-    return true;
-  }
-
   submit(event) {
     // on submit get the table
     var table = document.getElementById("tableID") as HTMLTableElement;
@@ -142,20 +118,17 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
                       minPayment:parseInt(rowMinPayment)})
     }
     // check if the user inputs are valid and if so proceed to calcuations
-    var inputValid = this.validateInput()
-    if(inputValid){
-      // set the users debts to the current array of debts
-      this.setState({debts:currDebts});
+    this.setState({debts:currDebts});
+    var sortedDebts;
       if (this.state.repaymentMethod == "Avalanche"){
-        this.avalancheCalculation()
+        sortedDebts = avalancheCalculation(this.state)
+
       } 
       else{
-        this.snowballCalculation()
-      }
-    }
-    else{
-      
-    }
+        sortedDebts = snowballCalculation(this.state)
+      }   
+      // Update state with modified debts
+    this.setState({ debts: sortedDebts });
   }
   render() {
     return (
@@ -170,7 +143,7 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
               {" "}
               Available Money:{" "}
             </label>
-            <input type="text" id="available" name="Money Availble"/>
+            <input type="text" id="available" name="Money Availble" onChange={this.changeMoneyAvailable}/>
           </div>
           <br />
           
