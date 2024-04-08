@@ -5,6 +5,8 @@ import Home from "./Home";
 import PhysicalFitness from "./physical_fitness";
 import PhysicalFitnessBlog from "./physical_fitness_blog";
 import GettingStarted from "./physical_fitness_getting_started";
+import BeginnerCalisProgs from "./physical_begcalis";
+import BeginnerProg from "./physical_beginnprog";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -25,6 +27,7 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
+
 
 class App extends Component {
   constructor(props) {
@@ -129,6 +132,8 @@ class App extends Component {
                 <Route path="/physicalfitness" element={<PhysicalFitness />} />
                 <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
                 <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
+                <Route path="/physicalbegcalis" element={<BeginnerCalisProgs/>} />
+                <Route path="/physicalbeginnprog" element={<BeginnerProg/>} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />

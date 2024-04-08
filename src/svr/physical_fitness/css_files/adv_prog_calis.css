@@ -1,0 +1,65 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif; /* Arial font */
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .cell {
+    padding: 10px;
+    background-color: #fff; /* White background color */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden;
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .cell img {
+    height: 100;
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .title-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000; /* Black text color */
+  }
+
+  /* Hyperlink the whole flexbox */
+  .cell a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Typewriter effect */
+  .typewriter {
+    text-align: center; /* Center the text */
+    font-family: Arial, sans-serif; /* Arial font */
+    font-size: 32px; /* Larger font size */
+    overflow: hidden; /* Hide overflow */
+    border-right: solid 2px white; /* Typewriter cursor */
+    white-space: nowrap; /* Prevent line break */
+    animation: typing 3s steps(30) forwards; /* Animation */
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }

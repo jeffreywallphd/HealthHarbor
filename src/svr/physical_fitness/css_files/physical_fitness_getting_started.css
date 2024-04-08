@@ -1,50 +1,45 @@
-.gettingStarted{
-    background-color: black;
-    color: whitesmoke;
-}
-.gettingStarted h1::before {
-    transform: scaleX(0);
-    transform-origin: bottom right;
-}
-
-.gettingStarted h1:hover::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-.gettingStarted h1::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    inset: 0 0 0 0;
-    background: hsl(195, 2%, 68%);
-    z-index: -1;
-    transition: transform .3s ease;
-}
-
-.gettingStarted h1 {
-    position: relative;
-    font-size: 3rem;
-    color: hsl(0, 0%, 0%);
-    font-family: 'Poppins-ExtraBold', sans-serif;
+/* Global Styles */
+body {
     margin: 0;
-    padding: 10px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: black;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
     text-align: center;
-    cursor: pointer;
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 20px;
 }
 
-.gettingStarted h1:hover {
-    filter: grayscale(100%);
+/* Header Styles */
+.header-container {
+    background-color: lavender;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-
+/* Marquee Styles */
 .marquee-container {
-   
+    background-color: #333;
+    color: #fff;
     padding: 10px;
     text-align: center;
-    overflow: hidden;
-    width: 100%;
+    margin-bottom: 20px;
 }
 
 .marquee {
@@ -58,99 +53,70 @@
     100% { transform: translateX(-100%); }
 }
 
+/* Image Container Styles */
 .image-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
-    padding: 10px;
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.image-container img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    transition: opacity 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .image-wrapper {
     position: relative;
+    flex: 1;
+    margin: 0 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-wrapper img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.1);
 }
 
 .overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-.image-wrapper:hover img {
-    opacity: 0.7;
 }
 
 .image-wrapper:hover .overlay {
     opacity: 1;
 }
 
+/* Text Container Styles */
 .text-container {
     margin-top: 20px;
-    padding: 20px;
-    background-color: black;
-    font-size: 1.2rem;
-    text-align: center;
+    text-align: justify;
+    line-height: 1.6;
 }
 
-.yoga-container {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: black;
-}
-
-.yoga-container h2 {
-    font-weight: bold;
-    text-decoration: underline;
-    font-style: italic;
-    margin-bottom: 0;
-    color: white;
-    text-align: center;
-}
-
-.yoga-container h7 {
-    color: white;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.image-text-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.image-text-container img {
-    width: 100%;
-    border-radius: 0;
-}
-
+/* Button Styles */
 .button-container {
     text-align: center;
     margin-top: 20px;
 }
 
 .btn {
-    font-size: 1.5rem;
     padding: 10px 20px;
-    border-radius: 5px;
     background-color: #6fb07f;
-    color: white;
+    color: #fff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

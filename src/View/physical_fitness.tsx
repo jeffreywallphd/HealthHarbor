@@ -79,6 +79,7 @@ class Cards extends Component {
           </div>
         </NavLink>
 
+        <NavLink to="/physicalbeginnprog">
         <div className="cardsproto">
           <div className="cardsdiv">
             <figure>
@@ -97,6 +98,7 @@ class Cards extends Component {
             </p>
           </div>
         </div>
+        </NavLink>
 
         <div className="cardsproto">
           <div className="cardsdiv">
