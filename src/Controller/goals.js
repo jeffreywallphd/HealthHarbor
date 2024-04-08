@@ -15,15 +15,13 @@ import {
 } from "@inrupt/solid-client";
 import { fetch } from '@inrupt/solid-client-authn-browser'
 import { SCHEMA_INRUPT, RDF, AS } from "@inrupt/vocab-common-rdf";
-
-
+import {FITV} from "../Ontology/Generated/SourceCodeArtifacts/JavaScript/GeneratedVocab/FITV"
 // get the current pod based on the user's webid
 // only works if the user is logged in
 async function getDefaultPod(session) {
     const mypods = await getPodUrlAll(session.info.webId, { fetch: fetch });
     return mypods[0];
 }
-
 // this function is used to ensure entered sufficient input
 function validateInputs(goal_state){
     // gets the name, amount, and date from the state parameter
@@ -59,7 +57,6 @@ export async function saveGoal(goal_state){
         if (typeof error.statusCode === "number" && error.statusCode === 404) {
             console.log("A")
             newGoal = await createSolidDataset();
-            console.log(newGoal)
         } 
         // if there was a different error, log it 
         else {
@@ -72,11 +69,14 @@ export async function saveGoal(goal_state){
     const date = new Date();
     let datetime = date.getTime(); //acts like a unique id
     let item = createThing(); 
-    console.log(item)
-    console.log("HERE")
+    
+    // console.log(item)
+    // console.log("HERE")
     // console.log(SCHEMA_INRUPT)
     // console.log(AS.Goal)
-    // item = addUrl(item, RDF.type,)
+    console.log("HERE")
+    console.log(FITV)
+    // item = addUrl(item, RDF.type, FINANCE_GOALS.Goal)
     // item = addInteger(item,finance_goals.GoalID,datetime) 
     // item = addStringNoLocale(item,finance_goals.GoalDate,goalDate)
     // item = addStringNoLocale(item,finance_goals.GoalName,name)
