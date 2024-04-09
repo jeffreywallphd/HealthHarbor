@@ -1,7 +1,7 @@
 {
-  "name": "generated-vocab-fitv",
+  "name": "generated-vocab",
   "version": "0.0.1",
-  "description": "Bundle of [1] vocabularies that includes the following:\n\n - fitv: Vocabulary for describing physical fitness goals and programs",
+  "description": "Bundle of [2] vocabularies that includes the following:\n\n - fitv: Vocabulary for describing physical fitness goals and programs \n\n - finance_goals: Vocabulary for describing a user's finance goals",
   "sideEffects": false,
   "main": "index.js",
   "module": "wrapper.js",
@@ -10,6 +10,7 @@
     "url": "https://github.com/inrupt/artifact-generator"
   },
   "contributors": [
-    {"name": "Jeffrey Wall"}
+    {"name": "Jeffrey Wall"},
+    {"name":"Audrey LaCost"}
   ]
 }

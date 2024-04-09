@@ -25,7 +25,7 @@ function _NS (localName) {
  *
  * Namespace IRI: [https://jeffreywallphd.github.io/vocab/finance_goals.ttl#]
  */
-export const FINANCE_GOALS = {
+const FINANCE_GOALS = {
   PREFIX: "finance_goals",
   NAMESPACE: _NAMESPACE,
   PREFIX_AND_NAMESPACE: { "finance_goals": "https://jeffreywallphd.github.io/vocab/finance_goals.ttl#" },
@@ -91,3 +91,5 @@ export const FINANCE_GOALS = {
   GoalDate: _NS("GoalDate"),
 
 }
+
+module.exports = FINANCE_GOALS;
