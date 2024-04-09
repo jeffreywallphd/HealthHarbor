@@ -7,6 +7,9 @@ import PhysicalFitnessBlog from "./physical_fitness_blog";
 import GettingStarted from "./physical_fitness_getting_started";
 import BeginnerCalisProgs from "./physical_begcalis";
 import BeginnerProg from "./physical_beginnprog";
+import Advancedprograms from "./physical_adv_prog_home";
+import CalisthenicsHome from "./physical_adv_prog_calis";
+import Humanpullover from "./physical_humanpullover";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -132,8 +135,11 @@ class App extends Component {
                 <Route path="/physicalfitness" element={<PhysicalFitness />} />
                 <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
                 <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
-                <Route path="/physicalbegcalis" element={<BeginnerCalisProgs/>} />
+                <Route path="/begcalis" element={<BeginnerCalisProgs/>} />
                 <Route path="/physicalbeginnprog" element={<BeginnerProg/>} />
+                <Route path="/physicaladvprograms" element={<Advancedprograms/>} />
+                <Route path="/physicaladvprogcalis" element={<CalisthenicsHome/>} />
+                <Route path="/humanpullover" element={<Humanpullover/>} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />

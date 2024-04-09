@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import PushUps from "../svr/physical_fitness/fitness_images/push-ups.png";
-import PullUps from "../svr/physical_fitness/fitness_images/pull-ups.png";
-import Dips from "../svr/physical_fitness/fitness_images/dips.png";
+// import PushUps from "../svr/physical_fitness/fitness_images/push-ups.png";
+// import PullUps from "../svr/physical_fitness/fitness_images/pull-ups.png";
+// import Dips from "../svr/physical_fitness/fitness_images/dips.png";
 import Squats from "../svr/physical_fitness/fitness_images/squats.png";
 import Lunges from "../svr/physical_fitness/fitness_images/lunges.png";
 import Planks from "../svr/physical_fitness/fitness_images/planks.png";
-import MountainClimbers from "../svr/physical_fitness/fitness_images/mountain-climbers.png";
-import Burpees from "../svr/physical_fitness/fitness_images/burpees.png";
-import LegRaises from "../svr/physical_fitness/fitness_images/leg-raises.png";
-import HollowBodyHolds from "../svr/physical_fitness/fitness_images/hollow-body-holds.png";
-import HandstandPushUps from "../svr/physical_fitness/fitness_images/handstand-push-ups.png";
-import PistolSquats from "../svr/physical_fitness/fitness_images/pistol-squats.png";
-import Supermans from "../svr/physical_fitness/fitness_images/supermans.png";
-import RussianTwists from "../svr/physical_fitness/fitness_images/russian-twists.png";
-import BoxJumps from "../svr/physical_fitness/fitness_images/box-jumps.png";
+// import MountainClimbers from "../svr/physical_fitness/fitness_images/mountain-climbers.png";
+// import Burpees from "../svr/physical_fitness/fitness_images/burpees.png";
+// import LegRaises from "../svr/physical_fitness/fitness_images/leg-raises.png";
+// import HollowBodyHolds from "../svr/physical_fitness/fitness_images/hollow-body-holds.png";
+// import HandstandPushUps from "../svr/physical_fitness/fitness_images/handstand-push-ups.png";
+// import PistolSquats from "../svr/physical_fitness/fitness_images/pistol-squats.png";
+// import Supermans from "../svr/physical_fitness/fitness_images/supermans.png";
+// import RussianTwists from "../svr/physical_fitness/fitness_images/russian-twists.png";
+// import BoxJumps from "../svr/physical_fitness/fitness_images/box-jumps.png";
 import "../svr/physical_fitness/css_files/begcalis.css";
 
 class BegCalis extends Component {
@@ -21,11 +21,11 @@ class BegCalis extends Component {
     return (
       <div>
         <h1>Calisthenics exercises for beginners</h1>
-        <div className="container">
+        <div className="BeginnerCalisthenicsContainer">
           {/* Exercise 1: Push-Ups */}
           <div className="step">
             <div className="step-img">
-              <img src={PushUps} alt="Push-Ups Image" />
+              {/* <img src={PushUps} alt="Push-Ups Image" /> */}
             </div>
             <div className="step-text">
               <h2>Push-Ups</h2>
@@ -41,7 +41,7 @@ class BegCalis extends Component {
           {/* Exercise 2: Pull-Ups */}
           <div className="step">
             <div className="step-img">
-              <img src={PullUps} alt="Pull-Ups Image" />
+              {/* <img src={PullUps} alt="Pull-Ups Image" /> */}
             </div>
             <div className="step-text">
               <h2>Pull-Ups</h2>
@@ -56,7 +56,7 @@ class BegCalis extends Component {
           {/* Exercise 3: Dips */}
           <div className="step">
             <div className="step-img">
-              <img src={Dips} alt="Dips Image" />
+              {/* <img src={Dips} alt="Dips Image" /> */}
             </div>
             <div className="step-text">
               <h2>Dips</h2>
@@ -115,7 +115,7 @@ class BegCalis extends Component {
           {/* Exercise 7: Mountain Climbers */}
           <div className="step">
             <div className="step-img">
-              <img src={MountainClimbers} alt="Mountain Climbers Image" />
+              {/* <img src={MountainClimbers} alt="Mountain Climbers Image" /> */}
             </div>
             <div className="step-text">
               <h2>Mountain Climbers</h2>
@@ -129,7 +129,7 @@ class BegCalis extends Component {
           {/* Exercise 8: Burpees */}
           <div className="step">
             <div className="step-img">
-              <img src={Burpees} alt="Burpees Image" />
+              {/* <img src={Burpees} alt="Burpees Image" /> */}
             </div>
             <div className="step-text">
               <h2>Burpees</h2>
@@ -144,7 +144,7 @@ class BegCalis extends Component {
           {/* Exercise 9: Leg Raises */}
           <div className="step">
             <div className="step-img">
-              <img src={LegRaises} alt="Leg Raises Image" />
+              {/* <img src={LegRaises} alt="Leg Raises Image" /> */}
             </div>
             <div className="step-text">
               <h2>Leg Raises</h2>
@@ -158,7 +158,7 @@ class BegCalis extends Component {
           {/* Exercise 10: Hollow Body Holds */}
           <div className="step">
             <div className="step-img">
-              <img src={HollowBodyHolds} alt="Hollow Body Holds Image" />
+              {/* <img src={HollowBodyHolds} alt="Hollow Body Holds Image" /> */}
             </div>
             <div className="step-text">
               <h2>Hollow Body Holds</h2>
@@ -172,7 +172,7 @@ class BegCalis extends Component {
           {/* Exercise 11: Handstand Push-Ups */}
           <div className="step">
             <div className="step-img">
-              <img src={HandstandPushUps} alt="Handstand Push-Ups Image" />
+              {/* <img src={HandstandPushUps} alt="Handstand Push-Ups Image" /> */}
             </div>
             <div className="step-text">
               <h2>Handstand Push-Ups</h2>
@@ -186,7 +186,7 @@ class BegCalis extends Component {
           {/* Exercise 12: Pistol Squats */}
           <div className="step">
             <div className="step-img">
-              <img src={PistolSquats} alt="Pistol Squats Image" />
+              {/* <img src={PistolSquats} alt="Pistol Squats Image" /> */}
             </div>
             <div className="step-text">
               <h2>Pistol Squats</h2>
@@ -200,7 +200,7 @@ class BegCalis extends Component {
           {/* Exercise 13: Supermans */}
           <div className="step">
             <div className="step-img">
-              <img src={Supermans} alt="Supermans Image" />
+              {/* <img src={Supermans} alt="Supermans Image" /> */}
             </div>
             <div className="step-text">
               <h2>Supermans</h2>
@@ -214,7 +214,7 @@ class BegCalis extends Component {
           {/* Exercise 14: Russian Twists */}
           <div className="step">
             <div className="step-img">
-              <img src={RussianTwists} alt="Russian Twists Image" />
+              {/* <img src={RussianTwists} alt="Russian Twists Image" /> */}
             </div>
             <div className="step-text">
               <h2>Russian Twists</h2>
@@ -228,7 +228,7 @@ class BegCalis extends Component {
           {/* Exercise 15: Box Jumps */}
           <div className="step">
             <div className="step-img">
-              <img src={BoxJumps} alt="Box Jumps Image" />
+              {/* <img src={BoxJumps} alt="Box Jumps Image" /> */}
             </div>
             <div className="step-text">
               <h2>Box Jumps</h2>

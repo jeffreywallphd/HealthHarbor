@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 class GettingStarted extends Component {
   render() {
     return (
-      <>
+      <div className="gettingStartedContainer">
         <div className="header-container">
           <h1>The journey of a thousand miles, begins with a single step!</h1>
         </div>
@@ -148,7 +148,7 @@ class GettingStarted extends Component {
         <div className="button-container">
           <button className="btn"><span>Take me to gym workouts</span></button>
         </div>
-      </>
+      </div>
     );
   }
 }

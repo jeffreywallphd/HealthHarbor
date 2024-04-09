@@ -7,12 +7,11 @@ import Ymat from "../svr/physical_fitness/fitness_images/y_matt.png";
 import "../svr/physical_fitness/css_files/physical_beginnprog.css"
 import { NavLink } from "react-router-dom";
 
-interface classprops{
-  classList: any;
-}
 
-class BeginProg extends Component<classprops> {
- 
+
+
+class BeginProg extends Component {
+  classList: any;
   render() {
     return (
       <div>

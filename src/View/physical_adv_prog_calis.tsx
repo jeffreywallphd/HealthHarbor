@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import Cardio from "../svr/physical_fitness/fitness_images/cardio.png";
 import Calisthenics from "../svr/physical_fitness/fitness_images/calisthenics.png";
-import Gym from "../svr/physical_fitness/fitness_images/gym.png"
-import Yoga from "../svr/physical_fitness/fitness_images/yoga.png";
-import Ymat from "../svr/physical_fitness/fitness_images/y_matt.png";
 import "../svr/physical_fitness/css_files/adv_prog_calis.css"
 import { NavLink } from "react-router-dom";
 
@@ -13,7 +9,7 @@ class AdvancedProgsCalis extends Component {
         <div className="grid">
           {/* Row 1 */}
           <div className="cell">
-            <NavLink to="/humanpullover" className="title"> {/* Change a href to NavLink */}
+            <NavLink to="/humanpullover" className="title">
               <div className="flex-container">
                 <img src={Calisthenics} width="133" height="100" alt="Calisthenics" className="thumb" />
                 <div className="title-text">Human Pullover</div>
