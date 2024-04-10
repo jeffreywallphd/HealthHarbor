@@ -76,7 +76,7 @@ HealthprototypeStates
     return (
       <>
         <div
-          className="div2"
+          className="healthCard"
           onClick={() => {
             this.props.GetBlogDetails.getBlogDetails(this.props.HealthContent);
           }}
@@ -124,7 +124,7 @@ export class HiddenComponent extends React.Component<
           <div>
             <h2>{this.props.BlogDetailedData.title}</h2>
 
-            <p className="content">{this.props.BlogDetailedData.content}</p>
+            <p className="hiddenComponentcontent">{this.props.BlogDetailedData.content}</p>
             <small>
               {moment(this.props.BlogDetailedData.date).format("MM/DD/YYYY")}
             </small>

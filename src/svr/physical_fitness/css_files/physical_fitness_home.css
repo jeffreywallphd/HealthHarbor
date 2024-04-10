@@ -1,4 +1,4 @@
-.home {
+.physicalfitnesshome{
   display: flex;
   align-items: center;
   flex-flow: wrap;
@@ -55,7 +55,15 @@
 }
 
 /* 3 programs css code */
-.cardsproto {
+.threeProgramcards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  background-color: blanchedalmond;
+}
+
+.threeProgramcards .cardsproto {
   display: flex;
   width: 430px;
   height: 600px;
@@ -69,10 +77,10 @@
   box-shadow: 6px 7px gray;
   cursor: pointer;
 }
-figure {
+.threeProgramcards figure {
   position: relative;
 }
-figure::before {
+.threeProgramcards figure::before {
   position: absolute;
   top: 0;
   left: -75%;
@@ -94,7 +102,7 @@ figure::before {
   -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
 }
-figure:hover::before {
+.threeProgramcards figure:hover::before {
   -webkit-animation: shine 0.75s;
   animation: shine 0.85s;
 }
@@ -108,27 +116,19 @@ figure:hover::before {
     left: 125%;
   }
 }
-.cardsdiv {
+.threeProgramcards .cardsdiv {
   width: 400px;
   height: auto;
   overflow: hidden;
 }
-.image {
+.threeProgramcards .image {
   max-width: 100%;
   max-height: 100%;
   display: block;
   margin: auto;
 }
 
-.cards {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 4px;
-  background-color: blanchedalmond;
-}
-
-h4:after {
+.threeProgramcards h4:after {
   display: block;
   content: "";
   border: solid black;
@@ -136,13 +136,13 @@ h4:after {
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
-h4:hover:after {
+.threeProgramcards h4:hover:after {
   transform: scaleX(1);
 }
-h4.fromRight:after {
+.threeProgramcards h4.fromRight:after {
   transform-origin: 100% 50%;
 }
-h4.fromLeft:after {
+.threeProgramcards h4.fromLeft:after {
   transform-origin: 0% 50%;
 }
 

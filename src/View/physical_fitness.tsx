@@ -17,7 +17,7 @@ class FitnessApp extends Component {
   render() {
     return (
       <div className="App">
-        <div className="home">
+        <div className="physicalfitnesshome">
           <div className="div1_home">
             <h2 id="transform" style={{ margin: "0px" }}>
               TRANSFORM
@@ -60,7 +60,7 @@ export default FitnessApp;
 class Cards extends Component {
   render() {
     return (
-      <div className="cards">
+      <div className="threeProgramcards">
         <NavLink to="/physicalfitnessgettingstarted">
           <div className="cardsproto">
             <div className="cardsdiv">

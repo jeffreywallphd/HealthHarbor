@@ -39,7 +39,7 @@
 }
 
 
-.marquee-container {
+.gettingStarted .marquee-container {
    
     padding: 10px;
     text-align: center;
@@ -47,7 +47,7 @@
     width: 100%;
 }
 
-.marquee {
+.gettingStarted .marquee {
     overflow: hidden;
     white-space: nowrap;
     animation: marquee 40s linear infinite;
@@ -58,7 +58,7 @@
     100% { transform: translateX(-100%); }
 }
 
-.image-container {
+.gettingStarted .image-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -67,18 +67,18 @@
     margin: 0 auto;
 }
 
-.image-container img {
+.gettingStarted .image-container img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     transition: opacity 0.3s ease;
 }
 
-.image-wrapper {
+.gettingStarted .image-wrapper {
     position: relative;
 }
 
-.overlay {
+.gettingStarted .overlay {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -90,7 +90,7 @@
     transition: opacity 0.3s ease;
 }
 
-.image-wrapper:hover img {
+.gettingStarted .image-wrapper:hover img {
     opacity: 0.7;
 }
 
@@ -98,7 +98,7 @@
     opacity: 1;
 }
 
-.text-container {
+.gettingStarted .text-container {
     margin-top: 20px;
     padding: 20px;
     background-color: black;
@@ -106,7 +106,7 @@
     text-align: center;
 }
 
-.yoga-container {
+.gettingStarted .yoga-container {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 20px;
@@ -114,7 +114,7 @@
     background-color: black;
 }
 
-.yoga-container h2 {
+.gettingStarted .yoga-container h2 {
     font-weight: bold;
     text-decoration: underline;
     font-style: italic;
@@ -123,28 +123,28 @@
     text-align: center;
 }
 
-.yoga-container h7 {
+.gettingStarted .yoga-container h7 {
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.image-text-container {
+.gettingStarted .image-text-container {
     text-align: center;
     margin-top: 20px;
 }
 
-.image-text-container img {
+.gettingStarted .image-text-container img {
     width: 100%;
     border-radius: 0;
 }
 
-.button-container {
+.gettingStarted .button-container {
     text-align: center;
     margin-top: 20px;
 }
 
-.btn {
+.gettingStarted .btn {
     font-size: 1.5rem;
     padding: 10px 20px;
     border-radius: 5px;
@@ -155,6 +155,6 @@
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.gettingStarted .btn:hover {
     background-color: #5a8d67;
 }
