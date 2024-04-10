@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/habitTracker.css';
+import { HashRouter, NavLink, Routes, Route, Link } from "react-router-dom";
+import '../../styles/habittracker.css';
+
+import AddHabit from "./AddHabit";
 
 interface ArrowIconProps {
     direction: 'left' | 'right';
@@ -17,7 +19,11 @@ class ArrowIcon extends Component<ArrowIconProps> {
     }
 }
 
-class HabitTracker extends Component<{}, { showSidebar: boolean; showViewOptions: boolean; motivationalQuote: string }> {
+class HabitTracker extends Component<{}, {
+    showSidebar: boolean;
+    showViewOptions: boolean;
+    motivationalQuote: string }>
+{
     constructor(props: {}) {
         super(props);
         this.state = {
@@ -28,7 +34,7 @@ class HabitTracker extends Component<{}, { showSidebar: boolean; showViewOptions
     }
 
     toggleSidebar = () => {
-        this.setState((prevState) => ({ showSidebar: !prevState.showSidebar }));
+        this.setState((prevState) => ({showSidebar: !prevState.showSidebar}));
     };
 
     componentDidMount() {
@@ -49,44 +55,57 @@ class HabitTracker extends Component<{}, { showSidebar: boolean; showViewOptions
             "You are never too old to set another goal or to dream a new dream."
         ];
         const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
-        this.setState({ motivationalQuote: motivationalQuotes[randomIndex] });
+        this.setState({motivationalQuote: motivationalQuotes[randomIndex]});
     }
 
     render() {
-        const { showSidebar, showViewOptions, motivationalQuote } = this.state;
+        const {showSidebar, showViewOptions, motivationalQuote} = this.state;
         return (
             <div className="habit-tracker-container">
                 <div className={`arrow-container ${showSidebar ? 'arrow-left' : 'arrow-right'}`}>
                     <button className="arrow-button" onClick={this.toggleSidebar}>
-                        <ArrowIcon direction={showSidebar ? 'left' : 'right'} />
+                        <ArrowIcon direction={showSidebar ? 'left' : 'right'}/>
                     </button>
                 </div>
                 {showSidebar && (
                     <div className="sidebar">
                         <ul>
-                            <li><button className="habit-button"><Link to="">Habit</Link></button></li>
                             <li>
-                                <button className="option-button" onClick={() => this.setState((prevState) => ({ showViewOptions: !prevState.showViewOptions }))}>
+                                <button className="habit-button"><Link to="">Habit</Link></button>
+                            </li>
+                            <li>
+                                <button className="option-button"
+                                        onClick={() => this.setState((prevState) => ({showViewOptions: !prevState.showViewOptions}))}>
                                     View Options
                                 </button>
                                 {showViewOptions && (
                                     <ul>
-                                        <li><button className="daily-button"><Link to="">Daily</Link></button></li>
-                                        <li><button className="weekly-button"><Link to="">Weekly</Link></button></li>
+                                        <li>
+                                            <button className="daily-button"><Link to="">Daily</Link></button>
+                                        </li>
+                                        <li>
+                                            <button className="weekly-button"><Link to="">Weekly</Link></button>
+                                        </li>
                                     </ul>
                                 )}
                             </li>
-                            <li><button className="due-button"><Link to="">Due</Link></button></li>
-                            <li><button className="report-button"><Link to="">Habit Reports</Link></button></li>
+                            <li>
+                                <button className="due-button"><Link to="">Due</Link></button>
+                            </li>
+                            <li>
+                                <button className="report-button"><Link to="">Habit Reports</Link></button>
+                            </li>
                         </ul>
                     </div>
                 )}
                 <div className="main-content">
                     <h1>{motivationalQuote}</h1>
+                    <Link to="/AddHabit">Get Started</Link>
                 </div>
             </div>
         );
     }
+
 }
 
 export default HabitTracker;
