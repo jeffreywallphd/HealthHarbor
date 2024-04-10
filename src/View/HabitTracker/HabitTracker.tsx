@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter, NavLink, Routes, Route, Link } from "react-router-dom";
-import '../../styles/habittracker.css';
+import './habittracker.css';
 
 import AddHabit from "./AddHabit";
 
