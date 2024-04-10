@@ -23,14 +23,14 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
 
     // set initial state of object
     this.state = {
-      moneyAvailable: 0, // Default month (e.g., October)
+      moneyAvailable: 5000, // Default month (e.g., October)
       debts: new Array<{id:-1, type:"",amount:0,interestRate:0,minPayment:0}>,
       nextId:1,
       repaymentMethod:"Avalanche"
     };
 
     // initialize functions
-    this.changeMoneyAvailable = this.changeMoneyAvailable.bind(this);
+    // this.changeMoneyAvailable = this.changeMoneyAvailable.bind(this);
     this.addDebt = this.addDebt.bind(this);
     this.removeDebt = this.removeDebt.bind(this);
     this.avalancheCalculation = this.avalancheCalculation.bind(this);
@@ -39,10 +39,10 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
   }
 
   // changes how much money is available when the enter button is clicked
-  changeMoneyAvailable(event){
-    const money_str = (document.getElementById("available") as HTMLInputElement).value;
-    this.setState({moneyAvailable: parseInt(money_str)});
-  }
+  // changeMoneyAvailable(event){
+  //   const money_str = (document.getElementById("available") as HTMLInputElement).value;
+  //   this.setState({moneyAvailable: parseInt(money_str)});
+  // }
 
   // function in progress - goal is to add a row to the table
   // source:https://stackoverflow.com/questions/1728284/create-clone-of-table-row-and-append-to-table-in-javascript
@@ -168,9 +168,10 @@ class DebtRepayment extends Component<{}, DebtRepaymentState> {
           <div>
             <label id="AvailableMoney" htmlFor="available">
               {" "}
-              Available Money:{" "}
+              Available Money:{""}
             </label>
-            <input type="text" id="available" name="Money Availble"/>
+            {/* <input type="text" id="available" name="Money Availble"/> */}
+            <input type="text" id="available" name="Money Available" value={ this.state.moneyAvailable} readOnly={true}/>
           </div>
           <br />
           
