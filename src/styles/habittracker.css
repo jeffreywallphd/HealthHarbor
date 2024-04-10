@@ -1,6 +1,43 @@
+
 .habit-tracker-container {
     display: flex;
 }
+
+
+.sidebar {
+    height: calc(100% - 10px); 
+    width: 250px;
+    top: 265px; 
+    left: 0;
+    background-color:lavender;
+    padding-top: 20px;
+    margin: 0;
+    position: fixed; 
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        left: -200px; 
+        transition: left 0.5s; 
+    }
+
+    .main-content {
+        margin-left: 0; 
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .sidebar {
+        width: 250px; 
+        left: 0; 
+    }
+}
+
+    .main-content {
+        margin-left: 250px; 
+}
+
 
 .arrow-container {
     position: fixed;
@@ -9,10 +46,8 @@
 }
 
 .arrow-button {
-    border: none;
-    background-color: transparent;
-    padding: 10px;
-    margin-top: 250px;
+    padding: 5px;
+    margin-top: 265px;
 }
 
 .arrow-icon {
@@ -27,16 +62,6 @@
 .arrow-right {
     left: 0;
     transition: left 0.5s;
-}
-
-.sidebar {
-    height: 100%;
-    width: 250px;
-    top: 0;
-    left: 0;
-    background-color: rgb(215, 215, 229);
-    padding-top: 20px;
-    margin: -20px;
 }
 
 .sidebar ul {
@@ -70,7 +95,6 @@
     background-color: #5485ff;
     border-radius: 40px;
     text-align: center;
-   
 }
 
 .daily-button,
@@ -116,6 +140,6 @@
 .main-content {
     padding: 20px;
     font-style:italic;
-    margin-left: 400px;
+    margin-left: 250px;
     color:rgb(93,0,139)
 }
