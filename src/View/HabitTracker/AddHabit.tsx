@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
+interface Habit {
+    name: string;
+    completed: boolean;
+    priority: boolean;
+}
+
 function AddHabit() {
-    const [habits, setHabits] = useState([]);
+    const [habits, setHabits] = useState<Habit[]>([]);
     const [newHabit, setNewHabit] = useState('');
-    const [editingIndex, setEditingIndex] = useState(null);
+    const [editingIndex, setEditingIndex] = useState<number | null>(null);
     const [editedHabitName, setEditedHabitName] = useState('');
-    const [optionsIndex, setOptionsIndex] = useState(null);
+    const [optionsIndex, setOptionsIndex] = useState<number | null>(null);
 
     useEffect(() => {
-        const storedHabits = JSON.parse(localStorage.getItem('habits'));
-        if (storedHabits) {
-            setHabits(storedHabits);
-        }
+        const storedHabits = JSON.parse(localStorage.getItem('habits') || '[]');
+        setHabits(storedHabits);
     }, []);
 
     useEffect(() => {
@@ -25,37 +29,40 @@ function AddHabit() {
         }
     };
 
-    const toggleCompletion = (index) => {
+    const toggleCompletion = (index: number) => {
         const updatedHabits = [...habits];
         updatedHabits[index].completed = !updatedHabits[index].completed;
         setHabits(updatedHabits);
     };
 
-    const handleDeleteHabit = (index) => {
+    const handleDeleteHabit = (index: number) => {
         const updatedHabits = [...habits];
         updatedHabits.splice(index, 1);
         setHabits(updatedHabits);
     };
 
-    const handleEditHabit = (index) => {
+    const handleEditHabit = (index: number) => {
+        // Set editedHabitName to the current habit's name
+        setEditedHabitName(habits[index].name);
+        // Set the editing index to the current habit's index
+        setEditingIndex(index);
+    };
+
+    const handleSaveEdit = () => {
         if (editedHabitName.trim() !== '') {
             const updatedHabits = [...habits];
-            updatedHabits[index].name = editedHabitName;
+            updatedHabits[editingIndex!].name = editedHabitName; // Update the habit's name
             setHabits(updatedHabits);
-        }
-        setEditingIndex(null);
-        setEditedHabitName('');
-    };
-
-    const toggleOptions = (index) => {
-        if (optionsIndex === index) {
-            setOptionsIndex(null);
-        } else {
-            setOptionsIndex(index);
+            setEditingIndex(null);
+            setEditedHabitName('');
         }
     };
 
-    const togglePriority = (index) => {
+    const toggleOptions = (index: number) => {
+        setOptionsIndex(index === optionsIndex ? null : index);
+    };
+
+    const togglePriority = (index: number) => {
         const updatedHabits = [...habits];
         updatedHabits[index].priority = !updatedHabits[index].priority;
         setHabits(updatedHabits);
@@ -100,87 +107,79 @@ function AddHabit() {
             </div>
             <div style={{ width: '300px' }}>
                 {habits.map((habit, index) => (
-                    <div
-                        key={index}
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            marginBottom: '10px',
-                            padding: '10px',
-                            borderRadius: '5px', // Removed background color and box shadow
-                        }}
-                    >
-                        <div style={{ flex: '1' }}>
-              <span style={{
-                  textDecoration: habit.completed ? 'line-through' : 'none',
-                  color: habit.priority ? 'blue' : 'inherit' // Apply blue color to priority habit name
-              }}>
-                {editingIndex === index ? (
-                    <input
-                        style={{
-                            border: 'none',
-                            fontSize: 'inherit',
-                            background: 'none',
-                            width: '100%',
-                            outline: 'none' // Remove outline
-                        }}
-                        type="text"
-                        value={editedHabitName}
-                        onChange={(e) => setEditedHabitName(e.target.value)}
-                        onBlur={() => handleEditHabit(index)}
-                        autoFocus
-                    />
-                ) : (
-                    <span>{habit.name}</span>
-                )}
-              </span>
+                    <div key={index} style={{ position: 'relative' }}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                marginBottom: '10px',
+                                padding: '10px',
+                                borderRadius: '5px',
+                            }}
+                        >
+                            <div style={{ flex: '1' }}>
+                                {editingIndex === index ? (
+                                    <input
+                                        style={{
+                                            border: 'none',
+                                            fontSize: 'inherit',
+                                            background: 'none',
+                                            width: '100%',
+                                            outline: 'none',
+                                        }}
+                                        type="text"
+                                        value={editedHabitName}
+                                        onChange={(e) => setEditedHabitName(e.target.value)}
+                                        autoFocus
+                                    />
+                                ) : (
+                                    <span style={{
+                                        textDecoration: habit.completed ? 'line-through' : 'none',
+                                        color: habit.priority ? 'blue' : 'inherit',
+                                    }}>
+                                        {habit.name}
+                                    </span>
+                                )}
+                            </div>
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    checked={habit.completed}
+                                    onChange={() => toggleCompletion(index)}
+                                />
+                            </div>
+                            <div>
+                                <button
+                                    onClick={() => toggleOptions(index)}
+                                    style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        padding: '0',
+                                    }}
+                                >
+                                    <span style={{ fontSize: '24px', cursor: 'pointer' }}>...</span>
+                                </button>
+                            </div>
                         </div>
-                        <div>
-                            <input
-                                type="checkbox"
-                                checked={habit.completed}
-                                onChange={() => toggleCompletion(index)}
-                            />
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <button
+                        {optionsIndex === index && (
+                            <div
                                 style={{
-                                    marginBottom: '5px',
-                                    background: 'none',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    color: '#007bff',
+                                    position: 'absolute',
+                                    top: '100%',
+                                    left: '100%',
+                                    marginLeft: '10px',
+                                    width: 'fit-content',
                                 }}
-                                onClick={() => setEditingIndex(index)}
                             >
-                                Edit
-                            </button>
-                            <button
-                                style={{
-                                    marginBottom: '5px',
-                                    background: 'none',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    color: 'red',
-                                }}
-                                onClick={() => handleDeleteHabit(index)}
-                            >
-                                Delete
-                            </button>
-                            <button
-                                style={{
-                                    marginBottom: '5px',
-                                    background: 'none',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    color: habit.priority ? 'blue' : 'inherit',
-                                }}
-                                onClick={() => togglePriority(index)}
-                            >
-                                Priority
-                            </button>
-                        </div>
+                                <button style={{ display: 'block', marginBottom: '5px' }} onClick={() => handleEditHabit(index)}>Edit</button>
+                                <button style={{ display: 'block', marginBottom: '5px' }} onClick={() => handleDeleteHabit(index)}>Delete</button>
+                                <button style={{ display: 'block' }} onClick={() => togglePriority(index)}>
+                                    {habit.priority ? 'Unmark Priority' : 'Mark Priority'}
+                                </button>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
