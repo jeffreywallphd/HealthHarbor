@@ -71,7 +71,7 @@ class HabitTracker extends Component<{}, {
                     <div className="sidebar">
                         <ul>
                             <li>
-                                <button className="habit-button"><Link to="">Habit</Link></button>
+                                <button className="habit-button"><Link to="/AddHabit">Habit</Link></button>
                             </li>
                             <li>
                                 <button className="option-button"
@@ -100,7 +100,6 @@ class HabitTracker extends Component<{}, {
                 )}
                 <div className="main-content">
                     <h1>{motivationalQuote}</h1>
-                    <Link to="/AddHabit">Get Started</Link>
                 </div>
             </div>
         );
