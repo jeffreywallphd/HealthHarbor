@@ -136,7 +136,7 @@ class App extends Component {
                 <Route path="/physicalfitness" element={<PhysicalFitness />} />
                 <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
                 <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
-                <Route path="/physicalbegcalis" element={<BeginnerCalisProgs/>} />
+                <Route path="/begcalis" element={<BeginnerCalisProgs/>} />
                 <Route path="/physicalbeginnprog" element={<BeginnerProg/>} />
                 <Route path="/physicaladvproghome" element={<AdvancedProgramsHome/>} />
                 <Route path="/physicaladvprogcalis" element={<AdvancedProgsCalis/>} />

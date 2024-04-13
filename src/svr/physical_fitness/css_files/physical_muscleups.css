@@ -1,19 +1,6 @@
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: Arial, sans-serif; /* Arial font */
-}
 
-.muscleups-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
-.muscleups-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+ 
 
 .muscleups-step {
   margin-bottom: 40px;

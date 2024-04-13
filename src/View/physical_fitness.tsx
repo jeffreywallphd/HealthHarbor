@@ -120,6 +120,7 @@ class Cards extends Component {
           </div>
         </div>
         </NavLink>
+        </NavLink>
       </div>
     );
   }

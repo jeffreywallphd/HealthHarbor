@@ -15,9 +15,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
-h1 {
+.gettingStartedContainer h1 {
     text-align: center;
     font-size: 2.5rem;
     color: #333;

@@ -148,7 +148,7 @@ class GettingStarted extends Component {
         <div className="gettingstarted-button-container">
           <button className="gettingstarted-btn"><span>Take me to gym workouts</span></button>
         </div>
-      </>
+      </div>
     );
   }
 }

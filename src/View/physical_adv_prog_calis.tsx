@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Cardio from "../svr/physical_fitness/fitness_images/cardio.png";
 import Calisthenics from "../svr/physical_fitness/fitness_images/calisthenics.png";
 import "../svr/physical_fitness/css_files/adv_prog_calis.css"
 import { NavLink } from "react-router-dom";
