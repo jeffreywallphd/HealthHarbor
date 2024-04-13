@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 class GettingStarted extends Component {
   render() {
     return (
-      <>
+      <div>
         <div className="gettingstarted-header-container">
           <h1>The journey of a thousand miles, begins with a single step!</h1>
         </div>
