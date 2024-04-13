@@ -3,7 +3,6 @@ import Cardio from "../svr/physical_fitness/fitness_images/cardio.png";
 import Calisthenics from "../svr/physical_fitness/fitness_images/calisthenics.png";
 import Gym from "../svr/physical_fitness/fitness_images/gym.png"
 import Yoga from "../svr/physical_fitness/fitness_images/yoga.png";
-import Ymat from "../svr/physical_fitness/fitness_images/y_matt.png";
 import AbsYoga from "../svr/physical_fitness/fitness_images/absyog.png"
 import AbsCard from "../svr/physical_fitness/fitness_images/abscardio.png"
 import AbsCalis from "../svr/physical_fitness/fitness_images/abscalis.png"
