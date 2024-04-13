@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import Cardio from "../svr/physical_fitness/fitness_images/cardio.png";
 import Calisthenics from "../svr/physical_fitness/fitness_images/calisthenics.png";
-import Gym from "../svr/physical_fitness/fitness_images/gym.png";
 import Gym from "../svr/physical_fitness/fitness_images/gym.png";
 import Yoga from "../svr/physical_fitness/fitness_images/yoga.png";
 import "../svr/physical_fitness/css_files/adv_prog_home.css";
