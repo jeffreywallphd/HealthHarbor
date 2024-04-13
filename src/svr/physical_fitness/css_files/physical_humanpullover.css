@@ -1,0 +1,37 @@
+.humanpullover-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: black;
+}
+
+.humanpullover-h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color:white;
+}
+
+.humanpullover-step {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.humanpullover-step img {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.humanpullover-text-box {
+  background-color: #ffff99; /* Light yellow background */
+  padding: 10px;
+  border-radius: 8px;
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.humanpullover-text-box p {
+  margin: 0;
+  color: #000; /* Black text color */
+}

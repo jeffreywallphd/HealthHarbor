@@ -1,67 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    color: #444;
-    background-color: #000;
-  }
+begcalis-body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  color: #444;
+  background-color: #000;
+}
 
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+begcalis-h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.begcalis-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .step {
-    flex: 1 1 40%;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
+.begcalis-step {
+  flex: 1 1 40%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
 
-  .step-img {
-    flex: 0 0 40%;
-  }
+.begcalis-step-img {
+  flex: 0 0 40%;
+}
 
-  .step-img img {
-    width: 100%;
-    height: auto;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
+.begcalis-step-img img {
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
-  .step-text {
-    flex: 1;
-    padding: 20px;
-  }
+.begcalis-step-text {
+  flex: 1;
+  padding: 20px;
+}
 
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+begcalis-h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
 
-  ul {
-    padding-left: 20px;
-    margin-top: 0;
-  }
+.begcalis-ul {
+  padding-left: 20px;
+  margin-top: 0;
+}
 
-  li {
-    margin-bottom: 5px;
-  }
+.begcalis-li {
+  margin-bottom: 5px;
+}

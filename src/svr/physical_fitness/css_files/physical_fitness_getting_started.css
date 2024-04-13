@@ -7,7 +7,7 @@ body {
     color: black;
 }
 
-.container {
+.gettingstarted-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -25,7 +25,7 @@ h1 {
 }
 
 /* Header Styles */
-.header-container {
+.gettingstarted-header-container {
     background-color: lavender;
     padding: 20px;
     text-align: center;
@@ -34,7 +34,7 @@ h1 {
 }
 
 /* Marquee Styles */
-.marquee-container {
+.gettingstarted-marquee-container {
     background-color: #333;
     color: #fff;
     padding: 10px;
@@ -42,26 +42,27 @@ h1 {
     margin-bottom: 20px;
 }
 
-.marquee {
+.gettingstarted-marquee {
     overflow: hidden;
     white-space: nowrap;
-    animation: marquee 40s linear infinite;
+    animation: gettingstarted-marquee 20
+    s linear infinite;
 }
 
-@keyframes marquee {
+@keyframes gettingstarted-marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
 }
 
 /* Image Container Styles */
-.image-container {
+.gettingstarted-image-container {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.image-wrapper {
+.gettingstarted-image-wrapper {
     position: relative;
     flex: 1;
     margin: 0 10px;
@@ -70,18 +71,18 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.image-wrapper img {
+.gettingstarted-image-wrapper img {
     width: 100%;
     display: block;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
-.image-wrapper:hover img {
+.gettingstarted-image-wrapper:hover img {
     transform: scale(1.1);
 }
 
-.overlay {
+.gettingstarted-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -94,24 +95,24 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.image-wrapper:hover .overlay {
+.gettingstarted-image-wrapper:hover .gettingstarted-overlay {
     opacity: 1;
 }
 
 /* Text Container Styles */
-.text-container {
+.gettingstarted-text-container {
     margin-top: 20px;
     text-align: justify;
     line-height: 1.6;
 }
 
 /* Button Styles */
-.button-container {
+.gettingstarted-button-container {
     text-align: center;
     margin-top: 20px;
 }
 
-.btn {
+.gettingstarted-btn {
     padding: 10px 20px;
     background-color: #6fb07f;
     color: #fff;
@@ -121,6 +122,6 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.gettingstarted-btn:hover {
     background-color: #5a8d67;
 }

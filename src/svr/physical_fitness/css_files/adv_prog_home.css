@@ -1,107 +1,114 @@
-    body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-  }
+.adv-prog-home-body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color:orange;
+}
 
-  /* Container for the entire page */
-  .container {
-    display: flex;
-    height: 100%;
-  }
+/* Container for the entire page */
+.adv-prog-home-container {
+  display: flex;
+  height: 100%;
+  color: orange;
+}
 
-  /* Left section with big header text */
-  .left-section {
-    background-color: #333; /* Black background */
-    color: white; /* White text color */
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Align content vertically */
-    padding: 20px; /* Add some padding */
-  }
+/* Left section with big header text */
+.adv-prog-home-left {
+  background-color: whitesmoke; /* Black background */
+  color: orange;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Align content vertically */
+  padding: 20px; /* Add some padding */
+}
 
-  /* Right section with the grid */
-  .right-section {
-    background-color: orange; /* Orange background */
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* Right section with the grid */
+.adv-prog-home-right {
+  background-color: orange; /* Orange background */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  /* Grid container */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 10px;
-  }
+/* Grid container */
+.adv-prog-home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px;
+}
 
-  /* Individual grid items */
-  .grid-item {
-    width: 200px;
-    height: 200px;
-    background-color: #fff; /* White background for the boxes */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Hide overflowing content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
-    transition: transform 0.3s ease; /* Smooth transition */
-  }
+/* Individual grid items */
+.adv-prog-home-grid-item {
+  width: 200px;
+  height: 200px;
+  background-color:white; /* White background for the boxes */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Hide overflowing content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
 
-  .grid-item:hover {
-    transform: scale(1.05); /* Scale up on hover */
-  }
+.adv-prog-home-grid-item:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
 
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio */
-  }
+.adv-prog-home-grid-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+}
 
-  /* Header text style */
-  h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 20px; /* Add some space below the header */
-  }
+/* Header text style */
+.adv-prog-home-h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color:orange;
+  margin-bottom: 20px; /* Add some space below the header */
+}
 
-  /* Subheader text style */
-  h4 {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 20px; /* Add some space above the subheader */
-  }
+/* Subheader text style */
+.adv-prog-home-h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: orange;
+  margin-top: 20px; /* Add some space above the subheader */
+}
 
-  /* Orange highlighter */
-  .highlighter {
-    background-color: orange;
-    width: 100%;
-    height: 10px;
-  }
+/* Orange highlighter */
+.adv-prog-home-highlighter {
+  background-color: orange;
+  width: 100%;
+  height: 10px;
+}
 
-  /* Overall body styling */
-  body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* 100% of viewport height */
-    margin: 0;
-    padding: 0;
-  }
+/* Overall body styling */
+.adv-prog-home-body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 100% of viewport height */
+  margin: 0;
+  padding: 0;
+  color: orange;
+}
 
-  /* Styling for the container */
-  .container {
-    flex: 1; /* Take remaining vertical space */
-    display: flex;
-    overflow: hidden; /* Hide any overflow content */
-  }
+/* Styling for the container */
+.adv-prog-home-container {
+  flex: 1; /* Take remaining vertical space */
+  display: flex;
+  color:orange;
+  overflow: hidden; /* Hide any overflow content */
+}
 
-  /* Styling for sections */
-  .left-section,
-  .right-section {
-    flex: 1; /* Equal distribution of vertical space */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Styling for sections */
+.adv-prog-home-left,
+.adv-prog-home-right {
+  flex: 1; /* Equal distribution of vertical space */
+  display: flex;
+  justify-content: center;
+  color: orange;
+  align-items: center;
+}

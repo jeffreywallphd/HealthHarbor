@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "types": ["http-proxy"],
+  
 
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true

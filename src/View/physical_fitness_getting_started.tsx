@@ -15,42 +15,42 @@ class GettingStarted extends Component {
   render() {
     return (
       <>
-        <div className="header-container">
+        <div className="gettingstarted-header-container">
           <h1>The journey of a thousand miles, begins with a single step!</h1>
         </div>
     
-        <div className="marquee-container">
-          <div className="marquee"><b>---Take yours Today---</b></div>
+        <div className="gettingstarted-marquee-container">
+          <div className="gettingstarted-marquee"><b>---Take yours Today---</b></div>
         </div>
     
-        <div className="image-container container">
-          <div className="image-wrapper">
+        <div className="gettingstarted-image-container gettingstarted-container">
+          <div className="gettingstarted-image-wrapper">
             <img src={Yoga} alt="Yoga" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Yoga</p>
             </div>
           </div>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={Gym} alt="Gym" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Gym</p>
             </div>
           </div>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={Calisthenics} alt="Calisthenics" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Calisthenics</p>
             </div>
           </div>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={Cardio} alt="Cardio" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Cardio</p>
             </div>
           </div>
         </div>
         
-        <div className="text-container container">
+        <div className="gettingstarted-text-container gettingstarted-container">
           <h2>Hey there!</h2>
           <p>
             🌟 Welcome aboard! This is the perfect moment to kickstart your fitness journey. <br />
@@ -62,7 +62,7 @@ class GettingStarted extends Component {
         </div>
     
         {/* Yoga Container */}
-        <div className="yoga-container container">
+        <div className="gettingstarted-yoga-container gettingstarted-container">
           <h2><b><u>YOGA</u></b><br /></h2>
           <p><em>(noun)</em> . /ˈyōɡə/<br />
           </p><p>
@@ -71,20 +71,20 @@ class GettingStarted extends Component {
             For instance, power yoga targets calorie burning, while traditional yoga emphasizes flexibility. Certain poses are also designed to alleviate specific pains. However, individuals with medical histories or physical conditions should seek professional advice before getting on with it.<br /><br /><br />
             Despite its vastness, efforts are made to make yoga accessible to all. Even small amounts of practice contribute to progress, underscoring its inclusivity and adaptability.<br /><br />
           </p>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={AbsYoga} alt="Yoga Mat" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Yoga</p>
             </div>
           </div>
         </div>
     
-        <div className="button-container">
-          <button className="btn"><span>Take me to yoga workouts</span></button>
+        <div className="gettingstarted-button-container">
+          <button className="gettingstarted-btn"><span>Take me to yoga workouts</span></button>
         </div>
     
         {/* Cardio Container */}
-        <div className="cardio-container container">
+        <div className="gettingstarted-cardio-container gettingstarted-container">
           <h2><b><u>CARDIO</u></b><br /></h2>
           <p><em>(noun)</em> . /ˈkärdēō/<br />
           </p><p>
@@ -93,20 +93,20 @@ class GettingStarted extends Component {
             Popular forms of cardio exercises include running, cycling, swimming, and brisk walking. It's recommended to perform at least 150 minutes of moderate-intensity cardio exercises per week for optimal health benefits.<br /><br /><br />
             Whether you're a beginner or a seasoned athlete, incorporating cardio into your fitness routine can help you achieve your health and fitness goals.<br /><br />
           </p>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={AbsCard} alt="Cardio" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Cardio</p>
             </div>
           </div>
         </div>
     
-        <div className="button-container">
-          <button className="btn"><span>Take me to cardio workouts</span></button>
+        <div className="gettingstarted-button-container">
+          <button className="gettingstarted-btn"><span>Take me to cardio workouts</span></button>
         </div>
     
         {/* Calisthenics Container */}
-        <div className="calisthenics-container container">
+        <div className="gettingstarted-calisthenics-container gettingstarted-container">
           <h2><b><u>CALISTHENICS</u></b><br /></h2>
           <p><em>(noun)</em> . /ˈkaləsˌTHeniks/<br />
           </p><p>
@@ -115,20 +115,20 @@ class GettingStarted extends Component {
             Calisthenics workouts are beneficial for building muscle strength, improving joint mobility, and enhancing overall fitness. Additionally, they can be modified to suit individual fitness goals and preferences.<br /><br /><br />
             Whether you're looking to build muscle, improve flexibility, or increase endurance, calisthenics can be an effective and versatile form of exercise.<br /><br />
           </p>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={AbsCalis} alt="Calisthenics" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Calisthenics</p>
             </div>
           </div>
         </div>
     
-        <div className="button-container">
-          <NavLink to="/physicalbegcalis" >Take me to calisthenics workouts</NavLink>
+        <div className="gettingstarted-button-container">
+          <button className="gettingstarted-btn"><NavLink to="/physicalbegcalis"><span>Take me to calisthenics workouts</span></NavLink></button>  
         </div>
 
         {/* Gym Container */}
-        <div className="gym-container container">
+        <div className="gettingstarted-gym-container gettingstarted-container">
           <h2><b><u>GYM</u></b><br /></h2>
           <p><em>(noun)</em> . /ˈjim/<br />
           </p><p>
@@ -137,16 +137,16 @@ class GettingStarted extends Component {
             Joining a gym offers access to professional trainers, group fitness classes, and specialized equipment, allowing individuals to customize their workouts based on their fitness goals and preferences.<br /><br /><br />
             Whether you're a beginner or an experienced fitness enthusiast, the gym provides a supportive environment for achieving your health and fitness objectives.<br /><br />
           </p>
-          <div className="image-wrapper">
+          <div className="gettingstarted-image-wrapper">
             <img src={Gym} alt="Gym" />
-            <div className="overlay">
+            <div className="gettingstarted-overlay">
               <p>Gym</p>
             </div>
           </div>
         </div>
     
-        <div className="button-container">
-          <button className="btn"><span>Take me to gym workouts</span></button>
+        <div className="gettingstarted-button-container">
+          <button className="gettingstarted-btn"><span>Take me to gym workouts</span></button>
         </div>
       </>
     );

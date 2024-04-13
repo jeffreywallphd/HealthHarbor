@@ -1,36 +1,36 @@
-body {
+.adv-prog-calis-body {
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif; /* Arial font */
   }
 
-  .grid {
+  .adv-prog-calis-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
 
-  .cell {
+  .adv-prog-calis-cell {
     padding: 10px;
     background-color: #fff; /* White background color */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden;
   }
 
-  .flex-container {
+  .adv-prog-calis-flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
   }
 
-  .cell img {
+  .adv-prog-calis-cell-img {
     height: 100;
     width: auto;
     margin-right: 10px;
   }
 
-  .title-text {
+  .adv-prog-calis-title-text {
     flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -39,13 +39,13 @@ body {
   }
 
   /* Hyperlink the whole flexbox */
-  .cell a {
+  .adv-prog-calis-body-cell-a {
     text-decoration: none;
     color: inherit;
   }
 
   /* Typewriter effect */
-  .typewriter {
+  .adv-prog-calis-body-typewriter {
     text-align: center; /* Center the text */
     font-family: Arial, sans-serif; /* Arial font */
     font-size: 32px; /* Larger font size */

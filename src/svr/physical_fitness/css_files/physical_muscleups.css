@@ -1,41 +1,41 @@
 body {
-    background-color: #000;
-    color: #fff;
-    font-family: Arial, sans-serif; /* Arial font */
-  }
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif; /* Arial font */
+}
 
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+.muscleups-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.muscleups-h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .step {
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-  }
+.muscleups-step {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
 
-  .step img {
-    width: 150px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 8px;
-  }
+.muscleups-step img {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+}
 
-  .text-box {
-    background-color:lavender; /* Light yellow background */
-    padding: 10px;
-    border-radius: 8px;
-    flex-grow: 1; /* Take up remaining space */
-  }
+.muscleups-text-box {
+  background-color:lavender; /* Light yellow background */
+  padding: 10px;
+  border-radius: 8px;
+  flex-grow: 1; /* Take up remaining space */
+}
 
-  .text-box p {
-    margin: 0;
-    color: #000; /* Black text color */
-  }
+.muscleups-text-box p {
+  margin: 0;
+  color: #000; /* Black text color */
+}

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { HashRouter, NavLink, Routes, Route } from "react-router-dom";
-
 import Home from "./Home";
 import PhysicalFitness from "./physical_fitness";
 import PhysicalFitnessBlog from "./physical_fitness_blog";
 import GettingStarted from "./physical_fitness_getting_started";
 import BeginnerCalisProgs from "./physical_begcalis";
 import BeginnerProg from "./physical_beginnprog";
+import AdvancedProgramsHome from "./physical_adv_prog_home";
+import AdvancedProgsCalis from "./physical_adv_prog_calis";
+import HumanPullover from "./physical_humanpullover";
+import Muscleups from "./physical_muscleups";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -27,6 +30,7 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
+import MuscleUps from "./physical_muscleups";
 
 
 class App extends Component {
@@ -134,6 +138,10 @@ class App extends Component {
                 <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
                 <Route path="/physicalbegcalis" element={<BeginnerCalisProgs/>} />
                 <Route path="/physicalbeginnprog" element={<BeginnerProg/>} />
+                <Route path="/physicaladvproghome" element={<AdvancedProgramsHome/>} />
+                <Route path="/physicaladvprogcalis" element={<AdvancedProgsCalis/>} />
+                <Route path="/physicalhumanpullover" element={<HumanPullover/>} />
+                <Route path="/physicalmuscleups" element={<MuscleUps/>} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />

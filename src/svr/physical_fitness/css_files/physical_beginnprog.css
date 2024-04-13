@@ -1,126 +1,126 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
-    padding: 20px;
-  }
+.beginnprog-body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
 
-  .header {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+.beginnprog-header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
+.beginnprog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 
-  .flip-card {
-    width: 300px; /* Set a fixed width for consistency */
-    height: 300px; /* Set a fixed height for consistency */
-    position: relative;
-    perspective: 1000px; /* Add perspective for 3D effect */
-    color: black;
-  }
+.beginnprog-flip-card {
+  width: 300px; /* Set a fixed width for consistency */
+  height: 300px; /* Set a fixed height for consistency */
+  position: relative;
+  perspective: 1000px; /* Add perspective for 3D effect */
+  color: black;
+}
 
-  .flip-card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-  }
+.beginnprog-flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
 
-  .flip-card:hover .flip-card-inner,
-  .flip-card.hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
+.beginnprog-flip-card:hover .beginnprog-flip-card-inner,
+.beginnprog-flip-card.hover .beginnprog-flip-card-inner {
+  transform: rotateY(180deg);
+}
 
-  .flip-card-inner-front,
-  .flip-card-inner-back {
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-  }
+.beginnprog-flip-card-inner-front,
+.beginnprog-flip-card-inner-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
 
-  .flip-card-inner-front {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+.beginnprog-flip-card-inner-front {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-  .flip-card-inner-front span {
-    background: rgba(254, 254, 254, 0.8);
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 5px;
-  }
+.beginnprog-flip-card-inner-front span {
+  background: rgba(254, 254, 254, 0.8);
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
-  .flip-card-inner-back {
-    transform: rotateY(180deg);
-    background-color: #cacaca;
-    padding: 1rem;
-  }
+.beginnprog-flip-card-inner-back {
+  transform: rotateY(180deg);
+  background-color: #cacaca;
+  padding: 1rem;
+}
 
-  .flip-card-inner-back-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+.beginnprog-flip-card-inner-back-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .flip-card-inner-back-text {
-    line-height: 1.5;
-  }
+.beginnprog-flip-card-inner-back-text {
+  line-height: 1.5;
+}
 
-  .button {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
+.beginnprog-button {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
 
-  .button:hover {
-    background-color: #45a049;
-  }
+.beginnprog-button:hover {
+  background-color: #45a049;
+}
 
-  .circle-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 20px;
-  }
+.beginnprog-circle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
 
-  .circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+.beginnprog-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}

@@ -91,7 +91,7 @@ class Cards extends Component {
             </figure>
           </div>
           <div>
-            <h4>Begginer Programs</h4>
+            <h4>Beginer Programs</h4>
             <p>
               Ready to embark on your fitness journey? Find a program that
               inspires and motivates you
@@ -100,6 +100,7 @@ class Cards extends Component {
         </div>
         </NavLink>
 
+        <NavLink to ="/physicaladvproghome">
         <div className="cardsproto">
           <div className="cardsdiv">
             <figure>
@@ -118,6 +119,7 @@ class Cards extends Component {
             </p>
           </div>
         </div>
+        </NavLink>
       </div>
     );
   }
