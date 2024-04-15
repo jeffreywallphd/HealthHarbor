@@ -81,19 +81,19 @@ class HabitTracker extends Component<{}, {
                                 {showViewOptions && (
                                     <ul>
                                         <li>
-                                            <button className="daily-button"><Link to="">Daily</Link></button>
+                                           <Link to=""><button className="daily-button">Daily</button></Link>
                                         </li>
                                         <li>
-                                            <button className="weekly-button"><Link to="">Weekly</Link></button>
+                                           <Link to="/Weekly"><button className="weekly-button">Weekly</button></Link>
                                         </li>
                                     </ul>
                                 )}
                             </li>
                             <li>
-                                <button className="due-button"><Link to="">Due</Link></button>
+                               <Link to=""><button className="due-button">Due</button></Link>
                             </li>
                             <li>
-                                <button className="report-button"><Link to="">Habit Reports</Link></button>
+                               <Link to=""><button className="report-button">Habit Reports</button></Link>
                             </li>
                         </ul>
                     </div>
