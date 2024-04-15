@@ -3,6 +3,7 @@ import { HashRouter, NavLink, Routes, Route, Link } from "react-router-dom";
 import './habittracker.css';
 
 import AddHabit from "./AddHabit";
+import WeeklyView from "./Weekly";
 
 interface ArrowIconProps {
     direction: 'left' | 'right';
@@ -84,7 +85,7 @@ class HabitTracker extends Component<{}, {
                                            <Link to=""><button className="daily-button">Daily</button></Link>
                                         </li>
                                         <li>
-                                           <Link to="/Weekly"><button className="weekly-button">Weekly</button></Link>
+                                           <Link to="/WeeklyView"><button className="weekly-button">Weekly</button></Link>
                                         </li>
                                     </ul>
                                 )}

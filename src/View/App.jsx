@@ -25,6 +25,7 @@ import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
 import AddHabit from "./HabitTracker/AddHabit";
+import WeeklyView from "./HabitTracker/Weekly";
 
 class App extends Component {
   constructor(props) {
@@ -138,6 +139,7 @@ class App extends Component {
                 <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
                 <Route path="/AddHabit" element={<AddHabit/>}/>
+                <Route path="/WeeklyView" element={<WeeklyView />} />
                 <Route path="/fin-chatbot" element={<ChatbotUI />} />
                 <Route path="" element={<MedicalRecordsInitial />} />
                 <Route path="/medicalRecords/appointment-history-dashboard" element={<AppointmentHistoryDashboard />} />
