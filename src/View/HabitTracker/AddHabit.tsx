@@ -42,16 +42,16 @@ function AddHabit() {
     };
 
     const handleEditHabit = (index: number) => {
-        // Set editedHabitName to the current habit's name
+       
         setEditedHabitName(habits[index].name);
-        // Set the editing index to the current habit's index
+       
         setEditingIndex(index);
     };
 
     const handleSaveEdit = () => {
         if (editedHabitName.trim() !== '') {
             const updatedHabits = [...habits];
-            updatedHabits[editingIndex!].name = editedHabitName; // Update the habit's name
+            updatedHabits[editingIndex!].name = editedHabitName; 
             setHabits(updatedHabits);
             setEditingIndex(null);
             setEditedHabitName('');

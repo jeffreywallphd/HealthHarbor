@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { getWeekDates, getPreviousWeekDates } from './dateUtils'; // Assuming date utility functions are in dateUtils.ts
+import { getWeekDates, getPreviousWeekDates } from './dateUtils'; 
 
 const WeekPage: React.FC = () => {
   const [weeklyDates, setWeeklyDates] = useState<Date[]>(getWeekDates(new Date()));
 
-  // Handle click on Weekly button
+
   const handleWeeklyClick = (): void => {
-    setWeeklyDates(getWeekDates(new Date())); // Update with the current week's dates
+    setWeeklyDates(getWeekDates(new Date())); 
   };
 
-  // Handle click on Previous Week button
+ 
   const handlePreviousWeekClick = (): void => {
-    setWeeklyDates(getPreviousWeekDates(weeklyDates[0])); // Update with the previous week's dates
+    setWeeklyDates(getPreviousWeekDates(weeklyDates[0])); 
   };
 
   return (
