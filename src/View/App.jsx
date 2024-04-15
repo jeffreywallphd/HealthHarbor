@@ -4,6 +4,7 @@ import { HashRouter, NavLink, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import PhysicalFitness from "./physical_fitness";
 import PhysicalFitnessBlog from "./physical_fitness_blog";
+import GettingStarted from "./physical_fitness_getting_started";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -127,6 +128,7 @@ class App extends Component {
                 <Route path="/" element={<Home />} />
                 <Route path="/physicalfitness" element={<PhysicalFitness />} />
                 <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
+                <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />
