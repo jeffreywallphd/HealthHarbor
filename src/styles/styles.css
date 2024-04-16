@@ -213,9 +213,6 @@ button {
 button:hover {
     background-color: var(--primary-color);
 }
-.button-unset{
-    background-color: unset !important;
-}
 
 .right {
     margin-left: auto;

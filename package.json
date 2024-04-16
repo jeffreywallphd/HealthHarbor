@@ -15,8 +15,6 @@
     "license": "ISC",
     "dependencies": {
         "@babel/preset-react": "^7.22.15",
-        "@emotion/react": "^11.11.0",
-        "@emotion/styled": "^11.11.0",
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/free-brands-svg-icons": "^6.5.1",
         "@fortawesome/free-regular-svg-icons": "^6.5.1",
@@ -29,14 +27,10 @@
         "@inrupt/solid-ui-react": "^2.9.0",
         "@inrupt/vocab-common-rdf": "^1.0.5",
         "@inrupt/vocab-solid": "^1.0.4",
-        "@mui/material": "^5.13.4",
-        "@mui/x-date-pickers": "^6.19.9",
-        "@types/lodash": "^4.17.0",
         "axios": "^1.5.1",
         "bootstrap": "^5.3.3",
         "cors": "^2.8.5",
         "crypto-browserify": "^3.12.0",
-        "date-fns": "^2.30.0",
         "loader-utils": "^3.2.1",
         "moment": "^2.30.1",
         "oidc-token-hash": "^5.0.3",
@@ -48,11 +42,9 @@
         "react-date-picker": "^10.6.0",
         "react-datepicker": "^6.6.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.2.1",
-        "react-scripts": "^3.0.1",
-        "typescript": "^5.4.5",
-        "url-loader": "^4.1.1",
-        "web-vitals": "^2.1.4"
+        "react-router-dom": "^6.16.0",
+        "react-scripts": "^5.0.1",
+        "url-loader": "^4.1.1"
     },
     "devDependencies": {
         "@babel/core": "^7.23.0",
