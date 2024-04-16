@@ -41,11 +41,10 @@ class FitnessApp extends Component {
         <Cards />
 
         <FitnessPrograms />
-        <NavLink to='/bmiCalculator'>
-
-        <Bmi />
+        <NavLink to="/physicalFitnessBmiCalculator">
+          <Bmi />
         </NavLink>
-        
+
         <NavLink to="/physicalfitnessblog">
           <Blogcard />
         </NavLink>
@@ -82,45 +81,45 @@ class Cards extends Component {
         </NavLink>
 
         <NavLink to="/physicalbeginnprog">
-        <div className="cardsproto">
-          <div className="cardsdiv">
-            <figure>
-              <img
-                src={BegginerPrograms}
-                alt="begginerprogramsimg"
-                className="image"
-              />
-            </figure>
+          <div className="cardsproto">
+            <div className="cardsdiv">
+              <figure>
+                <img
+                  src={BegginerPrograms}
+                  alt="begginerprogramsimg"
+                  className="image"
+                />
+              </figure>
+            </div>
+            <div>
+              <h4>Beginer Programs</h4>
+              <p>
+                Ready to embark on your fitness journey? Find a program that
+                inspires and motivates you
+              </p>
+            </div>
           </div>
-          <div>
-            <h4>Beginer Programs</h4>
-            <p>
-              Ready to embark on your fitness journey? Find a program that
-              inspires and motivates you
-            </p>
-          </div>
-        </div>
         </NavLink>
 
-        <NavLink to ="/physicaladvproghome">
-        <div className="cardsproto">
-          <div className="cardsdiv">
-            <figure>
-              <img
-                src={AdvancedPrograms}
-                alt="advanvedprogramsimg"
-                className="image"
-              />
-            </figure>
+        <NavLink to="/physicaladvproghome">
+          <div className="cardsproto">
+            <div className="cardsdiv">
+              <figure>
+                <img
+                  src={AdvancedPrograms}
+                  alt="advanvedprogramsimg"
+                  className="image"
+                />
+              </figure>
+            </div>
+            <div>
+              <h4>Advanced Programs</h4>
+              <p>
+                Increase muscle mass and overall body size through targeted
+                exercise, nutrition, and lifestyle strategies
+              </p>
+            </div>
           </div>
-          <div>
-            <h4>Advanced Programs</h4>
-            <p>
-              Increase muscle mass and overall body size through targeted
-              exercise, nutrition, and lifestyle strategies
-            </p>
-          </div>
-        </div>
         </NavLink>
       </div>
     );
@@ -237,9 +236,6 @@ class FitnessPrograms extends Component {
 class Bmi extends Component {
   render() {
     return (
-      
-
-      
       <div className="bmiContainer">
         <div
           style={{ backgroundImage: `url(${BmiImage})` }}
@@ -254,7 +250,6 @@ class Bmi extends Component {
           <button>CHECK NOW</button>
         </div>
       </div>
-      
     );
   }
 }

@@ -9,7 +9,7 @@ import BeginnerProg from "./physical_beginnprog";
 import AdvancedProgramsHome from "./physical_adv_prog_home";
 import AdvancedProgsCalis from "./physical_adv_prog_calis";
 import HumanPullover from "./physical_humanpullover";
-import Muscleups from "./physical_muscleups";
+import BmiCalculator from "./physical_fitness_bmi_calclulator";
 import Diet from "./Diet";
 import Finance from "./Finance";
 import Budgeting from "./Budgeting";
@@ -141,7 +141,7 @@ class App extends Component {
                 <Route path="/physicaladvproghome" element={<AdvancedProgramsHome/>} />
                 <Route path="/physicaladvprogcalis" element={<AdvancedProgsCalis/>} />
                 <Route path="/physicalhumanpullover" element={<HumanPullover/>} />
-                <Route path="/physicalmuscleups" element={<MuscleUps/>} />
+                <Route path="/physicalFitnessBmiCalculator" element={<BmiCalculator/>} />
                 <Route path="/diet" element={<Diet />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />

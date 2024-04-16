@@ -1,6 +1,5 @@
 import React, { Component, ChangeEvent, FormEvent } from 'react';
 import "../svr/physical_fitness/css_files/physical_fitness_bmi_calclulator.css";
-
 interface State {
     weight: number;
     height: number;
