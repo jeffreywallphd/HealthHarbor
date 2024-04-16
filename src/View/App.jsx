@@ -30,7 +30,7 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
-import MuscleUps from "./physical_muscleups";
+
 
 
 class App extends Component {

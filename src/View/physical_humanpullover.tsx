@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import Cardio from "../svr/physical_fitness/fitness_images/cardio.png";
-import Calisthenics from "../svr/physical_fitness/fitness_images/calisthenics.png";
-import Gym from "../svr/physical_fitness/fitness_images/gym.png"
-import Yoga from "../svr/physical_fitness/fitness_images/yoga.png";
-import Ymat from "../svr/physical_fitness/fitness_images/y_matt.png";
+
 import "../svr/physical_fitness/css_files/physical_humanpullover.css";
 
 class HumanPullover extends Component {
