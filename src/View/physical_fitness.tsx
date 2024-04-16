@@ -41,8 +41,10 @@ class FitnessApp extends Component {
         <Cards />
 
         <FitnessPrograms />
+        <NavLink to='/bmiCalculator'>
 
         <Bmi />
+        </NavLink>
         
         <NavLink to="/physicalfitnessblog">
           <Blogcard />
@@ -235,6 +237,9 @@ class FitnessPrograms extends Component {
 class Bmi extends Component {
   render() {
     return (
+      
+
+      
       <div className="bmiContainer">
         <div
           style={{ backgroundImage: `url(${BmiImage})` }}
@@ -249,6 +254,7 @@ class Bmi extends Component {
           <button>CHECK NOW</button>
         </div>
       </div>
+      
     );
   }
 }

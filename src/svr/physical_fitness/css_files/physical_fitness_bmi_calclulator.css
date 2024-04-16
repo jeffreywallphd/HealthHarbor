@@ -1,0 +1,47 @@
+.bmi_container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+}
+.bmi_container h2 {
+    text-align: center;
+}
+.bmi_container label {
+    font-weight: bold;
+}
+.bmi_container input[type="number"] {
+    
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+.bmi_container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(2, 178, 2);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.bmi_container input[type="submit"]:hover {
+    background-color: green;
+}
+.bmi_container #result {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: black;
+    
+}
