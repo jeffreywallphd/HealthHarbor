@@ -25,6 +25,9 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
+import DashboardCT from './CalorieTracker/DashboardCT';
+import ExerciseLog from './CalorieTracker/ExerciseLog';
+import FoodLog from './CalorieTracker/FoodLog';
 
 class App extends Component {
   constructor(props) {
@@ -75,10 +78,10 @@ class App extends Component {
               </div>
             </div>
             <div className="right login">
-              <div className="button">
+              <div className="button button-unset">
                 <button onClick={this.login}>Login</button>
               </div>
-              <div className="button">
+              <div className="button button-unset">
                 <button onClick={this.logout}>Logout</button>
               </div>
             </div>
@@ -98,7 +101,7 @@ class App extends Component {
                 </li>
                 <li>
                   <NavLink className="navlink" to="/diet">
-                    Diet
+                    Calorie Tracker
                   </NavLink>
                 </li>
                 <li>
@@ -130,6 +133,9 @@ class App extends Component {
                 <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
                 <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
                 <Route path="/diet" element={<Diet />} />
+                <Route path="/diet-dashboard" element={<DashboardCT />} />
+                <Route path="/diet-foodLog" element={<FoodLog />} />
+                <Route path="/diet-exerciseLog" element={<ExerciseLog />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />
                 <Route path="/budgeting" element={<Budgeting />} />
