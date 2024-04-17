@@ -10,7 +10,7 @@ class Mental extends Component {
         <section className="cardRow">
           <NavLink to="/ai_chatbot">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>AI Chatbot</h3>
               </div>
               <div className="cardContainer">

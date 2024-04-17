@@ -14,7 +14,7 @@ class Home extends Component {
         <section className="cardRow">
           <NavLink to="/physicalfitness">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0C2E4C" }}>
                 <h3>Physical Wellness</h3>
               </div>
               <div className="cardContainer">
@@ -28,7 +28,7 @@ class Home extends Component {
           </NavLink>
           <NavLink to="/diet">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }} >
                 <h3>Calorie Tracker</h3>
               </div>
               <div className="cardContainer">
@@ -40,7 +40,7 @@ class Home extends Component {
           </NavLink>
           <NavLink to="/finance">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#075F69" }}>
                 <h3>Finance Wellness</h3>
               </div>
               <div className="cardContainer">
@@ -50,7 +50,7 @@ class Home extends Component {
           </NavLink>
           <NavLink to="/Mental">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#007D7C" }}>
                 <h3>Mental Health Chatbot</h3>
               </div>
               <div className="cardContainer">
@@ -60,7 +60,7 @@ class Home extends Component {
           </NavLink>
           <NavLink to="/HabitTracker">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0C2E4C" }}>
                 <h3>Habit Tracker</h3>
               </div>
               <div className="cardContainer">
@@ -70,7 +70,7 @@ class Home extends Component {
           </NavLink>
           <NavLink to="/medicalRecords">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>Medical Record Management</h3>
               </div>
               <div className="cardContainer">

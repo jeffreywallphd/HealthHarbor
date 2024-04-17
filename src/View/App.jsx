@@ -14,7 +14,7 @@ import Mental from "./MentalHealthChatbot";
 import MentalHealthChatbot from "./Mental_chatbot";
 import HabitTracker from "./HabitTracker";
 import MedicalRecords from "./MedicalRecords";
-import logo from "../Assets/Images/LogoNoName.png";
+import logo from "../Assets/Images/health harbour logo.png";
 import "../styles/styles.css";
 import InruptAuthenticator from "../Utility/InruptAuthenticator";
 import ChatbotUI from "./ChatbotUI";

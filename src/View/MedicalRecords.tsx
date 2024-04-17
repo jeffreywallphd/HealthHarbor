@@ -14,7 +14,7 @@ class MedicalRecords extends Component {
         <section className="cardRow">
           <NavLink to="/appointment-history-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0C2E4C" }}>
                 <h3>Appointment</h3>
               </div>
               <div className="cardContainer">
@@ -26,7 +26,7 @@ class MedicalRecords extends Component {
           </NavLink>
           <NavLink to="/insurance-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>Insurance</h3>
               </div>
               <div className="cardContainer">
@@ -38,7 +38,7 @@ class MedicalRecords extends Component {
           </NavLink>
           <NavLink to="/allergies-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#075F69" }}>
                 <h3>Allergies</h3>
               </div>
               <div className="cardContainer">
@@ -50,7 +50,7 @@ class MedicalRecords extends Component {
           </NavLink>
           <NavLink to="/vitals-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#007D7C" }}>
                 <h3>Vitals</h3>
               </div>
               <div className="cardContainer">
@@ -64,7 +64,7 @@ class MedicalRecords extends Component {
         <section className="cardRow">
           <NavLink to="/vaccines-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0C2E4C" }}>
                 <h3>Vaccines</h3>
               </div>
               <div className="cardContainer">
@@ -76,7 +76,7 @@ class MedicalRecords extends Component {
           </NavLink>
           <NavLink to="/medicines-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>Medicines</h3>
               </div>
               <div className="cardContainer">
@@ -88,7 +88,7 @@ class MedicalRecords extends Component {
           </NavLink>
           <NavLink to="/lab-reports-detail">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#075F69" }}>
                 <h3>Lab Reports</h3>
               </div>
               <div className="cardContainer">
