@@ -29,12 +29,11 @@ class Home extends Component {
           <NavLink to="/diet">
             <div className="card">
               <div className="cardHeader">
-                <h3>Dietary Wellness</h3>
+                <h3>Calorie Tracker</h3>
               </div>
               <div className="cardContainer">
                 <p>
-                  Create customized diet plans, select from existing diet plans,
-                  or just track your eating habits.
+                  Monitor your dietary intake and stay on top of your nutrition goals with our calorie tracker.
                 </p>
               </div>
             </div>
