@@ -11,7 +11,7 @@ class Calorie extends Component {
         <section className="cardRow">
           <NavLink to="/diet-dashboard">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0C2E4C" }}>
                 <h3>Dashboard</h3>
               </div>
               <div className="cardContainer">
@@ -23,7 +23,7 @@ class Calorie extends Component {
           </NavLink>
           <NavLink to="/diet-foodLog">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>Food Log</h3>
               </div>
               <div className="cardContainer">
@@ -35,7 +35,7 @@ class Calorie extends Component {
           </NavLink>
           <NavLink to="/diet-exerciseLog">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#075F69" }}>
                 <h3>Exercise Log</h3>
               </div>
               <div className="cardContainer">

@@ -10,7 +10,7 @@ class HabitTracker extends Component {
         <section className="cardRow">
           <NavLink to="/habit-tracker">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>Habit Tracker</h3>
               </div>
               <div className="cardContainer">
