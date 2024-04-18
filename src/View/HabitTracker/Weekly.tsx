@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { getWeekDates, getPreviousWeekDates } from './dateUtils'; 
+import { getWeekDates, getPreviousWeekDates } from './dateUtils';
+import SideNavBar from './SideNavBar';
 
 const WeekPage: React.FC = () => {
   const [weeklyDates, setWeeklyDates] = useState<Date[]>(getWeekDates(new Date()));
@@ -15,8 +16,10 @@ const WeekPage: React.FC = () => {
   };
 
   return (
-    <div className="container" style={{ textAlign: 'center' }}>
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <SideNavBar></SideNavBar>
+        <div className="container" style={{ textAlign: 'center' }}>
+        <div style={{ marginBottom: '20px' }}>
         {/* Centered container for buttons */}
         <div style={{ marginBottom: '10px' }}>
           <button onClick={handleWeeklyClick} style={{ marginRight: '10px', marginLeft: '10px' }}>Weekly</button>
@@ -24,8 +27,9 @@ const WeekPage: React.FC = () => {
         </div>
 
         <WeekDatesDisplay weeklyDates={weeklyDates} />
+        </div>
+        </div>
       </div>
-    </div>
   );
 };
 

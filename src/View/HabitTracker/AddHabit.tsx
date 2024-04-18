@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SideNavBar from './SideNavBar';
 
 interface Habit {
     name: string;
@@ -71,11 +72,17 @@ function AddHabit() {
     return (
         <div style={{
             display: 'flex',
+            flexDirection: 'row'}}>
+        <SideNavBar></SideNavBar>
+        <div style={{
+            display: 'flex',
             flexDirection: 'column',
+            padding: '20px',
+            paddingLeft: '40px',
             alignItems: 'center',
-            justifyContent: 'center',
             height: '100vh',
         }}>
+
             <div style={{ marginBottom: '30px', textAlign: 'center' }}>
                 <input
                     style={{
@@ -183,6 +190,7 @@ function AddHabit() {
                     </div>
                 ))}
             </div>
+        </div>
         </div>
     );
 }
