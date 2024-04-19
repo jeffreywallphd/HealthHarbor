@@ -31,10 +31,10 @@
     flex-Direction: column;
     position: absolute;
     left: 20px; 
-    top: 300px; 
+    top: 163px; 
     background-Color: #868885;
     width: 350px; 
-    height: 455px; 
+    height: 450px; 
     align-Items: flex-start;
     padding-Left: 10px;
 }
