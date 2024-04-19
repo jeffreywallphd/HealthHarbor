@@ -12,9 +12,9 @@ import Goals from "./Goals";
 import DebtRepayment from "./DebtRepayment";
 import Mental from "./MentalHealthChatbot";
 import MentalHealthChatbot from "./Mental_chatbot";
-import HabitTracker from "./HabitTracker";
+import HabitTracker from "./HabitTracker/HabitTracker";
 import MedicalRecords from "./MedicalRecords";
-import logo from "../Assets/Images/LogoNoName.png";
+import logo from "../Assets/Images/health harbour logo.png";
 import "../styles/styles.css";
 import InruptAuthenticator from "../Utility/InruptAuthenticator";
 import ChatbotUI from "./ChatbotUI";
@@ -25,6 +25,12 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
+import AddHabit from "./HabitTracker/AddHabit";
+import WeeklyView from "./HabitTracker/Weekly";
+import DailyView from "./HabitTracker/DailyView";
+import DashboardCT from './CalorieTracker/DashboardCT';
+import ExerciseLog from './CalorieTracker/ExerciseLog';
+import FoodLog from './CalorieTracker/FoodLog';
 
 class App extends Component {
   constructor(props) {
@@ -75,10 +81,10 @@ class App extends Component {
               </div>
             </div>
             <div className="right login">
-              <div className="button">
+              <div className="button button-unset">
                 <button onClick={this.login}>Login</button>
               </div>
-              <div className="button">
+              <div className="button button-unset">
                 <button onClick={this.logout}>Logout</button>
               </div>
             </div>
@@ -98,7 +104,7 @@ class App extends Component {
                 </li>
                 <li>
                   <NavLink className="navlink" to="/diet">
-                    Diet
+                    Calorie Tracker
                   </NavLink>
                 </li>
                 <li>
@@ -130,6 +136,9 @@ class App extends Component {
                 <Route path="/physicalfitnessblog" element={<PhysicalFitnessBlog/>} />
                 <Route path="/physicalfitnessgettingstarted" element={<GettingStarted/>} />
                 <Route path="/diet" element={<Diet />} />
+                <Route path="/diet-dashboard" element={<DashboardCT />} />
+                <Route path="/diet-foodLog" element={<FoodLog />} />
+                <Route path="/diet-exerciseLog" element={<ExerciseLog />} />
                 <Route path="/medicalRecords" element={<MedicalRecords />} />
                 <Route path="/finance" element={<Finance />} />
                 <Route path="/budgeting" element={<Budgeting />} />
@@ -138,6 +147,9 @@ class App extends Component {
                 <Route path="/mental" element={<Mental />} />
                 <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
+                <Route path="/AddHabit" element={<AddHabit/>}/>
+                <Route path="/WeeklyView" element={<WeeklyView />} />
+                <Route path="/DailyView" element={<DailyView />} />
                 <Route path="/fin-chatbot" element={<ChatbotUI />} />
                 <Route path="" element={<MedicalRecordsInitial />} />
                 <Route path="/medicalRecords/appointment-history-dashboard" element={<AppointmentHistoryDashboard />} />

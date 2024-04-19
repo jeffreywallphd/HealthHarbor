@@ -9,7 +9,7 @@ class Finance extends Component {
         <section className="cardRow">
           <NavLink to="/budgeting">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0C2E4C" }}>
                 <h3>Budget</h3>
               </div>
               <div className="cardContainer">
@@ -20,7 +20,7 @@ class Finance extends Component {
 
           <NavLink to="/goals">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#0F4769" }}>
                 <h3>Goals</h3>
               </div>
               <div className="cardContainer">
@@ -31,7 +31,7 @@ class Finance extends Component {
 
           <NavLink to="/debt-repayment">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#075F69" }}>
                 <h3>Debt Repayment Calculator</h3>
               </div>
               <div className="cardContainer">
@@ -42,7 +42,7 @@ class Finance extends Component {
           
           <NavLink to="/fin-chatbot">
             <div className="card">
-              <div className="cardHeader">
+              <div className="cardHeader" style={{ backgroundColor: "#007D7C" }}>
                 <h3>Financial Chatbot</h3>
               </div>
               <div className="cardContainer">
