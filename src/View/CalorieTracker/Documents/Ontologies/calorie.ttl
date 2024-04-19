@@ -1,0 +1,212 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### Ontology
+@prefix calorie: <https://example.org/ontology/calorie#> .
+
+calorie: a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    rdfs:comment "Ontology for Diet Tracking System" ;
+    rdfs:label "Diet Tracking Ontology" ;
+    rdfs:seeAlso <https://example.org/ontology/calorie> .
+
+### Classes
+calorie:User rdf:type rdfs:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "Represents a user in the system" .
+
+calorie:Food rdf:type rdfs:Class ;
+    rdfs:label "Food" ;
+    rdfs:comment "Represents a food item" .
+
+calorie:FoodLog rdf:type rdfs:Class ;
+    rdfs:label "FoodLog" ;
+    rdfs:comment "Represents a log entry for food intake by a user" .
+
+calorie:ExerciseLog rdf:type rdfs:Class ;
+    rdfs:label "ExerciseLog" ;
+    rdfs:comment "Represents a log entry for exercise by a user" .
+
+calorie:Tracking rdf:type rdfs:Class ;
+    rdfs:label "Tracking" ;
+    rdfs:comment "Represents tracking data for a user" .
+
+### Properties
+    # User properties
+calorie:userId rdf:type rdf:Property ;
+    rdfs:label "user_id" ;
+    rdfs:comment "Unique identifier for each user" ;
+    rdfs:domain calorie:User ;
+    rdfs:range xsd:integer .
+
+calorie:username rdf:type rdf:Property ;
+    rdfs:label "username" ;
+    rdfs:comment "User’s chosen username" ;
+    rdfs:domain calorie:User ;
+    rdfs:range xsd:string .
+
+calorie:email rdf:type rdf:Property ;
+    rdfs:label "email" ;
+    rdfs:comment "User’s email address" ;
+    rdfs:domain calorie:User ;
+    rdfs:range xsd:string .
+
+calorie:passwordHash rdf:type rdf:Property ;
+    rdfs:label "password_hash" ;
+    rdfs:comment "Encrypted password" ;
+    rdfs:domain calorie:User ;
+    rdfs:range xsd:string .
+
+calorie:createdAt rdf:type rdf:Property ;
+    rdfs:label "created_at" ;
+    rdfs:comment "Date and time of account creation" ;
+    rdfs:domain calorie:User ;
+    rdfs:range xsd:dateTime .
+
+    # Food properties
+calorie:foodId rdf:type rdf:Property ;
+    rdfs:label "food_id" ;
+    rdfs:comment "Unique identifier for each food item" ;
+    rdfs:domain calorie:Food ;
+    rdfs:range xsd:integer .
+
+calorie:foodName rdf:type rdf:Property ;
+    rdfs:label "food_name" ;
+    rdfs:comment "Name of the food" ;
+    rdfs:domain calorie:Food ;
+    rdfs:range xsd:string .
+
+calorie:caloriesPer100g rdf:type rdf:Property ;
+    rdfs:label "calories_per_100gm" ;
+    rdfs:comment "Calories per 100 grams of the food" ;
+    rdfs:domain calorie:Food ;
+    rdfs:range xsd:float .
+
+calorie:carbs rdf:type rdf:Property ;
+    rdfs:label "carbs" ;
+    rdfs:comment "Carbohydrate content" ;
+    rdfs:domain calorie:Food ;
+    rdfs:range xsd:float .
+
+calorie:fat rdf:type rdf:Property ;
+    rdfs:label "fat" ;
+    rdfs:comment "Fat content" ;
+    rdfs:domain calorie:Food ;
+    rdfs:range xsd:float .
+
+calorie:protein rdf:type rdf:Property ;
+    rdfs:label "protein" ;
+    rdfs:comment "Protein content" ;
+    rdfs:domain calorie:Food ;
+    rdfs:range xsd:float .
+
+    # FoodLog properties
+calorie:logIdFood rdf:type rdf:Property ;
+    rdfs:label "log_id" ;
+    rdfs:comment "Unique identifier for each food log entry" ;
+    rdfs:domain calorie:FoodLog ;
+    rdfs:range xsd:integer .
+
+calorie:intakeFood rdf:type rdf:Property ;
+    rdfs:label "intake" ;
+    rdfs:comment "Quantity of food consumed" ;
+    rdfs:domain calorie:FoodLog ;
+    rdfs:range xsd:float .
+
+calorie:dateTimeFood rdf:type rdf:Property ;
+    rdfs:label "date_time" ;
+    rdfs:comment "Date and time of food intake" ;
+    rdfs:domain calorie:FoodLog ;
+    rdfs:range xsd:dateTime .
+
+    # ExerciseLog properties
+calorie:logIdExercise rdf:type rdf:Property ;
+    rdfs:label "log_id" ;
+    rdfs:comment "Unique identifier for each exercise log entry" ;
+    rdfs:domain calorie:ExerciseLog ;
+    rdfs:range xsd:integer .
+
+calorie:exerciseName rdf:type rdf:Property ;
+    rdfs:label "exercise_name" ;
+    rdfs:comment "Name of the exercise" ;
+    rdfs:domain calorie:ExerciseLog ;
+    rdfs:range xsd:string .
+
+calorie:durationMinutes rdf:type rdf:Property ;
+    rdfs:label "duration_minutes" ;
+    rdfs:comment "Duration of the exercise session in minutes" ;
+    rdfs:domain calorie:ExerciseLog ;
+    rdfs:range xsd:integer .
+
+calorie:caloriesBurnt rdf:type rdf:Property ;
+    rdfs:label "calories_burnt" ;
+    rdfs:comment "Calories burnt during the exercise" ;
+    rdfs:domain calorie:ExerciseLog ;
+    rdfs:range xsd:float .
+
+    # Tracking properties
+calorie:trackId rdf:type rdf:Property ;
+    rdfs:label "track_id" ;
+    rdfs:comment "Unique identifier for each tracking record" ;
+    rdfs:domain calorie:Tracking ;
+    rdfs:range xsd:integer .
+
+calorie:intakeTracking rdf:type rdf:Property ;
+    rdfs:label "intake" ;
+    rdfs:comment "Net calorie intake (food consumed minus calories burnt)" ;
+    rdfs:domain calorie:Tracking ;
+    rdfs:range xsd:float .
+
+calorie:burnt rdf:type rdf:Property ;
+    rdfs:label "burnt" ;
+    rdfs:comment "Total calories burnt through exercise" ;
+    rdfs:domain calorie:Tracking ;
+    rdfs:range xsd:float .
+
+calorie:goal rdf:type rdf:Property ;
+    rdfs:label "goal" ;
+    rdfs:comment "User’s set calorie goal" ;
+    rdfs:domain calorie:Tracking ;
+    rdfs:range xsd:float .
+
+### Instances
+calorie:johnDoe rdf:type calorie:User ;
+    calorie:userId 1 ;
+    calorie:username "john_doe" ;
+    calorie:email "john.doe@example.com" ;
+    calorie:passwordHash "hashed_password" ;
+    calorie:createdAt "2024-04-08T10:00:00Z"^^xsd:dateTime .
+
+calorie:apple rdf:type calorie:Food ;
+    calorie:foodId 1 ;
+    calorie:foodName "Apple" ;
+    calorie:caloriesPer100g 52.0 ;
+    calorie:carbs 13.8 ;
+    calorie:fat 0.2 ;
+    calorie:protein 0.3 .
+
+calorie:foodLog1 rdf:type calorie:FoodLog ;
+    calorie:logIdFood 1 ;
+    calorie:userId 1 ;
+    calorie:foodId 1 ;
+    calorie:intakeFood 150.0 ;
+    calorie:dateTimeFood "2024-04-08T12:30:00Z"^^xsd:dateTime .
+
+calorie:exerciseLog1 rdf:type calorie:ExerciseLog ;
+    calorie:logIdExercise 1 ;
+    calorie:userId 1 ;
+    calorie:exerciseName "Running" ;
+    calorie:durationMinutes 30 ;
+    calorie:caloriesBurnt 300.0 .
+
+calorie:tracking1 rdf:type calorie:Tracking ;
+    calorie:trackId 1 ;
+    calorie:userId 1 ;
+    calorie:intakeTracking 2000.0 ;
+    calorie:burnt 500.0 ;
+    calorie:goal 1800.0 .
