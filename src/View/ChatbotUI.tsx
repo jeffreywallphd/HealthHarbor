@@ -11,7 +11,6 @@ interface Message {
 // Define types for the component's state
 interface State {
   messages: Message[];
-  typing: boolean;
   userInput: string;
 }
 class ChatbotUI extends Component<{}, State> {
@@ -21,22 +20,25 @@ class ChatbotUI extends Component<{}, State> {
 
     this.state = {
       messages: [],
-      typing: false,
       userInput: '',
     };
   }
-
+  
   sendMessage = async () => {
+    console.log(this.state)
     const { userInput } = this.state;
+    console.log(userInput)
     const trimmedInput = userInput.trim();
     if (trimmedInput === '') return;
 
     // Append user message to the messages state
     this.appendMessage(trimmedInput, 'user');
-
+    console.log("Checking User Input")
+    console.log(userInput)
     try {
       const botResponse = await generateText(trimmedInput);
-
+      console.log("Checking Bot Response")
+      console.log(botResponse)
       // Append bot response to the messages state
       this.appendMessage(botResponse, 'bot');
     } catch (error) {
@@ -58,8 +60,20 @@ class ChatbotUI extends Component<{}, State> {
       this.sendMessage();
     }
   };
+
+  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name as keyof State;
+
+    this.setState({
+      ... this.state,
+      [name]:value,
+    })
+    console.log(this.state)
+  }
   render() {
-    const { messages, typing, userInput } = this.state;
+    const { messages, userInput } = this.state;
 
 
     return (
@@ -75,11 +89,11 @@ close the chat */}
             </div>
             <div className="input-area">
               <input
+                name="userInput"
                 type="text"
-                value={this.state.userInput}
-                onKeyPress={this.handleKeyPress}
                 placeholder="Type here..."
                 className="input-field"
+                onChange={this.handleInputChange}
               />
               <button className="send-button"
 onClick={this.sendMessage}></button>
