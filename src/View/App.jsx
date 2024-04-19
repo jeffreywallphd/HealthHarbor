@@ -12,7 +12,7 @@ import Goals from "./Goals";
 import DebtRepayment from "./DebtRepayment";
 import Mental from "./MentalHealthChatbot";
 import MentalHealthChatbot from "./Mental_chatbot";
-import HabitTracker from "./HabitTracker";
+import HabitTracker from "./HabitTracker/HabitTracker";
 import MedicalRecords from "./MedicalRecords";
 import logo from "../Assets/Images/health harbour logo.png";
 import "../styles/styles.css";
@@ -25,6 +25,9 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
+import AddHabit from "./HabitTracker/AddHabit";
+import WeeklyView from "./HabitTracker/Weekly";
+import DailyView from "./HabitTracker/DailyView";
 import DashboardCT from './CalorieTracker/DashboardCT';
 import ExerciseLog from './CalorieTracker/ExerciseLog';
 import FoodLog from './CalorieTracker/FoodLog';
@@ -144,6 +147,9 @@ class App extends Component {
                 <Route path="/mental" element={<Mental />} />
                 <Route path="/ai_chatbot" element={< MentalHealthChatbot/>} />
                 <Route path="/HabitTracker" element={<HabitTracker/>}/>
+                <Route path="/AddHabit" element={<AddHabit/>}/>
+                <Route path="/WeeklyView" element={<WeeklyView />} />
+                <Route path="/DailyView" element={<DailyView />} />
                 <Route path="/fin-chatbot" element={<ChatbotUI />} />
                 <Route path="" element={<MedicalRecordsInitial />} />
                 <Route path="/medicalRecords/appointment-history-dashboard" element={<AppointmentHistoryDashboard />} />
