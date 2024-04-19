@@ -1,6 +1,6 @@
 const { HfInference } = require('@huggingface/inference');
 
-const HF_TOKEN = ''; // Replace with your actual token
+const HF_TOKEN = 'hf_ExlzFpVbuAglBRjDBVlhtktnfqLudFchodA'; // Replace with your actual token
 
 const inference = new HfInference(HF_TOKEN);
 
