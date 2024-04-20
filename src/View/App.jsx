@@ -27,6 +27,10 @@ import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard";
 import AppointmentHistoryPage from "./MedicalRecords/Dashboard/AppointmentHistoryPage";
 import MyMedicalRecordsDashboard from "./MyMedicalRecordsDashboard";
+import VaccinesDetail from "./MedicalRecords/Dashboard/VaccinesDetail";
+import MedicinesDetail from './MedicalRecords/Dashboard/MedicinesDetail';
+import LabReports from './MedicalRecords/Dashboard/LabReports';
+
 
 class App extends Component {
   constructor(props) {
@@ -150,6 +154,10 @@ class App extends Component {
                 <Route path="/medicalRecords/allergies-dashboard" element={<AllergiesDashboard />} />
                 <Route path="/medicalRecords/vitals-dashboard" element={<VitalsDashboard />} />
                 <Route path="/myRecords" element={<MyMedicalRecordsDashboard />} />
+                <Route path="/medicalRecords/vaccines-detail" element={<VaccinesDetail />} />
+                <Route path="/medicalRecords/medicines" element={<MedicinesDetail/>} />
+                <Route path="/medicalRecords/lab-reports" element={<LabReports/>} />
+               
               </Routes>
             </div>
           </div>

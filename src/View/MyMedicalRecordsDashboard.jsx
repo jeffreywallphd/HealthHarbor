@@ -6,6 +6,9 @@ import InsuranceDashboard from "./MedicalRecords/Dashboard/InsuranceDashboard.ts
 import AllergiesDashboard from "./MedicalRecords/Dashboard/AllergiesDashboard.tsx";
 import VitalsDashboard from "./MedicalRecords/Dashboard/VitalsDashboard.tsx";
 import AppointmentHistoryDashboard from "./MedicalRecords/Dashboard/AppointmentHistoryDashboard.tsx";
+import VaccinesDetail from "./MedicalRecords/Dashboard/VaccinesDetail";
+import MedicinesDetail from './MedicalRecords/Dashboard/MedicinesDetail';
+import LabReports from './MedicalRecords/Dashboard/LabReports';
 
 class MyMedicalRecordsDashboard extends Component {
   constructor(props) {
@@ -24,14 +27,6 @@ class MyMedicalRecordsDashboard extends Component {
 
     return (
       <div>
-        <div className="container">
-          <div className="user-details">
-            <div className="details">
-              <p><FontAwesomeIcon icon={faUser} /> Name, Age, ID </p>
-            </div>
-          </div>
-        </div>
-
         <div className="wrapper">
           <aside>
             <button onClick={() => this.handleButtonClick('Find')}>
@@ -39,9 +34,8 @@ class MyMedicalRecordsDashboard extends Component {
             </button>
 
             <button onClick={() => this.handleButtonClick('Appointments')}>
-
-                Appointments <FontAwesomeIcon icon={faCalendarAlt} />
-              </button>
+              Appointments <FontAwesomeIcon icon={faCalendarAlt} />
+            </button>
 
             <button onClick={() => this.handleButtonClick('Insurance')}>
               Insurance Info <FontAwesomeIcon icon={faShieldAlt} />
@@ -63,6 +57,13 @@ class MyMedicalRecordsDashboard extends Component {
             </button>
           </aside>
           <div className="content">
+            <div className="container">
+              <div className="user-details">
+                <div className="details">
+                  <p><FontAwesomeIcon icon={faUser} /> Name, Age, ID </p>
+                </div>
+              </div>
+            </div>
             <a href="#" className="get-help">Get Help</a>
             <div className="dashboard-details">
               {/* This is where dashboard details will be displayed */}
@@ -71,6 +72,9 @@ class MyMedicalRecordsDashboard extends Component {
               {currentSection === 'Allergies' && <AllergiesDashboard />}
               {currentSection === 'Vitals' && <VitalsDashboard />}
               {currentSection === 'Appointments' && <AppointmentHistoryDashboard />}
+              {currentSection === 'Vaccines' && <VaccinesDetail />}
+              {currentSection === 'Medicines' && <MedicinesDetail/>}
+              {currentSection === 'Lab Reports' && <LabReports />}
             </div>
           </div>
         </div>

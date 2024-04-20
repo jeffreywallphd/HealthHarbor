@@ -227,101 +227,6 @@ aside button {
     cursor: pointer;
 }
 
-.insurance-details {
-    text-align: center;
-    margin: 50px auto;
-}
-
-.insurance-container {
-    width: 50%;
-    margin: 50px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.allergy-type-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.allergy-type-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.allergy-type-dropdown-content button {
-    width: 100%;
-    text-align: left;
-    padding: 5px 10px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.allergy-type-dropdown:hover .allergy-type-dropdown-content {
-    display: block;
-}
-
-
-/* New styles for allergy dropdown */
-
-.allergy-options {
-    margin-bottom: 20px;
-}
-
-.allergy-options .add-allergy-btn {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.allergy-options .add-allergy-btn:hover {
-    background-color: #0056b3;
-}
-
-.vitals-container {
-    bottom: 20px;
-    right: 10px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.vitals-options {
-    display: flex;
-    flex-direction: row;
-}
-
-.vitals-options label {
-    margin-bottom: 5px;
-}
-
-.vitals-options input[type="text"] {
-    margin-bottom: 10px;
-    padding: -10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-
-.input-field {
-    margin-bottom: 40px;
-    /* Adjust as needed */
-}
-
 .get-help {
     position: fixed;
     top: 140px;
@@ -337,3 +242,267 @@ aside button {
 .get-help:hover {
     background-color: #0056b3;
 }
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+  .vaccines-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px; /* Adjust the max-width as needed */
+    width: 90%;
+  }
+  
+  /* Add more styles as needed */
+  /* MedicinesDetail.css */
+
+.medicines-container {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 600px; /* Adjust the max-width as needed */
+  width: 90%;
+}
+
+.medicine-list {
+  margin-top: 20px;
+}
+
+.medicine-list h3 {
+  margin-bottom: 10px;
+}
+
+.medicine-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.medicine-list li {
+  margin-bottom: 8px;
+}
+
+.medicine-list li strong {
+  font-weight: bold;
+}
+/* LabReportsDetail.css */
+
+.lab-reports-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px; /* Adjust the max-width as needed */
+    width: 90%;
+  }
+  
+  .lab-report-list {
+    margin-top: 20px;
+  }
+  
+  .lab-report-list h3 {
+    margin-bottom: 10px;
+  }
+  
+  .lab-report-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lab-report-list li {
+    margin-bottom: 8px;
+  }
+  
+  .lab-report-list li strong {
+    font-weight: bold;
+  }
+  /* StyleSheetForVitals.css */
+
+/* Styles for the Vitals Dashboard container */
+.vitals-dashboard-container {
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px; /* Adjust the max-width as needed */
+    width: 90%;
+    text-align: center; /* Center text within the container */
+}
+
+/* Styles for the vitals list */
+.vitals-list {
+    margin-top: 20px;
+    text-align: left; /* Align text within the list items */
+}
+
+/* Styles for the vitals list heading */
+.vitals-list h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Styles for each vitals record item */
+.vitals-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vitals-list li {
+    margin-bottom: 8px;
+    border: 1px solid #ccc; /* Add border to separate items */
+    border-radius: 5px;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.vitals-list li strong {
+    font-weight: bold;
+}
+
+/* Styles for the Add New Vitals Record button */
+.add-vitals-button {
+    margin-top: 20px; /* Adjust margin for better spacing */
+    padding: 10px 20px; /* Add padding to the button */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
+}
+
+.add-vitals-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Styles for the GenericForm */
+.generic-form-container {
+    margin-top: 20px;
+}
+/* InsuranceDashboard.css */
+
+.insurance-dashboard-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px; /* Adjust the max-width as needed */
+    width: 90%;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.insurance-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.insurance-list h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.insurance-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.insurance-list li {
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.insurance-list li strong {
+    font-weight: bold;
+}
+
+.add-insurance-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-insurance-button:hover {
+    background-color: #0056b3;
+}
+
+.generic-form-container {
+    margin-top: 20px;
+}
+/* AllergiesDashboard.css */
+
+.allergies-dashboard-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 600px; /* Adjust the max-width as needed */
+    width: 90%;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.allergies-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.allergies-list h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.allergies-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.allergies-list li {
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.allergies-list li strong {
+    font-weight: bold;
+}
+
+.add-allergy-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-allergy-button:hover {
+    background-color: #0056b3;
+}
+
+.generic-form-container {
+    margin-top: 20px;
+}
+

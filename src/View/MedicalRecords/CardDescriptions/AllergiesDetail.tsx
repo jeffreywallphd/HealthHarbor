@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+1
 import Description from "../GenericComponents/Description";
 
 class  AllergiesDetail extends Component {
