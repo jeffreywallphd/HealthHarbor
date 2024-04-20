@@ -6,16 +6,17 @@ const inference = new HfInference(HF_TOKEN);
 
 async function generateText(prompt) {
   const response = await inference.textGeneration({
-    model: 'mistralai/Mistral-7B-v0.1',
+    model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
     inputs: prompt,
     parameters: {
-      max_new_tokens: 300,
-      num_beams: 10,
-      no_repeat_ngram_size: 10,
+      max_new_tokens: 128,
+      num_beams: 5,
+      no_repeat_ngram_size: 5,
       early_stopping: true,
-      //   do_sample: true,
-      //   top_p: 0.5,
-      //   temperature: 0.5,
+      // do_sample: true,
+      // top_p: 0.9,
+      // temperature: 0.7,
+      // top_k : 50,
     },
     options: {
       use_cache: false,
